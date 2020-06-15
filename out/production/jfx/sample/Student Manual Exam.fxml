@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentManualExam">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Button fx:id="buttondownloadexam" layoutX="268.0" layoutY="151.0" mnemonicParsing="false" onAction="#buttondownloadexamclick" text="Download exam" />
+            <Button fx:id="buttonuploadexam" layoutX="275.0" layoutY="267.0" mnemonicParsing="false" onAction="#buttonuploadexamclick" text="Upload exam" />
+            <Text layoutX="255.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Download exam to start!" />
+            <TextField layoutX="244.0" layoutY="220.0" promptText="Drag exam here" />
+            <Button fx:id="buttondone" layoutX="407.0" layoutY="267.0" mnemonicParsing="false" onAction="#buttondoneclick" text="Done" />
+            <Text layoutX="195.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Upload:" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>

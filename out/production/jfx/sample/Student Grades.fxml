@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentGradesController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <TableView layoutX="207.0" layoutY="100.0" prefHeight="200.0" prefWidth="225.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Exam Name" />
+                <TableColumn prefWidth="75.0" text="Grade" />
+                  <TableColumn prefWidth="75.0" text="Exam File" />
+              </columns>
+            </TableView>
+            <Button fx:id="buttonback" layoutX="299.0" layoutY="333.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentMainController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Button fx:id="buttonviewgrades" layoutX="155.0" layoutY="152.0" mnemonicParsing="false" onAction="#buttonviewgradesclick" text="View Grades" />
+            <Button fx:id="buttontakeexam" layoutX="414.0" layoutY="152.0" mnemonicParsing="false" onAction="#buttontakeexamclick" text="Take Exam" />
+            <Text layoutX="283.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello student!" />
+            <Button fx:id="buttonlogout" layoutX="293.0" layoutY="243.0" mnemonicParsing="false" onAction="#buttonlogoutclick" text="Logout" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
