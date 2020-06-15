@@ -49,11 +49,47 @@ public class LoginMenuController {
     @FXML
     void buttonloginclick(ActionEvent event) throws IOException {
 
-        Stage stage = (Stage)buttonlogin.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Manager Main.fxml"));
-        Scene scene = new Scene(newRoot);
-        stage.setScene(scene);
+        int type = 1;
+        String s;
 
+        switch (type)
+        {
+
+            case 0:
+                s = "Login Fail Popup.fxml";
+                break;
+
+            case 1:
+                s = "Student Main.fxml";
+                break;
+
+            case 2:
+                s = "Teacher Main.fxml";
+                break;
+
+            case 3:
+                s = "Manager Main.fxml";
+                break;
+
+            default:
+                s = "Login Fail Popup.fxml";
+                break;
+        }
+
+        if (s == "Login Fail Popup.fxml")
+        {
+            Stage popup = new Stage();
+            Parent newRoot2 = FXMLLoader.load(getClass().getResource(s));
+            Scene scene2 = new Scene(newRoot2);
+            popup.setScene(scene2);
+            popup.showAndWait();
+        }
+        else
+        {
+            Stage stage = (Stage)buttonlogin.getScene().getWindow();
+            Parent newRoot = FXMLLoader.load(getClass().getResource(s));
+            Scene scene = new Scene(newRoot);
+            stage.setScene(scene);
+        }
     }
-
 }

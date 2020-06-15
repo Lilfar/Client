@@ -5,13 +5,13 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ManagerGradesSubjectsController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="457.0" prefWidth="467.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ManagerGradesSubjectsController">
    <children>
-      <TableView fx:id="subjectslist" layoutX="191.0" layoutY="33.0" prefHeight="354.0" prefWidth="238.0">
+      <TableView fx:id="subjectslist" layoutX="115.0" layoutY="35.0" prefHeight="354.0" prefWidth="238.0">
          <columns>
             <TableColumn fx:id="subjects" prefWidth="237.20001220703125" text="Subjects list" />
          </columns>
       </TableView>
-      <Button fx:id="buttonback" layoutX="37.0" layoutY="340.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
+      <Button fx:id="buttonback" layoutX="27.0" layoutY="406.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
    </children>
 </Pane>

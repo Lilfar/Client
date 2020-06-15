@@ -1,11 +1,16 @@
 package sample;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class TeacherQuestionAddController {
 
@@ -34,7 +39,22 @@ public class TeacherQuestionAddController {
     private Button buttonadd;
 
     @FXML
-    void buttonaddclick(ActionEvent event) {
+    void buttonaddclick(ActionEvent event) throws IOException {
+            Stage stage = (Stage)buttonadd.getScene().getWindow();
+            Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Question List.fxml"));
+            Scene scene = new Scene(newRoot);
+            stage.setScene(scene);
+
+    }
+    @FXML
+    private Button buttoncancel;
+
+    @FXML
+    void buttoncancelclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttoncancel.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Question List.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
 
     }
 

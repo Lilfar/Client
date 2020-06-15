@@ -1,12 +1,17 @@
 package sample;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
 
 public class TeacherCreateExamController {
 
@@ -38,9 +43,23 @@ public class TeacherCreateExamController {
     private Button buttoncreate;
 
     @FXML
-    void buttoncreateclick(ActionEvent event) {
+    private Button buttoncancel;
 
+    @FXML
+    void buttoncreateclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttoncreate.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Exams List.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
     }
+    @FXML
+    void buttoncancelclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttoncancel.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Exams List.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
+    }
+
 
     @FXML
     void initialize() {

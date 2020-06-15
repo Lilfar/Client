@@ -18,5 +18,6 @@
          </columns>
       </TableView>
       <Button fx:id="buttoncreate" layoutX="711.0" layoutY="528.0" mnemonicParsing="false" onAction="#buttoncreateclick" prefHeight="28.0" prefWidth="88.0" text="Create" />
+      <Button fx:id="buttoncancel" layoutX="27.0" layoutY="529.0" mnemonicParsing="false" onAction="#buttoncancelclick" text="Cancel" />
    </children>
 </Pane>

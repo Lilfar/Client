@@ -28,6 +28,7 @@
          </font>
       </Text>
       <TextField fx:id="WrongAnswer3" layoutX="161.0" layoutY="208.0" />
-      <Button fx:id="buttonadd" layoutX="240.0" layoutY="295.0" mnemonicParsing="false" onAction="#buttonaddclick" prefHeight="40.0" prefWidth="119.0" text="Add" />
+      <Button fx:id="buttonadd" layoutX="280.0" layoutY="295.0" mnemonicParsing="false" onAction="#buttonaddclick" prefHeight="40.0" prefWidth="119.0" text="Add" />
+      <Button fx:id="buttoncancel" layoutX="90.0" layoutY="295.0" mnemonicParsing="false" onAction="#buttoncancelclick" prefHeight="40.0" prefWidth="90.0" text="Cancel" />
    </children>
 </AnchorPane>

@@ -32,6 +32,18 @@ public class ManagerMainController {
     private Button buttonrequests;
 
     @FXML
+    private Button buttonlogout;
+
+    @FXML
+    void buttonlogoutclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttonlogout.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Login Menu.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
+
+    }
+
+    @FXML
     void buttonexamsclick(ActionEvent event) throws IOException {
 
         Stage stage = (Stage)buttonexams.getScene().getWindow();

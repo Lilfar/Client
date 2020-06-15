@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="826.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherQuestionListAddController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="826.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherQuestionListController">
    <children>
       <TableView fx:id="QuestionsTable" layoutX="22.0" layoutY="22.0" prefHeight="522.0" prefWidth="794.0">
          <columns>
@@ -19,5 +19,6 @@
          </columns>
       </TableView>
       <Button fx:id="buttonaddquestion" layoutX="690.0" layoutY="551.0" mnemonicParsing="false" onAction="#buttonaddquestionclick" prefHeight="35.0" prefWidth="122.0" text="Add Question" />
+      <Button fx:id="buttonback" layoutX="22.0" layoutY="556.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
    </children>
 </Pane>

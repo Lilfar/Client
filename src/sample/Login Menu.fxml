@@ -11,12 +11,12 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <TextField fx:id="textuser" layoutX="246.0" layoutY="102.0" promptText="username" />
-            <Button fx:id="buttonlogin" layoutX="294.0" layoutY="237.0" mnemonicParsing="false" onAction="#buttonloginclick" text="Log in" />
+            <TextField fx:id="textuser" layoutX="246.0" layoutY="152.0" promptText="username" />
+            <Button fx:id="buttonlogin" layoutX="296.0" layoutY="248.0" mnemonicParsing="false" onAction="#buttonloginclick" text="Log in" />
             <Text fx:id="texttitle" layoutX="293.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" />
-            <PasswordField fx:id="textpass" layoutX="244.0" layoutY="142.0" promptText="password" />
-            <Text layoutX="180.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
-            <Text layoutX="181.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
+            <PasswordField fx:id="textpass" layoutX="246.0" layoutY="187.0" promptText="password" />
+            <Text layoutX="179.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
+            <Text layoutX="181.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
       </children>
     </AnchorPane>
   </children>

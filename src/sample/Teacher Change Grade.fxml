@@ -21,5 +21,6 @@
       <Button fx:id="buttonapply" layoutX="282.0" layoutY="227.0" mnemonicParsing="false" onAction="#buttonapplyclick" prefHeight="38.0" prefWidth="115.0" text="Apply" />
       <TextField fx:id="Explanation" layoutX="26.0" layoutY="106.0" prefHeight="86.0" prefWidth="350.0" />
       <TextField fx:id="NewGrade" layoutX="120.0" layoutY="27.0" prefHeight="38.0" prefWidth="38.0" />
+      <Button fx:id="buttoncancel" layoutX="14.0" layoutY="234.0" mnemonicParsing="false" onAction="#buttoncancelclick" prefHeight="38.0" prefWidth="63.0" text="Cancel" />
    </children>
 </AnchorPane>
