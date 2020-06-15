@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ManagerGradesStudentsController">
+   <children>
+      <TableView layoutX="227.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="199.20001220703125" text="Students list" />
+        </columns>
+      </TableView>
+      <Button fx:id="buttonback" layoutX="65.0" layoutY="338.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
+   </children>
+</AnchorPane>

@@ -8,6 +8,6 @@
       <Button id="questions" fx:id="buttonquestions" layoutX="200.0" layoutY="72.0" mnemonicParsing="false" onAction="#buttonquestionsclick" prefHeight="44.0" prefWidth="172.0" text="Questions" />
       <Button id="exams" fx:id="buttonexams" layoutX="200.0" layoutY="133.0" mnemonicParsing="false" onAction="#buttonexamsclick" prefHeight="44.0" prefWidth="172.0" text="Exams" />
       <Button id="grades" fx:id="buttongrades" layoutX="200.0" layoutY="194.0" mnemonicParsing="false" onAction="#buttongradesclick" prefHeight="44.0" prefWidth="172.0" text="Grades" />
-      <Button id="requestsReview" fx:id="buttonrequestreview" layoutX="200.0" layoutY="257.0" mnemonicParsing="false" onAction="#buttonrequestreviewclick" prefHeight="44.0" prefWidth="172.0" text="Request Review" />
+      <Button id="requestsReview" fx:id="buttonrequests" layoutX="200.0" layoutY="257.0" mnemonicParsing="false" onAction="#buttonrequestsclick" prefHeight="44.0" prefWidth="172.0" text="Requests" />
    </children>
 </Pane>

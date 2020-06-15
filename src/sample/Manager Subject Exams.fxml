@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
@@ -12,5 +13,6 @@
             <TableColumn fx:id="Date" prefWidth="122.4000244140625" text="Date" />
         </columns>
       </TableView>
+      <Button fx:id="buttonback" layoutX="31.0" layoutY="337.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
    </children>
 </Pane>

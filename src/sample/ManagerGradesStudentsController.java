@@ -10,23 +10,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
-public class ManagerGradesTeacherController {
+public class ManagerGradesStudentsController {
 
     @FXML
     private ResourceBundle resources;
 
     @FXML
     private URL location;
-
-    @FXML
-    private TableView<?> TeachersList;
-
-    @FXML
-    private TableColumn<?, ?> teachers;
 
     @FXML
     private Button buttonback;
@@ -39,10 +31,9 @@ public class ManagerGradesTeacherController {
         stage.setScene(scene);
     }
 
+
     @FXML
     void initialize() {
-        assert TeachersList != null : "fx:id=\"TeachersList\" was not injected: check your FXML file 'Manager Grades Teacher.fxml'.";
-        assert teachers != null : "fx:id=\"teachers\" was not injected: check your FXML file 'Manager Grades Teacher.fxml'.";
 
     }
 }

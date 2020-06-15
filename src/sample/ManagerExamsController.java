@@ -1,10 +1,15 @@
 package sample;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class ManagerExamsController {
 
@@ -21,13 +26,30 @@ public class ManagerExamsController {
     private Button buttonteachers;
 
     @FXML
-    void buttonsubjectclick(ActionEvent event) {
+    private Button buttonback;
 
+    @FXML
+    void buttonsubjectclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttonsubject.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Manager Subject Questions.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
     }
 
     @FXML
-    void buttonteachersclick(ActionEvent event) {
+    void buttonbackclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttonback.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Manager Main.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
+    }
 
+    @FXML
+    void buttonteachersclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttonteachers.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Manager Teacher Questions.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
     }
 
     @FXML
@@ -36,4 +58,5 @@ public class ManagerExamsController {
         assert buttonteachers != null : "fx:id=\"buttonteachers\" was not injected: check your FXML file 'Manager Exams.fxml'.";
 
     }
+
 }

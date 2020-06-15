@@ -50,7 +50,7 @@ public class LoginMenuController {
     void buttonloginclick(ActionEvent event) throws IOException {
 
         Stage stage = (Stage)buttonlogin.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Student Main.fxml"));
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Manager Main.fxml"));
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
 
