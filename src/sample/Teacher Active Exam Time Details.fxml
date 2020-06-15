@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="371.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherActiveExamTimeDetailsController">
+   <children>
+      <TextArea fx:id="ExamName" layoutX="104.0" layoutY="33.0" prefHeight="18.0" prefWidth="162.0" />
+      <Text layoutX="102.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time left:" wrappingWidth="75.73675537109375">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <Button fx:id="buttonaddtime" layoutX="289.0" layoutY="174.0" mnemonicParsing="false" onAction="#buttonaddtimeclick" text="Add Time" />
+      <Text layoutX="89.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Origional Time:" wrappingWidth="102.936767578125">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="ExamName1" layoutX="198.0" layoutY="88.0" prefHeight="26.0" prefWidth="46.0" />
+      <TextArea fx:id="ExamName11" layoutX="198.0" layoutY="136.0" prefHeight="26.0" prefWidth="46.0" />
+      <Button fx:id="buttonclose" layoutX="14.0" layoutY="174.0" mnemonicParsing="false" onAction="#buttoncloseclick" text="Close" />
+   </children>
+</AnchorPane>
