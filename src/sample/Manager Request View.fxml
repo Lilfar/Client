@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ManagerRequestViewController">
+   <children>
+      <TextField fx:id="ExamsName" layoutX="203.0" layoutY="50.0" prefHeight="42.0" prefWidth="193.0" />
+      <TextField fx:id="TeachersName" layoutX="203.0" layoutY="108.0" prefHeight="42.0" prefWidth="193.0" />
+      <TextField fx:id="ExtraTime" layoutX="203.0" layoutY="165.0" prefHeight="42.0" prefWidth="193.0" />
+      <TextField fx:id="Explanation" layoutX="51.0" layoutY="233.0" prefHeight="99.0" prefWidth="498.0" />
+      <Button fx:id="buttonaccept" layoutX="133.0" layoutY="343.0" mnemonicParsing="false" onAction="#buttonacceptclick" prefHeight="42.0" prefWidth="104.0" text="Accept" />
+      <Button fx:id="buttondecline" layoutX="345.0" layoutY="343.0" mnemonicParsing="false" onAction="#buttondeclineclick" prefHeight="42.0" prefWidth="104.0" text="Decline" />
+   </children>
+</AnchorPane>
