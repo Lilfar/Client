@@ -37,8 +37,19 @@ public class StudentTakeExamController {
     @FXML
     void buttongoclick(ActionEvent event) throws IOException {
 
+        boolean type = false;
+
         Stage stage = (Stage)buttongo.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Student Manual Exam.fxml"));
+        Parent newRoot;
+
+        if (type)
+        {
+             newRoot = FXMLLoader.load(getClass().getResource("Student Manual Exam.fxml"));
+        }
+        else
+        {
+            newRoot = FXMLLoader.load(getClass().getResource("Student Computer Exam.fxml"));
+        }
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
 

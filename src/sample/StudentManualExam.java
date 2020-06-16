@@ -31,13 +31,36 @@ public class StudentManualExam {
     private Button buttondone;
 
     @FXML
+    private Button buttonback;
+
+    @FXML
+    void buttonbackclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttonback.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Student Take Exam.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
+    }
+
+    @FXML
     void buttondoneclick(ActionEvent event) throws IOException {
 
+        boolean done = true;
+
+
         Stage popup = new Stage();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Student Manual Exam Popup1.fxml"));
+        Parent newRoot;
+        if (done)
+        {
+            newRoot = FXMLLoader.load(getClass().getResource("Student Manual Exam Popup1.fxml"));
+        }
+        else
+        {
+            newRoot = FXMLLoader.load(getClass().getResource("Student Manual Exam Popup2.fxml"));
+        }
         Scene scene = new Scene(newRoot);
         popup.setScene(scene);
         popup.showAndWait();
+
 
         if (close)
         {

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="818.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherCreateExamController">
+   <children>
+      <TableView fx:id="QuestionsTableSubject" layoutX="20.0" layoutY="14.0" prefHeight="507.0" prefWidth="779.0">
+         <columns>
+            <TableColumn id="Question" fx:id="Question" prefWidth="302.4000129699707" text="Question" />
+            <TableColumn fx:id="RightAnswer" prefWidth="96.79998779296875" text="Right Answer" />
+            <TableColumn id="WrongAnswer1" fx:id="WrongAnswer1" prefWidth="104.79998779296875" text="Wrong Answer" />
+            <TableColumn id="WrongAnswer2" fx:id="WrongAnswer2" prefWidth="109.60003662109375" text="Wrong Answer" />
+            <TableColumn id="WrongAnswer3" fx:id="WrongAnswer3" prefWidth="113.5999755859375" text="Wrong Answer" />
+            <TableColumn prefWidth="52.800048828125" text="Include" />
+         </columns>
+      </TableView>
+      <Button fx:id="buttoncreate" layoutX="711.0" layoutY="528.0" mnemonicParsing="false" onAction="#buttoncreateclick" prefHeight="28.0" prefWidth="88.0" text="Create" />
+      <Button fx:id="buttoncancel" layoutX="27.0" layoutY="529.0" mnemonicParsing="false" onAction="#buttoncancelclick" text="Cancel" />
+   </children>
+</Pane>

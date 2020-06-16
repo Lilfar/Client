@@ -49,7 +49,7 @@ public class LoginMenuController {
     @FXML
     void buttonloginclick(ActionEvent event) throws IOException {
 
-        int type = 1;
+        int type = 2;
         String s;
 
         switch (type)
@@ -68,7 +68,7 @@ public class LoginMenuController {
                 break;
 
             case 3:
-                s = "Manager Main.fxml";
+                s = "Principal Main.fxml";
                 break;
 
             default:

@@ -16,6 +16,7 @@
             <TextField layoutX="244.0" layoutY="220.0" promptText="Drag exam here" />
             <Button fx:id="buttondone" layoutX="407.0" layoutY="267.0" mnemonicParsing="false" onAction="#buttondoneclick" text="Done" />
             <Text layoutX="195.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Upload:" />
+            <Button fx:id="buttonback" layoutX="25.0" layoutY="354.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
          </children>
     </AnchorPane>
   </children>

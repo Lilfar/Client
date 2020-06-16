@@ -24,26 +24,45 @@ public class TeacherQuestionAddController {
     private TextField NewQuestion;
 
     @FXML
-    private TextField RightAnswer;
+    private TextField textrightanswer;
 
     @FXML
-    private TextField WrongAnswer1;
+    private TextField textwronganswer1;
 
     @FXML
-    private TextField WrongAnswer2;
+    private TextField textwronganswer2;
 
     @FXML
-    private TextField WrongAnswer3;
+    private TextField textwronganswer3;
 
     @FXML
     private Button buttonadd;
 
     @FXML
     void buttonaddclick(ActionEvent event) throws IOException {
+
+
+        if(!textrightanswer.getText().isBlank() &&
+           !textwronganswer1.getText().isBlank() &&
+           !textwronganswer2.getText().isBlank() &&
+           !textwronganswer3.getText().isBlank())
+        {
+
             Stage stage = (Stage)buttonadd.getScene().getWindow();
             Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Question List.fxml"));
             Scene scene = new Scene(newRoot);
             stage.setScene(scene);
+
+        }
+        else
+        {
+            Stage popup = new Stage();
+            Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Add Question Error Popup.fxml"));
+            Scene scene = new Scene(newRoot);
+            popup.setScene(scene);
+            popup.showAndWait();
+
+        }
 
     }
     @FXML
@@ -58,13 +77,15 @@ public class TeacherQuestionAddController {
 
     }
 
+
+
     @FXML
     void initialize() {
         assert NewQuestion != null : "fx:id=\"NewQuestion\" was not injected: check your FXML file 'Teacher Question Add.fxml'.";
-        assert RightAnswer != null : "fx:id=\"RightAnswer\" was not injected: check your FXML file 'Teacher Question Add.fxml'.";
-        assert WrongAnswer1 != null : "fx:id=\"WrongAnswer1\" was not injected: check your FXML file 'Teacher Question Add.fxml'.";
-        assert WrongAnswer2 != null : "fx:id=\"WrongAnswer2\" was not injected: check your FXML file 'Teacher Question Add.fxml'.";
-        assert WrongAnswer3 != null : "fx:id=\"WrongAnswer3\" was not injected: check your FXML file 'Teacher Question Add.fxml'.";
+        assert textrightanswer != null : "fx:id=\"textrightanswer\" was not injected: check your FXML file 'Teacher Question Add.fxml'.";
+        assert textwronganswer1 != null : "fx:id=\"textwronganswer1\" was not injected: check your FXML file 'Teacher Question Add.fxml'.";
+        assert textwronganswer2 != null : "fx:id=\"textwronganswer2\" was not injected: check your FXML file 'Teacher Question Add.fxml'.";
+        assert textwronganswer3 != null : "fx:id=\"textwronganswer3\" was not injected: check your FXML file 'Teacher Question Add.fxml'.";
         assert buttonadd != null : "fx:id=\"buttonadd\" was not injected: check your FXML file 'Teacher Question Add.fxml'.";
 
     }
