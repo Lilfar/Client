@@ -15,24 +15,8 @@ public class Client {
         loopThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-                String message;
-                System.out.println("Type show if u want to see the questions,Exit for exit");
                 while (client.isConnected()) {
-                    try {
-                        message = reader.readLine();
-                        if (message.isBlank())
-                            continue;
-                        if (message.equalsIgnoreCase("Exit")) {
-                            System.out.println("Closing connection.");
-                            client.closeConnection();
-                        } else {
-                            client.sendToServer(message);
-                        }
-                    } catch (IOException e1) {
-                        // TODO Auto-generated catch block
-                        e1.printStackTrace();
-                    }
+
                 }
             }
         });

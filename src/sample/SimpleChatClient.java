@@ -24,6 +24,7 @@ public class SimpleChatClient extends AbstractClient {
 	}
 	@Override
 	protected void handleMessageFromServer(Object msg) {
+
 	}
 
 	@Override
