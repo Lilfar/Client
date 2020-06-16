@@ -1,8 +1,6 @@
 package sample;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
 
 public class Client {
@@ -40,5 +38,11 @@ public class Client {
         });
         loopThread.start();
         this.isRunning = true;
+    }
+
+    public void displayMessage(Object msg) {
+    }
+
+    public void closeConnection() {
     }
 }
