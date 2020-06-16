@@ -3,7 +3,6 @@ package sample;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,10 +10,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
-public class TeacherActiveExamsController {
+public class TeacherSubjectExamsListController {
 
     @FXML
     private ResourceBundle resources;
@@ -23,10 +21,10 @@ public class TeacherActiveExamsController {
     private URL location;
 
     @FXML
-    private TableView<?> ExamsTable;
+    private TableColumn<?, ?> ExamsTable;
 
     @FXML
-    private TableColumn<?, ?> Exams;
+    private Button buttoncreateexam;
 
     @FXML
     private Button buttonback;
@@ -38,12 +36,21 @@ public class TeacherActiveExamsController {
         Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
+    }
+
+    @FXML
+    void buttoncreateexamclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttoncreateexam.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Create Exam.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
 
     }
+
     @FXML
     void initialize() {
-        assert ExamsTable != null : "fx:id=\"ExamsTable\" was not injected: check your FXML file 'Teacher Active Exams.fxml'.";
-        assert Exams != null : "fx:id=\"Exams\" was not injected: check your FXML file 'Teacher Active Exams.fxml'.";
+        assert ExamsTable != null : "fx:id=\"ExamsTable\" was not injected: check your FXML file 'Teacher Subject Exams List.fxml'.";
+        assert buttoncreateexam != null : "fx:id=\"buttoncreateexam\" was not injected: check your FXML file 'Teacher Subject Exams List.fxml'.";
 
     }
 }

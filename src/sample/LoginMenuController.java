@@ -64,7 +64,7 @@ public class LoginMenuController {
                 break;
 
             case 2:
-                s = "Teacher Main.fxml";
+                s = "Teacher Subject Main.fxml";
                 break;
 
             case 3:

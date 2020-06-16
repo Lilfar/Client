@@ -14,8 +14,8 @@
             <TableColumn id="WrongAnswer1" fx:id="WrongAnswer1" prefWidth="89.60003662109375" text="Wrong Answer" />
             <TableColumn id="WrongAnswer2" fx:id="WrongAnswer2" prefWidth="91.20004272460938" text="Wrong Answer" />
             <TableColumn id="WrongAnswer3" fx:id="WrongAnswer3" prefWidth="90.4000244140625" text="Wrong Answer" />
-            <TableColumn prefWidth="81.5999755859375" text="Edit" />
-            <TableColumn prefWidth="75.0" text="Delete" />
+            <TableColumn fx:id="Edit" prefWidth="81.5999755859375" text="Edit" />
+            <TableColumn fx:id="Delete" prefWidth="75.0" text="Delete" />
          </columns>
       </TableView>
       <Button fx:id="buttonaddquestion" layoutX="690.0" layoutY="551.0" mnemonicParsing="false" onAction="#buttonaddquestionclick" prefHeight="35.0" prefWidth="122.0" text="Add Question" />

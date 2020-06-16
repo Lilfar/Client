@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherSubjectMainController">
+   <children>
+      <Button fx:id="buttonshowexams" layoutX="214.0" layoutY="58.0" mnemonicParsing="false" onAction="#buttonshowexamsclick" prefHeight="50.0" prefWidth="172.0" text="Show Exams" />
+      <Button fx:id="buttonshowquestions" layoutX="214.0" layoutY="129.0" mnemonicParsing="false" onAction="#buttonshowquestionsclick" prefHeight="50.0" prefWidth="172.0" text="Show Questions" />
+      <Button fx:id="buttonfinishedexams" layoutX="214.0" layoutY="270.0" mnemonicParsing="false" onAction="#buttonfinishedexamsclick" prefHeight="50.0" prefWidth="172.0" text="Finished Exams" />
+      <Button fx:id="buttonshowcourses" layoutX="214.0" layoutY="200.0" mnemonicParsing="false" onAction="#buttonshowcoursesclick" prefHeight="50.0" prefWidth="172.0" text="Show courses" />
+      <Button fx:id="buttonback" layoutX="274.0" layoutY="345.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
+   </children>
+</AnchorPane>

@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
 
-public class TeacherExamsListController {
+public class TeacherSubjectFinishedExamStudentsListController {
 
     @FXML
     private ResourceBundle resources;
@@ -24,24 +24,12 @@ public class TeacherExamsListController {
     private TableColumn<?, ?> ExamsTable;
 
     @FXML
-    private Button buttoncreateexam;
-
-    @FXML
     private Button buttonback;
 
     @FXML
     void buttonbackclick(ActionEvent event) throws IOException {
-
         Stage stage = (Stage)buttonback.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Main.fxml"));
-        Scene scene = new Scene(newRoot);
-        stage.setScene(scene);
-    }
-
-    @FXML
-    void buttoncreateexamclick(ActionEvent event) throws IOException {
-        Stage stage = (Stage)buttoncreateexam.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Create Exam.fxml"));
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
 
@@ -49,8 +37,8 @@ public class TeacherExamsListController {
 
     @FXML
     void initialize() {
-        assert ExamsTable != null : "fx:id=\"ExamsTable\" was not injected: check your FXML file 'Teacher Exams List.fxml'.";
-        assert buttoncreateexam != null : "fx:id=\"buttoncreateexam\" was not injected: check your FXML file 'Teacher Exams List.fxml'.";
+        assert ExamsTable != null : "fx:id=\"ExamsTable\" was not injected: check your FXML file 'Teacher Subject Finished Exam Students List.fxml'.";
+        assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Teacher Subject Finished Exam Students List.fxml'.";
 
     }
 }

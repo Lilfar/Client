@@ -3,6 +3,9 @@ package sample;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class TeacherQuestionListController {
@@ -22,22 +26,28 @@ public class TeacherQuestionListController {
     private URL location;
 
     @FXML
-    private TableView<?> QuestionsTable;
+    private TableView<Person> QuestionsTable;
 
     @FXML
-    private TableColumn<?, ?> Question;
+    private TableColumn<Person, String> Question;
 
     @FXML
-    private TableColumn<?, ?> RightAnswer;
+    private TableColumn<Person, String> RightAnswer;
 
     @FXML
-    private TableColumn<?, ?> WrongAnswer1;
+    private TableColumn<Person, String> WrongAnswer1;
 
     @FXML
-    private TableColumn<?, ?> WrongAnswer2;
+    private TableColumn<Person, String> WrongAnswer2;
 
     @FXML
-    private TableColumn<?, ?> WrongAnswer3;
+    private TableColumn<Person, String> WrongAnswer3;
+
+    @FXML
+    private TableColumn<Person, Integer> Edit;
+
+    @FXML
+    private TableColumn<Person, Integer> Delete;
 
     @FXML
     private Button buttonaddquestion;
@@ -48,7 +58,7 @@ public class TeacherQuestionListController {
     void buttonbackclick(ActionEvent event) throws IOException {
 
         Stage stage = (Stage)buttonback.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Main.fxml"));
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
 
@@ -64,6 +74,31 @@ public class TeacherQuestionListController {
 
     }
 
+    public class Person {
+
+        public String q;
+        public String a1;
+        public String a2;
+        public String a3;
+        public String a4;
+        public Integer edit;
+        public Integer delete;
+
+        Person(String q, String a1, String a2, String a3, String a4, Integer edit, Integer delete) {
+
+            this.q = q;
+            this.a1 = a1;
+            this.a2 = a2;
+            this.a3 = a3;
+            this.a4 = a4;
+            this.edit = edit;
+            this.delete = delete;
+        }
+
+    }
+
+        final ObservableList<Person> data = FXCollections.observableArrayList(new Person("qq","aa","asda","sfasd","asdfsa",69,69));
+
     @FXML
     void initialize() {
         assert QuestionsTable != null : "fx:id=\"QuestionsTable\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
@@ -73,6 +108,19 @@ public class TeacherQuestionListController {
         assert WrongAnswer2 != null : "fx:id=\"WrongAnswer2\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
         assert WrongAnswer3 != null : "fx:id=\"WrongAnswer3\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
         assert buttonaddquestion != null : "fx:id=\"buttonaddquestion\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+        assert Edit != null : "fx:id=\"Edit\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+        assert Delete != null : "fx:id=\"Delete\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+
+
+        Question.setCellValueFactory(new PropertyValueFactory<Person,String>("q"));
+        RightAnswer.setCellValueFactory(new PropertyValueFactory<Person, String>("a1"));
+        WrongAnswer1.setCellValueFactory(new PropertyValueFactory<Person, String>("a2"));
+        WrongAnswer2.setCellValueFactory(new PropertyValueFactory<Person, String>("a3"));
+        WrongAnswer3.setCellValueFactory(new PropertyValueFactory<Person, String>("a4"));
+        Edit.setCellValueFactory(new PropertyValueFactory<Person, Integer>("edit"));
+        Delete.setCellValueFactory(new PropertyValueFactory<Person, Integer>("delete"));
+
+        QuestionsTable.setItems(data);
 
     }
 }

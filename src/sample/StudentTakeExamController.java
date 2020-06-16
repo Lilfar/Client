@@ -37,7 +37,7 @@ public class StudentTakeExamController {
     @FXML
     void buttongoclick(ActionEvent event) throws IOException {
 
-        boolean type = false;
+        boolean type = true;
 
         Stage stage = (Stage)buttongo.getScene().getWindow();
         Parent newRoot;

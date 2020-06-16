@@ -48,14 +48,14 @@ public class TeacherCreateExamController {
     @FXML
     void buttoncreateclick(ActionEvent event) throws IOException {
         Stage stage = (Stage)buttoncreate.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Exams List.fxml"));
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Exams List.fxml"));
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
     }
     @FXML
     void buttoncancelclick(ActionEvent event) throws IOException {
         Stage stage = (Stage)buttoncancel.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Exams List.fxml"));
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Exams List.fxml"));
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
     }

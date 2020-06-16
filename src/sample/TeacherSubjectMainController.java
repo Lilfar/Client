@@ -1,0 +1,90 @@
+package sample;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
+
+public class TeacherSubjectMainController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private Button buttonshowexams;
+
+    @FXML
+    private Button buttonshowquestions;
+
+    @FXML
+    private Button buttonfinishedexams;
+
+    @FXML
+    private Button buttonshowcourses;
+
+    @FXML
+    private Button buttonback;
+
+    @FXML
+    void buttonbackclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttonback.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject List.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
+
+    }
+
+
+
+    @FXML
+    void buttonfinishedexamsclick(ActionEvent event) throws IOException {
+            Stage stage = (Stage)buttonfinishedexams.getScene().getWindow();
+            Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Finished Exam Students List.fxml"));
+            Scene scene = new Scene(newRoot);
+            stage.setScene(scene);
+
+    }
+
+    @FXML
+    void buttonshowexamsclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttonshowexams.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Exams List.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
+    }
+
+    @FXML
+    void buttonshowquestionsclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttonshowquestions.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Question List.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
+    }
+
+    @FXML
+    void buttonshowcoursesclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttonshowcourses.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Courses List.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
+    }
+
+    @FXML
+    void initialize() {
+        assert buttonshowexams != null : "fx:id=\"buttonshowexams\" was not injected: check your FXML file 'Teacher Subject Main.fxml'.";
+        assert buttonshowquestions != null : "fx:id=\"buttonshowquestions\" was not injected: check your FXML file 'Teacher Subject Main.fxml'.";
+        assert buttonfinishedexams != null : "fx:id=\"buttonfinishedexams\" was not injected: check your FXML file 'Teacher Subject Main.fxml'.";
+        assert buttonshowcourses != null : "fx:id=\"buttonshowcourses\" was not injected: check your FXML file 'Teacher Subject Main.fxml'.";
+        assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Teacher Subject Main.fxml'.";
+
+    }
+}

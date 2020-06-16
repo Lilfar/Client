@@ -9,7 +9,7 @@
    <children>
       <TableView fx:id="RequestsTable" layoutX="143.0" layoutY="25.0" prefHeight="349.0" prefWidth="314.0">
         <columns>
-          <TableColumn fx:id="Requests" prefWidth="242.4000244140625" text="Request" />
+          <TableColumn fx:id="Requests" prefWidth="242.4000244140625" text="Requests list" />
           <TableColumn fx:id="RequestButtons" minWidth="8.0" prefWidth="72.79998779296875" />
         </columns>
       </TableView>

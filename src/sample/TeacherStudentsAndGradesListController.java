@@ -11,10 +11,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
-public class TeacherActiveExamsController {
+public class TeacherStudentsAndGradesListController {
 
     @FXML
     private ResourceBundle resources;
@@ -23,10 +22,7 @@ public class TeacherActiveExamsController {
     private URL location;
 
     @FXML
-    private TableView<?> ExamsTable;
-
-    @FXML
-    private TableColumn<?, ?> Exams;
+    private TableColumn<?, ?> ExamsTable;
 
     @FXML
     private Button buttonback;
@@ -35,15 +31,17 @@ public class TeacherActiveExamsController {
     void buttonbackclick(ActionEvent event) throws IOException {
 
         Stage stage = (Stage)buttonback.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Course Main.fxml"));
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
 
     }
+
     @FXML
     void initialize() {
-        assert ExamsTable != null : "fx:id=\"ExamsTable\" was not injected: check your FXML file 'Teacher Active Exams.fxml'.";
-        assert Exams != null : "fx:id=\"Exams\" was not injected: check your FXML file 'Teacher Active Exams.fxml'.";
+        assert ExamsTable != null : "fx:id=\"ExamsTable\" was not injected: check your FXML file 'Teacher Subject Finished Exams List.fxml'.";
 
     }
-}
+
+
+    }

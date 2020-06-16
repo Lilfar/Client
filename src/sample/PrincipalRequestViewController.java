@@ -51,13 +51,19 @@ public class PrincipalRequestViewController {
 
 
     @FXML
-    void buttonacceptclick(ActionEvent event) {
-
+    void buttonacceptclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttonaccept.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Principal Requests.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
     }
 
     @FXML
-    void buttondeclineclick(ActionEvent event) {
-
+    void buttondeclineclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttondecline.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Principal Requests.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
     }
 
     @FXML
