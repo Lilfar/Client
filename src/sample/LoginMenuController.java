@@ -61,7 +61,7 @@ public class LoginMenuController {
         if (!username.isBlank() && !password.isBlank()) {
 
             String s;
-            int type = 2;
+            int type = 3;
 
             switch (type) {
 
@@ -70,7 +70,7 @@ public class LoginMenuController {
                     break;
 
                 case 2:
-                    s = "Teacher Grade View Manual.fxml";
+                    s = "Teacher Course Main.fxml";
                     break;
 
                 case 3:
