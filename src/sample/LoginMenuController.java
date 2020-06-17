@@ -56,7 +56,7 @@ public class LoginMenuController {
     @FXML
     void buttonloginclick(ActionEvent event) throws IOException {
 
-        int type = 2;
+        int type = 3;
         String s;
 
         switch (type)

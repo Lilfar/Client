@@ -9,12 +9,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class PrincipalMainController {
 
     @FXML
     private ResourceBundle resources;
+
+    @FXML
+    private ImageView Background;
 
     @FXML
     private URL location;
@@ -81,6 +85,7 @@ public class PrincipalMainController {
 
     @FXML
     void initialize() {
+        assert Background != null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
         assert buttonquestions != null : "fx:id=\"buttonquestions\" was not injected: check your FXML file 'Principal Main.fxml'.";
         assert buttonexams != null : "fx:id=\"buttonexams\" was not injected: check your FXML file 'Principal Main.fxml'.";
         assert buttongrades != null : "fx:id=\"buttongrades\" was not injected: check your FXML file 'Principal Main.fxml'.";
