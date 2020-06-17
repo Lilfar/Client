@@ -60,7 +60,7 @@ public class StudentComputerExamController {
         if (questionnum==examsize)
         {
             Stage popup = new Stage();
-            Parent newRoot2 = FXMLLoader.load(getClass().getResource("Student Manual Exam Popup1.fxml"));
+            Parent newRoot2 = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
             Scene scene2 = new Scene(newRoot2);
             popup.setScene(scene2);
             popup.showAndWait();

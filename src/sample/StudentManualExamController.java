@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class StudentManualExam {
+public class StudentManualExamController {
 
     static boolean close = false;
 
@@ -61,26 +61,16 @@ public class StudentManualExam {
 
         if (done)
         {
-            newRoot = FXMLLoader.load(getClass().getResource("Student Manual Exam Popup1.fxml"));
+            newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
         }
         else
         {
-            newRoot = FXMLLoader.load(getClass().getResource("Student Manual Exam Popup2.fxml"));
+            newRoot = FXMLLoader.load(getClass().getResource("Upload Exam Popup.fxml"));
         }
 
         Scene scene = new Scene(newRoot);
         popup.setScene(scene);
         popup.showAndWait();
-
-
-        if (close)
-        {
-            close=false;
-            Stage stage = (Stage)buttondone.getScene().getWindow();
-            Parent newRoot2 = FXMLLoader.load(getClass().getResource("Student Take Exam.fxml"));
-            Scene scene2 = new Scene(newRoot2);
-            stage.setScene(scene2);
-        }
     }
 
     @FXML

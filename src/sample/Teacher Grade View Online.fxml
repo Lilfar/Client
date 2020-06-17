@@ -16,7 +16,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <Button fx:id="buttonchangegrade" layoutX="12.0" layoutY="465.0" mnemonicParsing="false" onAction="#buttonchangegradeclick" prefHeight="38.0" prefWidth="115.0" text="Change Grade" />
+      <Button fx:id="buttonchangegrade" layoutX="680.0" layoutY="464.0" mnemonicParsing="false" onAction="#buttonchangegradeclick" prefHeight="38.0" prefWidth="115.0" text="Change Grade" />
       <TableView fx:id="QuestionsTableSubject" layoutX="12.0" layoutY="71.0" prefHeight="386.0" prefWidth="806.0">
          <columns>
             <TableColumn id="Question" fx:id="Question" prefWidth="269.60003662109375" text="Question" />
@@ -27,6 +27,6 @@
             <TableColumn prefWidth="119.19998779296873" text="Student's Answer" />
          </columns>
       </TableView>
-      <Button fx:id="buttonapply" layoutX="702.0" layoutY="465.0" mnemonicParsing="false" onAction="#buttonapplyclick" prefHeight="38.0" prefWidth="115.0" text="Apply" />
+      <Button fx:id="buttonclose" layoutX="25.0" layoutY="464.0" mnemonicParsing="false" onAction="#buttoncloseclick" prefHeight="38.0" prefWidth="115.0" text="Close" />
    </children>
 </AnchorPane>

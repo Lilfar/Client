@@ -17,6 +17,6 @@
          </columns>
       </TableView>
       <Button fx:id="buttondownloadexam" layoutX="620.0" layoutY="528.0" mnemonicParsing="false" onAction="#buttondownloadexamclick" prefHeight="28.0" prefWidth="130.0" text="Download Exam" />
-      <Button fx:id="buttonclose" layoutX="20.0" layoutY="528.0" mnemonicParsing="false" onAction="#buttoncloseclick" prefHeight="28.0" prefWidth="79.0" text="Close" />
+      <Button fx:id="buttonback" layoutX="20.0" layoutY="528.0" mnemonicParsing="false" onAction="#buttonbackclick" prefHeight="28.0" prefWidth="79.0" text="Back" />
    </children>
 </Pane>

@@ -1,17 +1,15 @@
 package sample;
 
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class StudentManualExamPopup2 {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class UploadExamPopupController {
 
     @FXML
     private ResourceBundle resources;
@@ -31,7 +29,7 @@ public class StudentManualExamPopup2 {
 
     @FXML
     void initialize() {
-        assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Student Manual Exam Popup2.fxml'.";
+        assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Upload Exam Popup.fxml'.";
 
     }
 }

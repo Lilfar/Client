@@ -1,18 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentMainController">
+<VBox prefHeight="438.0" prefWidth="477.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentMainController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="438.0" prefWidth="513.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button fx:id="buttonviewgrades" layoutX="155.0" layoutY="152.0" mnemonicParsing="false" onAction="#buttonviewgradesclick" text="View Grades" />
-            <Button fx:id="buttontakeexam" layoutX="414.0" layoutY="152.0" mnemonicParsing="false" onAction="#buttontakeexamclick" text="Take Exam" />
-            <Text layoutX="283.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello student!" />
-            <Button fx:id="buttonlogout" layoutX="293.0" layoutY="243.0" mnemonicParsing="false" onAction="#buttonlogoutclick" text="Logout" />
+            <ImageView fitHeight="438.0" fitWidth="572.0" layoutX="-8.0" layoutY="-1.0">
+               <image>
+                  <Image url="https://lh3.googleusercontent.com/proxy/wIS7ASW14TB4xiCjn_Ppy4jcRbbdd5WN68DAQi5z4nUW0esKePqpLxLYHvmVnzJkRb7xnrQVIKk2ldy1-rUv6h7eUjuo23074iLoJV3mHdVeTi534Z6D4r9vf5pMYyuOKkPgl9MiBUVJItalBcazxN6X" />
+               </image>
+            </ImageView>
+            <Button fx:id="buttonviewgrades" layoutX="85.0" layoutY="180.0" mnemonicParsing="false" onAction="#buttonviewgradesclick" prefHeight="38.0" prefWidth="158.0" style="-fx-background-color: chocolate;" text="View Grades" textFill="WHITE">
+               <font>
+                  <Font name="Centaur" size="17.0" />
+               </font></Button>
+            <Button fx:id="buttontakeexam" layoutX="85.0" layoutY="242.0" mnemonicParsing="false" onAction="#buttontakeexamclick" prefHeight="38.0" prefWidth="158.0" style="-fx-background-color: chocolate;" text="Take Exam" textFill="WHITE">
+               <font>
+                  <Font name="Centaur" size="17.0" />
+               </font></Button>
+            <Text layoutX="213.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello student!" wrappingWidth="246.0316162109375">
+               <font>
+                  <Font name="Freestyle Script" size="38.0" />
+               </font></Text>
+            <Button fx:id="buttonlogout" layoutX="223.0" layoutY="320.0" mnemonicParsing="false" onAction="#buttonlogoutclick" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: chocolate;" text="Logout" textFill="WHITE">
+               <font>
+                  <Font name="Centaur" size="14.0" />
+               </font></Button>
       </children>
     </AnchorPane>
   </children>

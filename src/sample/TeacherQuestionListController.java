@@ -45,47 +45,29 @@ public class TeacherQuestionListController implements Initializable{
     private TableColumn<Person, String> WrongAnswer3;
 
     @FXML
-    private TableColumn<Person, Integer> Edit;
+    private TableColumn<Person, String> Edit;
 
     @FXML
-    private TableColumn<Person, Integer> Delete;
+    private TableColumn<Person, String> Delete;
 
     @FXML
     private Button buttonaddquestion;
     @FXML
     private Button buttonback;
 
-    @FXML
-    void buttonbackclick(ActionEvent event) throws IOException {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        final ObservableList<Person> data = FXCollections.observableArrayList(new Person("qq", "aa", "asda", "sfasd", "asdfsa"));
 
-        Stage stage = (Stage)buttonback.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
-        Scene scene = new Scene(newRoot);
-        stage.setScene(scene);
+        Question.setCellValueFactory(new PropertyValueFactory<Person, String>("q"));
+        RightAnswer.setCellValueFactory(new PropertyValueFactory<Person, String>("a1"));
+        WrongAnswer1.setCellValueFactory(new PropertyValueFactory<Person, String>("a2"));
+        WrongAnswer2.setCellValueFactory(new PropertyValueFactory<Person, String>("a3"));
+        WrongAnswer3.setCellValueFactory(new PropertyValueFactory<Person, String>("a4"));
+        Edit.setCellValueFactory(new PropertyValueFactory<Person, String>("edit"));
+        Delete.setCellValueFactory(new PropertyValueFactory<Person, String>("delete"));
 
-    }
-    @FXML
-    void buttonaddquestionclick(ActionEvent event) throws IOException {
-
-        Stage stage = (Stage)buttonaddquestion.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Question Add.fxml"));
-        Scene scene = new Scene(newRoot);
-        stage.setScene(scene);
-
-
-    }
-
-    @FXML
-    void initialize() {
-        assert QuestionsTable != null : "fx:id=\"QuestionsTable\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
-        assert Question != null : "fx:id=\"Question\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
-        assert RightAnswer != null : "fx:id=\"RightAnswer\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
-        assert WrongAnswer1 != null : "fx:id=\"WrongAnswer1\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
-        assert WrongAnswer2 != null : "fx:id=\"WrongAnswer2\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
-        assert WrongAnswer3 != null : "fx:id=\"WrongAnswer3\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
-        assert buttonaddquestion != null : "fx:id=\"buttonaddquestion\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
-        assert Edit != null : "fx:id=\"Edit\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
-        assert Delete != null : "fx:id=\"Delete\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+        QuestionsTable.setItems(data);
 
     }
     public class Person {
@@ -95,18 +77,19 @@ public class TeacherQuestionListController implements Initializable{
         public String a2;
         public String a3;
         public String a4;
-        public Integer edit;
-        public Integer delete;
+        public Button edit;
+        public Button delete;
 
-        Person(String q, String a1, String a2, String a3, String a4, Integer edit, Integer delete) {
+
+        Person(String q, String a1, String a2, String a3, String a4) {
 
             this.q = q;
             this.a1 = a1;
             this.a2 = a2;
             this.a3 = a3;
             this.a4 = a4;
-            this.edit = edit;
-            this.delete = delete;
+            this.edit = new Button("select");;
+            this.delete = new Button("select");;
         }
 
         public String getQ() {
@@ -129,30 +112,62 @@ public class TeacherQuestionListController implements Initializable{
             return a4;
         }
 
-        public Integer getEdit() {
+        public void setEdit(Button edit){
+            this.edit=edit;
+
+        }
+
+        public void setDelete(Button delete){
+            this.delete=delete;
+
+        }
+        public Button getEdit(){
             return edit;
-        }
 
-        public Integer getDelete() {
+        }
+        public Button getDelete(){
             return delete;
+
         }
+    }
+
+    @FXML
+    void buttonbackclick(ActionEvent event) throws IOException {
+
+        Stage stage = (Stage)buttonback.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
+
+    }
+    @FXML
+    void buttonaddquestionclick(ActionEvent event) throws IOException {
+
+        Stage stage = (Stage)buttonaddquestion.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Question Add.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
+
 
     }
 
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        Question.setCellValueFactory(new PropertyValueFactory<Person, String>("q"));
-        RightAnswer.setCellValueFactory(new PropertyValueFactory<Person, String>("a1"));
-        WrongAnswer1.setCellValueFactory(new PropertyValueFactory<Person, String>("a2"));
-        WrongAnswer2.setCellValueFactory(new PropertyValueFactory<Person, String>("a3"));
-        WrongAnswer3.setCellValueFactory(new PropertyValueFactory<Person, String>("a4"));
-        Edit.setCellValueFactory(new PropertyValueFactory<Person, Integer>("edit"));
-        Delete.setCellValueFactory(new PropertyValueFactory<Person, Integer>("delete"));
-
-        QuestionsTable.setItems(data);
+    @FXML
+    void initialize() {
+        assert QuestionsTable != null : "fx:id=\"QuestionsTable\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+        assert Question != null : "fx:id=\"Question\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+        assert RightAnswer != null : "fx:id=\"RightAnswer\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+        assert WrongAnswer1 != null : "fx:id=\"WrongAnswer1\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+        assert WrongAnswer2 != null : "fx:id=\"WrongAnswer2\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+        assert WrongAnswer3 != null : "fx:id=\"WrongAnswer3\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+        assert buttonaddquestion != null : "fx:id=\"buttonaddquestion\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+        assert Edit != null : "fx:id=\"Edit\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+        assert Delete != null : "fx:id=\"Delete\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
 
     }
 
-    private ObservableList<Person> data = FXCollections.observableArrayList(new Person("qq", "aa", "asda", "sfasd", "asdfsa", 69, 69));
+
+
+
+
 }

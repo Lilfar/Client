@@ -1,12 +1,18 @@
 package sample;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class TeacherShowExamController {
 
@@ -38,11 +44,14 @@ public class TeacherShowExamController {
     private Button buttondownloadexam;
 
     @FXML
-    private Button buttonclose;
+    private Button buttonback;
 
     @FXML
-    void buttoncloseclick(ActionEvent event) {
-
+    void buttonbackclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttonback.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Course Main.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
     }
 
     @FXML
@@ -59,7 +68,7 @@ public class TeacherShowExamController {
         assert WrongAnswer2 != null : "fx:id=\"WrongAnswer2\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
         assert WrongAnswer3 != null : "fx:id=\"WrongAnswer3\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
         assert buttondownloadexam != null : "fx:id=\"buttondownloadexam\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
-        assert buttonclose != null : "fx:id=\"buttonclose\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
+        assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
 
     }
 }

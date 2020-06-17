@@ -1,13 +1,19 @@
 package sample;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class TeacherGradeViewOnlineController {
 
@@ -42,16 +48,21 @@ public class TeacherGradeViewOnlineController {
     private TableColumn<?, ?> WrongAnswer3;
 
     @FXML
-    private Button buttonapply;
+    private Button buttonclose;
 
     @FXML
-    void buttonapplyclick(ActionEvent event) {
-
+    void buttoncloseclick(ActionEvent event) {
+        Stage popup = (Stage)buttonclose.getScene().getWindow();
+        popup.close();
     }
 
     @FXML
-    void buttonchangegradeclick(ActionEvent event) {
-
+    void buttonchangegradeclick(ActionEvent event) throws IOException {
+        Stage popup = new Stage();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Change Grade.fxml"));
+        Scene scene = new Scene(newRoot);
+        popup.setScene(scene);
+        popup.showAndWait();
     }
 
     @FXML
@@ -64,7 +75,7 @@ public class TeacherGradeViewOnlineController {
         assert WrongAnswer1 != null : "fx:id=\"WrongAnswer1\" was not injected: check your FXML file 'Teacher Grade View Online.fxml'.";
         assert WrongAnswer2 != null : "fx:id=\"WrongAnswer2\" was not injected: check your FXML file 'Teacher Grade View Online.fxml'.";
         assert WrongAnswer3 != null : "fx:id=\"WrongAnswer3\" was not injected: check your FXML file 'Teacher Grade View Online.fxml'.";
-        assert buttonapply != null : "fx:id=\"buttonapply\" was not injected: check your FXML file 'Teacher Grade View Online.fxml'.";
+        assert buttonclose != null : "fx:id=\"buttonclose\" was not injected: check your FXML file 'Teacher Grade View Online.fxml'.";
 
     }
 }

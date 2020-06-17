@@ -4,15 +4,18 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="422.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherCoursesListController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="438.0" prefWidth="349.0" style="-fx-background-color: khaki;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherCoursesListController">
    <children>
-      <TableView layoutX="100.0" layoutY="41.0" prefHeight="281.0" prefWidth="200.0">
+      <TableView layoutX="75.0" layoutY="39.0" prefHeight="323.0" prefWidth="200.0">
         <columns>
           <TableColumn prefWidth="199.20001220703125" text="Courses list" />
         </columns>
       </TableView>
-      <Button fx:id="buttonback" layoutX="24.0" layoutY="353.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
+      <Button fx:id="buttonback" layoutX="147.0" layoutY="396.0" mnemonicParsing="false" onAction="#buttonbackclick" prefHeight="26.0" prefWidth="54.0" text="Back">
+         <font>
+            <Font name="Centaur" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

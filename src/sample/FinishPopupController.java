@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class StudentManualExamPopup1 {
+public class FinishPopupController {
 
     @FXML
     private ResourceBundle resources;
@@ -34,16 +34,20 @@ public class StudentManualExamPopup1 {
     @FXML
     void buttonyesclick(ActionEvent event) throws IOException {
 
+        TeacherCreateExamController.close=true;
         StudentComputerExamController.close=true;
-        StudentManualExam.close=true;
+        StudentManualExamController.close=true;
+        TeacherActiveExamAddExtraTimeController.close=true;
+        TeacherChangeGradeController.close=true;
+
         Stage popup = (Stage)buttonyes.getScene().getWindow();
         popup.close();
     }
 
     @FXML
     void initialize() {
-        assert buttonyes != null : "fx:id=\"buttonyes\" was not injected: check your FXML file 'Student Manual Exam Popup1.fxml'.";
-        assert buttonno != null : "fx:id=\"buttonno\" was not injected: check your FXML file 'Student Manual Exam Popup1.fxml'.";
+        assert buttonyes != null : "fx:id=\"buttonyes\" was not injected: check your FXML file 'Finish Popup.fxml'.";
+        assert buttonno != null : "fx:id=\"buttonno\" was not injected: check your FXML file 'Finish Popup.fxml'.";
 
     }
 }

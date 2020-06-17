@@ -1,8 +1,5 @@
 package sample;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,8 +9,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class TeacherActiveExamAddExtraTimeController {
 
+    static boolean close = false;
     @FXML
     private ResourceBundle resources;
 
@@ -39,24 +41,34 @@ public class TeacherActiveExamAddExtraTimeController {
     }
     public void buttonrequestclick(ActionEvent actionEvent) throws IOException {
 
+        boolean done;
 
+        Stage popup = new Stage();
+        Parent newRoot;
         if(!textexplanation.getText().isBlank() &&
                 !textextratime.getText().isBlank())
         {
 
 
+            newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
 
         }
         else
         {
-            Stage popup = new Stage();
-            Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Add Question Error Popup.fxml"));
-            Scene scene = new Scene(newRoot);
-            popup.setScene(scene);
-            popup.showAndWait();
+
+            newRoot = FXMLLoader.load(getClass().getResource("Teacher Add Question Error Popup.fxml"));
+
 
         }
-
+        Scene scene = new Scene(newRoot);
+        popup.setScene(scene);
+        popup.showAndWait();
+        if (close)
+        {
+            close=false;
+            Stage stage = (Stage)buttonrequest.getScene().getWindow();
+            stage.close();
+        }
     }
 
     @FXML

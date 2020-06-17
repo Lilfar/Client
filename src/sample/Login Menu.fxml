@@ -23,11 +23,11 @@
                <font>
                   <Font name="Times New Roman" size="14.0" />
                </font></TextField>
-            <Button fx:id="buttonlogin" layoutX="293.0" layoutY="269.0" mnemonicParsing="false" onAction="#buttonloginclick" prefHeight="26.0" prefWidth="177.0" style="-fx-background-color: blue;" text="Login" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="buttonlogin" layoutX="293.0" layoutY="269.0" mnemonicParsing="false" onAction="#buttonloginclick" prefHeight="26.0" prefWidth="177.0" style="-fx-background-color: royalblue;" text="Login" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Times New Roman" size="12.0" />
                </font></Button>
-            <Text fx:id="texttitle" fill="#0013fffa" layoutX="299.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" wrappingWidth="166.58636474609375">
+            <Text fx:id="texttitle" fill="#4169e1fa" layoutX="299.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" wrappingWidth="166.58636474609375">
                <font>
                   <Font name="Freestyle Script" size="68.0" />
                </font></Text>
