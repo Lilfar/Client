@@ -14,8 +14,8 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <Button fx:id="ChangeGrade" layoutX="148.0" layoutY="169.0" mnemonicParsing="false" onAction="#changegrade" prefHeight="38.0" prefWidth="115.0" text="Change Grade" />
+      <Button fx:id="buttonchangegrade" layoutX="148.0" layoutY="169.0" mnemonicParsing="false" onAction="#buttonchangegradeclick" prefHeight="38.0" prefWidth="115.0" text="Change Grade" />
       <Button fx:id="buttonstudentssolution" layoutX="148.0" layoutY="114.0" mnemonicParsing="false" onAction="#buttonstudentssolutionclick" prefHeight="38.0" prefWidth="115.0" text="Student's Solution" />
-      <Button fx:id="Apply" layoutX="348.0" layoutY="234.0" mnemonicParsing="false" onAction="#apply" prefHeight="31.0" prefWidth="49.0" text="Apply" />
+      <Button fx:id="buttonclose" layoutX="348.0" layoutY="234.0" mnemonicParsing="false" onAction="#buttoncloseclick" prefHeight="31.0" prefWidth="49.0" text="Close" />
    </children>
 </AnchorPane>
