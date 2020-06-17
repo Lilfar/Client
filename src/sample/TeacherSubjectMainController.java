@@ -37,7 +37,7 @@ public class TeacherSubjectMainController {
     @FXML
     void buttonbackclick(ActionEvent event) throws IOException {
         Stage stage = (Stage)buttonback.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject List.fxml"));
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Login Menu.fxml"));
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
 

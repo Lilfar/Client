@@ -67,10 +67,10 @@ public class TeacherQuestionListController implements Initializable{
     @FXML
     void buttonaddquestionclick(ActionEvent event) throws IOException {
 
-            Stage stage = (Stage)buttonaddquestion.getScene().getWindow();
-            Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Question Add.fxml"));
-            Scene scene = new Scene(newRoot);
-            stage.setScene(scene);
+        Stage stage = (Stage)buttonaddquestion.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Question Add.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
 
 
     }
@@ -140,19 +140,19 @@ public class TeacherQuestionListController implements Initializable{
     }
 
 
-        @Override
-        public void initialize(URL location, ResourceBundle resources) {
-            Question.setCellValueFactory(new PropertyValueFactory<Person, String>("q"));
-            RightAnswer.setCellValueFactory(new PropertyValueFactory<Person, String>("a1"));
-            WrongAnswer1.setCellValueFactory(new PropertyValueFactory<Person, String>("a2"));
-            WrongAnswer2.setCellValueFactory(new PropertyValueFactory<Person, String>("a3"));
-            WrongAnswer3.setCellValueFactory(new PropertyValueFactory<Person, String>("a4"));
-            Edit.setCellValueFactory(new PropertyValueFactory<Person, Integer>("edit"));
-            Delete.setCellValueFactory(new PropertyValueFactory<Person, Integer>("delete"));
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Question.setCellValueFactory(new PropertyValueFactory<Person, String>("q"));
+        RightAnswer.setCellValueFactory(new PropertyValueFactory<Person, String>("a1"));
+        WrongAnswer1.setCellValueFactory(new PropertyValueFactory<Person, String>("a2"));
+        WrongAnswer2.setCellValueFactory(new PropertyValueFactory<Person, String>("a3"));
+        WrongAnswer3.setCellValueFactory(new PropertyValueFactory<Person, String>("a4"));
+        Edit.setCellValueFactory(new PropertyValueFactory<Person, Integer>("edit"));
+        Delete.setCellValueFactory(new PropertyValueFactory<Person, Integer>("delete"));
 
-            QuestionsTable.setItems(data);
+        QuestionsTable.setItems(data);
 
-        }
+    }
 
-        private ObservableList<Person> data = FXCollections.observableArrayList(new Person("qq", "aa", "asda", "sfasd", "asdfsa", 69, 69));
+    private ObservableList<Person> data = FXCollections.observableArrayList(new Person("qq", "aa", "asda", "sfasd", "asdfsa", 69, 69));
 }

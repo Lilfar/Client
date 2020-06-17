@@ -9,6 +9,6 @@
       <Button fx:id="buttonshowquestions" layoutX="214.0" layoutY="129.0" mnemonicParsing="false" onAction="#buttonshowquestionsclick" prefHeight="50.0" prefWidth="172.0" text="Show Questions" />
       <Button fx:id="buttonfinishedexams" layoutX="214.0" layoutY="270.0" mnemonicParsing="false" onAction="#buttonfinishedexamsclick" prefHeight="50.0" prefWidth="172.0" text="Finished Exams" />
       <Button fx:id="buttonshowcourses" layoutX="214.0" layoutY="200.0" mnemonicParsing="false" onAction="#buttonshowcoursesclick" prefHeight="50.0" prefWidth="172.0" text="Show courses" />
-      <Button fx:id="buttonback" layoutX="274.0" layoutY="345.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
+      <Button fx:id="buttonback" layoutX="270.0" layoutY="344.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Log Out" />
    </children>
 </AnchorPane>

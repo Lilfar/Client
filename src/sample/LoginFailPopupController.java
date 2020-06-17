@@ -27,7 +27,6 @@ public class LoginFailPopupController {
         Stage popup = (Stage)buttonback.getScene().getWindow();
         popup.close();
     }
-
     @FXML
     void initialize() {
         assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Login Fail Popup.fxml'.";
