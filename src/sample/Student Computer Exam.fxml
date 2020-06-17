@@ -12,13 +12,13 @@
          <children>
             <Text layoutX="273.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exam in progress!" />
             <Button fx:id="buttonnext" layoutX="411.0" layoutY="326.0" mnemonicParsing="false" onAction="#buttonnextclick" text="Next" />
-            <RadioButton layoutX="202.0" layoutY="271.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="34.0" text="a4" />
-            <RadioButton layoutX="202.0" layoutY="200.0" mnemonicParsing="false" text="a1" />
-            <RadioButton layoutX="202.0" layoutY="247.0" mnemonicParsing="false" text="a3" />
-            <RadioButton layoutX="202.0" layoutY="222.0" mnemonicParsing="false" text="a2" />
-            <Text layoutX="194.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Question:" />
+            <RadioButton fx:id="radioa4" layoutX="202.0" layoutY="271.0" mnemonicParsing="false" onAction="#radioa4click" prefHeight="0.0" prefWidth="34.0" text="a4" />
+            <RadioButton fx:id="radioa1" layoutX="202.0" layoutY="200.0" mnemonicParsing="false" onAction="#radioa1click" text="a1" />
+            <RadioButton fx:id="radioa3" layoutX="202.0" layoutY="247.0" mnemonicParsing="false" onAction="#radioa3click" text="a3" />
+            <RadioButton fx:id="radioa2" layoutX="202.0" layoutY="222.0" mnemonicParsing="false" onAction="#radioa2click" text="a2" />
+            <Text fx:id="textquestion" layoutX="194.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Question:" />
             <Button fx:id="buttonprev" layoutX="168.0" layoutY="326.0" mnemonicParsing="false" onAction="#buttonprevclick" text="Prev" />
-            <Text layoutX="273.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time remaining: 90:00" />
+            <Text fx:id="texttimeremaining" layoutX="273.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time remaining: 90:00" />
          </children>
     </AnchorPane>
   </children>

@@ -1,15 +1,17 @@
 package sample;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class StudentTakeExamController {
 
@@ -24,6 +26,8 @@ public class StudentTakeExamController {
 
     @FXML
     private Button buttonback;
+    @FXML
+    private TextField textcode;
 
     @FXML
     void buttonbackclick(ActionEvent event) throws IOException {
@@ -37,21 +41,35 @@ public class StudentTakeExamController {
     @FXML
     void buttongoclick(ActionEvent event) throws IOException {
 
-        boolean type = true;
+        boolean type = false;
 
-        Stage stage = (Stage)buttongo.getScene().getWindow();
-        Parent newRoot;
 
-        if (type)
+        if (!textcode.getText().isBlank())
         {
-             newRoot = FXMLLoader.load(getClass().getResource("Student Manual Exam.fxml"));
+            Stage stage = (Stage)buttongo.getScene().getWindow();
+            Parent newRoot;
+
+            if (type)
+            {
+                newRoot = FXMLLoader.load(getClass().getResource("Student Manual Exam.fxml"));
+            }
+            else
+            {
+                newRoot = FXMLLoader.load(getClass().getResource("Student Computer Exam.fxml"));
+            }
+            Scene scene = new Scene(newRoot);
+            stage.setScene(scene);
         }
         else
         {
-            newRoot = FXMLLoader.load(getClass().getResource("Student Computer Exam.fxml"));
+            Stage popup = new Stage();
+            Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Add Question Error Popup.fxml"));
+            Scene scene = new Scene(newRoot);
+            popup.setScene(scene);
+            popup.showAndWait();
         }
-        Scene scene = new Scene(newRoot);
-        stage.setScene(scene);
+
+
 
     }
 

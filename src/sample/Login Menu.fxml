@@ -14,20 +14,35 @@
   <children>
     <AnchorPane maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" VBox.vgrow="ALWAYS">
       <children>
-            <ImageView fx:id="Background" fitHeight="450.0" fitWidth="760.0" layoutX="-5.0" layoutY="2.0" preserveRatio="true">
+            <ImageView fx:id="Background" fitHeight="450.0" fitWidth="760.0" layoutX="-8.0" layoutY="2.0" preserveRatio="true">
                <image>
                   <Image url="https://image.freepik.com/free-vector/welcome-back-school-background_3589-817.jpg" />
                </image>
             </ImageView>
-            <TextField fx:id="textuser" layoutX="320.0" layoutY="152.0" promptText="username" />
-            <Button fx:id="buttonlogin" layoutX="320.0" layoutY="260.0" mnemonicParsing="false" onAction="#buttonloginclick" text="Log in" />
-            <Text fx:id="texttitle" layoutX="296.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" wrappingWidth="166.58636474609375">
+            <TextField fx:id="textuser" layoutX="294.0" layoutY="173.0" promptText="username">
                <font>
-                  <Font name="David Bold" size="37.0" />
+                  <Font name="Times New Roman" size="14.0" />
+               </font></TextField>
+            <Button fx:id="buttonlogin" layoutX="293.0" layoutY="269.0" mnemonicParsing="false" onAction="#buttonloginclick" prefHeight="26.0" prefWidth="177.0" style="-fx-background-color: blue;" text="Login" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="12.0" />
+               </font></Button>
+            <Text fx:id="texttitle" fill="#0013fffa" layoutX="299.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" wrappingWidth="166.58636474609375">
+               <font>
+                  <Font name="Freestyle Script" size="68.0" />
                </font></Text>
-            <Text layoutX="236.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
-            <Text layoutX="238.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
-            <PasswordField fx:id="textpass" layoutX="320.0" layoutY="193.0" promptText="password" />
+            <Text layoutX="184.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="89.19622802734375">
+               <font>
+                  <Font name="Freestyle Script" size="30.0" />
+               </font></Text>
+            <Text layoutX="184.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:">
+               <font>
+                  <Font name="Freestyle Script" size="31.0" />
+               </font></Text>
+            <PasswordField fx:id="textpass" layoutX="294.0" layoutY="214.0" promptText="password">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font></PasswordField>
       </children>
     </AnchorPane>
   </children>

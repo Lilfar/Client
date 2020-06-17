@@ -1,9 +1,5 @@
 package sample;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,12 +8,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.image.ImageView;
 
-
-import javax.swing.*;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
 public class LoginMenuController {
@@ -56,47 +53,55 @@ public class LoginMenuController {
     @FXML
     void buttonloginclick(ActionEvent event) throws IOException {
 
-        int type = 3;
-        String s;
+        String username, password;
+        username = textuser.getText();
+        password = textpass.getText();
 
-        switch (type)
-        {
 
-            case 0:
-                s = "Login Fail Popup.fxml";
-                break;
+        if (!username.isBlank() && !password.isBlank()) {
 
-            case 1:
-                s = "Student Main.fxml";
-                break;
+            String s;
+            int type = 1;
 
-            case 2:
-                s = "Teacher Subject Main.fxml";
-                break;
+            switch (type) {
 
-            case 3:
-                s = "Principal Main.fxml";
-                break;
+                case 1:
+                    s = "Student Main.fxml";
+                    break;
 
-            default:
-                s = "Login Fail Popup.fxml";
-                break;
+                case 2:
+                    s = "Teacher Subject Main.fxml";
+                    break;
+
+                case 3:
+                    s = "Principal Main.fxml";
+                    break;
+
+                default:
+                    s = "Login Fail Popup.fxml";
+                    break;
+            }
+
+            if (s == "Login Fail Popup.fxml") {
+                Stage popup = new Stage();
+                Parent newRoot2 = FXMLLoader.load(getClass().getResource(s));
+                Scene scene2 = new Scene(newRoot2);
+                popup.setScene(scene2);
+                popup.showAndWait();
+            } else {
+                Stage stage = (Stage) buttonlogin.getScene().getWindow();
+                Parent newRoot = FXMLLoader.load(getClass().getResource(s));
+                Scene scene = new Scene(newRoot);
+                stage.setScene(scene);
+            }
         }
 
-        if (s == "Login Fail Popup.fxml")
-        {
+        else {
             Stage popup = new Stage();
-            Parent newRoot2 = FXMLLoader.load(getClass().getResource(s));
-            Scene scene2 = new Scene(newRoot2);
-            popup.setScene(scene2);
-            popup.showAndWait();
-        }
-        else
-        {
-            Stage stage = (Stage)buttonlogin.getScene().getWindow();
-            Parent newRoot = FXMLLoader.load(getClass().getResource(s));
+            Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Add Question Error Popup.fxml"));
             Scene scene = new Scene(newRoot);
-            stage.setScene(scene);
+            popup.setScene(scene);
+            popup.showAndWait();
         }
     }
 }

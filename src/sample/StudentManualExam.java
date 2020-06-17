@@ -1,15 +1,17 @@
 package sample;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class StudentManualExam {
 
@@ -34,6 +36,9 @@ public class StudentManualExam {
     private Button buttonback;
 
     @FXML
+    private TextField textexamupload;
+
+    @FXML
     void buttonbackclick(ActionEvent event) throws IOException {
         Stage stage = (Stage)buttonback.getScene().getWindow();
         Parent newRoot = FXMLLoader.load(getClass().getResource("Student Take Exam.fxml"));
@@ -44,11 +49,16 @@ public class StudentManualExam {
     @FXML
     void buttondoneclick(ActionEvent event) throws IOException {
 
-        boolean done = true;
-
+        boolean done;
 
         Stage popup = new Stage();
         Parent newRoot;
+
+        if (!textexamupload.getText().isBlank())
+            done = true;
+        else
+            done = false;
+
         if (done)
         {
             newRoot = FXMLLoader.load(getClass().getResource("Student Manual Exam Popup1.fxml"));
@@ -57,6 +67,7 @@ public class StudentManualExam {
         {
             newRoot = FXMLLoader.load(getClass().getResource("Student Manual Exam Popup2.fxml"));
         }
+
         Scene scene = new Scene(newRoot);
         popup.setScene(scene);
         popup.showAndWait();
@@ -64,9 +75,9 @@ public class StudentManualExam {
 
         if (close)
         {
-            close=!close;
+            close=false;
             Stage stage = (Stage)buttondone.getScene().getWindow();
-            Parent newRoot2 = FXMLLoader.load(getClass().getResource("Student Main.fxml"));
+            Parent newRoot2 = FXMLLoader.load(getClass().getResource("Student Take Exam.fxml"));
             Scene scene2 = new Scene(newRoot2);
             stage.setScene(scene2);
         }

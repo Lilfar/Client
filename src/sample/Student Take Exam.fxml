@@ -10,7 +10,7 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <TextField layoutX="246.0" layoutY="99.0" promptText="Enter exam code" />
+            <TextField fx:id="textcode" layoutX="246.0" layoutY="99.0" promptText="Enter exam code" />
             <Button fx:id="buttongo" layoutX="295.0" layoutY="175.0" mnemonicParsing="false" onAction="#buttongoclick" text="Go" />
             <Button fx:id="buttonback" layoutX="291.0" layoutY="280.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
             <Text layoutX="179.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exam code:" />

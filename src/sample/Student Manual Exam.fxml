@@ -13,7 +13,7 @@
             <Button fx:id="buttondownloadexam" layoutX="268.0" layoutY="151.0" mnemonicParsing="false" onAction="#buttondownloadexamclick" text="Download exam" />
             <Button fx:id="buttonuploadexam" layoutX="275.0" layoutY="267.0" mnemonicParsing="false" onAction="#buttonuploadexamclick" text="Upload exam" />
             <Text layoutX="255.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Download exam to start!" />
-            <TextField layoutX="244.0" layoutY="220.0" promptText="Drag exam here" />
+            <TextField fx:id="textexamupload" layoutX="244.0" layoutY="220.0" promptText="Drag exam here" />
             <Button fx:id="buttondone" layoutX="407.0" layoutY="267.0" mnemonicParsing="false" onAction="#buttondoneclick" text="Done" />
             <Text layoutX="195.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Upload:" />
             <Button fx:id="buttonback" layoutX="25.0" layoutY="354.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
