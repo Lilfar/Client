@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class TeacherSubjectMainController {
@@ -30,6 +31,9 @@ public class TeacherSubjectMainController {
 
     @FXML
     private Button buttonshowcourses;
+
+    @FXML
+    private ImageView Background;
 
     @FXML
     private Button buttonback;
@@ -80,6 +84,7 @@ public class TeacherSubjectMainController {
 
     @FXML
     void initialize() {
+        assert Background != null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
         assert buttonshowexams != null : "fx:id=\"buttonshowexams\" was not injected: check your FXML file 'Teacher Subject Main.fxml'.";
         assert buttonshowquestions != null : "fx:id=\"buttonshowquestions\" was not injected: check your FXML file 'Teacher Subject Main.fxml'.";
         assert buttonfinishedexams != null : "fx:id=\"buttonfinishedexams\" was not injected: check your FXML file 'Teacher Subject Main.fxml'.";
