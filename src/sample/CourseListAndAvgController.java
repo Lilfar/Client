@@ -6,16 +6,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TeacherStudentsAndGradesListController {
+public class CourseListAndAvgController {
 
     static int from=0;
+
     @FXML
     private ResourceBundle resources;
 
@@ -23,23 +23,25 @@ public class TeacherStudentsAndGradesListController {
     private URL location;
 
     @FXML
-    private TableColumn<?, ?> ExamsTable;
-
-    @FXML
     private Button buttonback;
 
     @FXML
     void buttonbackclick(ActionEvent event) throws IOException {
-
         Stage stage = (Stage)buttonback.getScene().getWindow();
         Parent newRoot;
         switch (from)
         {
             case 1:
-                newRoot = FXMLLoader.load(getClass().getResource("Teacher Course Main.fxml"));
+                newRoot = FXMLLoader.load(getClass().getResource("Subject List.fxml"));
+                break;
+            case 2:
+                newRoot = FXMLLoader.load(getClass().getResource("Teachers List.fxml"));
+                break;
+            case 3:
+                newRoot = FXMLLoader.load(getClass().getResource("Students List.fxml"));
                 break;
             default:
-                newRoot = FXMLLoader.load(getClass().getResource("Course List And Avg.fxml"));
+                newRoot = FXMLLoader.load(getClass().getResource("Subject List.fxml"));
                 break;
         }
         Scene scene = new Scene(newRoot);
@@ -48,7 +50,7 @@ public class TeacherStudentsAndGradesListController {
 
     @FXML
     void initialize() {
-        assert ExamsTable != null : "fx:id=\"ExamsTable\" was not injected: check your FXML file 'Teacher Subject Finished Exams List.fxml'.";
+        assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Course List And Avg.fxml'.";
 
-        }
     }
+}

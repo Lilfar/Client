@@ -28,5 +28,6 @@
          </columns>
       </TableView>
       <Button fx:id="buttonclose" layoutX="25.0" layoutY="464.0" mnemonicParsing="false" onAction="#buttoncloseclick" prefHeight="38.0" prefWidth="115.0" text="Close" />
+      <Button fx:id="buttonconfirmgrade" layoutX="140.0" layoutY="33.0" mnemonicParsing="false" onAction="#buttonconfirmgradeclick" text="Confirm Grade" />
    </children>
 </AnchorPane>

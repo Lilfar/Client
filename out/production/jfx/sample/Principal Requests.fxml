@@ -5,14 +5,18 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PrincipalRequestsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="755.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PrincipalRequestsController">
    <children>
-      <TableView fx:id="RequestsTable" layoutX="143.0" layoutY="25.0" prefHeight="349.0" prefWidth="314.0">
+      <TableView fx:id="RequestsTable" layoutX="28.0" layoutY="14.0" prefHeight="419.0" prefWidth="700.0">
         <columns>
-          <TableColumn fx:id="Requests" prefWidth="242.4000244140625" text="Requests list" />
-          <TableColumn fx:id="RequestButtons" minWidth="8.0" prefWidth="72.79998779296875" />
+          <TableColumn fx:id="Requests" minWidth="0.0" prefWidth="115.19998741149902" text="Teacher name" />
+          <TableColumn fx:id="RequestButtons" minWidth="8.0" prefWidth="112.80001831054688" text="Course name" />
+            <TableColumn prefWidth="67.199951171875" text="Extra time" />
+            <TableColumn prefWidth="231.19998168945312" text="Explanation" />
+            <TableColumn prefWidth="87.20001220703125" text="Accept" />
+            <TableColumn prefWidth="87.199951171875" text="Decline" />
         </columns>
       </TableView>
-      <Button fx:id="buttonback" layoutX="26.0" layoutY="350.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
+      <Button fx:id="buttonback" layoutX="14.0" layoutY="440.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
    </children>
 </AnchorPane>

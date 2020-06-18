@@ -8,9 +8,10 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="438.0" prefWidth="349.0" style="-fx-background-color: khaki;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherCoursesListController">
    <children>
-      <TableView layoutX="75.0" layoutY="39.0" prefHeight="323.0" prefWidth="200.0">
+      <TableView layoutX="57.0" layoutY="39.0" prefHeight="323.0" prefWidth="218.0">
         <columns>
-          <TableColumn prefWidth="199.20001220703125" text="Courses list" />
+          <TableColumn fx:id="courses" prefWidth="129.59996795654297" text="Courses list" />
+            <TableColumn fx:id="buttons" prefWidth="88.0" text="Column X" />
         </columns>
       </TableView>
       <Button fx:id="buttonback" layoutX="147.0" layoutY="396.0" mnemonicParsing="false" onAction="#buttonbackclick" prefHeight="26.0" prefWidth="54.0" text="Back">

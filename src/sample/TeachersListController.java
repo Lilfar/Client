@@ -6,14 +6,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TeacherStudentsAndGradesListController {
+public class TeachersListController {
 
     static int from=0;
     @FXML
@@ -23,23 +22,25 @@ public class TeacherStudentsAndGradesListController {
     private URL location;
 
     @FXML
-    private TableColumn<?, ?> ExamsTable;
-
-    @FXML
     private Button buttonback;
 
     @FXML
     void buttonbackclick(ActionEvent event) throws IOException {
-
         Stage stage = (Stage)buttonback.getScene().getWindow();
         Parent newRoot;
         switch (from)
         {
-            case 1:
-                newRoot = FXMLLoader.load(getClass().getResource("Teacher Course Main.fxml"));
+            case 31:
+                newRoot = FXMLLoader.load(getClass().getResource("Principal Questions Menu.fxml"));
+                break;
+            case 32:
+                newRoot = FXMLLoader.load(getClass().getResource("Principal Exams Menu.fxml"));
+                break;
+            case 33:
+                newRoot = FXMLLoader.load(getClass().getResource("Principal Grades Menu.fxml"));
                 break;
             default:
-                newRoot = FXMLLoader.load(getClass().getResource("Course List And Avg.fxml"));
+                newRoot = FXMLLoader.load(getClass().getResource("Login Menu.fxml"));
                 break;
         }
         Scene scene = new Scene(newRoot);
@@ -48,7 +49,6 @@ public class TeacherStudentsAndGradesListController {
 
     @FXML
     void initialize() {
-        assert ExamsTable != null : "fx:id=\"ExamsTable\" was not injected: check your FXML file 'Teacher Subject Finished Exams List.fxml'.";
-
-        }
+        assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Teachers List.fxml'.";
     }
+}

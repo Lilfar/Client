@@ -15,6 +15,9 @@ import java.util.ResourceBundle;
 
 public class TeacherGradeViewManualController {
 
+    static boolean confirmed=false;
+    static boolean addgrade=false;
+
     @FXML
     private ResourceBundle resources;
 
@@ -34,9 +37,30 @@ public class TeacherGradeViewManualController {
     private Button buttonclose;
 
     @FXML
+    private Button buttonaddgrade;
+
+    @FXML
     void buttoncloseclick(ActionEvent event) {
         Stage popup = (Stage)buttonclose.getScene().getWindow();
         popup.close();
+    }
+
+    @FXML
+    void buttonaddgradeclick(ActionEvent event) throws IOException {
+        Stage popup = new Stage();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
+        Scene scene = new Scene(newRoot);
+        popup.setScene(scene);
+        popup.showAndWait();
+
+        if (addgrade)
+        {
+            addgrade=false;
+            Stage stage = (Stage)buttonaddgrade.getScene().getWindow();
+            newRoot = FXMLLoader.load(getClass().getResource("Teacher Students And Grades List.fxml"));
+            scene = new Scene(newRoot);
+            stage.setScene(scene);
+        }
     }
 
     @FXML
@@ -51,6 +75,15 @@ public class TeacherGradeViewManualController {
         Scene scene = new Scene(newRoot);
         popup.setScene(scene);
         popup.showAndWait();
+
+        if (confirmed)
+        {
+            confirmed=false;
+            Stage stage = (Stage)buttonchangegrade.getScene().getWindow();
+            newRoot = FXMLLoader.load(getClass().getResource("Teacher Students And Grades List.fxml"));
+            scene = new Scene(newRoot);
+            stage.setScene(scene);
+        }
     }
 
     @FXML
@@ -60,5 +93,20 @@ public class TeacherGradeViewManualController {
         assert buttonstudentssolution != null : "fx:id=\"buttonstudentssolution\" was not injected: check your FXML file 'Teacher Grade View Manual.fxml'.";
         assert buttonclose != null : "fx:id=\"Apply\" was not injected: check your FXML file 'Teacher Grade View Manual.fxml'.";
 
+        //int temp= ((Integer.parseInt(Grade.getText()))>=0 && (Integer.parseInt(Grade.getText()))<=100);
+        boolean number=false;
+
+        try
+        {
+            int grade = Integer.parseInt(Grade.getText());
+            number=true;
+        }
+        catch (NumberFormatException NFE){
+            number=false;
+        }
+        if (!number)
+            buttonaddgrade.setVisible(true);
+        else
+            buttonaddgrade.setVisible(false);
     }
 }

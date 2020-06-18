@@ -6,11 +6,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="386.0" style="-fx-background-color: khaki;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherSubjectListController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="386.0" style="-fx-background-color: khaki;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SubjectListController">
    <children>
       <TableView fx:id="subjectslist" layoutX="82.0" layoutY="20.0" prefHeight="354.0" prefWidth="238.0">
          <columns>
-            <TableColumn fx:id="subjects" prefWidth="237.20001220703125" text="Subject list" />
+            <TableColumn fx:id="subjects" prefWidth="110.39996337890625" text="Subject list" />
+            <TableColumn fx:id="buttons" prefWidth="126.79997253417969" text="Go" />
          </columns>
       </TableView>
       <Button fx:id="buttonlogout" layoutX="155.0" layoutY="404.0" mnemonicParsing="false" onAction="#buttonlogoutclick" prefHeight="25.0" prefWidth="77.0" text="Logout">

@@ -1,8 +1,5 @@
 package sample;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class TeacherSubjectMainController {
 
@@ -44,10 +45,7 @@ public class TeacherSubjectMainController {
         Parent newRoot = FXMLLoader.load(getClass().getResource("Login Menu.fxml"));
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
-
     }
-
-
 
     @FXML
     void buttonfinishedexamsclick(ActionEvent event) throws IOException {
@@ -55,7 +53,6 @@ public class TeacherSubjectMainController {
             Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Finished Exam Students List.fxml"));
             Scene scene = new Scene(newRoot);
             stage.setScene(scene);
-
     }
 
     @FXML

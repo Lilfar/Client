@@ -1,8 +1,5 @@
 package sample;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class PrincipalGradesController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class PrincipalGradesMenuController {
 
     @FXML
     private ResourceBundle resources;
@@ -33,24 +34,27 @@ public class PrincipalGradesController {
 
     @FXML
     void buttonstudentclick(ActionEvent event) throws IOException {
+        StudentsListController.from=33;
         Stage stage = (Stage)buttonstudent.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Principal Grades Students.fxml"));
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Students List.fxml"));
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
     }
 
     @FXML
     void buttonsubjectsclick(ActionEvent event) throws IOException {
+        SubjectListController.from=33;
         Stage stage = (Stage)buttonsubjects.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Principal Grades Subjects.fxml"));
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Subject List.fxml"));
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
     }
 
     @FXML
     void buttonteachersclick(ActionEvent event) throws IOException {
+        TeachersListController.from=33;
         Stage stage = (Stage)buttonteachers.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Principal Grades Teacher.fxml"));
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teachers List.fxml"));
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
     }
@@ -65,9 +69,9 @@ public class PrincipalGradesController {
 
     @FXML
     void initialize() {
-        assert buttonteachers != null : "fx:id=\"buttonteachers\" was not injected: check your FXML file 'Principal Grades.fxml'.";
-        assert buttonsubjects != null : "fx:id=\"buttonsubjects\" was not injected: check your FXML file 'Principal Grades.fxml'.";
-        assert buttonstudent != null : "fx:id=\"buttonstudent\" was not injected: check your FXML file 'Principal Grades.fxml'.";
+        assert buttonteachers != null : "fx:id=\"buttonteachers\" was not injected: check your FXML file 'Principal Grades Menu.fxml'.";
+        assert buttonsubjects != null : "fx:id=\"buttonsubjects\" was not injected: check your FXML file 'Principal Grades Menu.fxml'.";
+        assert buttonstudent != null : "fx:id=\"buttonstudent\" was not injected: check your FXML file 'Principal Grades Menu.fxml'.";
 
     }
 }

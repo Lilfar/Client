@@ -60,6 +60,7 @@ public class TeacherCourseMainController {
 
     @FXML
     void buttonstudentsgradesclick(ActionEvent event) throws IOException {
+        TeacherStudentsAndGradesListController.from=1;
         Stage stage = (Stage)buttonstudentsgrades.getScene().getWindow();
         Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Students And Grades List.fxml"));
         Scene scene = new Scene(newRoot);

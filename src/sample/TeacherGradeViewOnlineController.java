@@ -51,6 +51,10 @@ public class TeacherGradeViewOnlineController {
     private Button buttonclose;
 
     @FXML
+    private Button buttonconfirmgrade;
+
+    static  boolean confirmed = false;
+    @FXML
     void buttoncloseclick(ActionEvent event) {
         Stage popup = (Stage)buttonclose.getScene().getWindow();
         popup.close();
@@ -64,6 +68,18 @@ public class TeacherGradeViewOnlineController {
         popup.setScene(scene);
         popup.showAndWait();
     }
+    @FXML
+    void buttonconfirmgradeclick(ActionEvent event) throws IOException {
+        Stage popup = new Stage();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
+        Scene scene = new Scene(newRoot);
+        popup.setScene(scene);
+        popup.showAndWait();
+        if (confirmed){
+            confirmed=false;
+            buttonconfirmgrade.setVisible(false);
+        }
+    }
 
     @FXML
     void initialize() {
@@ -76,6 +92,7 @@ public class TeacherGradeViewOnlineController {
         assert WrongAnswer2 != null : "fx:id=\"WrongAnswer2\" was not injected: check your FXML file 'Teacher Grade View Online.fxml'.";
         assert WrongAnswer3 != null : "fx:id=\"WrongAnswer3\" was not injected: check your FXML file 'Teacher Grade View Online.fxml'.";
         assert buttonclose != null : "fx:id=\"buttonclose\" was not injected: check your FXML file 'Teacher Grade View Online.fxml'.";
+        assert buttonconfirmgrade != null : "fx:id=\"buttonconfirmgrade\" was not injected: check your FXML file 'Teacher Grade View Online.fxml'.";
 
     }
 }

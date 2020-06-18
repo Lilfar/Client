@@ -1,13 +1,20 @@
 package sample;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class TeacherQuestionEditController {
+    static boolean confirmed = false;
 
     @FXML
     private ResourceBundle resources;
@@ -32,10 +39,35 @@ public class TeacherQuestionEditController {
 
     @FXML
     private Button buttonapply;
+    @FXML
+    private Button buttoncancel;
 
     @FXML
-    void buttonapplyclick(ActionEvent event) {
+    void buttoncancelclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttoncancel.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Question List.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
+    }
 
+
+    @FXML
+    void buttonapplyclick(ActionEvent event) throws IOException {
+
+        Stage popup = new Stage();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
+        Scene scene = new Scene(newRoot);
+        popup.setScene(scene);
+        popup.showAndWait();
+
+        if (confirmed)
+        {
+            confirmed=!confirmed;
+            Stage stage = (Stage)buttonapply.getScene().getWindow();
+            newRoot = FXMLLoader.load(getClass().getResource("Teacher Question List.fxml"));
+            scene = new Scene(newRoot);
+            stage.setScene(scene);
+        }
     }
 
     @FXML

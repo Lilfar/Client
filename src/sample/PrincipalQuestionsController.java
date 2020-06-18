@@ -1,15 +1,18 @@
 package sample;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class PrincipalQuestionsController {
 
@@ -20,43 +23,42 @@ public class PrincipalQuestionsController {
     private URL location;
 
     @FXML
-    private Button buttonsubjects;
+    private TableView<?> QuestionsTableTeachers;
 
     @FXML
-    private Button buttonteachers;
+    private TableColumn<?, ?> Question;
+
+    @FXML
+    private TableColumn<?, ?> RightAnswer;
+
+    @FXML
+    private TableColumn<?, ?> WrongAnswer1;
+
+    @FXML
+    private TableColumn<?, ?> WrongAnswer2;
+
+    @FXML
+    private TableColumn<?, ?> WrongAnswer3;
 
     @FXML
     private Button buttonback;
 
     @FXML
-    void buttonsubjectsclick(ActionEvent event) throws IOException {
-        Stage stage = (Stage)buttonsubjects.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Principal Subject Questions.fxml"));
-        Scene scene = new Scene(newRoot);
-        stage.setScene(scene);
-    }
-
-    @FXML
     void buttonbackclick(ActionEvent event) throws IOException {
         Stage stage = (Stage)buttonback.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Principal Main.fxml"));
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teachers List.fxml"));
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
-    }
-
-
-    @FXML
-    void buttonteachersclick(ActionEvent event) throws IOException {
-         Stage stage = (Stage)buttonteachers.getScene().getWindow();
-         Parent newRoot = FXMLLoader.load(getClass().getResource("Principal Teacher Questions.fxml"));
-         Scene scene = new Scene(newRoot);
-         stage.setScene(scene);
     }
 
     @FXML
     void initialize() {
-        assert buttonsubjects != null : "fx:id=\"buttonsubjects\" was not injected: check your FXML file 'Principal Questions.fxml'.";
-        assert buttonteachers != null : "fx:id=\"buttonteachers\" was not injected: check your FXML file 'Principal Questions.fxml'.";
+        assert QuestionsTableTeachers != null : "fx:id=\"QuestionsTableTeachers\" was not injected: check your FXML file 'Principal Questions.fxml'.";
+        assert Question != null : "fx:id=\"Question\" was not injected: check your FXML file 'Principal Questions.fxml'.";
+        assert RightAnswer != null : "fx:id=\"RightAnswer\" was not injected: check your FXML file 'Principal Questions.fxml'.";
+        assert WrongAnswer1 != null : "fx:id=\"WrongAnswer1\" was not injected: check your FXML file 'Principal Questions.fxml'.";
+        assert WrongAnswer2 != null : "fx:id=\"WrongAnswer2\" was not injected: check your FXML file 'Principa Questions.fxml'.";
+        assert WrongAnswer3 != null : "fx:id=\"WrongAnswer3\" was not injected: check your FXML file 'Principal Questions.fxml'.";
 
     }
 }
