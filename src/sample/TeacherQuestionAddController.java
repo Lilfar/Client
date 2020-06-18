@@ -1,8 +1,5 @@
 package sample;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class TeacherQuestionAddController {
 
@@ -42,7 +43,8 @@ public class TeacherQuestionAddController {
     void buttonaddclick(ActionEvent event) throws IOException {
 
 
-        if(!textrightanswer.getText().isBlank() &&
+        if(!NewQuestion.getText().isBlank() &&
+           !textrightanswer.getText().isBlank() &&
            !textwronganswer1.getText().isBlank() &&
            !textwronganswer2.getText().isBlank() &&
            !textwronganswer3.getText().isBlank())

@@ -52,13 +52,12 @@ public class StudentComputerExamController {
     @FXML
     void buttonnextclick(ActionEvent event) throws IOException {
 
-        if (questionnum<examsize)
+        if (questionnum<=examsize)
             questionnum++;
 
-
-
-        if (questionnum==examsize)
+        if (questionnum>examsize)
         {
+            questionnum--;
             Stage popup = new Stage();
             Parent newRoot2 = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
             Scene scene2 = new Scene(newRoot2);
@@ -74,8 +73,6 @@ public class StudentComputerExamController {
                 stage.setScene(scene);
 
             }
-
-
         }
         else
         {
@@ -84,7 +81,6 @@ public class StudentComputerExamController {
             Scene scene = new Scene(newRoot);
             stage.setScene(scene);
         }
-
     }
 
     @FXML
@@ -135,13 +131,15 @@ public class StudentComputerExamController {
         assert buttonnext != null : "fx:id=\"buttonnext\" was not injected: check your FXML file 'Student Computer Exam.fxml'.";
         assert buttonprev != null : "fx:id=\"buttonprev\" was not injected: check your FXML file 'Student Computer Exam.fxml'.";
 
+        textquestion.setText("Question " + questionnum + " of " + examsize + ": ");
         if (questionnum==1)
             buttonprev.setVisible(false);
+        else
+            buttonprev.setVisible(true);
 
         if (questionnum==examsize)
             buttonnext.setText("Done");
-
+        else
+            buttonnext.setText("Next");
     }
-
-
 }
