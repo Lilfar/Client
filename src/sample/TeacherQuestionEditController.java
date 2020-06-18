@@ -55,18 +55,35 @@ public class TeacherQuestionEditController {
     void buttonapplyclick(ActionEvent event) throws IOException {
 
         Stage popup = new Stage();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
-        Scene scene = new Scene(newRoot);
-        popup.setScene(scene);
-        popup.showAndWait();
+        Parent newRoot;
 
-        if (confirmed)
+
+        if(!Question.getText().isBlank() &&
+                !RightAnswer.getText().isBlank() &&
+                !WrongAnswer1.getText().isBlank() &&
+                !WrongAnswer2.getText().isBlank() &&
+                !WrongAnswer3.getText().isBlank())
         {
-            confirmed=!confirmed;
-            Stage stage = (Stage)buttonapply.getScene().getWindow();
-            newRoot = FXMLLoader.load(getClass().getResource("Teacher Question List.fxml"));
-            scene = new Scene(newRoot);
-            stage.setScene(scene);
+            newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
+            Scene scene = new Scene(newRoot);
+            popup.setScene(scene);
+            popup.showAndWait();
+
+            if (confirmed)
+            {
+                confirmed=false;
+                Stage stage = (Stage)buttonapply.getScene().getWindow();
+                newRoot = FXMLLoader.load(getClass().getResource("Teacher Question List.fxml"));
+                Scene scene2 = new Scene(newRoot);
+                stage.setScene(scene2);
+            }
+        }
+        else
+        {
+            newRoot = FXMLLoader.load(getClass().getResource("Teacher Add Question Error Popup.fxml"));
+            Scene scene = new Scene(newRoot);
+            popup.setScene(scene);
+            popup.showAndWait();
         }
     }
 

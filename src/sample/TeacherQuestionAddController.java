@@ -54,7 +54,6 @@ public class TeacherQuestionAddController {
             Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Question List.fxml"));
             Scene scene = new Scene(newRoot);
             stage.setScene(scene);
-
         }
         else
         {

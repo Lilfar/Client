@@ -57,6 +57,21 @@ public class TeacherQuestionListController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
+        QuestionsTable.setOnMouseClicked( event -> {
+            if( event.getClickCount() == 2 ) {
+                Stage stage = (Stage)buttonback.getScene().getWindow();
+                try {
+                Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Question Edit.fxml"));
+                    Scene scene = new Scene(newRoot);
+                    stage.setScene(scene);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }});
+
+
         final ObservableList<Person> data = FXCollections.observableArrayList(new Person("qq", "aa", "asda", "sfasd", "asdfsa"));
 
         Question.setCellValueFactory(new PropertyValueFactory<Person, String>("q"));

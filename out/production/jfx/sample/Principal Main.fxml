@@ -14,23 +14,23 @@
             <Image url="https://us.123rf.com/450wm/artinspiring/artinspiring1809/artinspiring180900798/109805662-stock-vector-school-principal-in-suit-sitting-in-his-office-and-working-director-at-the-table-education-and-knowl.jpg?ver=6" />
          </image>
       </ImageView>
-      <Button id="questions" fx:id="buttonquestions" layoutX="42.0" layoutY="99.0" mnemonicParsing="false" onAction="#buttonquestionsclick" prefHeight="36.0" prefWidth="198.0" style="-fx-background-color: lightskyblue;" text="Questions">
+      <Button id="questions" fx:id="buttonquestions" layoutX="35.0" layoutY="90.0" mnemonicParsing="false" onAction="#buttonquestionsclick" prefHeight="36.0" prefWidth="198.0" style="-fx-background-color: lightskyblue;" text="Questions">
          <font>
             <Font name="Centaur" size="18.0" />
          </font></Button>
-      <Button id="exams" fx:id="buttonexams" layoutX="42.0" layoutY="150.0" mnemonicParsing="false" onAction="#buttonexamsclick" prefHeight="36.0" prefWidth="198.0" style="-fx-background-color: lightskyblue;" text="Exams">
+      <Button id="exams" fx:id="buttonexams" layoutX="35.0" layoutY="134.0" mnemonicParsing="false" onAction="#buttonexamsclick" prefHeight="36.0" prefWidth="198.0" style="-fx-background-color: lightskyblue;" text="Exams">
          <font>
             <Font name="Centaur" size="18.0" />
          </font></Button>
-      <Button id="grades" fx:id="buttongrades" layoutX="42.0" layoutY="200.0" mnemonicParsing="false" onAction="#buttongradesclick" prefHeight="36.0" prefWidth="198.0" style="-fx-background-color: lightskyblue;" text="Grades">
+      <Button id="grades" fx:id="buttongrades" layoutX="35.0" layoutY="182.0" mnemonicParsing="false" onAction="#buttongradesclick" prefHeight="36.0" prefWidth="198.0" style="-fx-background-color: lightskyblue;" text="Grades">
          <font>
             <Font name="Centaur" size="18.0" />
          </font></Button>
-      <Button id="requestsReview" fx:id="buttonrequests" layoutX="42.0" layoutY="252.0" mnemonicParsing="false" onAction="#buttonrequestsclick" prefHeight="36.0" prefWidth="198.0" style="-fx-background-color: lightskyblue;" text="Requests">
+      <Button id="requestsReview" fx:id="buttonrequests" layoutX="35.0" layoutY="226.0" mnemonicParsing="false" onAction="#buttonrequestsclick" prefHeight="36.0" prefWidth="198.0" style="-fx-background-color: lightskyblue;" text="Requests">
          <font>
             <Font name="Centaur" size="18.0" />
          </font></Button>
-      <Button fx:id="buttonlogout" layoutX="134.0" layoutY="335.0" mnemonicParsing="false" onAction="#buttonlogoutclick" prefHeight="36.0" prefWidth="106.0" style="-fx-background-color: lightskyblue;" text="Logout">
+      <Button fx:id="buttonlogout" layoutX="168.0" layoutY="336.0" mnemonicParsing="false" onAction="#buttonlogoutclick" prefHeight="29.0" prefWidth="106.0" style="-fx-background-color: lightskyblue;" text="Logout">
          <font>
             <Font name="Centaur" size="14.0" />
          </font></Button>
@@ -39,5 +39,10 @@
             <Font name="Freestyle Script" size="36.0" />
          </font>
       </Text>
+      <Button fx:id="buttonmakeareport" layoutX="35.0" layoutY="268.0" mnemonicParsing="false" onAction="#buttonmakeareportclick" prefHeight="36.0" prefWidth="198.0" style="-fx-background-color: lightskyblue;" text="Make a report">
+         <font>
+            <Font name="Centaur" size="18.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

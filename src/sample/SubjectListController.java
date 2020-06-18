@@ -38,6 +38,7 @@ public class SubjectListController implements Initializable  {
 
     @FXML
     private Button buttonlogout;
+
     public class Subject
     {
         public String subject;
@@ -67,6 +68,28 @@ public class SubjectListController implements Initializable  {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        subjectslist.setOnMouseClicked( event -> {
+            if( event.getClickCount() == 2 ) {
+                Stage stage = (Stage)buttonlogout.getScene().getWindow();
+                try {
+
+                    if (subjectslist.getSelectionModel().getSelectedItem().getSubject()=="Handasat ere"){
+                        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
+                        Scene scene = new Scene(newRoot);
+                        stage.setScene(scene);
+                    }
+                    else
+                    {
+                        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Course Main.fxml"));
+                        Scene scene = new Scene(newRoot);
+                        stage.setScene(scene);
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }});
 
             final ObservableList<Subject> data = FXCollections.observableArrayList(s1,s2);
             subjects.setCellValueFactory(new PropertyValueFactory<Subject, String>("subject"));
@@ -112,8 +135,5 @@ public class SubjectListController implements Initializable  {
         assert subjectslist != null : "fx:id=\"subjectslist\" was not injected: check your FXML file 'Subject List.fxml'.";
         assert subjects != null : "fx:id=\"subjects\" was not injected: check your FXML file 'Subject List.fxml'.";
         assert buttonlogout != null : "fx:id=\"buttonlogout\" was not injected: check your FXML file 'Subject List.fxml'.";
-
-
-
     }
 }
