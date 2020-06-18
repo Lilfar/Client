@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PrincipalGradesMenuController">
+   <children>
+      <Button fx:id="buttonteachers" layoutX="246.0" layoutY="154.0" mnemonicParsing="false" onAction="#buttonteachersclick" prefHeight="55.0" prefWidth="115.0" text="Show by teachers" />
+      <Button fx:id="buttonsubjects" layoutX="243.0" layoutY="81.0" mnemonicParsing="false" onAction="#buttonsubjectsclick" prefHeight="55.0" prefWidth="115.0" text="Show by subjects" />
+      <Button fx:id="buttonstudent" layoutX="246.0" layoutY="237.0" mnemonicParsing="false" onAction="#buttonstudentclick" prefHeight="55.0" prefWidth="115.0" text="Show by student" />
+      <Button fx:id="buttonback" layoutX="28.0" layoutY="350.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
+      <Text layoutX="279.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grades!" />
+   </children>
+</Pane>
