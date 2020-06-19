@@ -10,14 +10,14 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <TableView layoutX="207.0" layoutY="100.0" prefHeight="200.0" prefWidth="225.0">
+            <TableView fx:id="studentgrades" layoutX="207.0" layoutY="100.0" prefHeight="200.0" prefWidth="225.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="Exam Name" />
-                <TableColumn prefWidth="75.0" text="Grade" />
-                  <TableColumn prefWidth="75.0" text="Exam File" />
+                <TableColumn fx:id="examname" prefWidth="108.800048828125" text="Exam Name" />
+                <TableColumn fx:id="examgrade" prefWidth="115.99993896484375" text="Grade" />
               </columns>
             </TableView>
-            <Button fx:id="buttonback" layoutX="299.0" layoutY="333.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
+            <Button fx:id="buttonback" layoutX="207.0" layoutY="333.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
+            <Button fx:id="buttondownload" layoutX="331.0" layoutY="333.0" mnemonicParsing="false" onAction="#buttondownloadclick" text="Download exam" />
          </children>
     </AnchorPane>
   </children>

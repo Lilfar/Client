@@ -42,6 +42,7 @@ public class FinishPopupController {
         TeacherGradeViewOnlineController.confirmed=true;
         TeacherGradeViewManualController.confirmed=true;
         TeacherQuestionEditController.confirmed=true;
+        StudentManualExamController.finish=true;
 
         Stage popup = (Stage)buttonyes.getScene().getWindow();
         popup.close();

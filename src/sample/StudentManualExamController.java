@@ -16,6 +16,7 @@ import java.util.ResourceBundle;
 public class StudentManualExamController {
 
     static boolean close = false;
+    static boolean finish = false;
 
     @FXML
     private ResourceBundle resources;
@@ -62,24 +63,50 @@ public class StudentManualExamController {
         if (done)
         {
             newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
+
+            Scene scene = new Scene(newRoot);
+            popup.setScene(scene);
+            popup.showAndWait();
+
+            if (finish){
+                Stage stage = (Stage)buttondone.getScene().getWindow();
+                newRoot = FXMLLoader.load(getClass().getResource("Student Main.fxml"));
+                scene = new Scene(newRoot);
+                stage.setScene(scene);
+            }
         }
         else
         {
             newRoot = FXMLLoader.load(getClass().getResource("Upload Exam Popup.fxml"));
+            Scene scene = new Scene(newRoot);
+            popup.setScene(scene);
+            popup.showAndWait();
         }
 
+    }
+
+    @FXML
+    void buttondownloadexamclick(ActionEvent event) throws IOException {
+
+        Stage popup = new Stage();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Item Downloaded Successfully.fxml"));
         Scene scene = new Scene(newRoot);
         popup.setScene(scene);
         popup.showAndWait();
-    }
-
-    @FXML
-    void buttondownloadexamclick(ActionEvent event) {
 
     }
 
     @FXML
-    void buttonuploadexamclick(ActionEvent event) {
+    void buttonuploadexamclick(ActionEvent event) throws IOException {
+
+        if (!textexamupload.getText().isBlank())
+        {
+            Stage popup = new Stage();
+            Parent newRoot = FXMLLoader.load(getClass().getResource("Item Uploaded Successfully.fxml"));
+            Scene scene = new Scene(newRoot);
+            popup.setScene(scene);
+            popup.showAndWait();
+        }
 
     }
 

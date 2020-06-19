@@ -61,7 +61,7 @@ public class LoginMenuController {
         if (!username.isBlank() && !password.isBlank()) {
 
             String s;
-            int type = 3;
+            int type = 2;
 
             switch (type) {
 
