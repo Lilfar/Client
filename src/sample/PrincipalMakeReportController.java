@@ -68,7 +68,7 @@ public class PrincipalMakeReportController {
         if (close){
             close=!close;
             Stage stage = (Stage)buttonmakereport.getScene().getWindow();
-            newRoot = FXMLLoader.load(getClass().getResource("Principal Report Menu.fxml"));
+            newRoot = FXMLLoader.load(getClass().getResource("Principal Report.fxml"));
             scene = new Scene(newRoot);
             stage.setScene(scene);
         }
