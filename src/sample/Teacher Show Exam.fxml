@@ -7,13 +7,13 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherShowExamController">
    <children>
-      <TableView fx:id="QuestionsTableSubject" layoutX="20.0" layoutY="14.0" prefHeight="507.0" prefWidth="730.0">
+      <TableView fx:id="QuestionsTableSubject" layoutX="26.0" layoutY="14.0" prefHeight="500.0" prefWidth="720.0">
          <columns>
-            <TableColumn id="Question" fx:id="Question" prefWidth="302.4000129699707" text="Question" />
-            <TableColumn fx:id="RightAnswer" prefWidth="96.79998779296875" text="Right Answer" />
-            <TableColumn id="WrongAnswer1" fx:id="WrongAnswer1" prefWidth="104.79998779296875" text="Wrong Answer" />
-            <TableColumn id="WrongAnswer2" fx:id="WrongAnswer2" prefWidth="109.60003662109375" text="Wrong Answer" />
-            <TableColumn id="WrongAnswer3" fx:id="WrongAnswer3" prefWidth="113.5999755859375" text="Wrong Answer" />
+            <TableColumn id="Question" fx:id="Question" prefWidth="200.0" text="Question" />
+            <TableColumn fx:id="RightAnswer" prefWidth="130.0" text="Right Answer" />
+            <TableColumn id="WrongAnswer1" fx:id="WrongAnswer1" prefWidth="130.0" text="Wrong Answer" />
+            <TableColumn id="WrongAnswer2" fx:id="WrongAnswer2" prefWidth="130.0" text="Wrong Answer" />
+            <TableColumn id="WrongAnswer3" fx:id="WrongAnswer3" prefWidth="130.0" text="Wrong Answer" />
          </columns>
       </TableView>
       <Button fx:id="buttondownloadexam" layoutX="620.0" layoutY="528.0" mnemonicParsing="false" onAction="#buttondownloadexamclick" prefHeight="28.0" prefWidth="130.0" text="Download Exam" />

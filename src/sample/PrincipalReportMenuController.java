@@ -41,19 +41,32 @@ public class PrincipalReportMenuController {
     }
 
     @FXML
-    void buttonstudentexamclick(ActionEvent event) {
-
+    void buttonsubjectexamclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttonback.getScene().getWindow();
+        SubjectListController.from=34;
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Subject List.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
     }
 
     @FXML
-    void buttonsubjectexamclick(ActionEvent event) {
-
+    void buttonteacherexamclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttonback.getScene().getWindow();
+        TeachersListController.from=34;
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teachers List.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
     }
 
     @FXML
-    void buttonteacherexamclick(ActionEvent event) {
-
+    void buttonstudentexamclick(ActionEvent event) throws IOException {
+        Stage stage = (Stage)buttonback.getScene().getWindow();
+        StudentsListController.from=34;
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Students List.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
     }
+
 
     @FXML
     void initialize() {

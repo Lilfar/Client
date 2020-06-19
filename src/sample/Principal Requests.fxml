@@ -9,14 +9,14 @@
    <children>
       <TableView fx:id="RequestsTable" layoutX="28.0" layoutY="14.0" prefHeight="419.0" prefWidth="700.0">
         <columns>
-          <TableColumn fx:id="Requests" minWidth="0.0" prefWidth="115.19998741149902" text="Teacher name" />
-          <TableColumn fx:id="RequestButtons" minWidth="8.0" prefWidth="112.80001831054688" text="Course name" />
-            <TableColumn prefWidth="67.199951171875" text="Extra time" />
-            <TableColumn prefWidth="231.19998168945312" text="Explanation" />
-            <TableColumn prefWidth="87.20001220703125" text="Accept" />
-            <TableColumn prefWidth="87.199951171875" text="Decline" />
+          <TableColumn fx:id="teachername" minWidth="0.0" prefWidth="120.0" text="Teacher name" />
+          <TableColumn fx:id="coursename" minWidth="8.0" prefWidth="120.0" text="Course name" />
+            <TableColumn fx:id="extratime" prefWidth="120.0" text="Extra time" />
+            <TableColumn fx:id="explanation" prefWidth="340.0" text="Explanation" />
         </columns>
       </TableView>
       <Button fx:id="buttonback" layoutX="14.0" layoutY="440.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
+      <Button fx:id="buttonaccept" layoutX="521.0" layoutY="440.0" mnemonicParsing="false" onAction="#buttonacceptclick" text="Accept" />
+      <Button fx:id="buttondecline" layoutX="634.0" layoutY="440.0" mnemonicParsing="false" onAction="#buttondeclineclick" text="Decline" />
    </children>
 </AnchorPane>

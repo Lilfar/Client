@@ -11,6 +11,8 @@ import java.util.ResourceBundle;
 
 public class FinishPopupController {
 
+    static int from=0;
+
     @FXML
     private ResourceBundle resources;
 
@@ -34,15 +36,45 @@ public class FinishPopupController {
     @FXML
     void buttonyesclick(ActionEvent event) throws IOException {
 
-        TeacherCreateExamController.close=true;
-        StudentComputerExamController.close=true;
-        StudentManualExamController.close=true;
-        TeacherActiveExamAddExtraTimeController.close=true;
-        TeacherChangeGradeController.close=true;
-        TeacherGradeViewOnlineController.confirmed=true;
-        TeacherGradeViewManualController.confirmed=true;
-        TeacherQuestionEditController.confirmed=true;
-        StudentManualExamController.finish=true;
+
+        switch (from)
+        {
+            case 1:
+                StudentComputerExamController.close=true;
+                break;
+            case 2:
+                StudentManualExamController.close=true;
+                break;
+            case 3:
+                TeacherCreateExamController.close=true;
+                break;
+            case 4:
+                TeacherActiveExamAddExtraTimeController.close=true;
+                break;
+            case 5:
+                TeacherChangeGradeController.close=true;
+                break;
+            case 6:
+                TeacherGradeViewOnlineController.confirmed=true;
+                break;
+            case 7:
+                TeacherGradeViewManualController.confirmed=true;
+                break;
+            case 8:
+                TeacherQuestionEditController.confirmed=true;
+                break;
+            case 9:
+                TeacherQuestionAddController.confirmed=true;
+                break;
+            case 10:
+                PrincipalRequestsController.close=true;
+                break;
+            case 11:
+                PrincipalMakeReportController.close=true;
+                break;
+            default:
+                break;
+        }
 
         Stage popup = (Stage)buttonyes.getScene().getWindow();
         popup.close();

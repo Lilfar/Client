@@ -60,8 +60,19 @@ public class LoginMenuController {
 
         if (!username.isBlank() && !password.isBlank()) {
 
+            if (username.equals("janan")||username.equals("Janan"))
+            {
+                System.out.println("Ana jennu lhabla hehee2");
+                StudentMainController.username="Janan";
+            }
+            else if (username.equals("jacob"))
+                System.out.println("ana homo");
+            else
+                System.out.println("Welcome habebe");
+
+
             String s;
-            int type = 2;
+            int type = 1;
 
             switch (type) {
 

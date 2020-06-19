@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 public class StudentManualExamController {
 
     static boolean close = false;
-    static boolean finish = false;
+    boolean uploaded=false;
 
     @FXML
     private ResourceBundle resources;
@@ -55,20 +55,23 @@ public class StudentManualExamController {
         Stage popup = new Stage();
         Parent newRoot;
 
-        if (!textexamupload.getText().isBlank())
+        if (uploaded)
             done = true;
         else
             done = false;
 
         if (done)
         {
+
+            FinishPopupController.from=2;
             newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
 
             Scene scene = new Scene(newRoot);
             popup.setScene(scene);
             popup.showAndWait();
 
-            if (finish){
+            if (close){
+                close=!close;
                 Stage stage = (Stage)buttondone.getScene().getWindow();
                 newRoot = FXMLLoader.load(getClass().getResource("Student Main.fxml"));
                 scene = new Scene(newRoot);
@@ -101,6 +104,7 @@ public class StudentManualExamController {
 
         if (!textexamupload.getText().isBlank())
         {
+            uploaded=true;
             Stage popup = new Stage();
             Parent newRoot = FXMLLoader.load(getClass().getResource("Item Uploaded Successfully.fxml"));
             Scene scene = new Scene(newRoot);

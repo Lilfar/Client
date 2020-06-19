@@ -34,33 +34,21 @@ public class SubjectListController implements Initializable  {
     private TableColumn<Subject, String> subjects;
 
     @FXML
-    private TableColumn<Subject, String> buttons;
-
-    @FXML
-    private Button buttonlogout;
+    private Button buttonback;
 
     public class Subject
     {
         public String subject;
-        public Button select;
 
         Subject(String subject)
         {
             this.subject=subject;
-            this.select=new Button("select");
         }
 
         public String getSubject(){
             return subject;
         }
 
-        public void setSelect(){
-            this.select=select;
-        }
-
-        public Button getSelect(){
-            return select;
-        }
     }
 
     Subject s1 = new Subject("Handasat ere");
@@ -71,20 +59,45 @@ public class SubjectListController implements Initializable  {
 
         subjectslist.setOnMouseClicked( event -> {
             if( event.getClickCount() == 2 ) {
-                Stage stage = (Stage)buttonlogout.getScene().getWindow();
                 try {
+                    Stage stage = (Stage)buttonback.getScene().getWindow();
+                    Parent newRoot;
 
-                    if (subjectslist.getSelectionModel().getSelectedItem().getSubject()=="Handasat ere"){
-                        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
-                        Scene scene = new Scene(newRoot);
-                        stage.setScene(scene);
-                    }
-                    else
+                    switch (from)
                     {
-                        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Course Main.fxml"));
-                        Scene scene = new Scene(newRoot);
-                        stage.setScene(scene);
+                        case 31:
+                            PrincipalQuestionsController.from=31;
+                            newRoot = FXMLLoader.load(getClass().getResource("Principal Questions.fxml"));
+                            break;
+                        case 32:
+                            PrincipalExamsController.from=31;
+                            newRoot = FXMLLoader.load(getClass().getResource("Principal Exams.fxml"));
+                            break;
+                        case 33:
+                            StudentsListController.from=31;
+                            newRoot = FXMLLoader.load(getClass().getResource("Students List.fxml"));
+                            break;
+                        case 34:
+                            PrincipalMakeReportController.from=31;
+                            newRoot = FXMLLoader.load(getClass().getResource("Principal Make Report.fxml"));
+                            break;
+                        default:
+                            if (subjectslist.getSelectionModel().getSelectedItem().getSubject()=="Handasat ere"){
+                                newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
+                                System.out.println("Welcome to kos em Malke");
+                            }
+                            else
+                            {
+                                newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
+                                System.out.println("Malke btntak");
+                            }
+                            break;
                     }
+
+                    Scene scene = new Scene(newRoot);
+                    stage.setScene(scene);
+
+
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -93,23 +106,22 @@ public class SubjectListController implements Initializable  {
 
             final ObservableList<Subject> data = FXCollections.observableArrayList(s1,s2);
             subjects.setCellValueFactory(new PropertyValueFactory<Subject, String>("subject"));
-            buttons.setCellValueFactory(new PropertyValueFactory<Subject, String>("select"));
             subjectslist.setItems(data);
 
-        if (from==31 || from==32 || from==33)
+        if (from==31 || from==32 || from==33 || from == 34)
         {
-            buttonlogout.setText("Back");
+            buttonback.setText("Back");
         }
 
         else
         {
-            buttonlogout.setText("Logout");
+            buttonback.setText("Logout");
         }
     }
 
 
-    public void buttonlogoutclick(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage)buttonlogout.getScene().getWindow();
+    public void buttonbackclick(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage)buttonback.getScene().getWindow();
         Parent newRoot;
         switch (from)
         {
@@ -121,6 +133,9 @@ public class SubjectListController implements Initializable  {
                 break;
             case 33:
                 newRoot = FXMLLoader.load(getClass().getResource("Principal Grades Menu.fxml"));
+                break;
+            case 34:
+                newRoot = FXMLLoader.load(getClass().getResource("Principal Report Menu.fxml"));
                 break;
             default:
                 newRoot = FXMLLoader.load(getClass().getResource("Login Menu.fxml"));
@@ -134,6 +149,6 @@ public class SubjectListController implements Initializable  {
     void initialize() {
         assert subjectslist != null : "fx:id=\"subjectslist\" was not injected: check your FXML file 'Subject List.fxml'.";
         assert subjects != null : "fx:id=\"subjects\" was not injected: check your FXML file 'Subject List.fxml'.";
-        assert buttonlogout != null : "fx:id=\"buttonlogout\" was not injected: check your FXML file 'Subject List.fxml'.";
+        assert buttonback != null : "fx:id=\"buttonlogout\" was not injected: check your FXML file 'Subject List.fxml'.";
     }
 }

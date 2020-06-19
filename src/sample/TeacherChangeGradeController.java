@@ -37,6 +37,8 @@ public class TeacherChangeGradeController {
     void buttonapplyclick(ActionEvent event) throws IOException {
        if (!Explanation.getText().isBlank() && !NewGrade.getText().isBlank())
         {
+
+            FinishPopupController.from=5;
             Stage popup = new Stage();
             Parent  newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
             Scene scene = new Scene(newRoot);
@@ -45,9 +47,8 @@ public class TeacherChangeGradeController {
 
             if (close)
             {
-
-                close = false;
-                 popup = (Stage) buttoncancel.getScene().getWindow();
+                close=!close;
+                popup = (Stage) buttoncancel.getScene().getWindow();
                 popup.close();
             }
 

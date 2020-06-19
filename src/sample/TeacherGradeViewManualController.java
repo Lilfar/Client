@@ -47,6 +47,7 @@ public class TeacherGradeViewManualController {
 
     @FXML
     void buttonaddgradeclick(ActionEvent event) throws IOException {
+        FinishPopupController.from=7;
         Stage popup = new Stage();
         Parent newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
         Scene scene = new Scene(newRoot);
@@ -55,7 +56,7 @@ public class TeacherGradeViewManualController {
 
         if (addgrade)
         {
-            addgrade=false;
+            addgrade=!addgrade;
             Stage stage = (Stage)buttonaddgrade.getScene().getWindow();
             newRoot = FXMLLoader.load(getClass().getResource("Teacher Students And Grades List.fxml"));
             scene = new Scene(newRoot);
@@ -78,7 +79,7 @@ public class TeacherGradeViewManualController {
 
         if (confirmed)
         {
-            confirmed=false;
+            confirmed=!confirmed;
             Stage stage = (Stage)buttonchangegrade.getScene().getWindow();
             newRoot = FXMLLoader.load(getClass().getResource("Teacher Students And Grades List.fxml"));
             scene = new Scene(newRoot);

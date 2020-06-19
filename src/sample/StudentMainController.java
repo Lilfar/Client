@@ -1,23 +1,29 @@
 package sample;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class StudentMainController {
+    static String username=null;
 
     @FXML
     private ResourceBundle resources;
 
     @FXML
     private URL location;
+
+    @FXML
+    private Text texthellostudent;
 
     @FXML
     private Button buttonviewgrades;
@@ -56,6 +62,10 @@ public class StudentMainController {
 
     @FXML
     void initialize() {
+
+        if (username!=null){
+            texthellostudent.setText("Hello habla!");
+        }
         assert buttonviewgrades != null : "fx:id=\"buttonviewgrades\" was not injected: check your FXML file 'Student Main.fxml'.";
         assert buttontakeexam != null : "fx:id=\"buttontakeexam\" was not injected: check your FXML file 'Student Main.fxml'.";
         assert buttonlogout != null : "fx:id=\"buttonlogout\" was not injected: check your FXML file 'Student Main.fxml'.";

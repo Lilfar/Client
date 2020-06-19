@@ -64,6 +64,7 @@ public class TeacherQuestionEditController {
                 !WrongAnswer2.getText().isBlank() &&
                 !WrongAnswer3.getText().isBlank())
         {
+            FinishPopupController.from=8;
             newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
             Scene scene = new Scene(newRoot);
             popup.setScene(scene);
@@ -71,7 +72,7 @@ public class TeacherQuestionEditController {
 
             if (confirmed)
             {
-                confirmed=false;
+                confirmed=!confirmed;
                 Stage stage = (Stage)buttonapply.getScene().getWindow();
                 newRoot = FXMLLoader.load(getClass().getResource("Teacher Question List.fxml"));
                 Scene scene2 = new Scene(newRoot);

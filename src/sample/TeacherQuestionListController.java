@@ -20,6 +20,9 @@ import java.util.ResourceBundle;
 
 public class TeacherQuestionListController implements Initializable{
 
+
+    boolean itemselected = false;
+
     @FXML
     private ResourceBundle resources;
 
@@ -45,32 +48,21 @@ public class TeacherQuestionListController implements Initializable{
     private TableColumn<Person, String> WrongAnswer3;
 
     @FXML
-    private TableColumn<Person, String> Edit;
-
-    @FXML
-    private TableColumn<Person, String> Delete;
-
-    @FXML
     private Button buttonaddquestion;
     @FXML
     private Button buttonback;
+    @FXML
+    private Button buttonedit;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
 
-        QuestionsTable.setOnMouseClicked( event -> {
-            if( event.getClickCount() == 2 ) {
-                Stage stage = (Stage)buttonback.getScene().getWindow();
-                try {
-                Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Question Edit.fxml"));
-                    Scene scene = new Scene(newRoot);
-                    stage.setScene(scene);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }});
-
+        QuestionsTable.setOnMousePressed(e ->{
+            if (e.getClickCount() == 1 && e.isPrimaryButtonDown() ){
+                itemselected=true;
+            }
+        });
 
         final ObservableList<Person> data = FXCollections.observableArrayList(new Person("qq", "aa", "asda", "sfasd", "asdfsa"));
 
@@ -79,8 +71,6 @@ public class TeacherQuestionListController implements Initializable{
         WrongAnswer1.setCellValueFactory(new PropertyValueFactory<Person, String>("a2"));
         WrongAnswer2.setCellValueFactory(new PropertyValueFactory<Person, String>("a3"));
         WrongAnswer3.setCellValueFactory(new PropertyValueFactory<Person, String>("a4"));
-        Edit.setCellValueFactory(new PropertyValueFactory<Person, String>("edit"));
-        Delete.setCellValueFactory(new PropertyValueFactory<Person, String>("delete"));
 
         QuestionsTable.setItems(data);
 
@@ -92,8 +82,6 @@ public class TeacherQuestionListController implements Initializable{
         public String a2;
         public String a3;
         public String a4;
-        public Button edit;
-        public Button delete;
 
 
         Person(String q, String a1, String a2, String a3, String a4) {
@@ -103,8 +91,6 @@ public class TeacherQuestionListController implements Initializable{
             this.a2 = a2;
             this.a3 = a3;
             this.a4 = a4;
-            this.edit = new Button("select");;
-            this.delete = new Button("select");;
         }
 
         public String getQ() {
@@ -126,24 +112,6 @@ public class TeacherQuestionListController implements Initializable{
         public String getA4() {
             return a4;
         }
-
-        public void setEdit(Button edit){
-            this.edit=edit;
-
-        }
-
-        public void setDelete(Button delete){
-            this.delete=delete;
-
-        }
-        public Button getEdit(){
-            return edit;
-
-        }
-        public Button getDelete(){
-            return delete;
-
-        }
     }
 
     @FXML
@@ -153,6 +121,29 @@ public class TeacherQuestionListController implements Initializable{
         Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
+
+    }
+    @FXML
+    void buttoneditclick(ActionEvent event) throws IOException {
+
+        Parent newRoot;
+        if (itemselected)
+        {
+            Stage stage = (Stage)buttonedit.getScene().getWindow();
+            newRoot = FXMLLoader.load(getClass().getResource("Teacher Question Edit.fxml"));
+            Scene scene = new Scene(newRoot);
+            stage.setScene(scene);
+        }
+        else
+        {
+
+            Stage popup = new Stage();
+            newRoot = FXMLLoader.load(getClass().getResource("Table View Select Item Popup.fxml"));
+            Scene scene = new Scene(newRoot);
+            popup.setScene(scene);
+            popup.showAndWait();
+        }
+
 
     }
     @FXML
@@ -176,9 +167,6 @@ public class TeacherQuestionListController implements Initializable{
         assert WrongAnswer2 != null : "fx:id=\"WrongAnswer2\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
         assert WrongAnswer3 != null : "fx:id=\"WrongAnswer3\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
         assert buttonaddquestion != null : "fx:id=\"buttonaddquestion\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
-        assert Edit != null : "fx:id=\"Edit\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
-        assert Delete != null : "fx:id=\"Delete\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
-
     }
 
 }

@@ -21,6 +21,7 @@ import java.util.ResourceBundle;
 public class StudentGradesController implements Initializable {
 
     boolean itemselected = false;
+    static int from = 0;
 
     @FXML
     private ResourceBundle resources;
@@ -72,7 +73,23 @@ public class StudentGradesController implements Initializable {
     void buttonbackclick(ActionEvent event) throws IOException {
 
         Stage stage = (Stage)buttonback.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Student Main.fxml"));
+        Parent newRoot;
+        switch (from)
+        {
+
+            case 31:
+                newRoot = FXMLLoader.load(getClass().getResource("Students List.fxml"));
+                break;
+            case 32:
+                newRoot = FXMLLoader.load(getClass().getResource("Students List.fxml"));
+                break;
+            case 33:
+                newRoot = FXMLLoader.load(getClass().getResource("Students List.fxml"));
+                break;
+            default:
+                newRoot = FXMLLoader.load(getClass().getResource("Student Main.fxml"));
+                break;
+        }
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
 

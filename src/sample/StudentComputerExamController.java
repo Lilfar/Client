@@ -58,6 +58,7 @@ public class StudentComputerExamController {
         if (questionnum>examsize)
         {
             questionnum--;
+            FinishPopupController.from=1;
             Stage popup = new Stage();
             Parent newRoot2 = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
             Scene scene2 = new Scene(newRoot2);
@@ -66,7 +67,7 @@ public class StudentComputerExamController {
 
             if (close){
 
-                close=false;
+                close=!close;
                 Stage stage = (Stage)buttonnext.getScene().getWindow();
                 Parent newRoot = FXMLLoader.load(getClass().getResource("Student Take Exam.fxml"));
                 Scene scene = new Scene(newRoot);

@@ -9,10 +9,11 @@
    <children>
       <TableView fx:id="Students" layoutX="35.0" layoutY="29.0" prefHeight="428.0" prefWidth="280.0">
         <columns>
-          <TableColumn prefWidth="189.6000337600708" text="Students" />
-            <TableColumn prefWidth="100.0" text="grade" />
+          <TableColumn fx:id="studentname" prefWidth="189.6000337600708" text="Students" />
+            <TableColumn fx:id="grade" prefWidth="100.0" text="grade" />
         </columns>
       </TableView>
       <Button fx:id="buttonback" layoutX="15.0" layoutY="466.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
+      <Button fx:id="buttonchangegrade" layoutX="223.0" layoutY="466.0" mnemonicParsing="false" onAction="#buttonchangegradeclick" text="Change Grade" />
    </children>
 </AnchorPane>

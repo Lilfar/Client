@@ -117,9 +117,6 @@ public class TeacherCreateExamController implements Initializable {
         public void setRadioButton(RadioButton rb){
             this.rb=rb;
         }
-
-
-
     }
 
 
@@ -139,6 +136,7 @@ public class TeacherCreateExamController implements Initializable {
 
         if (done)
         {
+            FinishPopupController.from=3;
             done=false;
             newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
         }
@@ -152,7 +150,7 @@ public class TeacherCreateExamController implements Initializable {
         popup.showAndWait();
         if (close)
         {
-            close=false;
+            close=!close;
             Stage stage = (Stage)buttoncreate.getScene().getWindow();
             newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Exams List.fxml"));
             Scene scene2 = new Scene(newRoot);

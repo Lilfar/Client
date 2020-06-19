@@ -5,12 +5,11 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="406.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentsListController">
    <children>
-      <TableView layoutX="106.0" layoutY="22.0" prefHeight="310.0" prefWidth="200.0">
+      <TableView fx:id="studentslist" layoutX="106.0" layoutY="22.0" prefHeight="310.0" prefWidth="200.0">
         <columns>
-          <TableColumn prefWidth="199.20001220703125" text="Students list" />
+          <TableColumn fx:id="students" prefWidth="199.20001220703125" text="studentslist" />
         </columns>
       </TableView>
       <Button fx:id="buttonback" layoutX="23.0" layoutY="348.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />

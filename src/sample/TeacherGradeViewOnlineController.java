@@ -17,6 +17,9 @@ import java.util.ResourceBundle;
 
 public class TeacherGradeViewOnlineController {
 
+
+    static  boolean confirmed = false;
+
     @FXML
     private ResourceBundle resources;
 
@@ -53,7 +56,6 @@ public class TeacherGradeViewOnlineController {
     @FXML
     private Button buttonconfirmgrade;
 
-    static  boolean confirmed = false;
     @FXML
     void buttoncloseclick(ActionEvent event) {
         Stage popup = (Stage)buttonclose.getScene().getWindow();
@@ -70,13 +72,14 @@ public class TeacherGradeViewOnlineController {
     }
     @FXML
     void buttonconfirmgradeclick(ActionEvent event) throws IOException {
+        FinishPopupController.from=6;
         Stage popup = new Stage();
         Parent newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
         Scene scene = new Scene(newRoot);
         popup.setScene(scene);
         popup.showAndWait();
         if (confirmed){
-            confirmed=false;
+            confirmed=!confirmed;
             buttonconfirmgrade.setVisible(false);
         }
     }

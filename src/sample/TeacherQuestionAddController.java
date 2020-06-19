@@ -15,6 +15,8 @@ import java.util.ResourceBundle;
 
 public class TeacherQuestionAddController {
 
+    static boolean confirmed = false;
+
     @FXML
     private ResourceBundle resources;
 
@@ -42,6 +44,8 @@ public class TeacherQuestionAddController {
     @FXML
     void buttonaddclick(ActionEvent event) throws IOException {
 
+        Stage popup = new Stage();
+        Parent newRoot;
 
         if(!NewQuestion.getText().isBlank() &&
            !textrightanswer.getText().isBlank() &&
@@ -50,15 +54,24 @@ public class TeacherQuestionAddController {
            !textwronganswer3.getText().isBlank())
         {
 
-            Stage stage = (Stage)buttonadd.getScene().getWindow();
-            Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Question List.fxml"));
+            FinishPopupController.from=9;
+            newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
             Scene scene = new Scene(newRoot);
-            stage.setScene(scene);
+            popup.setScene(scene);
+            popup.showAndWait();
+
+            if (confirmed){
+                confirmed=!confirmed;
+                Stage stage = (Stage)buttonadd.getScene().getWindow();
+                newRoot = FXMLLoader.load(getClass().getResource("Teacher Question List.fxml"));
+                Scene scene2 = new Scene(newRoot);
+                stage.setScene(scene2);
+            }
+
         }
         else
         {
-            Stage popup = new Stage();
-            Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Add Question Error Popup.fxml"));
+            newRoot = FXMLLoader.load(getClass().getResource("Teacher Add Question Error Popup.fxml"));
             Scene scene = new Scene(newRoot);
             popup.setScene(scene);
             popup.showAndWait();

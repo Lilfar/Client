@@ -50,6 +50,7 @@ public class TeacherActiveExamAddExtraTimeController {
         {
 
 
+            FinishPopupController.from=4;
             newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
 
         }
@@ -65,7 +66,7 @@ public class TeacherActiveExamAddExtraTimeController {
         popup.showAndWait();
         if (close)
         {
-            close=false;
+            close=!close;
             Stage stage = (Stage)buttonrequest.getScene().getWindow();
             stage.close();
         }
