@@ -56,7 +56,7 @@ public class StudentTakeExamController {
             else
 
             {
-                newRoot = FXMLLoader.load(getClass().getResource("Student Computer Exam.fxml"));
+                newRoot = FXMLLoader.load(getClass().getResource("Student Exam First Page.fxml"));
             }
             Scene scene = new Scene(newRoot);
             stage.setScene(scene);
