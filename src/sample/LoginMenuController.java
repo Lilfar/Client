@@ -89,6 +89,7 @@ public class LoginMenuController {
                 default:
                     s = "Login Fail Popup.fxml";
                     break;
+
             }
 
             if (s == "Login Fail Popup.fxml") {
