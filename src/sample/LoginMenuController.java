@@ -60,13 +60,11 @@ public class LoginMenuController {
 
         if (!username.isBlank() && !password.isBlank()) {
 
-            if (username.equals("janan")||username.equals("Janan"))
-            {
+            if (username.equals("janan") || username.equals("Janan")) {
                 System.out.println("Ana jennu lhabla hehee2");
-                StudentMainController.username="Janan";
-            }
-            else if (username.equals("jacob"))
-                System.out.println("ana homo");
+                StudentMainController.username = "Janan";
+            } else if (username.equals("jacob"))
+                System.out.println("111");
             else
                 System.out.println("Welcome habebe");
 
@@ -105,9 +103,7 @@ public class LoginMenuController {
                 Scene scene = new Scene(newRoot);
                 stage.setScene(scene);
             }
-        }
-
-        else {
+        } else {
             Stage popup = new Stage();
             Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Add Question Error Popup.fxml"));
             Scene scene = new Scene(newRoot);

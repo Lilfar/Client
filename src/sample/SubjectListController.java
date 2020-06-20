@@ -51,8 +51,8 @@ public class SubjectListController implements Initializable  {
 
     }
 
-    Subject s1 = new Subject("Handasat ere");
-    Subject s2 = new Subject("Malke sharmota");
+    Subject s1 = new Subject("Handasat tu5na");
+    Subject s2 = new Subject("mvni netonem");
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -82,14 +82,14 @@ public class SubjectListController implements Initializable  {
                             newRoot = FXMLLoader.load(getClass().getResource("Principal Make Report.fxml"));
                             break;
                         default:
-                            if (subjectslist.getSelectionModel().getSelectedItem().getSubject()=="Handasat ere"){
+                            if (subjectslist.getSelectionModel().getSelectedItem().getSubject()=="Handasat tu5na"){
                                 newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
-                                System.out.println("Welcome to kos em Malke");
+                                System.out.println("Welcome");
                             }
                             else
                             {
                                 newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
-                                System.out.println("Malke btntak");
+                                System.out.println("welcome 32bsh3 course");
                             }
                             break;
                     }
