@@ -72,8 +72,7 @@ public class LoginMenuController {
 
 
             String s;
-            int type = 3;
-
+            int type = 1;
             switch (type) {
 
                 case 1:
