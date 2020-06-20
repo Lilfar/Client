@@ -133,7 +133,7 @@ public class StudentGradesController implements Initializable {
         });
 
 
-        Grade g1 = new Grade("mavoe","0");
+        Grade g1 = new Grade("mavo","0");
         Grade g2 = new Grade("stam kors","51");
         Grade g3 = new Grade("ana 7mar","X");
 

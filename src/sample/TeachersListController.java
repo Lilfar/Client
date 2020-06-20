@@ -48,9 +48,9 @@ public class TeachersListController implements Initializable {
     }
 
     Teacher t1 = new Teacher("ldod loay");
-    Teacher t2 = new Teacher("Noga lshluke");
+    Teacher t2 = new Teacher("Noga l7ywane");
     Teacher t3 = new Teacher("Hagit l5tyara");
-    Teacher t4 = new Teacher("eeris lsharmota");
+    Teacher t4 = new Teacher("eeris l...");
     Teacher t5 = new Teacher("tsveka");
 
     @FXML

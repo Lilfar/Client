@@ -64,7 +64,7 @@ public class StudentMainController {
     void initialize() {
 
         if (username!=null){
-            texthellostudent.setText("Hello habla!");
+            texthellostudent.setText("Hello Beautiful!");
         }
         assert buttonviewgrades != null : "fx:id=\"buttonviewgrades\" was not injected: check your FXML file 'Student Main.fxml'.";
         assert buttontakeexam != null : "fx:id=\"buttontakeexam\" was not injected: check your FXML file 'Student Main.fxml'.";

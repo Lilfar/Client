@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PrincipalReportMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PrincipalReportMenuController">
    <children>
+      <ImageView fitHeight="214.0" fitWidth="233.0" layoutX="367.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRFS1ONpo-oviYTHIPGitPS5jnSkx0BAr5mlhxhUyT9uHMGu0xY&amp;usqp=CAU" />
+         </image>
+      </ImageView>
       <Button fx:id="buttonteacherexam" layoutX="197.0" layoutY="200.0" mnemonicParsing="false" onAction="#buttonteacherexamclick" prefHeight="38.0" prefWidth="172.0" text="Teacher's exams" />
       <Button fx:id="buttonsubjectexam" layoutX="197.0" layoutY="147.0" mnemonicParsing="false" onAction="#buttonsubjectexamclick" prefHeight="38.0" prefWidth="172.0" text="Subject's exams" />
       <Button fx:id="buttonstudentexam" layoutX="197.0" layoutY="254.0" mnemonicParsing="false" onAction="#buttonstudentexamclick" prefHeight="38.0" prefWidth="172.0" text="Student's exams" />
-      <Text layoutX="179.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Make a report from..." wrappingWidth="206.93670654296875">
+      <Text layoutX="167.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Make a report from..." wrappingWidth="233.0">
          <font>
-            <Font name="Freestyle Script" size="32.0" />
+            <Font name="Freestyle Script" size="37.0" />
          </font>
       </Text>
       <Button fx:id="buttonback" layoutX="37.0" layoutY="349.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />

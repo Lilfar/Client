@@ -101,8 +101,8 @@ public class TeacherShowExamController implements Initializable {
         });
 
 
-        Question q1 = new Question("shu lwd3?","walla hyana wnte?","mnyke","7el 3n kosse","bsedr");
-        Question q2 = new Question("tl3b west?","yzlme ma ana ra5e","yla lesh l2","7el 3n kosse","AAA YLA WOW");
+        Question q1 = new Question("shu lwd3?","walla hyana wnte?","mnyke","7el 3ne","bsedr");
+        Question q2 = new Question("tl3b west?","yzlme ma ana ra5e","yla lesh l2","7el 3ne","AAA YLA WOW");
         Question q3 = new Question("hedva 2 question","wrong answer","kman wrong answer","lshu 3m tjrb asln ma ente sa2et","yla kors 5ozer shbab");
         final ObservableList<Question> data = FXCollections.observableArrayList(q1,q2,q3);
 
