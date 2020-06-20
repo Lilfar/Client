@@ -10,16 +10,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="485.0" maxWidth="592.0" prefHeight="485.0" prefWidth="592.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginMenuController">
+<VBox maxHeight="506.0" maxWidth="592.0" prefHeight="506.0" prefWidth="503.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginMenuController">
   <children>
-    <AnchorPane maxHeight="576.0" maxWidth="5504.0" prefHeight="486.0" prefWidth="587.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="576.0" maxWidth="5504.0" prefHeight="506.0" prefWidth="497.0" VBox.vgrow="ALWAYS">
       <children>
-            <ImageView fitHeight="485.0" fitWidth="592.0" layoutX="-2.0" pickOnBounds="true">
+            <ImageView fitHeight="516.0" fitWidth="531.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="https://previews.123rf.com/images/ghenadie/ghenadie1608/ghenadie160800003/61063643-blank-background-with-school-items-education-workplace-accessories-vector-illustration.jpg" />
                </image>
             </ImageView>
-            <AnchorPane layoutX="209.0" layoutY="174.0" prefHeight="208.0" prefWidth="235.0" style="-fx-background-color: white;">
+            <AnchorPane layoutX="149.0" layoutY="163.0" prefHeight="208.0" prefWidth="235.0" style="-fx-background-color: white;">
                <children>
                   <PasswordField fx:id="textpass" layoutX="44.0" layoutY="111.0" promptText="password">
                      <font>
@@ -46,13 +46,13 @@
                         <Font name="Freestyle Script" size="31.0" />
                      </font>
                   </Text>
+                  <Text fx:id="texttitle" fill="#4169e1fa" layoutX="37.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" wrappingWidth="166.58636474609375">
+                     <font>
+                        <Font name="Freestyle Script" size="68.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
-            <Text fx:id="texttitle" fill="#4169e1fa" layoutX="235.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" wrappingWidth="166.58636474609375">
-               <font>
-                  <Font name="Freestyle Script" size="68.0" />
-               </font>
-            </Text>
       </children>
     </AnchorPane>
   </children>
