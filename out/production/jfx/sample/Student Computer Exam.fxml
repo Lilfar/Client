@@ -13,7 +13,7 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
          <children>
-            <ImageView fitHeight="304.0" fitWidth="237.0" layoutX="402.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true" style="visibility: 0.5;">
+            <ImageView fitHeight="304.0" fitWidth="237.0" layoutX="402.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true" style="visibility: true;">
                <image>
                   <Image url="https://www.pngitem.com/pimgs/m/242-2423681_exam-paper-clipart-www-imgkid-com-the-image.png" />
                </image>

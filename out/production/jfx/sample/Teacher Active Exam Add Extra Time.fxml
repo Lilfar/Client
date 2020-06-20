@@ -8,15 +8,19 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="388.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherActiveExamAddExtraTimeController">
    <children>
-      <Text layoutX="93.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Extra Time:" wrappingWidth="78.77166748046875">
+      <Text layoutX="84.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Extra Time:" wrappingWidth="101.17169189453125">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="Centaur" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="textextratime" layoutX="186.0" layoutY="39.0" prefHeight="44.0" prefWidth="72.0" />
+      <TextField fx:id="textextratime" layoutX="165.0" layoutY="39.0" prefHeight="38.0" prefWidth="52.0" />
       <Button fx:id="buttonrequest" layoutX="288.0" layoutY="334.0" mnemonicParsing="false" onAction="#buttonrequestclick" prefHeight="37.0" prefWidth="72.0" text="Request" />
       <Button fx:id="buttoncancel" layoutX="21.0" layoutY="334.0" mnemonicParsing="false" onAction="#buttoncancelclick" prefHeight="37.0" prefWidth="72.0" text="Cancel" />
       <TextField fx:id="textexplanation" layoutX="36.0" layoutY="134.0" prefHeight="160.0" prefWidth="316.0" />
-      <Text layoutX="36.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Explanation:" />
+      <Text layoutX="36.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Explanation:">
+         <font>
+            <Font name="Centaur" size="15.0" />
+         </font></Text>
+      <Text layoutX="225.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mins." />
    </children>
 </AnchorPane>

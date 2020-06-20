@@ -69,9 +69,6 @@ public class FinishPopupController {
             case 10:
                 PrincipalRequestsController.close=true;
                 break;
-            case 11:
-                PrincipalMakeReportController.close=true;
-                break;
             default:
                 break;
         }
