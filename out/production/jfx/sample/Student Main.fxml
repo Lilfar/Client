@@ -8,28 +8,28 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="362.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentMainController">
+<VBox prefHeight="353.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentMainController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="367.0" prefWidth="490.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="350.0" prefWidth="450.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
       <children>
-            <ImageView fitHeight="230.0" fitWidth="246.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="220.0" fitWidth="459.0" layoutX="-23.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="https://images.assetsdelivery.com/compings_v2/sararoom/sararoom1701/sararoom170100015.jpg" />
+                  <Image url="https://www.kindpng.com/picc/m/57-574537_studies-clipart-school-student-study-students-studying-cartoon.png" />
                </image>
             </ImageView>
-            <Button fx:id="buttonviewgrades" layoutX="299.0" layoutY="142.0" mnemonicParsing="false" onAction="#buttonviewgradesclick" prefHeight="48.0" prefWidth="114.0" style="-fx-background-color: chocolate;" text="View Grades" textFill="WHITE">
+            <Button fx:id="buttonviewgrades" layoutX="32.0" layoutY="94.0" mnemonicParsing="false" onAction="#buttonviewgradesclick" prefHeight="48.0" prefWidth="126.0" style="-fx-background-color: chocolate;" text="View Grades" textFill="WHITE">
                <font>
                   <Font name="Centaur" size="17.0" />
                </font></Button>
-            <Button fx:id="buttontakeexam" layoutX="299.0" layoutY="202.0" mnemonicParsing="false" onAction="#buttontakeexamclick" prefHeight="48.0" prefWidth="114.0" style="-fx-background-color: chocolate;" text="Take Exam" textFill="WHITE">
+            <Button fx:id="buttontakeexam" layoutX="301.0" layoutY="94.0" mnemonicParsing="false" onAction="#buttontakeexamclick" prefHeight="48.0" prefWidth="126.0" style="-fx-background-color: chocolate;" text="Take Exam" textFill="WHITE">
                <font>
                   <Font name="Centaur" size="17.0" />
                </font></Button>
-            <Text fx:id="texthellostudent" layoutX="148.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello student!" wrappingWidth="246.0316162109375">
+            <Text fx:id="texthellostudent" layoutX="126.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello student!" wrappingWidth="246.0316162109375">
                <font>
                   <Font name="Freestyle Script" size="50.0" />
                </font></Text>
-            <Button fx:id="buttonlogout" layoutX="312.0" layoutY="284.0" mnemonicParsing="false" onAction="#buttonlogoutclick" prefHeight="30.0" prefWidth="88.0" style="-fx-background-color: chocolate;" text="Logout" textFill="WHITE">
+            <Button fx:id="buttonlogout" layoutX="145.0" layoutY="306.0" mnemonicParsing="false" onAction="#buttonlogoutclick" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: chocolate;" text="Logout" textFill="WHITE">
                <font>
                   <Font name="Centaur" size="14.0" />
                </font></Button>

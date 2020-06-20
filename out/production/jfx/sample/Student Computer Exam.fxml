@@ -11,42 +11,42 @@
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentComputerExamController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
          <children>
-            <ImageView fitHeight="431.0" fitWidth="727.0" layoutX="-1.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="304.0" fitWidth="237.0" layoutX="402.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true" style="visibility: 0.5;">
                <image>
-                  <Image url="https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;w=1000&amp;q=80" />
+                  <Image url="https://www.pngitem.com/pimgs/m/242-2423681_exam-paper-clipart-www-imgkid-com-the-image.png" />
                </image>
             </ImageView>
             <Text layoutX="253.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exam in progress!">
                <font>
                   <Font name="David" size="18.0" />
                </font></Text>
-            <Button fx:id="buttonnext" layoutX="300.0" layoutY="352.0" mnemonicParsing="false" onAction="#buttonnextclick" text="Next">
+            <Button fx:id="buttonnext" layoutX="253.0" layoutY="352.0" mnemonicParsing="false" onAction="#buttonnextclick" text="Next">
                <font>
                   <Font name="David" size="12.0" />
                </font></Button>
-            <RadioButton fx:id="radioa4" layoutX="27.0" layoutY="256.0" mnemonicParsing="false" onAction="#radioa4click" prefHeight="18.0" prefWidth="350.0" text="a4">
+            <RadioButton fx:id="radioa4" layoutX="60.0" layoutY="256.0" mnemonicParsing="false" onAction="#radioa4click" prefHeight="18.0" prefWidth="350.0" text="a4">
                <font>
                   <Font name="David" size="13.0" />
                </font></RadioButton>
-            <RadioButton fx:id="radioa1" layoutX="27.0" layoutY="185.0" mnemonicParsing="false" onAction="#radioa1click" prefHeight="18.0" prefWidth="358.0" text="a1">
+            <RadioButton fx:id="radioa1" layoutX="60.0" layoutY="185.0" mnemonicParsing="false" onAction="#radioa1click" prefHeight="18.0" prefWidth="358.0" text="a1">
                <font>
                   <Font name="David" size="13.0" />
                </font></RadioButton>
-            <RadioButton fx:id="radioa3" layoutX="27.0" layoutY="232.0" mnemonicParsing="false" onAction="#radioa3click" prefHeight="18.0" prefWidth="358.0" text="a3">
+            <RadioButton fx:id="radioa3" layoutX="60.0" layoutY="232.0" mnemonicParsing="false" onAction="#radioa3click" prefHeight="18.0" prefWidth="358.0" text="a3">
                <font>
                   <Font name="David" size="13.0" />
                </font></RadioButton>
-            <RadioButton fx:id="radioa2" layoutX="27.0" layoutY="207.0" mnemonicParsing="false" onAction="#radioa2click" prefHeight="18.0" prefWidth="349.0" text="a2">
+            <RadioButton fx:id="radioa2" layoutX="60.0" layoutY="207.0" mnemonicParsing="false" onAction="#radioa2click" prefHeight="18.0" prefWidth="349.0" text="a2">
                <font>
                   <Font name="David" size="13.0" />
                </font></RadioButton>
-            <Text fx:id="textquestion" layoutX="22.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Question:" wrappingWidth="365.0015869140625">
+            <Text fx:id="textquestion" layoutX="65.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Question:" wrappingWidth="365.0015869140625">
                <font>
                   <Font name="David" size="14.0" />
                </font></Text>
-            <Button fx:id="buttonprev" layoutX="148.0" layoutY="352.0" mnemonicParsing="false" onAction="#buttonprevclick" text="Prev">
+            <Button fx:id="buttonprev" layoutX="106.0" layoutY="352.0" mnemonicParsing="false" onAction="#buttonprevclick" text="Prev">
                <font>
                   <Font name="David" size="12.0" />
                </font></Button>

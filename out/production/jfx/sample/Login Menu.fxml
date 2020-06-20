@@ -10,39 +10,49 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginMenuController">
+<VBox maxHeight="485.0" maxWidth="592.0" prefHeight="485.0" prefWidth="592.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginMenuController">
   <children>
-    <AnchorPane maxHeight="0.0" maxWidth="0.0" prefHeight="0.0" prefWidth="0.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="576.0" maxWidth="5504.0" prefHeight="486.0" prefWidth="587.0" VBox.vgrow="ALWAYS">
       <children>
-            <ImageView fx:id="Background" fitHeight="450.0" fitWidth="760.0" layoutX="-8.0" layoutY="2.0" preserveRatio="true">
+            <ImageView fitHeight="485.0" fitWidth="592.0" layoutX="-2.0" pickOnBounds="true">
                <image>
-                  <Image url="https://library.kissclipart.com/20180830/yie/kissclipart-school-background-clipart-desktop-wallpaper-school-d801f7802bd04027.jpg" />
+                  <Image url="https://previews.123rf.com/images/ghenadie/ghenadie1608/ghenadie160800003/61063643-blank-background-with-school-items-education-workplace-accessories-vector-illustration.jpg" />
                </image>
             </ImageView>
-            <TextField fx:id="textuser" layoutX="294.0" layoutY="173.0" promptText="username">
-               <font>
-                  <Font name="Times New Roman" size="14.0" />
-               </font></TextField>
-            <Button fx:id="buttonlogin" layoutX="293.0" layoutY="269.0" mnemonicParsing="false" onAction="#buttonloginclick" prefHeight="26.0" prefWidth="177.0" style="-fx-background-color: royalblue;" text="Login" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Times New Roman" size="12.0" />
-               </font></Button>
-            <Text fx:id="texttitle" fill="#4169e1fa" layoutX="299.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" wrappingWidth="166.58636474609375">
+            <AnchorPane layoutX="209.0" layoutY="174.0" prefHeight="208.0" prefWidth="235.0" style="-fx-background-color: white;">
+               <children>
+                  <PasswordField fx:id="textpass" layoutX="44.0" layoutY="111.0" promptText="password">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </PasswordField>
+                  <TextField fx:id="textuser" layoutX="44.0" layoutY="64.0" promptText="username">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </TextField>
+                  <Text layoutX="-53.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="89.19622802734375">
+                     <font>
+                        <Font name="Freestyle Script" size="30.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="buttonlogin" layoutX="14.0" layoutY="181.0" mnemonicParsing="false" onAction="#buttonloginclick" prefHeight="26.0" prefWidth="177.0" style="-fx-background-color: royalblue;" text="Login" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                  </Button>
+                  <Text layoutX="-49.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:">
+                     <font>
+                        <Font name="Freestyle Script" size="31.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <Text fx:id="texttitle" fill="#4169e1fa" layoutX="235.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" wrappingWidth="166.58636474609375">
                <font>
                   <Font name="Freestyle Script" size="68.0" />
-               </font></Text>
-            <Text layoutX="184.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="89.19622802734375">
-               <font>
-                  <Font name="Freestyle Script" size="30.0" />
-               </font></Text>
-            <Text layoutX="184.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:">
-               <font>
-                  <Font name="Freestyle Script" size="31.0" />
-               </font></Text>
-            <PasswordField fx:id="textpass" layoutX="294.0" layoutY="214.0" promptText="password">
-               <font>
-                  <Font name="Times New Roman" size="14.0" />
-               </font></PasswordField>
+               </font>
+            </Text>
       </children>
     </AnchorPane>
   </children>
