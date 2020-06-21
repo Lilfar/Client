@@ -1,8 +1,5 @@
 package sample;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +7,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class StudentExamFirstPageController {
 
@@ -28,12 +29,10 @@ public class StudentExamFirstPageController {
         Parent newRoot = FXMLLoader.load(getClass().getResource("Student Computer Exam.fxml"));
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
-
     }
 
     @FXML
     void initialize() {
         assert buttonstart != null : "fx:id=\"buttonstart\" was not injected: check your FXML file 'Student Exam First Page.fxml'.";
-
     }
 }

@@ -16,8 +16,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
 public class LoginMenuController {
+
     @FXML
     private ResourceBundle resources;
 
@@ -47,27 +47,12 @@ public class LoginMenuController {
         assert buttonlogin != null : "fx:id=\"buttonlogin\" was not injected: check your FXML file 'Login Menu.fxml'.";
         assert texttitle != null : "fx:id=\"texttitle\" was not injected: check your FXML file 'Login Menu.fxml'.";
         assert textpass != null : "fx:id=\"textpass\" was not injected: check your FXML file 'Login Menu.fxml'.";
-
     }
 
     @FXML
     void buttonloginclick(ActionEvent event) throws IOException {
 
-        String username, password;
-        username = textuser.getText();
-        password = textpass.getText();
-
-
-        if (!username.isBlank() && !password.isBlank()) {
-
-            if (username.equals("janan") || username.equals("Janan")) {
-                System.out.println("Ana jennu lhabla hehee2");
-                StudentMainController.username = "Janan";
-            } else if (username.equals("jacob"))
-                System.out.println("111");
-            else
-                System.out.println("Welcome habebe");
-
+        if (!textuser.getText().isBlank() && !textpass.getText().isBlank()) {
 
             String s;
             int type = 3;
@@ -88,7 +73,6 @@ public class LoginMenuController {
                 default:
                     s = "Login Fail Popup.fxml";
                     break;
-
             }
 
             if (s == "Login Fail Popup.fxml") {

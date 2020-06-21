@@ -43,7 +43,6 @@ public class StudentTakeExamController {
 
         boolean type = false;
 
-
         if (!textcode.getText().isBlank())
         {
             Stage stage = (Stage)buttongo.getScene().getWindow();
@@ -54,7 +53,6 @@ public class StudentTakeExamController {
                 newRoot = FXMLLoader.load(getClass().getResource("Student Manual Exam.fxml"));
             }
             else
-
             {
                 newRoot = FXMLLoader.load(getClass().getResource("Student Exam First Page.fxml"));
             }

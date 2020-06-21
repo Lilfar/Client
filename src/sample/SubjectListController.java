@@ -82,23 +82,11 @@ public class SubjectListController implements Initializable  {
                             newRoot = FXMLLoader.load(getClass().getResource("Principal Make Report.fxml"));
                             break;
                         default:
-                            if (subjectslist.getSelectionModel().getSelectedItem().getSubject()=="Handasat tu5na"){
-                                newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
-                                System.out.println("Welcome");
-                            }
-                            else
-                            {
-                                newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
-                                System.out.println("welcome 32bsh3 course");
-                            }
+                            newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
                             break;
                     }
-
                     Scene scene = new Scene(newRoot);
                     stage.setScene(scene);
-
-
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -118,7 +106,6 @@ public class SubjectListController implements Initializable  {
             buttonback.setText("Logout");
         }
     }
-
 
     public void buttonbackclick(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage)buttonback.getScene().getWindow();

@@ -14,7 +14,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class StudentMainController {
-    static String username=null;
 
     @FXML
     private ResourceBundle resources;
@@ -63,9 +62,6 @@ public class StudentMainController {
     @FXML
     void initialize() {
 
-        if (username!=null){
-            texthellostudent.setText("Hello Beautiful!");
-        }
         assert buttonviewgrades != null : "fx:id=\"buttonviewgrades\" was not injected: check your FXML file 'Student Main.fxml'.";
         assert buttontakeexam != null : "fx:id=\"buttontakeexam\" was not injected: check your FXML file 'Student Main.fxml'.";
         assert buttonlogout != null : "fx:id=\"buttonlogout\" was not injected: check your FXML file 'Student Main.fxml'.";
