@@ -13,6 +13,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -28,6 +29,8 @@ public class TeacherCreateExamController implements Initializable {
     @FXML
     private URL location;
 
+    @FXML
+    private ImageView Background;
     @FXML
     private TableView<Question> QuestionsTableSubject;
 
@@ -170,6 +173,7 @@ public class TeacherCreateExamController implements Initializable {
 
     @FXML
     void initialize() {
+        assert Background !=null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
         assert QuestionsTableSubject != null : "fx:id=\"QuestionsTableSubject\" was not injected: check your FXML file 'Teacher Create Exam.fxml'.";
         assert Question != null : "fx:id=\"Question\" was not injected: check your FXML file 'Teacher Create Exam.fxml'.";
         assert RightAnswer != null : "fx:id=\"RightAnswer\" was not injected: check your FXML file 'Teacher Create Exam.fxml'.";

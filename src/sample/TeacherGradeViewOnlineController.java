@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,6 +26,9 @@ public class TeacherGradeViewOnlineController {
 
     @FXML
     private URL location;
+
+    @FXML
+    private ImageView Background;
 
     @FXML
     private TextArea Grade;
@@ -86,6 +90,8 @@ public class TeacherGradeViewOnlineController {
 
     @FXML
     void initialize() {
+        assert Background !=null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
+
         assert Grade != null : "fx:id=\"Grade\" was not injected: check your FXML file 'Teacher Grade View Online.fxml'.";
         assert buttonchangegrade != null : "fx:id=\"buttonchangegrade\" was not injected: check your FXML file 'Teacher Grade View Online.fxml'.";
         assert QuestionsTableSubject != null : "fx:id=\"QuestionsTableSubject\" was not injected: check your FXML file 'Teacher Grade View Online.fxml'.";

@@ -3,11 +3,18 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="438.0" prefWidth="349.0" style="-fx-background-color: khaki;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherCoursesListController">
    <children>
+       <ImageView fitHeight="465.0" fitWidth="617.0" layoutX="-136.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+           <image>
+               <Image url="https://image.freepik.com/free-photo/colorful-watercolor-pencils-white-background-school-supplies_105517-581.jpg" />
+           </image>
+       </ImageView>
       <TableView fx:id="courselist" layoutX="57.0" layoutY="39.0" prefHeight="323.0" prefWidth="218.0">
         <columns>
           <TableColumn fx:id="courses" prefWidth="217.5999740600586" text="Courses list" />

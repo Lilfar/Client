@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,7 +19,8 @@ public class TeacherQuestionEditController {
 
     @FXML
     private ResourceBundle resources;
-
+    @FXML
+    private ImageView Background;
     @FXML
     private URL location;
 
@@ -90,6 +92,7 @@ public class TeacherQuestionEditController {
 
     @FXML
     void initialize() {
+        assert Background !=null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
         assert Question != null : "fx:id=\"Question\" was not injected: check your FXML file 'Teacher Question Edit.fxml'.";
         assert RightAnswer != null : "fx:id=\"RightAnswer\" was not injected: check your FXML file 'Teacher Question Edit.fxml'.";
         assert WrongAnswer1 != null : "fx:id=\"WrongAnswer1\" was not injected: check your FXML file 'Teacher Question Edit.fxml'.";

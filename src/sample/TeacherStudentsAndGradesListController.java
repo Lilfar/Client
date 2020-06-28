@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,7 +26,8 @@ public class TeacherStudentsAndGradesListController implements Initializable {
 
     @FXML
     private ResourceBundle resources;
-
+    @FXML
+    private ImageView Background;
     @FXML
     private URL location;
 
@@ -126,6 +128,8 @@ public class TeacherStudentsAndGradesListController implements Initializable {
 
     @FXML
     void initialize() {
+        assert Background !=null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
+
         assert Students != null : "fx:id=\"ExamsTable\" was not injected: check your FXML file 'Teacher Subject Finished Exams List.fxml'.";
 
         }

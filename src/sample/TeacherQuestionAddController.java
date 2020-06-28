@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -40,6 +41,9 @@ public class TeacherQuestionAddController {
 
     @FXML
     private Button buttonadd;
+
+    @FXML
+    private ImageView Background;
 
     @FXML
     void buttonaddclick(ActionEvent event) throws IOException {
@@ -95,6 +99,7 @@ public class TeacherQuestionAddController {
 
     @FXML
     void initialize() {
+        assert Background !=null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
         assert NewQuestion != null : "fx:id=\"NewQuestion\" was not injected: check your FXML file 'Teacher Question Add.fxml'.";
         assert textrightanswer != null : "fx:id=\"textrightanswer\" was not injected: check your FXML file 'Teacher Question Add.fxml'.";
         assert textwronganswer1 != null : "fx:id=\"textwronganswer1\" was not injected: check your FXML file 'Teacher Question Add.fxml'.";

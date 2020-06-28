@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class TeacherSubjectFinishedExamStudentsListController {
@@ -19,7 +20,8 @@ public class TeacherSubjectFinishedExamStudentsListController {
 
     @FXML
     private URL location;
-
+    @FXML
+    private ImageView Background;
     @FXML
     private TableColumn<?, ?> ExamsTable;
 
@@ -37,6 +39,8 @@ public class TeacherSubjectFinishedExamStudentsListController {
 
     @FXML
     void initialize() {
+        assert Background !=null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
+
         assert ExamsTable != null : "fx:id=\"ExamsTable\" was not injected: check your FXML file 'Teacher Subject Finished Exam Students List.fxml'.";
         assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Teacher Subject Finished Exam Students List.fxml'.";
 
