@@ -6,8 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Background;
 import javafx.stage.Stage;
 
+import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,6 +21,9 @@ public class StudentExamFirstPageController {
 
     @FXML
     private URL location;
+
+    @FXML
+    private ImageView Background;
 
     @FXML
     private Button buttonstart;
@@ -33,6 +38,7 @@ public class StudentExamFirstPageController {
 
     @FXML
     void initialize() {
+        assert Background !=null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
         assert buttonstart != null : "fx:id=\"buttonstart\" was not injected: check your FXML file 'Student Exam First Page.fxml'.";
     }
 }

@@ -3,10 +3,17 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PrincipalQuestionsController">
    <children>
+      <ImageView fitHeight="631.0" fitWidth="788.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="https://image.freepik.com/free-photo/colorful-watercolor-pencils-white-background-school-supplies_105517-581.jpg" />
+      </image>
+      </ImageView>
       <TableView fx:id="questionstable" layoutX="30.0" layoutY="14.0" prefHeight="500.0" prefWidth="680.0">
          <columns>
             <TableColumn id="Question" fx:id="Question" prefWidth="200.0" text="Question" />

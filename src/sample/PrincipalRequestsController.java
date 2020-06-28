@@ -14,6 +14,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+
+import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,6 +27,9 @@ public class PrincipalRequestsController implements Initializable {
 
     @FXML
     private ResourceBundle resources;
+
+    @FXML
+    private ImageView Background;
 
     @FXML
     private URL location;
@@ -174,6 +179,7 @@ public class PrincipalRequestsController implements Initializable {
 
     @FXML
     void initialize() {
+        assert Background !=null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
         assert RequestsTable != null : "fx:id=\"RequestsTable\" was not injected: check your FXML file 'Principal Requests.fxml'.";
         assert teachername != null : "fx:id=\"teachername\" was not injected: check your FXML file 'Principal Requests.fxml'.";
         assert coursename != null : "fx:id=\"coursename\" was not injected: check your FXML file 'Principal Requests.fxml'.";

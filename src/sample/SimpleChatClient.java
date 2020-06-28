@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.logging.Logger;
+import sample.AbstractClient;
 public class SimpleChatClient extends AbstractClient {
 	private static final Logger LOGGER =
 			Logger.getLogger(SimpleChatClient.class.getName());

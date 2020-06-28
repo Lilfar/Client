@@ -12,11 +12,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import sample.AbstractClient;
 
 public class SubjectListController implements Initializable  {
 
@@ -26,6 +28,9 @@ public class SubjectListController implements Initializable  {
 
     @FXML
     private URL location;
+
+    @FXML
+    private ImageView Background;
 
     @FXML
     private TableView<Subject> subjectslist;
@@ -134,6 +139,7 @@ public class SubjectListController implements Initializable  {
 
     @FXML
     void initialize() {
+        assert Background !=null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
         assert subjectslist != null : "fx:id=\"subjectslist\" was not injected: check your FXML file 'Subject List.fxml'.";
         assert subjects != null : "fx:id=\"subjects\" was not injected: check your FXML file 'Subject List.fxml'.";
         assert buttonback != null : "fx:id=\"buttonlogout\" was not injected: check your FXML file 'Subject List.fxml'.";

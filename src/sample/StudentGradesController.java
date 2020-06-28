@@ -14,6 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,10 +23,12 @@ public class StudentGradesController implements Initializable {
 
     boolean itemselected = false;
     static int from = 0;
-
+    SimpleChatClient client=null;
     @FXML
     private ResourceBundle resources;
 
+    @FXML
+    private ImageView Background;
     @FXML
     private URL location;
 
@@ -65,6 +68,7 @@ public class StudentGradesController implements Initializable {
         public String getExamgrade(){
             return examgrade;
         }
+
 
     }
 
@@ -155,6 +159,7 @@ public class StudentGradesController implements Initializable {
     }
     @FXML
     void initialize() {
+        assert Background !=null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
         assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Student Grades.fxml'.";
 
     }

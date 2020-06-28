@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,6 +21,9 @@ public class PrincipalQuestionsController {
 
     @FXML
     private ResourceBundle resources;
+
+    @FXML
+    private ImageView Background;
 
     @FXML
     private URL location;
@@ -67,6 +71,7 @@ public class PrincipalQuestionsController {
 
     @FXML
     void initialize() {
+        assert Background != null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
         assert questionstable != null : "fx:id=\"questionstable\" was not injected: check your FXML file 'Principal Questions.fxml'.";
         assert Question != null : "fx:id=\"Question\" was not injected: check your FXML file 'Principal Questions.fxml'.";
         assert RightAnswer != null : "fx:id=\"RightAnswer\" was not injected: check your FXML file 'Principal Questions.fxml'.";

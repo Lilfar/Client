@@ -2,16 +2,23 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PrincipalReportController">
    <children>
-      <Text layoutX="82.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Average:" />
-      <Text layoutX="71.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Median:" />
-      <Text layoutX="94.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="hetpalgot 3esronet:" />
-      <TextField fx:id="textaverage" layoutX="146.0" layoutY="59.0" />
-      <TextField fx:id="texmedian" layoutX="151.0" layoutY="122.0" />
-      <Button fx:id="buttonclose" layoutX="248.0" layoutY="280.0" mnemonicParsing="false" onAction="#buttoncloseclick" text="Close" />
+      <ImageView fitHeight="548.0" fitWidth="887.0" layoutX="-143.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="https://cms-assets.tutsplus.com/uploads/users/115/posts/32815/final_image/diana_report_icons_QT_image_final-min.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="159.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Average:" />
+      <Text layoutX="161.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Median:" />
+      <Text layoutX="122.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="hetpalgot 3esronet:" />
+      <TextField fx:id="textaverage" layoutX="226.0" layoutY="74.0" />
+      <TextField fx:id="texmedian" layoutX="226.0" layoutY="120.0" />
+      <Button fx:id="buttonclose" layoutX="278.0" layoutY="351.0" mnemonicParsing="false" onAction="#buttoncloseclick" text="Close" />
    </children>
 </AnchorPane>

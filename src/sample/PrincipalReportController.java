@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,6 +22,8 @@ public class PrincipalReportController {
     @FXML
     private URL location;
 
+    @FXML
+    private ImageView Background;
     @FXML
     private TextField textaverage;
 
@@ -40,6 +43,8 @@ public class PrincipalReportController {
 
     @FXML
     void initialize() {
+        assert Background != null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
+
         assert textaverage != null : "fx:id=\"textaverage\" was not injected: check your FXML file 'Principal Report.fxml'.";
         assert texmedian != null : "fx:id=\"texmedian\" was not injected: check your FXML file 'Principal Report.fxml'.";
         assert buttonclose != null : "fx:id=\"buttonclose\" was not injected: check your FXML file 'Principal Report.fxml'.";

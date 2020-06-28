@@ -64,11 +64,23 @@ public class TeacherCoursesListController implements Initializable {
 
         courselist.setOnMouseClicked( event -> {
             if( event.getClickCount() == 2 ) {
+                Stage stage = (Stage)buttonback.getScene().getWindow();
                 try {
-                        Stage stage = (Stage)buttonback.getScene().getWindow();
+
+                    if (courselist.getSelectionModel().getSelectedItem().getCourse()=="course1"){
                         Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Course Main.fxml"));
+                        System.out.println("Welcome to course1!");
                         Scene scene = new Scene(newRoot);
                         stage.setScene(scene);
+                    }
+                    else
+                    {
+                        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Course Main.fxml"));
+                        System.out.println("Welcome to stam kors2!");
+                        Scene scene = new Scene(newRoot);
+                        stage.setScene(scene);
+                    }
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -77,9 +89,14 @@ public class TeacherCoursesListController implements Initializable {
         final ObservableList<Course> data = FXCollections.observableArrayList(c1,c2);
         courses.setCellValueFactory(new PropertyValueFactory<Course, String>("course"));
         courselist.setItems(data);
+
+
     }
     @FXML
     void initialize() {
         assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Teacher Courses List.fxml'.";
+
     }
+
+
 }

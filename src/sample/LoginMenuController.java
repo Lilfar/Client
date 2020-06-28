@@ -55,7 +55,7 @@ public class LoginMenuController {
         if (!textuser.getText().isBlank() && !textpass.getText().isBlank()) {
 
             String s;
-            int type = 3;
+            int type = 1;
             switch (type) {
 
                 case 1:

@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,6 +21,9 @@ public class StudentManualExamController {
 
     @FXML
     private ResourceBundle resources;
+
+    @FXML
+    private ImageView Background;
 
     @FXML
     private URL location;
@@ -116,6 +120,7 @@ public class StudentManualExamController {
 
     @FXML
     void initialize() {
+        assert Background !=null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
         assert buttondownloadexam != null : "fx:id=\"buttondownloadexam\" was not injected: check your FXML file 'Student Manual Exam.fxml'.";
         assert buttonuploadexam != null : "fx:id=\"buttonuploadexam\" was not injected: check your FXML file 'Student Manual Exam.fxml'.";
         assert buttondone != null : "fx:id=\"buttondone\" was not injected: check your FXML file 'Student Manual Exam.fxml'.";
