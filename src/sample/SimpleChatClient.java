@@ -13,6 +13,14 @@ public class SimpleChatClient extends AbstractClient {
 		super(host, port);
 		this.chatClientCLI = new Client(this);
 	}
+
+	private StringFunction sf = new StringFunction() {
+		@Override
+		public void handle(String s) {
+			System.out.println(s);
+		}
+	};
+
 	@Override
 	protected void connectionEstablished() {
 		// TODO Auto-generated method stub
@@ -25,7 +33,16 @@ public class SimpleChatClient extends AbstractClient {
 	}
 	@Override
 	protected void handleMessageFromServer(Object msg) {
+		sf.handle(msg.toString());
+	}
 
+	public void send(String json, StringFunction handler) {
+		sf = handler;
+		try {
+			sendToServer(json);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -39,7 +56,7 @@ public class SimpleChatClient extends AbstractClient {
 		if (args.length != 2) {
 			System.out.println("Required arguments: <host> <port>");
 			String host="localhost";
-			String port="3000";
+			String port="1000";
 			SimpleChatClient chatClient = new SimpleChatClient(host, Integer.parseInt(port));
 			chatClient.openConnection();
 		} else {
