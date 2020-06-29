@@ -55,7 +55,7 @@ public class SimpleChatClient extends AbstractClient {
 	public static void main(String[] args) throws IOException {
 		if (args.length != 2) {
 			System.out.println("Required arguments: <host> <port>");
-			String host="localhost";
+			String host="192.168.1.24";
 			String port="1000";
 			SimpleChatClient chatClient = new SimpleChatClient(host, Integer.parseInt(port));
 			chatClient.openConnection();

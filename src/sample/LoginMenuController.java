@@ -53,7 +53,7 @@ public class LoginMenuController {
     void buttonloginclick(ActionEvent event) throws IOException {
 
         if (!textuser.getText().isBlank() && !textpass.getText().isBlank()) {
-
+            Main.client.send();
             String s;
             int type = 1;
             switch (type) {
