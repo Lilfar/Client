@@ -4,8 +4,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.logging.Logger;
+
+import javafx.application.Platform;
 import sample.AbstractClient;
+import sample.clientClasses.*;
+import com.google.gson.Gson;
 public class SimpleChatClient extends AbstractClient {
+	public static Gson gson = new Gson();
 	private static final Logger LOGGER =
 			Logger.getLogger(SimpleChatClient.class.getName());
 	private Client chatClientCLI;
@@ -33,13 +38,18 @@ public class SimpleChatClient extends AbstractClient {
 	}
 	@Override
 	protected void handleMessageFromServer(Object msg) {
-		sf.handle(msg.toString());
+		Platform.runLater(new Runnable() {
+			@Override
+			public void run() {
+				sf.handle(msg.toString());
+			}
+		});
 	}
 
-	public void send(String json, StringFunction handler) {
+	public void send(clientAccess ca, StringFunction handler) {
 		sf = handler;
 		try {
-			sendToServer(json);
+			sendToServer(gson.toJson(ca));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

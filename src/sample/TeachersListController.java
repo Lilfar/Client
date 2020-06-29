@@ -17,7 +17,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import sample.clientClasses.*;
 
 public class TeachersListController implements Initializable {
 
@@ -30,30 +33,13 @@ public class TeachersListController implements Initializable {
     private URL location;
 
     @FXML
-    private TableView<Teacher> teacherslist;
+    private TableView<clientUser> teacherslist;
 
     @FXML
-    private TableColumn<Teacher, String> teachers;
+    private TableColumn<clientUser, String> teachers;
 
     @FXML
     private Button buttonback;
-
-    public class Teacher{
-        public String teacher;
-
-        Teacher(String teacher){
-            this.teacher=teacher;
-        }
-        public String getTeacher(){
-            return teacher;
-        }
-    }
-
-    Teacher t1 = new Teacher("ldod loay");
-    Teacher t2 = new Teacher("Noga l7ywane");
-    Teacher t3 = new Teacher("Hagit l5tyara");
-    Teacher t4 = new Teacher("eeris l...");
-    Teacher t5 = new Teacher("tsveka");
 
     @FXML
     void buttonbackclick(ActionEvent event) throws IOException {
@@ -118,10 +104,19 @@ public class TeachersListController implements Initializable {
                     e.printStackTrace();
                 }
             }});
+        clientAccess ca= new clientAccess();
+        ca.op=Operation.teacherList;
+        Main.client.send(ca, new StringFunction() {
+            @Override
+            public void handle(String s) {
+                clientUser[] teacherList;
+                teacherList = Main.g.fromJson(s, clientUser[].class);
+                final ObservableList<clientUser> data = FXCollections.observableArrayList(teacherList);
+                teachers.setCellValueFactory(new PropertyValueFactory<clientUser, String>("name"));
+                teacherslist.setItems(data);
+            }
+        });
 
-        final ObservableList<Teacher> data = FXCollections.observableArrayList(t1,t2,t3,t4,t5);
-        teachers.setCellValueFactory(new PropertyValueFactory<Teacher, String>("teacher"));
-        teacherslist.setItems(data);
     }
 
     @FXML
