@@ -14,7 +14,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PrincipalGradesMenuController {
-
+    static public int subjectId;
+    static public String teacherId;
+    static public String studentId;
     @FXML
     private ResourceBundle resources;
 

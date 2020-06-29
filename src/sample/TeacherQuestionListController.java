@@ -18,9 +18,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import sample.clientClasses.*;
 
 public class TeacherQuestionListController implements Initializable{
-
+    static public int subjectId;
 
     boolean itemselected = false;
 
@@ -34,22 +35,22 @@ public class TeacherQuestionListController implements Initializable{
     private URL location;
 
     @FXML
-    private TableView<Person> QuestionsTable;
+    private TableView<clientQuestion> QuestionsTable;
 
     @FXML
-    private TableColumn<Person, String> Question;
+    private TableColumn<clientQuestion, String> Question;
 
     @FXML
-    private TableColumn<Person, String> RightAnswer;
+    private TableColumn<clientQuestion, String> RightAnswer;
 
     @FXML
-    private TableColumn<Person, String> WrongAnswer1;
+    private TableColumn<clientQuestion, String> WrongAnswer1;
 
     @FXML
-    private TableColumn<Person, String> WrongAnswer2;
+    private TableColumn<clientQuestion, String> WrongAnswer2;
 
     @FXML
-    private TableColumn<Person, String> WrongAnswer3;
+    private TableColumn<clientQuestion, String> WrongAnswer3;
 
     @FXML
     private Button buttonaddquestion;
@@ -62,60 +63,27 @@ public class TeacherQuestionListController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
 
 
-        QuestionsTable.setOnMousePressed(e ->{
-            if (e.getClickCount() == 1 && e.isPrimaryButtonDown() ){
-                itemselected=true;
+        QuestionsTable.setOnMousePressed(e -> {
+            if (e.getClickCount() == 1 && e.isPrimaryButtonDown()) {
+                itemselected = true;
             }
         });
-
-        final ObservableList<Person> data = FXCollections.observableArrayList(new Person("qq", "aa", "asda", "sfasd", "asdfsa"));
-
-        Question.setCellValueFactory(new PropertyValueFactory<Person, String>("q"));
-        RightAnswer.setCellValueFactory(new PropertyValueFactory<Person, String>("a1"));
-        WrongAnswer1.setCellValueFactory(new PropertyValueFactory<Person, String>("a2"));
-        WrongAnswer2.setCellValueFactory(new PropertyValueFactory<Person, String>("a3"));
-        WrongAnswer3.setCellValueFactory(new PropertyValueFactory<Person, String>("a4"));
-
-        QuestionsTable.setItems(data);
-
-    }
-    public class Person {
-
-        public String q;
-        public String a1;
-        public String a2;
-        public String a3;
-        public String a4;
-
-
-        Person(String q, String a1, String a2, String a3, String a4) {
-
-            this.q = q;
-            this.a1 = a1;
-            this.a2 = a2;
-            this.a3 = a3;
-            this.a4 = a4;
-        }
-
-        public String getQ() {
-            return q;
-        }
-
-        public String getA1() {
-            return a1;
-        }
-
-        public String getA2() {
-            return a2;
-        }
-
-        public String getA3() {
-            return a3;
-        }
-
-        public String getA4() {
-            return a4;
-        }
+        clientAccess ca=new clientAccess();
+        ca.op=Operation.questionList;
+        ca.subjectID=subjectId;
+        Main.client.send(ca, new StringFunction() {
+            @Override
+            public void handle(String s) {
+                final clientQuestion[] questionList = Main.g.fromJson(s, clientQuestion[].class);
+                final ObservableList<clientQuestion> data = FXCollections.observableArrayList(questionList);
+                Question.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("question"));
+                RightAnswer.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("right"));
+                WrongAnswer1.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong1"));
+                WrongAnswer2.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong2"));
+                WrongAnswer3.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong3"));
+                QuestionsTable.setItems(data);
+            }
+        });
     }
 
     @FXML

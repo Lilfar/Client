@@ -18,7 +18,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import sample.AbstractClient;
+
+import sample.clientClasses.*;
 
 public class SubjectListController implements Initializable  {
 
@@ -33,35 +34,18 @@ public class SubjectListController implements Initializable  {
     private ImageView Background;
 
     @FXML
-    private TableView<Subject> subjectslist;
+    private TableView<clientSubject> subjectslist;
 
     @FXML
-    private TableColumn<Subject, String> subjects;
+    private TableColumn<clientSubject, String> subjects;
 
     @FXML
     private Button buttonback;
 
-    public class Subject
-    {
-        public String subject;
-
-        Subject(String subject)
-        {
-            this.subject=subject;
-        }
-
-        public String getSubject(){
-            return subject;
-        }
-
-    }
-
-    Subject s1 = new Subject("Handasat tu5na");
-    Subject s2 = new Subject("mvni netonem");
-
+    static public int subjectId;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        clientAccess ca= new clientAccess();
         subjectslist.setOnMouseClicked( event -> {
             if( event.getClickCount() == 2 ) {
                 try {
@@ -72,21 +56,26 @@ public class SubjectListController implements Initializable  {
                     {
                         case 31:
                             PrincipalQuestionsController.from=31;
+                            PrincipalQuestionsController.subjectId=subjectslist.getSelectionModel().getSelectedItem().id;
                             newRoot = FXMLLoader.load(getClass().getResource("Principal Questions.fxml"));
                             break;
                         case 32:
                             PrincipalExamsController.from=31;
+                            PrincipalExamsController.subjectId=subjectslist.getSelectionModel().getSelectedItem().id;
                             newRoot = FXMLLoader.load(getClass().getResource("Principal Exams.fxml"));
                             break;
                         case 33:
                             StudentsListController.from=31;
+                            StudentsListController.subjectId=subjectslist.getSelectionModel().getSelectedItem().id;
                             newRoot = FXMLLoader.load(getClass().getResource("Students List.fxml"));
                             break;
                         case 34:
                             PrincipalMakeReportController.from=31;
+                            PrincipalMakeReportController.subjectId=subjectslist.getSelectionModel().getSelectedItem().id;
                             newRoot = FXMLLoader.load(getClass().getResource("Principal Make Report.fxml"));
                             break;
                         default:
+                            TeacherSubjectMainController.subjectId=subjectslist.getSelectionModel().getSelectedItem().id;
                             newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
                             break;
                     }
@@ -96,10 +85,16 @@ public class SubjectListController implements Initializable  {
                     e.printStackTrace();
                 }
             }});
-
-            final ObservableList<Subject> data = FXCollections.observableArrayList(s1,s2);
-            subjects.setCellValueFactory(new PropertyValueFactory<Subject, String>("subject"));
-            subjectslist.setItems(data);
+        ca.op= Operation.subjectList;
+        Main.client.send(ca, new StringFunction() {
+            @Override
+            public void handle(String s) {
+                final clientSubject[] subjectList = Main.g.fromJson(s, clientSubject[].class);
+                final ObservableList<clientSubject> data = FXCollections.observableArrayList(subjectList);
+                subjects.setCellValueFactory(new PropertyValueFactory<clientSubject, String>("name"));
+                subjectslist.setItems(data);
+            }
+        });
 
         if (from==31 || from==32 || from==33 || from == 34)
         {

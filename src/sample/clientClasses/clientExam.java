@@ -7,7 +7,7 @@ public class clientExam {
     public String teacher;
     public int id;
     public ArrayList<Integer> questionIds = new ArrayList<Integer>();
-
+    public String subjectName;
     public int online;
 
     public clientExam(int id, String teacher) {
@@ -18,4 +18,51 @@ public class clientExam {
     public clientExam() {
     }
 
+    public ArrayList<clientQuestion> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(ArrayList<clientQuestion> questions) {
+        this.questions = questions;
+    }
+
+    public String getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public ArrayList<Integer> getQuestionIds() {
+        return questionIds;
+    }
+
+    public void setQuestionIds(ArrayList<Integer> questionIds) {
+        this.questionIds = questionIds;
+    }
+
+    public String getSubjectName() {
+        return subjectName;
+    }
+
+    public void setSubjectName(String subject) {
+        this.subjectName = subject;
+    }
+
+    public int getOnline() {
+        return online;
+    }
+
+    public void setOnline(int online) {
+        this.online = online;
+    }
 }

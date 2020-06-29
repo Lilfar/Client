@@ -17,7 +17,7 @@
       <TableView fx:id="examstable" layoutX="181.0" layoutY="23.0" prefHeight="354.0" prefWidth="238.0">
          <columns>
             <TableColumn fx:id="exams" prefWidth="115.20001220703125" text="Exam" />
-            <TableColumn fx:id="dates" prefWidth="122.4000244140625" text="Date" />
+            <TableColumn fx:id="id" prefWidth="122.4000244140625" text="Id" />
          </columns>
       </TableView>
       <Button fx:id="buttonback" layoutX="29.0" layoutY="352.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />

@@ -21,7 +21,9 @@ import java.util.ResourceBundle;
 public class PrincipalMakeReportController implements Initializable {
 
     static int from=0;
-
+    static public int subjectId;
+    static public String teacherId;
+    static public String studentid;
     @FXML
     private ResourceBundle resources;
 

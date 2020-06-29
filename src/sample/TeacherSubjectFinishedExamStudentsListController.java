@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 public class TeacherSubjectFinishedExamStudentsListController {
 
+    static public int subjectId;
     @FXML
     private ResourceBundle resources;
 

@@ -80,18 +80,22 @@ public class TeachersListController implements Initializable {
                     {
                         case 31:
                             PrincipalQuestionsController.from=32;
+                            PrincipalQuestionsController.teacherId=teacherslist.getSelectionModel().getSelectedItem().id;
                             newRoot = FXMLLoader.load(getClass().getResource("Principal Questions.fxml"));
                             break;
                         case 32:
                             PrincipalExamsController.from=32;
+                            PrincipalExamsController.teacherId=teacherslist.getSelectionModel().getSelectedItem().id;
                             newRoot = FXMLLoader.load(getClass().getResource("Principal Exams.fxml"));
                             break;
                         case 33:
                             StudentsListController.from=32;
+                            StudentsListController.teacherId=teacherslist.getSelectionModel().getSelectedItem().id;
                             newRoot = FXMLLoader.load(getClass().getResource("Students List.fxml"));
                             break;
                         case 34:
                             PrincipalMakeReportController.from=32;
+                            PrincipalMakeReportController.teacherId=teacherslist.getSelectionModel().getSelectedItem().id;
                             newRoot = FXMLLoader.load(getClass().getResource("Principal Make Report.fxml"));
                             break;
                         default:

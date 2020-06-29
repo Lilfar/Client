@@ -14,17 +14,18 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import sample.clientClasses.Operation;
-import sample.clientClasses.clientAccess;
 import sample.clientClasses.clientUser;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import sample.clientClasses.*;
 
 public class StudentsListController implements Initializable {
 
     static int from=0;
+    static public int subjectId;
+    static public String teacherId;
 
     @FXML
     private ResourceBundle resources;
@@ -95,6 +96,7 @@ public class StudentsListController implements Initializable {
                             break;
                         case 34:
                             PrincipalMakeReportController.from=33;
+                            PrincipalMakeReportController.studentid=studentslist.getSelectionModel().getSelectedItem().id;
                             newRoot = FXMLLoader.load(getClass().getResource("Principal Make Report.fxml"));
                             break;
                         default:
@@ -110,12 +112,9 @@ public class StudentsListController implements Initializable {
             }});
         clientAccess ca= new clientAccess();
         ca.op= Operation.studentList;
-
-        System.out.println("hee");
         Main.client.send(ca, new StringFunction() {
             @Override
             public void handle(String s) {
-                System.out.println("hoho" + s);
                 final clientUser[] studentList = Main.g.fromJson(s, clientUser[].class);
                 final ObservableList<clientUser> data = FXCollections.observableArrayList(studentList);
                 students.setCellValueFactory(new PropertyValueFactory<clientUser, String>("name"));

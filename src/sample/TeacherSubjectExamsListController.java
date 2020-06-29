@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TeacherSubjectExamsListController {
-
+    static public int subjectId;
     @FXML
     private ResourceBundle resources;
 

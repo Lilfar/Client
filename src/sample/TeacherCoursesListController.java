@@ -20,7 +20,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TeacherCoursesListController implements Initializable {
-
+    static public int subjectId;
     @FXML
     private ResourceBundle resources;
 

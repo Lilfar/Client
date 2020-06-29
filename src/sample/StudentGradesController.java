@@ -108,7 +108,7 @@ public class StudentGradesController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        clientAccess ca= new clientAccess();
         studentgrades.setOnMousePressed(e ->{
             if (e.getClickCount() == 1 && e.isPrimaryButtonDown() ){
                 itemselected=true;
@@ -121,8 +121,6 @@ public class StudentGradesController implements Initializable {
                 System.out.println(studentgrades.getSelectionModel().getSelectedItem().course.name +" "+
                         studentgrades.getSelectionModel().getSelectedItem().grade);
             }});
-        clientAccess ca= new clientAccess();
-        ca.op=Operation.gradesList;
         ca.studentID=studentid;
         Main.client.send(ca, new StringFunction() {
             @Override
@@ -130,12 +128,11 @@ public class StudentGradesController implements Initializable {
                 clientGrade[] gradesList;
                 gradesList = Main.g.fromJson(s, clientGrade[].class);
                 final ObservableList<clientGrade> data = FXCollections.observableArrayList(gradesList);
-                examname.setCellValueFactory(new PropertyValueFactory<clientGrade, String>("course.name"));
+                examname.setCellValueFactory(new PropertyValueFactory<clientGrade, String>("courseName"));
                 examgrade.setCellValueFactory(new PropertyValueFactory<clientGrade, String>("grade"));
                 studentgrades.setItems(data);
             }
         });
-
     }
     @FXML
     void initialize() {

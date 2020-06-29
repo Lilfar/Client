@@ -2,25 +2,31 @@
 
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import sample.clientClasses.*;
 
-public class PrincipalExamsController {
+public class PrincipalExamsController implements Initializable {
 
     static int from=0;
-
+    static public int subjectId;
+    static public String teacherId;
     @FXML
     private ImageView Background;
 
@@ -31,13 +37,13 @@ public class PrincipalExamsController {
     private URL location;
 
     @FXML
-    private TableView<?> examstable;
+    private TableView<clientExam> examstable;
 
     @FXML
-    private TableColumn<?, ?> exams;
+    private TableColumn<clientExam, String> exams;
 
     @FXML
-    private TableColumn<?, ?> dates;
+    private TableColumn<clientExam, String> id;
 
     @FXML
     private Button buttonback;
@@ -67,8 +73,41 @@ public class PrincipalExamsController {
         assert Background != null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
         assert examstable != null : "fx:id=\"examstable\" was not injected: check your FXML file 'Principal Exams.fxml'.";
         assert exams != null : "fx:id=\"exams\" was not injected: check your FXML file 'Principal Exams.fxml'.";
-        assert dates != null : "fx:id=\"dates\" was not injected: check your FXML file 'Principal Exams.fxml'.";
+        assert id != null : "fx:id=\"id\" was not injected: check your FXML file 'Principal Exams.fxml'.";
         assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Principal Exams.fxml'.";
 
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        clientAccess ca= new clientAccess();
+        switch (from)
+        {
+            case 31:
+                ca.subjectID=this.subjectId;
+                ca.op= Operation.examList;
+                exams.setText("Teacher");
+                break;
+            case 32:
+                ca.teacherID=this.teacherId;
+                ca.op=Operation.examByTeacher;
+                exams.setText("Subject");
+                break;
+        }
+        Main.client.send(ca, new StringFunction() {
+            @Override
+            public void handle(String s) {
+                final clientExam[] questionList = Main.g.fromJson(s, clientExam[].class);
+                final ObservableList<clientExam> data = FXCollections.observableArrayList(questionList);
+                if (from==31)
+                exams.setCellValueFactory(new PropertyValueFactory<clientExam, String>("teacher"));
+                else
+                    exams.setCellValueFactory(new PropertyValueFactory<clientExam, String>("subjectName"));
+                id.setCellValueFactory(new PropertyValueFactory<clientExam, String>("id"));
+                examstable.setItems(data);
+            }
+        });
     }
 }
+

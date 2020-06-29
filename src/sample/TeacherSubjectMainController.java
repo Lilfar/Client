@@ -12,9 +12,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import sample.clientClasses.*;
 
 public class TeacherSubjectMainController {
-
+    clientAccess ca=new clientAccess();
+    static public int subjectId;
     @FXML
     private ResourceBundle resources;
 
@@ -49,14 +51,15 @@ public class TeacherSubjectMainController {
 
     @FXML
     void buttonfinishedexamsclick(ActionEvent event) throws IOException {
-            Stage stage = (Stage)buttonfinishedexams.getScene().getWindow();
+        TeacherSubjectFinishedExamStudentsListController.subjectId=this.subjectId;
+        Stage stage = (Stage)buttonfinishedexams.getScene().getWindow();
             Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Finished Exam Students List.fxml"));
             Scene scene = new Scene(newRoot);
             stage.setScene(scene);
     }
-
     @FXML
     void buttonshowexamsclick(ActionEvent event) throws IOException {
+        TeacherSubjectExamsListController.subjectId=this.subjectId;
         Stage stage = (Stage)buttonshowexams.getScene().getWindow();
         Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Exams List.fxml"));
         Scene scene = new Scene(newRoot);
@@ -65,6 +68,7 @@ public class TeacherSubjectMainController {
 
     @FXML
     void buttonshowquestionsclick(ActionEvent event) throws IOException {
+        TeacherQuestionListController.subjectId=this.subjectId;
         Stage stage = (Stage)buttonshowquestions.getScene().getWindow();
         Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Question List.fxml"));
         Scene scene = new Scene(newRoot);
@@ -73,6 +77,7 @@ public class TeacherSubjectMainController {
 
     @FXML
     void buttonshowcoursesclick(ActionEvent event) throws IOException {
+        TeacherCoursesListController.subjectId=this.subjectId;
         Stage stage = (Stage)buttonshowcourses.getScene().getWindow();
         Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Courses List.fxml"));
         Scene scene = new Scene(newRoot);
