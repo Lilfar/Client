@@ -18,11 +18,13 @@ import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import sample.clientClasses.*;
 
 public class StudentGradesController implements Initializable {
 
     boolean itemselected = false;
     static int from = 0;
+    static public String studentid;
     SimpleChatClient client=null;
     @FXML
     private ResourceBundle resources;
@@ -40,37 +42,14 @@ public class StudentGradesController implements Initializable {
 
 
     @FXML
-    private TableView<Grade> studentgrades;
+    private TableView<clientGrade> studentgrades;
 
     @FXML
-    private TableColumn<Grade, String> examname;
+    private TableColumn<clientGrade, String> examname;
 
     @FXML
-    private TableColumn<Grade, String> examgrade;
+    private TableColumn<clientGrade, String> examgrade;
 
-
-
-    public class Grade{
-
-        public String examname;
-        public String examgrade;
-
-        Grade(String examname, String examgrade)
-        {
-            this.examname=examname;
-            this.examgrade=examgrade;
-        }
-
-        public String getExamname(){
-            return examname;
-        }
-
-        public String getExamgrade(){
-            return examgrade;
-        }
-
-
-    }
 
 
     @FXML
@@ -137,24 +116,25 @@ public class StudentGradesController implements Initializable {
         });
 
 
-        Grade g1 = new Grade("mavo","0");
-        Grade g2 = new Grade("stam kors","51");
-        Grade g3 = new Grade("ana 7mar","X");
-
         studentgrades.setOnMouseClicked( event -> {
             if( event.getClickCount() == 2 ) {
-                System.out.println(studentgrades.getSelectionModel().getSelectedItem().getExamname() +" "+
-                        studentgrades.getSelectionModel().getSelectedItem().getExamgrade());
+                System.out.println(studentgrades.getSelectionModel().getSelectedItem().course.name +" "+
+                        studentgrades.getSelectionModel().getSelectedItem().grade);
             }});
-
-
-        final ObservableList<Grade> data = FXCollections.observableArrayList(g1,g2,g3);
-
-        examname.setCellValueFactory(new PropertyValueFactory<Grade,String>("examname"));
-        examgrade.setCellValueFactory(new PropertyValueFactory<Grade,String>("examgrade"));
-
-        studentgrades.setItems(data);
-
+        clientAccess ca= new clientAccess();
+        ca.op=Operation.gradesList;
+        ca.studentID=studentid;
+        Main.client.send(ca, new StringFunction() {
+            @Override
+            public void handle(String s) {
+                clientGrade[] gradesList;
+                gradesList = Main.g.fromJson(s, clientGrade[].class);
+                final ObservableList<clientGrade> data = FXCollections.observableArrayList(gradesList);
+                examname.setCellValueFactory(new PropertyValueFactory<clientGrade, String>("course.name"));
+                examgrade.setCellValueFactory(new PropertyValueFactory<clientGrade, String>("grade"));
+                studentgrades.setItems(data);
+            }
+        });
 
     }
     @FXML

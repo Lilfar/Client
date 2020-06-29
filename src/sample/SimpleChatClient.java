@@ -38,6 +38,7 @@ public class SimpleChatClient extends AbstractClient {
 	}
 	@Override
 	protected void handleMessageFromServer(Object msg) {
+		System.out.println(11);
 		Platform.runLater(new Runnable() {
 			@Override
 			public void run() {

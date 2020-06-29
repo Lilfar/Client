@@ -80,14 +80,17 @@ public class StudentsListController implements Initializable {
                     {
                         case 31:
                             StudentGradesController.from=31;
+                            StudentGradesController.studentid=studentslist.getSelectionModel().getSelectedItem().id;
                             newRoot = FXMLLoader.load(getClass().getResource("Student Grades.fxml"));
                             break;
                         case 32:
                             StudentGradesController.from=32;
+                            StudentGradesController.studentid=studentslist.getSelectionModel().getSelectedItem().id;
                             newRoot = FXMLLoader.load(getClass().getResource("Student Grades.fxml"));
                             break;
                         case 33:
                             StudentGradesController.from=33;
+                            StudentGradesController.studentid=studentslist.getSelectionModel().getSelectedItem().id;
                             newRoot = FXMLLoader.load(getClass().getResource("Student Grades.fxml"));
                             break;
                         case 34:
@@ -106,12 +109,14 @@ public class StudentsListController implements Initializable {
                 }
             }});
         clientAccess ca= new clientAccess();
-        ca.op= Operation.teacherList;
+        ca.op= Operation.studentList;
+
+        System.out.println("hee");
         Main.client.send(ca, new StringFunction() {
             @Override
             public void handle(String s) {
-                clientUser[] studentList;
-                studentList = Main.g.fromJson(s, clientUser[].class);
+                System.out.println("hoho" + s);
+                final clientUser[] studentList = Main.g.fromJson(s, clientUser[].class);
                 final ObservableList<clientUser> data = FXCollections.observableArrayList(studentList);
                 students.setCellValueFactory(new PropertyValueFactory<clientUser, String>("name"));
                 studentslist.setItems(data);
