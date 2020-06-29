@@ -21,6 +21,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+
     public static void main(String[] args) throws IOException {
         client=new SimpleChatClient("192.168.1.24",1000);
         client.openConnection();
