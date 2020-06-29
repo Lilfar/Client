@@ -14,6 +14,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import sample.clientClasses.Operation;
+import sample.clientClasses.clientAccess;
+import sample.clientClasses.clientUser;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,30 +35,14 @@ public class StudentsListController implements Initializable {
     @FXML
     private ImageView Background;
     @FXML
-    private TableView<Student> studentslist;
+    private TableView<clientUser> studentslist;
 
     @FXML
-    private TableColumn<Student, String> students;
+    private TableColumn<clientUser, String> students;
 
     @FXML
     private Button buttonback;
 
-    public class Student{
-        public String student;
-
-        Student(String student){
-            this.student=student;
-        }
-        public String getStudent(){
-            return student;
-        }
-    }
-
-    Student s1 = new Student("student1");
-    Student s2 = new Student("student2");
-    Student s3 = new Student("no name");
-    Student s4 = new Student("liel fr");
-    Student s5 = new Student("eml zoz");
 
     @FXML
     void buttonbackclick(ActionEvent event) throws IOException {
@@ -118,10 +105,18 @@ public class StudentsListController implements Initializable {
                     e.printStackTrace();
                 }
             }});
-
-        final ObservableList<Student> data = FXCollections.observableArrayList(s1,s2,s3,s4,s5);
-        students.setCellValueFactory(new PropertyValueFactory<Student, String>("student"));
-        studentslist.setItems(data);
+        clientAccess ca= new clientAccess();
+        ca.op= Operation.teacherList;
+        Main.client.send(ca, new StringFunction() {
+            @Override
+            public void handle(String s) {
+                clientUser[] studentList;
+                studentList = Main.g.fromJson(s, clientUser[].class);
+                final ObservableList<clientUser> data = FXCollections.observableArrayList(studentList);
+                students.setCellValueFactory(new PropertyValueFactory<clientUser, String>("name"));
+                studentslist.setItems(data);
+            }
+        });
 
     }
 
