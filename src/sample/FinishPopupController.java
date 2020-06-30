@@ -36,7 +36,7 @@ public class FinishPopupController {
     @FXML
     void buttonyesclick(ActionEvent event) throws IOException {
 
-
+      String m;
         switch (from)
         {
             case 1:
