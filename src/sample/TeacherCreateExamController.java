@@ -23,7 +23,6 @@ import java.util.ResourceBundle;
 public class TeacherCreateExamController implements Initializable {
     static boolean close = false;
 
-
     @FXML
     private ResourceBundle resources;
 

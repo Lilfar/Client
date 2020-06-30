@@ -9,6 +9,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import sample.clientClasses.Operation;
+import sample.clientClasses.clientAccess;
+import sample.clientClasses.clientQuestion;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,7 +19,8 @@ import java.util.ResourceBundle;
 
 public class TeacherQuestionEditController {
     static boolean confirmed = false;
-
+    static int subjectid;
+    static clientQuestion cq=null;
     @FXML
     private ResourceBundle resources;
     @FXML
@@ -59,37 +63,45 @@ public class TeacherQuestionEditController {
         Stage popup = new Stage();
         Parent newRoot;
 
-
-        if(!Question.getText().isBlank() &&
+        if (!Question.getText().isBlank() &&
                 !RightAnswer.getText().isBlank() &&
                 !WrongAnswer1.getText().isBlank() &&
                 !WrongAnswer2.getText().isBlank() &&
-                !WrongAnswer3.getText().isBlank())
-        {
-            FinishPopupController.from=8;
+                !WrongAnswer3.getText().isBlank()) {
+            FinishPopupController.from = 8;
             newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
             Scene scene = new Scene(newRoot);
             popup.setScene(scene);
             popup.showAndWait();
+            if (confirmed) {
+                if (confirmed) {
+                    confirmed = !confirmed;
+                    clientAccess ca = new clientAccess();
+                    ca.op = Operation.createQuestion;
+                    ca.subjectID = subjectid;
+                    clientQuestion cq = new clientQuestion(Question.getText(), RightAnswer.getText(),
+                            WrongAnswer1.getText(), WrongAnswer2.getText(), WrongAnswer3.getText());
+                    ca.q = cq;
+                    Main.client.send(ca, new StringFunction() {
+                        @Override
+                        public void handle(String s) {
 
-            if (confirmed)
-            {
-                confirmed=!confirmed;
-                Stage stage = (Stage)buttonapply.getScene().getWindow();
-                newRoot = FXMLLoader.load(getClass().getResource("Teacher Question List.fxml"));
-                Scene scene2 = new Scene(newRoot);
-                stage.setScene(scene2);
+                        }
+                    });
+                    Stage stage = (Stage) buttonapply.getScene().getWindow();
+                    newRoot = FXMLLoader.load(getClass().getResource("Teacher Question List.fxml"));
+                    Scene scene2 = new Scene(newRoot);
+                    stage.setScene(scene2);
+                }
+            }
+
+            } else {
+                newRoot = FXMLLoader.load(getClass().getResource("Teacher Add Question Error Popup.fxml"));
+                Scene scene = new Scene(newRoot);
+                popup.setScene(scene);
+                popup.showAndWait();
             }
         }
-        else
-        {
-            newRoot = FXMLLoader.load(getClass().getResource("Teacher Add Question Error Popup.fxml"));
-            Scene scene = new Scene(newRoot);
-            popup.setScene(scene);
-            popup.showAndWait();
-        }
-    }
-
     @FXML
     void initialize() {
         assert Background !=null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
@@ -99,6 +111,17 @@ public class TeacherQuestionEditController {
         assert WrongAnswer2 != null : "fx:id=\"WrongAnswer2\" was not injected: check your FXML file 'Teacher Question Edit.fxml'.";
         assert WrongAnswer3 != null : "fx:id=\"WrongAnswer3\" was not injected: check your FXML file 'Teacher Question Edit.fxml'.";
         assert buttonapply != null : "fx:id=\"buttonapply\" was not injected: check your FXML file 'Teacher Question Edit.fxml'.";
+
+        if (cq!=null)
+        {
+            Question.setText(cq.question);
+            RightAnswer.setText(cq.right);
+            WrongAnswer1.setText(cq.wrong1);
+            WrongAnswer2.setText(cq.wrong2);
+            WrongAnswer3.setText(cq.wrong3);
+        }
+        cq=null;
+
 
     }
 }
