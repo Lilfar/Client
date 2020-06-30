@@ -23,14 +23,15 @@
             <TableColumn id="WrongAnswer1" fx:id="WrongAnswer1" prefWidth="104.79998779296875" text="Wrong Answer" />
             <TableColumn id="WrongAnswer2" fx:id="WrongAnswer2" prefWidth="109.60003662109375" text="Wrong Answer" />
             <TableColumn id="WrongAnswer3" fx:id="WrongAnswer3" prefWidth="113.5999755859375" text="Wrong Answer" />
-            <TableColumn fx:id="radioinclude" prefWidth="52.800048828125" text="Include" />
          </columns>
       </TableView>
       <Button fx:id="buttoncreate" layoutX="711.0" layoutY="528.0" mnemonicParsing="false" onAction="#buttoncreateclick" prefHeight="28.0" prefWidth="88.0" text="Create" />
       <Button fx:id="buttoncancel" layoutX="27.0" layoutY="529.0" mnemonicParsing="false" onAction="#buttoncancelclick" text="Cancel" />
       <Text layoutX="27.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notes about the exam:" />
-      <Text layoutX="487.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notes for teachers only:" />
-      <TextField layoutX="487.0" layoutY="434.0" prefHeight="70.0" prefWidth="311.0" />
-      <TextField layoutX="27.0" layoutY="434.0" prefHeight="70.0" prefWidth="311.0" />
+      <Text layoutX="548.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notes for teachers only:" />
+      <TextField fx:id="teachernote" layoutX="548.0" layoutY="434.0" prefHeight="70.0" prefWidth="250.0" />
+      <TextField fx:id="studentnote" layoutX="27.0" layoutY="434.0" prefHeight="70.0" prefWidth="241.0" />
+      <Text layoutX="278.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Questions: " wrappingWidth="241.0" />
+      <TextField fx:id="textselectedquestions" layoutX="288.0" layoutY="434.0" prefHeight="70.0" prefWidth="241.0" />
    </children>
 </Pane>
