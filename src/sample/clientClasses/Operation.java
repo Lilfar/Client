@@ -116,4 +116,6 @@ public enum Operation {
     //STUDENT : (courseID) -> clientExam
     //TEACHER/PRINCIPLE : (courseID, studentID) -> clientExam
     ,downloadManualExam
+
+    ,coursesOfSubject
 }

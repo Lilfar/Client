@@ -65,9 +65,9 @@ public class SubjectListController implements Initializable  {
                             newRoot = FXMLLoader.load(getClass().getResource("Principal Exams.fxml"));
                             break;
                         case 33:
-                            StudentsListController.from=31;
-                            StudentsListController.subjectId=subjectslist.getSelectionModel().getSelectedItem().id;
-                            newRoot = FXMLLoader.load(getClass().getResource("Students List.fxml"));
+                            TeacherCoursesListController.from=33;
+                            TeacherCoursesListController.subjectId=subjectslist.getSelectionModel().getSelectedItem().id;
+                            newRoot = FXMLLoader.load(getClass().getResource("Teacher Courses List.fxml"));
                             break;
                         case 34:
                             PrincipalMakeReportController.from=31;
@@ -96,7 +96,7 @@ public class SubjectListController implements Initializable  {
             }
         });
 
-        if (from==31 || from==32 || from==33 || from == 34)
+        if (from==31 || from==32 || from==33 || from == 34 || from == 331)
         {
             buttonback.setText("Back");
         }

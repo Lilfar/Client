@@ -4,12 +4,21 @@ import java.util.ArrayList;
 
 public class clientGrade {
     public clientUser student;
+    public String studentname;
     public double grade;
     public clientCourse course;
     public String courseName;
     public int online;
     public ArrayList<clientAnswer> answers = new ArrayList<>();
     public byte[] file;
+
+    public String getStudentname() {
+        return studentname;
+    }
+
+    public void setStudentname(String studentname) {
+        this.studentname = studentname;
+    }
 
     public double getGrade() {
         return grade;

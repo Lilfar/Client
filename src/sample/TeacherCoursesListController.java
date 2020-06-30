@@ -25,6 +25,7 @@ import sample.clientClasses.*;
 public class TeacherCoursesListController implements Initializable {
     static public int courseId;
     static public int subjectId;
+    static public int from;
     @FXML
     private ResourceBundle resources;
 
@@ -46,10 +47,21 @@ public class TeacherCoursesListController implements Initializable {
 
     @FXML
     void buttonbackclick(ActionEvent event) throws IOException {
-            Stage stage = (Stage)buttonback.getScene().getWindow();
-            Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
-            Scene scene = new Scene(newRoot);
-            stage.setScene(scene);
+
+        Stage stage = (Stage)buttonback.getScene().getWindow();
+        Parent newRoot;
+        switch (from)
+        {
+            case 33:
+                newRoot = FXMLLoader.load(getClass().getResource("Subject List.fxml"));
+                break;
+            default:
+                newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
+                break;
+        }
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
+
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -57,17 +69,43 @@ public class TeacherCoursesListController implements Initializable {
             if( event.getClickCount() == 2 ) {
                 courseId=courselist.getSelectionModel().getSelectedItem().id;
                 Stage stage = (Stage)buttonback.getScene().getWindow();
+                Parent newRoot;
+                Scene scene;
                 try {
-                        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Course Main.fxml"));
-                        Scene scene = new Scene(newRoot);
-                        stage.setScene(scene);
+
+                    switch(from)
+                    {
+                        case 33:
+                            TeacherStudentsAndGradesListController.from=331;
+                            TeacherStudentsAndGradesListController.courseId=courseId;
+                            newRoot = FXMLLoader.load(getClass().getResource("Teacher Students And Grades List.fxml"));
+                            scene = new Scene(newRoot);
+                            stage.setScene(scene);
+                            break;
+                        default:
+                            TeacherStudentsAndGradesListController.courseId=courseId;
+                            newRoot = FXMLLoader.load(getClass().getResource("Teacher Course Main.fxml"));
+                            scene = new Scene(newRoot);
+                            stage.setScene(scene);
+                            break;
+                    }
+
 
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }});
         clientAccess ca= new clientAccess();
-        ca.op= Operation.coursesFromSubjectAndTeacher;
+
+        switch (from)
+        {
+            case 33:
+                ca.op= Operation.coursesOfSubject;
+                break;
+            default:
+                ca.op= Operation.coursesFromSubjectAndTeacher;
+                break;
+        }
         ca.subjectID=subjectId;
         Main.client.send(ca, new StringFunction() {
             @Override

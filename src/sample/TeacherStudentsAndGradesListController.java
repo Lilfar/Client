@@ -14,6 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import sample.clientClasses.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,6 +24,7 @@ public class TeacherStudentsAndGradesListController implements Initializable {
 
     static int from=0;
     boolean itemselected = false;
+    static int courseId;
 
     @FXML
     private ResourceBundle resources;
@@ -32,13 +34,13 @@ public class TeacherStudentsAndGradesListController implements Initializable {
     private URL location;
 
     @FXML
-    private TableView<Grade> Students;
+    private TableView<clientGrade> Students;
 
     @FXML
-    private TableColumn<Grade, String> studentname;
+    private TableColumn<clientGrade, String> studentname;
 
     @FXML
-    private TableColumn<Grade, String> grade;
+    private TableColumn<clientGrade, String> grade;
 
     @FXML
     private Button buttonback;
@@ -50,40 +52,33 @@ public class TeacherStudentsAndGradesListController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        clientAccess ca= new clientAccess();
+        ca.op= Operation.getGradesOfCourse;
+        ca.courseID=courseId;
+        Main.client.send(ca, new StringFunction() {
+            @Override
+            public void handle(String s) {
+
+                clientGrade[] StudentsList;
+                StudentsList = Main.g.fromJson(s, clientGrade[].class);
+                final ObservableList<clientGrade> data = FXCollections.observableArrayList(StudentsList);
+                studentname.setCellValueFactory(new PropertyValueFactory<clientGrade, String>("studentname"));
+                grade.setCellValueFactory(new PropertyValueFactory<clientGrade, String>("grade"));
+                Students.setItems(data);
+            }
+        });
+
+        if (from==331)
+            buttonchangegrade.setVisible(false);
+        else
+            buttonchangegrade.setVisible(true);
+
         Students.setOnMousePressed(e ->{
             if (e.getClickCount() == 1 && e.isPrimaryButtonDown() ){
                 itemselected=true;
             }
         });
 
-        Grade g1 = new Grade("Janan","0");
-        Grade g2 = new Grade("Sagi","Fail");
-        Grade g3 = new Grade("wa7d l5me","absr");
-
-        final ObservableList<Grade> data = FXCollections.observableArrayList(g1,g2,g3);
-
-        studentname.setCellValueFactory(new PropertyValueFactory<Grade, String>("studentname"));
-        grade.setCellValueFactory(new PropertyValueFactory<Grade, String>("grade"));
-
-        Students.setItems(data);
-    }
-
-    public class Grade{
-        public String studentname;
-        public String grade;
-
-        Grade (String studentname, String grade){
-            this.studentname=studentname;
-            this.grade=grade;
-        }
-
-        public String getStudentname(){
-            return studentname;
-        }
-
-        public String getGrade(){
-            return grade;
-        }
     }
 
     @FXML
@@ -104,6 +99,9 @@ public class TeacherStudentsAndGradesListController implements Initializable {
                 break;
             case 33:
                 newRoot = FXMLLoader.load(getClass().getResource("Students List.fxml"));
+                break;
+            case 331:
+                newRoot = FXMLLoader.load(getClass().getResource("Teacher Courses List.fxml"));
                 break;
             default:
                 newRoot = FXMLLoader.load(getClass().getResource("Course List And Avg.fxml"));
@@ -129,8 +127,6 @@ public class TeacherStudentsAndGradesListController implements Initializable {
     @FXML
     void initialize() {
         assert Background !=null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
-
         assert Students != null : "fx:id=\"ExamsTable\" was not injected: check your FXML file 'Teacher Subject Finished Exams List.fxml'.";
-
         }
     }
