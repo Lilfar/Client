@@ -14,11 +14,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import sample.clientClasses.Operation;
+import sample.clientClasses.clientAccess;
+import sample.clientClasses.clientUser;
 
 import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import sample.clientClasses.*;
 
 public class PrincipalRequestsController implements Initializable {
 
@@ -35,19 +39,19 @@ public class PrincipalRequestsController implements Initializable {
     private URL location;
 
     @FXML
-    private TableView<Request> RequestsTable;
+    private TableView<clientRequest> RequestsTable;
 
     @FXML
-    private TableColumn<Request, String> teachername;
+    private TableColumn<clientRequest, String> teachername;
 
     @FXML
-    private TableColumn<Request, String> coursename;
+    private TableColumn<clientRequest, String> coursename;
 
     @FXML
-    private TableColumn<Request, String> extratime;
+    private TableColumn<clientRequest, String> extratime;
 
     @FXML
-    private TableColumn<Request, String> explanation;
+    private TableColumn<clientRequest, String> explanation;
 
     @FXML
     private Button buttonback;
@@ -67,45 +71,20 @@ public class PrincipalRequestsController implements Initializable {
             }
         });
 
-        Request r1 = new Request("Noga","Modelem","15","hek");
-        Request r2 = new Request("ldod elias","Mehadrem","15","3shan lshbab");
-        final ObservableList<Request> data = FXCollections.observableArrayList(r1,r2);
-
-        teachername.setCellValueFactory(new PropertyValueFactory<Request, String>("teachername"));
-        coursename.setCellValueFactory(new PropertyValueFactory<Request, String>("coursename"));
-        extratime.setCellValueFactory(new PropertyValueFactory<Request, String>("extratime"));
-        explanation.setCellValueFactory(new PropertyValueFactory<Request, String>("explanation"));
-
-        RequestsTable.setItems(data);
-    }
-
-    public class Request{
-        public String teachername;
-        public String coursename;
-        public String extratime;
-        public String explanation;
-
-        Request(String teachername, String coursename, String extratime, String explanation){
-            this.teachername=teachername;
-            this.coursename=coursename;
-            this.extratime=extratime;
-            this.explanation=explanation;
-        }
-
-        public String getTeachername() {
-            return teachername;
-        }
-
-        public String getCoursename(){
-            return coursename;
-        }
-        public String getExtratime(){
-            return extratime;
-        }
-        public String getExplanation(){
-            return explanation;
-        }
-
+        clientAccess ca= new clientAccess();
+        ca.op= Operation.requestList;
+        Main.client.send(ca, new StringFunction() {
+            @Override
+            public void handle(String s) {
+                final clientRequest[] studentList = Main.g.fromJson(s, clientRequest[].class);
+                final ObservableList<clientRequest> data = FXCollections.observableArrayList(studentList);
+                teachername.setCellValueFactory(new PropertyValueFactory<clientRequest, String>("teacher"));
+                coursename.setCellValueFactory(new PropertyValueFactory<clientRequest, String>("course"));
+                extratime.setCellValueFactory(new PropertyValueFactory<clientRequest, String>("timeAdded"));
+                explanation.setCellValueFactory(new PropertyValueFactory<clientRequest, String>("explanation"));
+                RequestsTable.setItems(data);
+            }
+        });
     }
 
     @FXML
@@ -115,6 +94,16 @@ public class PrincipalRequestsController implements Initializable {
         if (itemselected)
         {
             FinishPopupController.from=10;
+            clientAccess ca=new clientAccess();
+            ca.op=Operation.decideRequest;
+            ca.accept=true;
+            ca.requestID=RequestsTable.getSelectionModel().getSelectedItem().id;
+            Main.client.send(ca, new StringFunction() {
+                @Override
+                public void handle(String s) {
+
+                }
+            });
             newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
             Stage popup = new Stage();
             Scene scene = new Scene(newRoot);
@@ -153,6 +142,16 @@ public class PrincipalRequestsController implements Initializable {
         if (itemselected)
         {
             FinishPopupController.from=10;
+            clientAccess ca=new clientAccess();
+            ca.op=Operation.decideRequest;
+            ca.accept=false;
+            ca.requestID=RequestsTable.getSelectionModel().getSelectedItem().id;
+            Main.client.send(ca, new StringFunction() {
+                @Override
+                public void handle(String s) {
+
+                }
+            });
             newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
             Stage popup = new Stage();
             Scene scene = new Scene(newRoot);

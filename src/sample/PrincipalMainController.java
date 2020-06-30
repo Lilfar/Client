@@ -40,21 +40,12 @@ public class PrincipalMainController {
     private Button buttonlogout;
 
 
-    @FXML
-    private Button buttonmakeareport;
+
 
     @FXML
     void buttonlogoutclick(ActionEvent event) throws IOException {
         Stage stage = (Stage)buttonlogout.getScene().getWindow();
         Parent newRoot = FXMLLoader.load(getClass().getResource("Login Menu.fxml"));
-        Scene scene = new Scene(newRoot);
-        stage.setScene(scene);
-
-    }
-    @FXML
-    void buttonmakeareportclick(ActionEvent event) throws IOException {
-        Stage stage = (Stage)buttonmakeareport.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Principal Report Menu.fxml"));
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
 

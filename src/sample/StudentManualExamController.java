@@ -134,7 +134,7 @@ public class StudentManualExamController {
             clientAccess ca = new clientAccess();
             ca.courseID = StudentComputerExamController.exam.courseID;
             ca.file = clientAccess.toBytes(fileChooser.getSelectedFile().getPath());
-
+            ca.op=Operation.submitManualExam;
             Main.client.send(ca, new StringFunction() {
                 @Override
                 public void handle(String s) {
@@ -148,6 +148,7 @@ public class StudentManualExamController {
             popup.setScene(scene);
             popup.showAndWait();
         }
+        uploaded=true;
 
 
     }
