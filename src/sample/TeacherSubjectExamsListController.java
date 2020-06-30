@@ -50,7 +50,7 @@ public class TeacherSubjectExamsListController {
     @FXML
     void buttoncreateexamclick(ActionEvent event) throws IOException {
 
-
+        TeacherCreateExamController.subjectId=subjectId;
         Stage stage = (Stage)buttoncreateexam.getScene().getWindow();
         Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Create Exam.fxml"));
         Scene scene = new Scene(newRoot);

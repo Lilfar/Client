@@ -8,20 +8,24 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import sample.clientClasses.Operation;
+import sample.clientClasses.clientAccess;
+import sample.clientClasses.clientExam;
+import sample.clientClasses.clientQuestion;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class TeacherCreateExamController implements Initializable {
     static boolean close = false;
+    ArrayList<clientQuestion> cqarr = new ArrayList<clientQuestion>();
+    static int subjectId;
 
 
     @FXML
@@ -33,112 +37,86 @@ public class TeacherCreateExamController implements Initializable {
     @FXML
     private ImageView Background;
     @FXML
-    private TableView<Question> QuestionsTableSubject;
+    private TableView<clientQuestion> QuestionsTableSubject;
 
     @FXML
-    private TableColumn<Question, String> Question;
+    private TableColumn<clientQuestion, String> Question;
 
     @FXML
-    private TableColumn<Question, String> RightAnswer;
+    private TableColumn<clientQuestion, String> RightAnswer;
 
     @FXML
-    private TableColumn<Question, String> WrongAnswer1;
+    private TableColumn<clientQuestion, String> WrongAnswer1;
 
     @FXML
-    private TableColumn<Question, String> WrongAnswer2;
+    private TableColumn<clientQuestion, String> WrongAnswer2;
 
     @FXML
-    private TableColumn<Question, String> WrongAnswer3;
+    private TableColumn<clientQuestion, String> WrongAnswer3;
+
 
     @FXML
-    private TableColumn<Question, String> radioinclude;
+    private TextField teachernote;
+
+    @FXML
+    private TextField studentnote;
+
+    @FXML
+    private TextField textselectedquestions;
 
     @FXML
     private Button buttoncreate;
 
     @FXML
     private Button buttoncancel;
-    Question qqqq = new Question("qq", "aa", "asda", "sfasd", "asdfsa");
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        final ObservableList<Question> data = FXCollections.observableArrayList(qqqq);
-        Question.setCellValueFactory(new PropertyValueFactory<Question, String>("q"));
-        RightAnswer.setCellValueFactory(new PropertyValueFactory<Question, String>("a1"));
-        WrongAnswer1.setCellValueFactory(new PropertyValueFactory<Question, String>("a2"));
-        WrongAnswer2.setCellValueFactory(new PropertyValueFactory<Question, String>("a3"));
-        WrongAnswer3.setCellValueFactory(new PropertyValueFactory<Question, String>("a4"));
-        radioinclude.setCellValueFactory(new PropertyValueFactory<Question, String>("rb"));
+        clientAccess ca=new clientAccess();
+        ca.subjectID=subjectId;
 
-        QuestionsTableSubject.setItems(data);
+        QuestionsTableSubject.setOnMouseClicked( event -> {
+            if( event.getClickCount() == 2 ) {
+                int Qid = QuestionsTableSubject.getSelectionModel().getSelectedItem().getId();
+
+            clientQuestion cq = new clientQuestion(
+                    QuestionsTableSubject.getSelectionModel().getSelectedItem().question,
+                    QuestionsTableSubject.getSelectionModel().getSelectedItem().right,
+                    QuestionsTableSubject.getSelectionModel().getSelectedItem().wrong1,
+                    QuestionsTableSubject.getSelectionModel().getSelectedItem().wrong2,
+                    QuestionsTableSubject.getSelectionModel().getSelectedItem().wrong3);
+
+                    cqarr.add(Qid,cq);
+                    textselectedquestions.setText(textselectedquestions.getText() + " " + Qid + " ");
+            }});
+
+        ca.op= Operation.questionList;
+        Main.client.send(ca, new StringFunction() {
+            @Override
+            public void handle(String s) {
+                final clientQuestion[] questionList = Main.g.fromJson(s, clientQuestion[].class);
+                final ObservableList<clientQuestion> data = FXCollections.observableArrayList(questionList);
+                Question.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("question"));
+                RightAnswer.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("right"));
+                WrongAnswer1.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong1"));
+                WrongAnswer2.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong2"));
+                WrongAnswer3.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong3"));
+                QuestionsTableSubject.setItems(data);
+            }
+        });
 
     }
-
-    public class Question{
-
-        public String q;
-        public String a1;
-        public String a2;
-        public String a3;
-        public String a4;
-        public RadioButton rb;
-
-        Question(String q, String a1, String a2, String a3, String a4) {
-
-            this.q = q;
-            this.a1 = a1;
-            this.a2 = a2;
-            this.a3 = a3;
-            this.a4 = a4;
-            this.rb=new RadioButton("select");
-        }
-
-        public String getQ() {
-            return q;
-        }
-
-        public String getA1() {
-            return a1;
-        }
-
-        public String getA2() {
-            return a2;
-        }
-
-        public String getA3() {
-            return a3;
-        }
-
-        public String getA4() {
-            return a4;
-        }
-
-        public RadioButton getRb()
-        {
-            return rb;
-        }
-
-        public void setRadioButton(RadioButton rb){
-            this.rb=rb;
-        }
-    }
-
 
     @FXML
     void buttoncreateclick(ActionEvent event) throws IOException {
-
 
         boolean done;
 
         Stage popup = new Stage();
         Parent newRoot;
 
-        if (qqqq.rb.isSelected())
-            done = true;
-        else
-            done = false;
-
-        if (done)
+        if (true)
         {
             FinishPopupController.from=3;
             done=false;
@@ -154,6 +132,18 @@ public class TeacherCreateExamController implements Initializable {
         popup.showAndWait();
         if (close)
         {
+            clientAccess ca=new clientAccess();
+            ca.op= Operation.createExam;
+            ca.subjectID=subjectId;
+            ca.note=studentnote.getText();
+            ca.teacherNote=teachernote.getText();
+            Main.client.send(ca, new StringFunction() {
+                @Override
+                public void handle(String s) {
+
+                }
+            });
+
             close=!close;
             Stage stage = (Stage)buttoncreate.getScene().getWindow();
             newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Exams List.fxml"));
@@ -182,6 +172,5 @@ public class TeacherCreateExamController implements Initializable {
         assert WrongAnswer2 != null : "fx:id=\"WrongAnswer2\" was not injected: check your FXML file 'Teacher Create Exam.fxml'.";
         assert WrongAnswer3 != null : "fx:id=\"WrongAnswer3\" was not injected: check your FXML file 'Teacher Create Exam.fxml'.";
         assert buttoncreate != null : "fx:id=\"buttoncreate\" was not injected: check your FXML file 'Teacher Create Exam.fxml'.";
-
     }
 }
