@@ -44,7 +44,6 @@ public class StudentExamFirstPageController {
             stage.setScene(scene);
         }
     }
-
     @FXML
     void initialize() {
         assert Background !=null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
@@ -52,4 +51,4 @@ public class StudentExamFirstPageController {
 
         note.setText(StudentComputerExamController.exam.note);
     }
-    }
+}

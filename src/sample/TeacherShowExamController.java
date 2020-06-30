@@ -8,9 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -19,8 +17,11 @@ import sample.clientClasses.clientAccess;
 import sample.clientClasses.clientQuestion;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import sample.clientClasses.*;
 
 public class TeacherShowExamController implements Initializable {
 
@@ -56,8 +57,19 @@ public class TeacherShowExamController implements Initializable {
     private Button buttondownloadexam;
 
     @FXML
+    private TextField duration;
+
+    @FXML
+    private RadioButton onlineradio;
+
+    @FXML
+    private RadioButton manualradio;
+
+    @FXML
     private Button buttonback;
 
+    @FXML
+    private TextField accessCode;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -69,12 +81,13 @@ public class TeacherShowExamController implements Initializable {
         });
 
         clientAccess ca=new clientAccess();
-        ca.op= Operation.questionList;
+        ca.op= Operation.courseExam;
         ca.courseID=TeacherCoursesListController.courseId;
         Main.client.send(ca, new StringFunction() {
             @Override
             public void handle(String s) {
-                final clientQuestion[] questionList = Main.g.fromJson(s, clientQuestion[].class);
+                final clientExam exam= Main.g.fromJson(s, clientExam.class);
+                ArrayList<clientQuestion> questionList=exam.questions;
                 final ObservableList<clientQuestion> data = FXCollections.observableArrayList(questionList);
                 Question.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("question"));
                 RightAnswer.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("right"));
@@ -99,17 +112,22 @@ public class TeacherShowExamController implements Initializable {
     @FXML
     void buttondownloadexamclick(ActionEvent event) throws IOException {
 
-        Stage popup = new Stage();
-        Parent newRoot;
-
-        if (!itemselected)
-            newRoot = FXMLLoader.load(getClass().getResource("Table View Select Item Popup.fxml"));
+        clientAccess ca=new clientAccess();
+        ca.op=Operation.startExam;
+        ca.duration=60*Integer.parseInt(duration.getText());
+        ca.AccessCode=Integer.parseInt(accessCode.getText());
+        ca.courseID=TeacherCoursesListController.courseId;
+        if (onlineradio.isSelected()){
+            ca.online=1;
+        }
         else
-            newRoot = FXMLLoader.load(getClass().getResource("Item Downloaded Successfully.fxml"));
+            ca.online=0;
+        Main.client.send(ca, new StringFunction() {
+            @Override
+            public void handle(String s) {
 
-        Scene scene = new Scene(newRoot);
-        popup.setScene(scene);
-        popup.showAndWait();
+            }
+        });
     }
 
     @FXML
@@ -123,6 +141,10 @@ public class TeacherShowExamController implements Initializable {
         assert WrongAnswer3 != null : "fx:id=\"WrongAnswer3\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
         assert buttondownloadexam != null : "fx:id=\"buttondownloadexam\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
         assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
+        assert duration != null : "fx:id=\"duration\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
+        assert onlineradio != null : "fx:id=\"onlineradio\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
+        assert manualradio != null : "fx:id=\"manualradio\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
+        assert accessCode != null : "fx:id=\"accessCode\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
 
     }
 }
