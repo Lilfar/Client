@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 
 public class TeacherCreateExamController implements Initializable {
     static boolean close = false;
-    ArrayList<clientQuestion> cqarr = new ArrayList<clientQuestion>();
+    ArrayList<Integer> cqarr = new ArrayList<>();
     static int subjectId;
 
     @FXML
@@ -77,16 +77,8 @@ public class TeacherCreateExamController implements Initializable {
 
         QuestionsTableSubject.setOnMouseClicked( event -> {
             if( event.getClickCount() == 2 ) {
-                int Qid = QuestionsTableSubject.getSelectionModel().getSelectedItem().getId();
-
-            clientQuestion cq = new clientQuestion(
-                    QuestionsTableSubject.getSelectionModel().getSelectedItem().question,
-                    QuestionsTableSubject.getSelectionModel().getSelectedItem().right,
-                    QuestionsTableSubject.getSelectionModel().getSelectedItem().wrong1,
-                    QuestionsTableSubject.getSelectionModel().getSelectedItem().wrong2,
-                    QuestionsTableSubject.getSelectionModel().getSelectedItem().wrong3);
-
-                    cqarr.add(Qid,cq);
+                int Qid = QuestionsTableSubject.getSelectionModel().getSelectedItem().id;
+                    cqarr.add(Qid);
                     textselectedquestions.setText(textselectedquestions.getText() + " " + Qid + " ");
             }});
 
@@ -134,8 +126,13 @@ public class TeacherCreateExamController implements Initializable {
             clientAccess ca=new clientAccess();
             ca.op= Operation.createExam;
             ca.subjectID=subjectId;
-            ca.note=studentnote.getText();
-            ca.teacherNote=teachernote.getText();
+
+            clientExam ce=new clientExam();
+            ce.note=studentnote.getText();
+            ce.teacherNote=teachernote.getText();
+            ce.questionIds=cqarr;
+
+            ca.e = ce;
             Main.client.send(ca, new StringFunction() {
                 @Override
                 public void handle(String s) {
