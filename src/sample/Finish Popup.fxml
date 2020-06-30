@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FinishPopupController">
+<VBox prefHeight="238.0" prefWidth="336.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.FinishPopupController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="186.0" prefWidth="336.0" VBox.vgrow="ALWAYS">
          <children>
-            <Text layoutX="226.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Are you sure you want to continue?" />
-            <Button fx:id="buttonyes" layoutX="246.0" layoutY="188.0" mnemonicParsing="false" onAction="#buttonyesclick" text="Yes" />
-            <Button fx:id="buttonno" layoutX="355.0" layoutY="188.0" mnemonicParsing="false" onAction="#buttonnoclick" text="No" />
+            <Text layoutX="84.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Are you sure you want to continue?" />
+            <Button fx:id="buttonyes" layoutX="117.0" layoutY="132.0" mnemonicParsing="false" onAction="#buttonyesclick" text="Yes" />
+            <Button fx:id="buttonno" layoutX="185.0" layoutY="132.0" mnemonicParsing="false" onAction="#buttonnoclick" text="No" />
          </children>
     </AnchorPane>
   </children>

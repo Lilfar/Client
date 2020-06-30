@@ -44,8 +44,6 @@ public class TeacherCoursesListController implements Initializable {
     @FXML
     private ImageView Background;
 
-
-
     @FXML
     void buttonbackclick(ActionEvent event) throws IOException {
             Stage stage = (Stage)buttonback.getScene().getWindow();
@@ -55,7 +53,6 @@ public class TeacherCoursesListController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         courselist.setOnMouseClicked( event -> {
             if( event.getClickCount() == 2 ) {
                 courseId=courselist.getSelectionModel().getSelectedItem().id;
@@ -81,15 +78,10 @@ public class TeacherCoursesListController implements Initializable {
                 courselist.setItems(data);
             }
         });
-
-
     }
     @FXML
     void initialize() {
         assert Background !=null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
         assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Teacher Courses List.fxml'.";
-
     }
-
-
 }
