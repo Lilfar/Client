@@ -81,6 +81,5 @@ public class FinishPopupController {
     void initialize() {
         assert buttonyes != null : "fx:id=\"buttonyes\" was not injected: check your FXML file 'Finish Popup.fxml'.";
         assert buttonno != null : "fx:id=\"buttonno\" was not injected: check your FXML file 'Finish Popup.fxml'.";
-
     }
 }

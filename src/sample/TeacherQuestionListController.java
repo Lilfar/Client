@@ -55,9 +55,9 @@ public class TeacherQuestionListController implements Initializable{
     @FXML
     private Button buttonaddquestion;
     @FXML
-    private Button buttonback;
+    private Button buttoneditquestion;
     @FXML
-    private Button buttonedit;
+    private Button buttonback;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -95,19 +95,27 @@ public class TeacherQuestionListController implements Initializable{
         stage.setScene(scene);
 
     }
+
     @FXML
-    void buttoneditclick(ActionEvent event) throws IOException {
+    void buttonaddquestionclick(ActionEvent event) throws IOException {
+        TeacherQuestionAddController.subjectid=subjectId;
+        Stage stage = (Stage)buttonaddquestion.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Question Add.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
+
+
+    }
+    @FXML
+    void buttoneditquestionclick(ActionEvent event) throws IOException {
 
         Parent newRoot;
-        if (itemselected)
-        {
-            Stage stage = (Stage)buttonedit.getScene().getWindow();
+        if (itemselected) {
+            Stage stage = (Stage) buttoneditquestion.getScene().getWindow();
             newRoot = FXMLLoader.load(getClass().getResource("Teacher Question Edit.fxml"));
             Scene scene = new Scene(newRoot);
             stage.setScene(scene);
-        }
-        else
-        {
+        } else {
 
             Stage popup = new Stage();
             newRoot = FXMLLoader.load(getClass().getResource("Table View Select Item Popup.fxml"));
@@ -116,31 +124,20 @@ public class TeacherQuestionListController implements Initializable{
             popup.showAndWait();
         }
 
+    }
+        @FXML
+        void initialize() {
+            assert Background != null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
+
+            assert QuestionsTable != null : "fx:id=\"QuestionsTable\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+            assert Question != null : "fx:id=\"Question\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+            assert RightAnswer != null : "fx:id=\"RightAnswer\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+            assert WrongAnswer1 != null : "fx:id=\"WrongAnswer1\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+            assert WrongAnswer2 != null : "fx:id=\"WrongAnswer2\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+            assert WrongAnswer3 != null : "fx:id=\"WrongAnswer3\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+            assert buttonaddquestion != null : "fx:id=\"buttonaddquestion\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+            assert buttoneditquestion != null : "fx:id=\"buttoneditquestion\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
+
+        }
 
     }
-    @FXML
-    void buttonaddquestionclick(ActionEvent event) throws IOException {
-
-        Stage stage = (Stage)buttonaddquestion.getScene().getWindow();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Question Add.fxml"));
-        Scene scene = new Scene(newRoot);
-        stage.setScene(scene);
-
-
-    }
-
-
-    @FXML
-    void initialize() {
-        assert Background !=null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
-
-        assert QuestionsTable != null : "fx:id=\"QuestionsTable\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
-        assert Question != null : "fx:id=\"Question\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
-        assert RightAnswer != null : "fx:id=\"RightAnswer\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
-        assert WrongAnswer1 != null : "fx:id=\"WrongAnswer1\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
-        assert WrongAnswer2 != null : "fx:id=\"WrongAnswer2\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
-        assert WrongAnswer3 != null : "fx:id=\"WrongAnswer3\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
-        assert buttonaddquestion != null : "fx:id=\"buttonaddquestion\" was not injected: check your FXML file 'Teacher Question List.fxml'.";
-    }
-
-}

@@ -54,6 +54,7 @@
                <font>
                   <Font name="David" size="16.0" />
                </font></Text>
+            <Text fx:id="textquestion1" layoutX="62.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="401.33673095703125" />
          </children>
     </AnchorPane>
   </children>

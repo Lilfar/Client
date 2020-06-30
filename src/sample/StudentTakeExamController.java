@@ -8,12 +8,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import sample.clientClasses.*;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class StudentTakeExamController {
+    static int examid;
+
+    static boolean downloaded = false;
+    static int type;
 
     @FXML
     private ResourceBundle resources;
@@ -40,20 +45,34 @@ public class StudentTakeExamController {
 
     @FXML
     void buttongoclick(ActionEvent event) throws IOException {
-
-        boolean type = false;
-
+        downloaded = false;
+        clientAccess ca=new clientAccess();
+        ca.AccessCode=examid;
+        ca.op= Operation.takeExam;
+        buttongo.setText("Downloading file...");
+        Main.client.send(ca, new StringFunction() {
+            @Override
+            public void handle(String s) {
+                clientExam exam = Main.g.fromJson(s, clientExam.class);
+                StudentComputerExamController.exam=exam;
+                StudentComputerExamController.courseid=exam.getCourseID();
+                StudentComputerExamController.examsize=exam.getQuestions().size();
+                buttongo.setText("Start");
+                downloaded = true;
+                type=exam.online;
+            }
+        });
         if (!textcode.getText().isBlank())
         {
             Stage stage = (Stage)buttongo.getScene().getWindow();
-            Parent newRoot;
-
-            if (type)
+            Parent newRoot = null;
+            if (type==0)
             {
                 newRoot = FXMLLoader.load(getClass().getResource("Student Manual Exam.fxml"));
             }
-            else
+            if (type==1)
             {
+                StudentExamFirstPageController.examid=Integer.parseInt(textcode.getText());
                 newRoot = FXMLLoader.load(getClass().getResource("Student Exam First Page.fxml"));
             }
             Scene scene = new Scene(newRoot);
@@ -76,6 +95,7 @@ public class StudentTakeExamController {
     void initialize() {
         assert buttongo != null : "fx:id=\"buttongo\" was not injected: check your FXML file 'Student Take Exam.fxml'.";
         assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Student Take Exam.fxml'.";
+        
 
     }
 }

@@ -13,10 +13,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import sample.clientClasses.*;
 public class TeacherQuestionAddController {
 
     static boolean confirmed = false;
+    static int subjectid;
 
     @FXML
     private ResourceBundle resources;
@@ -57,7 +58,6 @@ public class TeacherQuestionAddController {
            !textwronganswer2.getText().isBlank() &&
            !textwronganswer3.getText().isBlank())
         {
-
             FinishPopupController.from=9;
             newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
             Scene scene = new Scene(newRoot);
@@ -66,12 +66,23 @@ public class TeacherQuestionAddController {
 
             if (confirmed){
                 confirmed=!confirmed;
+                clientAccess ca=new clientAccess();
+                ca.op=Operation.createQuestion;
+                ca.subjectID=subjectid;
+                clientQuestion cq=new clientQuestion(NewQuestion.getText(),textrightanswer.getText(),
+                        textwronganswer1.getText(),textwronganswer2.getText(),textwronganswer3.getText());
+                Main.client.send(ca, new StringFunction() {
+                    @Override
+                    public void handle(String s) {
+
+                    }
+                });
+
                 Stage stage = (Stage)buttonadd.getScene().getWindow();
                 newRoot = FXMLLoader.load(getClass().getResource("Teacher Question List.fxml"));
                 Scene scene2 = new Scene(newRoot);
                 stage.setScene(scene2);
             }
-
         }
         else
         {

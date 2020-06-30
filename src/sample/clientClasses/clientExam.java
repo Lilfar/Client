@@ -9,10 +9,14 @@ public class clientExam {
     public ArrayList<Integer> questionIds = new ArrayList<Integer>();
     public String subjectName;
     public int online;
+    public int courseID;
+    public byte[] file;
+    public String note;
 
     public clientExam(int id, String teacher) {
         this.id = id;
         this.teacher = teacher;
+        this.courseID = courseID;
     }
 
     public clientExam() {
@@ -64,5 +68,14 @@ public class clientExam {
 
     public void setOnline(int online) {
         this.online = online;
+    }
+
+    public int getCourseID() {
+
+        return courseID;
+    }
+
+    public void setCourseID(int courseID) {
+        this.courseID = courseID;
     }
 }

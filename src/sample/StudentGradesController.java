@@ -122,6 +122,7 @@ public class StudentGradesController implements Initializable {
                         studentgrades.getSelectionModel().getSelectedItem().grade);
             }});
         ca.studentID=studentid;
+        ca.op=Operation.gradesList;
         Main.client.send(ca, new StringFunction() {
             @Override
             public void handle(String s) {

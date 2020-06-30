@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import sample.clientClasses.*;
 
 public class TeacherSubjectExamsListController {
     static public int subjectId;
@@ -24,7 +25,7 @@ public class TeacherSubjectExamsListController {
     @FXML
     private ImageView Background;
     @FXML
-    private TableColumn<?, ?> ExamsTable;
+    private TableColumn<clientExam, String> ExamsTable;
 
     @FXML
     private Button buttoncreateexam;

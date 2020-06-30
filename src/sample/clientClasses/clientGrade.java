@@ -9,6 +9,7 @@ public class clientGrade {
     public String courseName;
     public int online;
     public ArrayList<clientAnswer> answers = new ArrayList<>();
+    public byte[] file;
 
     public double getGrade() {
         return grade;
