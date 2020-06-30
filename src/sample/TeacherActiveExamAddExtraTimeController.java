@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import sample.clientClasses.*;
 
 public class TeacherActiveExamAddExtraTimeController {
 
@@ -40,16 +41,23 @@ public class TeacherActiveExamAddExtraTimeController {
         popup.close();
     }
     public void buttonrequestclick(ActionEvent actionEvent) throws IOException {
-
         boolean done;
-
         Stage popup = new Stage();
         Parent newRoot;
         if(!textexplanation.getText().isBlank() &&
                 !textextratime.getText().isBlank())
         {
+            clientAccess ca=new clientAccess();
+            ca.op=Operation.newRequest;
+            ca.addedTime=Integer.parseInt(textextratime.getText())*60;
+            ca.exp=textexplanation.getText();
+            ca.courseID=TeacherCoursesListController.courseId;
+            Main.client.send(ca, new StringFunction() {
+                @Override
+                public void handle(String s) {
 
-
+                }
+            });
             FinishPopupController.from=4;
             newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
 

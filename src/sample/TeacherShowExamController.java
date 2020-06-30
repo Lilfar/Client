@@ -14,6 +14,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import sample.clientClasses.Operation;
+import sample.clientClasses.clientAccess;
+import sample.clientClasses.clientQuestion;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,66 +35,29 @@ public class TeacherShowExamController implements Initializable {
     private URL location;
 
     @FXML
-    private TableView<Question> QuestionsTableSubject;
+    private TableView<clientQuestion> QuestionsTableSubject;
 
     @FXML
-    private TableColumn<Question, String> Question;
+    private TableColumn<clientQuestion, String> Question;
 
     @FXML
-    private TableColumn<Question, String> RightAnswer;
+    private TableColumn<clientQuestion, String> RightAnswer;
 
     @FXML
-    private TableColumn<Question, String> WrongAnswer1;
+    private TableColumn<clientQuestion, String> WrongAnswer1;
 
     @FXML
-    private TableColumn<Question, String> WrongAnswer2;
+    private TableColumn<clientQuestion, String> WrongAnswer2;
 
     @FXML
-    private TableColumn<Question, String> WrongAnswer3;
+    private TableColumn<clientQuestion, String> WrongAnswer3;
 
     @FXML
     private Button buttondownloadexam;
 
     @FXML
     private Button buttonback;
-    public class Question {
 
-        public String q;
-        public String a1;
-        public String a2;
-        public String a3;
-        public String a4;
-
-
-        Question(String q, String a1, String a2, String a3, String a4) {
-
-            this.q = q;
-            this.a1 = a1;
-            this.a2 = a2;
-            this.a3 = a3;
-            this.a4 = a4;
-        }
-
-        public String getQ() {
-            return q;
-        }
-
-        public String getA1() {
-            return a1;
-        }
-
-        public String getA2() {
-            return a2;
-        }
-
-        public String getA3() {
-            return a3;
-        }
-
-        public String getA4() {
-            return a4;
-        }
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -102,19 +68,22 @@ public class TeacherShowExamController implements Initializable {
             }
         });
 
-
-        Question q1 = new Question("shu lwd3?","walla hyana wnte?","mnyke","7el 3ne","bsedr");
-        Question q2 = new Question("tl3b west?","yzlme ma ana ra5e","yla lesh l2","7el 3ne","AAA YLA WOW");
-        Question q3 = new Question("hedva 2 question","wrong answer","kman wrong answer","lshu 3m tjrb asln ma ente sa2et","yla kors 5ozer shbab");
-        final ObservableList<Question> data = FXCollections.observableArrayList(q1,q2,q3);
-
-        Question.setCellValueFactory(new PropertyValueFactory<Question, String>("q"));
-        RightAnswer.setCellValueFactory(new PropertyValueFactory<Question, String>("a1"));
-        WrongAnswer1.setCellValueFactory(new PropertyValueFactory<Question, String>("a2"));
-        WrongAnswer2.setCellValueFactory(new PropertyValueFactory<Question, String>("a3"));
-        WrongAnswer3.setCellValueFactory(new PropertyValueFactory<Question, String>("a4"));
-
-        QuestionsTableSubject.setItems(data);
+        clientAccess ca=new clientAccess();
+        ca.op= Operation.questionList;
+        ca.courseID=TeacherCoursesListController.courseId;
+        Main.client.send(ca, new StringFunction() {
+            @Override
+            public void handle(String s) {
+                final clientQuestion[] questionList = Main.g.fromJson(s, clientQuestion[].class);
+                final ObservableList<clientQuestion> data = FXCollections.observableArrayList(questionList);
+                Question.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("question"));
+                RightAnswer.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("right"));
+                WrongAnswer1.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong1"));
+                WrongAnswer2.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong2"));
+                WrongAnswer3.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong3"));
+                QuestionsTableSubject.setItems(data);
+            }
+        });
     }
 
 

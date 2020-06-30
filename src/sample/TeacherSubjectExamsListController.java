@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -25,8 +29,9 @@ public class TeacherSubjectExamsListController {
     @FXML
     private ImageView Background;
     @FXML
-    private TableColumn<clientExam, String> ExamsTable;
-
+    private TableColumn<clientExam, Integer> ExamsTable;
+    @FXML
+    private TableView<clientExam> examtable;
     @FXML
     private Button buttoncreateexam;
 
@@ -60,5 +65,18 @@ public class TeacherSubjectExamsListController {
         assert ExamsTable != null : "fx:id=\"ExamsTable\" was not injected: check your FXML file 'Teacher Subject Exams List.fxml'.";
         assert buttoncreateexam != null : "fx:id=\"buttoncreateexam\" was not injected: check your FXML file 'Teacher Subject Exams List.fxml'.";
 
+        clientAccess ca= new clientAccess();
+        ca.op= Operation.examList;
+        ca.subjectID=subjectId;
+        Main.client.send(ca, new StringFunction() {
+            @Override
+            public void handle(String s) {
+                final clientExam[] examList = Main.g.fromJson(s, clientExam[].class);
+                final ObservableList<clientExam> data = FXCollections.observableArrayList(examList);
+                System.out.println(examList.length);
+                ExamsTable.setCellValueFactory(new PropertyValueFactory<clientExam, Integer>("id"));
+                examtable.setItems(data);
+            }
+        });
     }
 }

@@ -14,12 +14,16 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import sample.clientClasses.Operation;
+import sample.clientClasses.clientAccess;
+import sample.clientClasses.clientRequest;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import sample.clientClasses.*;
 public class TeacherCoursesListController implements Initializable {
+    static public int courseId;
     static public int subjectId;
     @FXML
     private ResourceBundle resources;
@@ -32,29 +36,15 @@ public class TeacherCoursesListController implements Initializable {
 
 
     @FXML
-    private TableView<Course> courselist;
+    private TableView<clientCourse> courselist;
 
     @FXML
-    private TableColumn<Course, String> courses;
+    private TableColumn<clientCourse, String> courses;
 
     @FXML
     private ImageView Background;
 
 
-    public class Course{
-        public String course;
-
-        Course(String course){
-            this.course=course;
-        }
-
-        public String getCourse(){
-            return course;
-        }
-    }
-
-    Course c1 = new Course("course1");
-    Course c2 = new Course("stam kors2");
 
     @FXML
     void buttonbackclick(ActionEvent event) throws IOException {
@@ -62,37 +52,35 @@ public class TeacherCoursesListController implements Initializable {
             Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
             Scene scene = new Scene(newRoot);
             stage.setScene(scene);
-        }
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         courselist.setOnMouseClicked( event -> {
             if( event.getClickCount() == 2 ) {
+                courseId=courselist.getSelectionModel().getSelectedItem().id;
                 Stage stage = (Stage)buttonback.getScene().getWindow();
                 try {
-
-                    if (courselist.getSelectionModel().getSelectedItem().getCourse()=="course1"){
                         Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Course Main.fxml"));
-                        System.out.println("Welcome to course1!");
                         Scene scene = new Scene(newRoot);
                         stage.setScene(scene);
-                    }
-                    else
-                    {
-                        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Course Main.fxml"));
-                        System.out.println("Welcome to stam kors2!");
-                        Scene scene = new Scene(newRoot);
-                        stage.setScene(scene);
-                    }
 
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }});
-
-        final ObservableList<Course> data = FXCollections.observableArrayList(c1,c2);
-        courses.setCellValueFactory(new PropertyValueFactory<Course, String>("course"));
-        courselist.setItems(data);
+        clientAccess ca= new clientAccess();
+        ca.op= Operation.coursesFromSubjectAndTeacher;
+        ca.subjectID=subjectId;
+        Main.client.send(ca, new StringFunction() {
+            @Override
+            public void handle(String s) {
+                final clientCourse[] studentList = Main.g.fromJson(s, clientCourse[].class);
+                final ObservableList<clientCourse> data = FXCollections.observableArrayList(studentList);
+                courses.setCellValueFactory(new PropertyValueFactory<clientCourse, String>("name"));
+                courselist.setItems(data);
+            }
+        });
 
 
     }

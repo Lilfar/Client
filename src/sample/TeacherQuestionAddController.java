@@ -71,6 +71,7 @@ public class TeacherQuestionAddController {
                 ca.subjectID=subjectid;
                 clientQuestion cq=new clientQuestion(NewQuestion.getText(),textrightanswer.getText(),
                         textwronganswer1.getText(),textwronganswer2.getText(),textwronganswer3.getText());
+                ca.q=cq;
                 Main.client.send(ca, new StringFunction() {
                     @Override
                     public void handle(String s) {

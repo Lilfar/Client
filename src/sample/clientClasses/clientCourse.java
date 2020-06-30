@@ -23,4 +23,44 @@ public class clientCourse {
         this.online = online;
         this.average = average;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getOnline() {
+        return online;
+    }
+
+    public void setOnline(int online) {
+        this.online = online;
+    }
+
+    public ArrayList<clientUser> getStudents() {
+        return students;
+    }
+
+    public void setStudents(ArrayList<clientUser> students) {
+        this.students = students;
+    }
+
+    public Double getAverage() {
+        return average;
+    }
+
+    public void setAverage(Double average) {
+        this.average = average;
+    }
 }
