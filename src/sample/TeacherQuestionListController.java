@@ -111,8 +111,11 @@ public class TeacherQuestionListController implements Initializable{
 
         Parent newRoot;
         if (itemselected) {
+            clientQuestion cq=QuestionsTable.getSelectionModel().getSelectedItem();
+            TeacherQuestionAddController.cq=cq;
+            TeacherQuestionAddController.subjectid=subjectId;
             Stage stage = (Stage) buttoneditquestion.getScene().getWindow();
-            newRoot = FXMLLoader.load(getClass().getResource("Teacher Question Edit.fxml"));
+            newRoot = FXMLLoader.load(getClass().getResource("Teacher Question Add.fxml"));
             Scene scene = new Scene(newRoot);
             stage.setScene(scene);
         } else {

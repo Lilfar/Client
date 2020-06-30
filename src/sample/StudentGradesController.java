@@ -14,7 +14,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import javax.swing.text.html.ImageView;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -89,19 +91,46 @@ public class StudentGradesController implements Initializable {
                 popup.setScene(scene);
                 popup.showAndWait();
             }
-            else
-            {
+            else {
+                int online = studentgrades.getSelectionModel().getSelectedItem().online;
+                if (online == 0) {
+                    clientAccess ca = new clientAccess();
+                    ca.op = Operation.downloadManualExam;
+                    ca.courseID = studentgrades.getSelectionModel().getSelectedItem().course.id;
+                    Main.client.send(ca, new StringFunction() {
+                        @Override
+                        public void handle(String s) {
+                            clientExam ce = Main.g.fromJson(s,clientExam.class);
+                            JFrame parentFrame = new JFrame();
+                            JFileChooser fileChooser = new JFileChooser();
+                            fileChooser.setDialogTitle("Specify folder for download");
+                            fileChooser.setSelectedFile(new File("exam file.docx"));
 
-                newRoot = FXMLLoader.load(getClass().getResource("Item Downloaded Successfully.fxml"));
-                Scene scene = new Scene(newRoot);
-                popup.setScene(scene);
-                popup.showAndWait();
+                            int userSelection = fileChooser.showSaveDialog(parentFrame);
 
-                Stage stage = (Stage)buttondownload.getScene().getWindow();
-                newRoot = FXMLLoader.load(getClass().getResource("Student Grades.fxml"));
-                Scene scene2 = new Scene(newRoot);
-                stage.setScene(scene2);
+                            if (userSelection == JFileChooser.APPROVE_OPTION) {
 
+                                try {
+                                    clientAccess.toFile(ce.file, fileChooser.getSelectedFile().getPath());
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+
+                                Stage popup = new Stage();
+                                Parent newRoot = null;
+                                try {
+                                    newRoot = FXMLLoader.load(getClass().getResource("Item Downloaded Successfully.fxml"));
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                Scene scene = new Scene(newRoot);
+                                popup.setScene(scene);
+                                popup.showAndWait();
+                            }
+                        }
+                    });
+
+                }
             }
 
 

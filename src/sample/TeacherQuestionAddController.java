@@ -18,6 +18,7 @@ public class TeacherQuestionAddController {
 
     static boolean confirmed = false;
     static int subjectid;
+    static clientQuestion cq=null;
 
     @FXML
     private ResourceBundle resources;
@@ -118,6 +119,15 @@ public class TeacherQuestionAddController {
         assert textwronganswer2 != null : "fx:id=\"textwronganswer2\" was not injected: check your FXML file 'Teacher Question Add.fxml'.";
         assert textwronganswer3 != null : "fx:id=\"textwronganswer3\" was not injected: check your FXML file 'Teacher Question Add.fxml'.";
         assert buttonadd != null : "fx:id=\"buttonadd\" was not injected: check your FXML file 'Teacher Question Add.fxml'.";
+        if (cq!=null)
+        {
+            NewQuestion.setText(cq.question);
+            textrightanswer.setText(cq.right);
+            textwronganswer1.setText(cq.wrong1);
+            textwronganswer2.setText(cq.wrong2);
+            textwronganswer3.setText(cq.wrong3);
+        }
+        cq=null;
 
     }
 }

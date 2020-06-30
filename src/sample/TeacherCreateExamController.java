@@ -27,7 +27,6 @@ public class TeacherCreateExamController implements Initializable {
     ArrayList<clientQuestion> cqarr = new ArrayList<clientQuestion>();
     static int subjectId;
 
-
     @FXML
     private ResourceBundle resources;
 
