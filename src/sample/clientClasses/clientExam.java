@@ -12,6 +12,7 @@ public class clientExam {
     public int courseID;
     public byte[] file;
     public String note;
+    public String teacherNote;
 
     public clientExam(int id, String teacher) {
         this.id = id;

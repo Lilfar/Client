@@ -59,33 +59,37 @@ public class StudentTakeExamController {
                 StudentComputerExamController.examsize=exam.getQuestions().size();
                 buttongo.setText("Start");
                 downloaded = true;
-                type=exam.online;
+                type = exam.online;
+
+                System.out.println(type);
+
+                try {
+                    if (type != -1 && !textcode.getText().isBlank()) {
+                        Stage stage = (Stage) buttongo.getScene().getWindow();
+                        Parent newRoot = null;
+                        if (type == 0) {
+                            newRoot = FXMLLoader.load(getClass().getResource("Student Manual Exam.fxml"));
+                        }
+                        if (type == 1) {
+                            StudentExamFirstPageController.examid = Integer.parseInt(textcode.getText());
+                            newRoot = FXMLLoader.load(getClass().getResource("Student Exam First Page.fxml"));
+
+                        }
+                        Scene scene = new Scene(newRoot);
+                        stage.setScene(scene);
+                    } else {
+                        Stage popup = new Stage();
+                        Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Add Question Error Popup.fxml"));
+                        Scene scene = new Scene(newRoot);
+                        popup.setScene(scene);
+                        popup.showAndWait();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
-        if (!textcode.getText().isBlank())
-        {
-            Stage stage = (Stage)buttongo.getScene().getWindow();
-            Parent newRoot = null;
-            if (type==0)
-            {
-                newRoot = FXMLLoader.load(getClass().getResource("Student Manual Exam.fxml"));
-            }
-            if (type==1)
-            {
-                StudentExamFirstPageController.examid=Integer.parseInt(textcode.getText());
-                newRoot = FXMLLoader.load(getClass().getResource("Student Exam First Page.fxml"));
-            }
-            Scene scene = new Scene(newRoot);
-            stage.setScene(scene);
-        }
-        else
-        {
-            Stage popup = new Stage();
-            Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Add Question Error Popup.fxml"));
-            Scene scene = new Scene(newRoot);
-            popup.setScene(scene);
-            popup.showAndWait();
-        }
+
 
 
 

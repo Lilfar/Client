@@ -39,10 +39,5 @@
             <Font name="Freestyle Script" size="36.0" />
          </font>
       </Text>
-      <Button fx:id="buttonmakeareport" layoutX="35.0" layoutY="268.0" mnemonicParsing="false" onAction="#buttonmakeareportclick" prefHeight="36.0" prefWidth="198.0" style="-fx-background-color: lightskyblue;" text="Make a report">
-         <font>
-            <Font name="Centaur" size="18.0" />
-         </font>
-      </Button>
    </children>
 </Pane>
