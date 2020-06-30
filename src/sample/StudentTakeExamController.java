@@ -47,7 +47,7 @@ public class StudentTakeExamController {
     void buttongoclick(ActionEvent event) throws IOException {
         downloaded = false;
         clientAccess ca=new clientAccess();
-        ca.AccessCode=examid;
+        ca.AccessCode=Integer.parseInt(textcode.getText());
         ca.op= Operation.takeExam;
         buttongo.setText("Downloading file...");
         Main.client.send(ca, new StringFunction() {
