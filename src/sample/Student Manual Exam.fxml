@@ -25,6 +25,11 @@
                </font></Text>
             <Button fx:id="buttondone" layoutX="568.0" layoutY="354.0" mnemonicParsing="false" onAction="#buttondoneclick" text="Done" />
             <Button fx:id="buttonback" layoutX="25.0" layoutY="354.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
+            <Text fx:id="texttimeremaining" layoutX="247.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time remaining: 90:00">
+               <font>
+                  <Font name="David" size="16.0" />
+               </font>
+            </Text>
          </children>
     </AnchorPane>
   </children>

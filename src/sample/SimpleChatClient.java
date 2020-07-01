@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.logging.Logger;
 
+import com.google.gson.JsonElement;
 import javafx.application.Platform;
 import sample.AbstractClient;
 import sample.clientClasses.*;
@@ -26,6 +27,13 @@ public class SimpleChatClient extends AbstractClient {
 		}
 	};
 
+	public StringFunction timeAdded = new StringFunction() {
+		@Override
+		public void handle(String s) {
+
+		}
+	};
+
 	@Override
 	protected void connectionEstablished() {
 		// TODO Auto-generated method stub
@@ -38,7 +46,20 @@ public class SimpleChatClient extends AbstractClient {
 	}
 	@Override
 	protected void handleMessageFromServer(Object msg) {
-		System.out.println(11);
+		clientAccess ca = gson.fromJson(msg.toString(), clientAccess.class);
+
+
+		if(ca != null && ca.op == Operation.newRequest){
+			Platform.runLater(new Runnable() {
+				@Override
+				public void run() {
+					timeAdded.handle(msg.toString());
+				}
+			});
+			return;
+		}
+
+
 		Platform.runLater(new Runnable() {
 			@Override
 			public void run() {
