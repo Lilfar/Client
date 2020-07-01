@@ -148,15 +148,55 @@ public class StudentGradesController implements Initializable {
         studentgrades.setOnMouseClicked( event -> {
             if( event.getClickCount() == 2 ) {
 
-                try {
-                    Stage stage = (Stage)buttonback.getScene().getWindow();
-                    ViewExamController.from=1;
-                    Parent newRoot = FXMLLoader.load(getClass().getResource("View Exam.fxml"));
-                    Scene scene = new Scene(newRoot);
-                    stage.setScene(scene);
+                if(studentgrades.getSelectionModel().getSelectedItem().online == 1) {
+                    try {
+                        Stage stage = (Stage) buttonback.getScene().getWindow();
+                        ViewExamController.from = 1;
+                        ViewExamController.studentID = studentgrades.getSelectionModel().getSelectedItem().student.id;
+                        ViewExamController.courseID = studentgrades.getSelectionModel().getSelectedItem().course.id;
+                        Parent newRoot = FXMLLoader.load(getClass().getResource("View Exam.fxml"));
+                        Scene scene = new Scene(newRoot);
+                        stage.setScene(scene);
 
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    clientAccess ca2 = new clientAccess();
+                    ca2.op = Operation.downloadManualExam;
+                    ca2.courseID = studentgrades.getSelectionModel().getSelectedItem().course.id;
+                    Main.client.send(ca2, new StringFunction() {
+                        @Override
+                        public void handle(String s) {
+                            clientExam ce = Main.g.fromJson(s,clientExam.class);
+                            JFrame parentFrame = new JFrame();
+                            JFileChooser fileChooser = new JFileChooser();
+                            fileChooser.setDialogTitle("Specify folder for download");
+                            fileChooser.setSelectedFile(new File("exam file.docx"));
+
+                            int userSelection = fileChooser.showSaveDialog(parentFrame);
+
+                            if (userSelection == JFileChooser.APPROVE_OPTION) {
+
+                                try {
+                                    clientAccess.toFile(ce.file, fileChooser.getSelectedFile().getPath());
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+
+                                Stage popup = new Stage();
+                                Parent newRoot = null;
+                                try {
+                                    newRoot = FXMLLoader.load(getClass().getResource("Item Downloaded Successfully.fxml"));
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                Scene scene = new Scene(newRoot);
+                                popup.setScene(scene);
+                                popup.showAndWait();
+                            }
+                        }
+                    });
                 }
             }});
 
