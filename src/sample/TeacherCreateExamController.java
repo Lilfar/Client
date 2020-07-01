@@ -60,13 +60,13 @@ public class TeacherCreateExamController implements Initializable {
 
 
     @FXML
-    private TextField teachernote;
+    private TextArea teachernote;
 
     @FXML
-    private TextField studentnote;
+    private TextArea studentnote;
 
     @FXML
-    private TextField textselectedquestions;
+    private TextArea textselectedquestions;
 
     @FXML
     private Button buttoncreate;
@@ -76,6 +76,7 @@ public class TeacherCreateExamController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
 
         clientAccess ca=new clientAccess();
         ca.subjectID=subjectId;

@@ -9,7 +9,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import sample.clientClasses.Operation;
+import sample.clientClasses.clientAccess;
+import sample.clientClasses.clientExam;
 
+import javax.swing.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -51,6 +56,40 @@ public class TeacherGradeViewManualController {
 
     @FXML
     void buttonstudentssolutionclick(ActionEvent event) {
+        clientAccess ca = new clientAccess();
+
+        ca.op = Operation.downloadManualExam;
+        ca.courseID=TeacherGradeViewOnlineController.courseId;
+        ca.studentID=TeacherGradeViewOnlineController.studentId;
+        Main.client.send(ca, new StringFunction() {
+            @Override
+            public void handle(String s) {
+                clientExam ce = Main.g.fromJson(s,clientExam.class);
+
+                JFrame parentFrame = new JFrame();
+
+                JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setDialogTitle("Specify folder for download");
+                fileChooser.setSelectedFile(new File("exam file.docx"));
+
+                int userSelection = fileChooser.showSaveDialog(parentFrame);
+
+                if (userSelection == JFileChooser.APPROVE_OPTION) {
+
+                    try {
+                        clientAccess.toFile(ce.file, fileChooser.getSelectedFile().getPath());
+
+                        Stage popup = new Stage();
+                        Parent newRoot = FXMLLoader.load(getClass().getResource("Item Downloaded Successfully.fxml"));
+                        Scene scene = new Scene(newRoot);
+                        popup.setScene(scene);
+                        popup.showAndWait();
+                    } catch (IOException e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
 
 
     }

@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import sample.clientClasses.Operation;
+import sample.clientClasses.clientAccess;
 
 import java.io.IOException;
 import java.net.URL;
@@ -74,6 +76,11 @@ public class TeacherCourseMainController {
         assert buttonaddtime != null : "fx:id=\"buttonaddtime\" was not injected: check your FXML file 'Teacher Course Main.fxml'.";
         assert buttonstudentsgrades != null : "fx:id=\"buttonstudentsgrades\" was not injected: check your FXML file 'Teacher Course Main.fxml'.";
         assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Teacher Course Main.fxml'.";
+
+        //TeacherCoursesListController.courseId
+        buttonaddtime.setVisible(false);
+
+
 
     }
 }

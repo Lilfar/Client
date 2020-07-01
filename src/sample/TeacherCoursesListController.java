@@ -25,6 +25,7 @@ import sample.clientClasses.*;
 public class TeacherCoursesListController implements Initializable {
     static public int courseId;
     static public int subjectId;
+    static public clientCourse course;
     static public int from;
     static String teacherId;
     @FXML
@@ -71,6 +72,7 @@ public class TeacherCoursesListController implements Initializable {
         courselist.setOnMouseClicked( event -> {
             if( event.getClickCount() == 2 ) {
                 courseId=courselist.getSelectionModel().getSelectedItem().id;
+                course = courselist.getSelectionModel().getSelectedItem();
                 Stage stage = (Stage)buttonback.getScene().getWindow();
                 Parent newRoot;
                 Scene scene;
