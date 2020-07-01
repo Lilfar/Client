@@ -42,7 +42,6 @@ public class StudentGradesController implements Initializable {
     @FXML
     private Button buttondownload;
 
-
     @FXML
     private TableView<clientGrade> studentgrades;
 
@@ -83,7 +82,6 @@ public class StudentGradesController implements Initializable {
     @FXML void buttondownloadclick(ActionEvent event) throws IOException {
 
         Stage popup = new Stage();
-
         Parent newRoot;
             if (!itemselected){
                 newRoot = FXMLLoader.load(getClass().getResource("Table View Select Item Popup.fxml"));
@@ -129,14 +127,17 @@ public class StudentGradesController implements Initializable {
                             }
                         }
                     });
-
                 }
             }
-
-
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        if (from==33)
+            buttondownload.setVisible(false);
+        else
+            buttondownload.setVisible(true);
+
         clientAccess ca= new clientAccess();
         studentgrades.setOnMousePressed(e ->{
             if (e.getClickCount() == 1 && e.isPrimaryButtonDown() ){
@@ -144,12 +145,12 @@ public class StudentGradesController implements Initializable {
             }
         });
 
-
         studentgrades.setOnMouseClicked( event -> {
             if( event.getClickCount() == 2 ) {
                 System.out.println(studentgrades.getSelectionModel().getSelectedItem().course.name +" "+
                         studentgrades.getSelectionModel().getSelectedItem().grade);
             }});
+
         ca.studentID=studentid;
         ca.op=Operation.gradesList;
         Main.client.send(ca, new StringFunction() {
@@ -168,8 +169,5 @@ public class StudentGradesController implements Initializable {
     void initialize() {
         assert Background !=null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
         assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Student Grades.fxml'.";
-
     }
-
-
 }
