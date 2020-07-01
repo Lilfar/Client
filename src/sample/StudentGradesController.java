@@ -147,8 +147,6 @@ public class StudentGradesController implements Initializable {
 
         studentgrades.setOnMouseClicked( event -> {
             if( event.getClickCount() == 2 ) {
-                System.out.println(studentgrades.getSelectionModel().getSelectedItem().course.name +" "+
-                        studentgrades.getSelectionModel().getSelectedItem().grade);
 
                 try {
                     Stage stage = (Stage)buttonback.getScene().getWindow();

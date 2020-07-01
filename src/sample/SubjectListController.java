@@ -96,7 +96,6 @@ public class SubjectListController implements Initializable  {
         Main.client.send(ca, new StringFunction() {
             @Override
             public void handle(String s) {
-                System.out.println(s);
                 final clientSubject[] subjectList = Main.g.fromJson(s, clientSubject[].class);
                 final ObservableList<clientSubject> data = FXCollections.observableArrayList(subjectList);
                 subjects.setCellValueFactory(new PropertyValueFactory<clientSubject, String>("name"));

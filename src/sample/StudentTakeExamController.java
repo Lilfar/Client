@@ -52,7 +52,6 @@ public class StudentTakeExamController {
         Main.client.send(ca, new StringFunction() {
             @Override
             public void handle(String s) {
-                System.out.println(s);
                 if (s.equals(""))
                 {
                     Stage popup = new Stage();
@@ -76,7 +75,6 @@ public class StudentTakeExamController {
                     downloaded = true;
                     type = exam.online;
 
-                    System.out.println(type);
 
                     try {
                         if (type != -1 && !textcode.getText().isBlank()) {

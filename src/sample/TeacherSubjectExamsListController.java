@@ -73,7 +73,6 @@ public class TeacherSubjectExamsListController {
             public void handle(String s) {
                 final clientExam[] examList = Main.g.fromJson(s, clientExam[].class);
                 final ObservableList<clientExam> data = FXCollections.observableArrayList(examList);
-                System.out.println(examList.length);
                 ExamsTable.setCellValueFactory(new PropertyValueFactory<clientExam, Integer>("id"));
                 examtable.setItems(data);
             }

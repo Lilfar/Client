@@ -81,7 +81,6 @@ public class LoginMenuController {
                             break;
                     }
                     try {
-                        System.out.println(s);
                         nextView(s);
                     } catch (IOException e) {
                         e.printStackTrace();

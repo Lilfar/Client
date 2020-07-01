@@ -46,7 +46,7 @@ public class SimpleChatClient extends AbstractClient {
 	}
 	@Override
 	protected void handleMessageFromServer(Object msg) {
-		System.out.println(msg.toString());
+
 		try{
 			clientAccess ca = gson.fromJson(msg.toString(), clientAccess.class);
 
@@ -91,19 +91,4 @@ public class SimpleChatClient extends AbstractClient {
 		chatClientCLI.closeConnection();
 	}
 
-	public static void main(String[] args) throws IOException {
-		if (args.length != 2) {
-			System.out.println("Required arguments: <host> <port>");
-			String host="192.168.1.24";
-			String port="1000";
-			SimpleChatClient chatClient = new SimpleChatClient(host, Integer.parseInt(port));
-			chatClient.openConnection();
-		} else {
-			String host = args[0];
-			int port = Integer.parseInt(args[1]);
-
-			SimpleChatClient chatClient = new SimpleChatClient(host, port);
-			chatClient.openConnection();
-		}
-	}
 }
