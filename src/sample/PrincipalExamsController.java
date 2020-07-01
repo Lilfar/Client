@@ -108,6 +108,22 @@ public class PrincipalExamsController implements Initializable {
                 examstable.setItems(data);
             }
         });
+
+        examstable.setOnMouseClicked( event -> {
+            if (event.getClickCount() == 2) {
+                ViewExamController.examId = examstable.getSelectionModel().getSelectedItem().id;
+                ViewExamController.from = 300 + from;
+                Stage stage = (Stage)buttonback.getScene().getWindow();
+                Parent newRoot = null;
+                try {
+                    newRoot = FXMLLoader.load(getClass().getResource("View Exam.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Scene scene = new Scene(newRoot);
+                stage.setScene(scene);
+            }
+        });
     }
 }
 

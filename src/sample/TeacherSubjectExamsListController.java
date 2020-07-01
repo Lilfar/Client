@@ -77,5 +77,21 @@ public class TeacherSubjectExamsListController {
                 examtable.setItems(data);
             }
         });
+
+        examtable.setOnMouseClicked( event -> {
+            if (event.getClickCount() == 2) {
+                ViewExamController.examId = examtable.getSelectionModel().getSelectedItem().id;
+                ViewExamController.from = 2;
+                Stage stage = (Stage)buttonback.getScene().getWindow();
+                Parent newRoot = null;
+                try {
+                    newRoot = FXMLLoader.load(getClass().getResource("View Exam.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Scene scene = new Scene(newRoot);
+                stage.setScene(scene);
+            }
+        });
     }
 }

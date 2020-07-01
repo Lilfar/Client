@@ -2,6 +2,7 @@ package sample;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -16,14 +17,20 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.clientClasses.Operation;
 import sample.clientClasses.clientAccess;
+import sample.clientClasses.clientExam;
 import sample.clientClasses.clientQuestion;
 
 public class ViewExamController {
 
     static int from;
+    static int examId;
+
+    static int courseID;
+    static String studentID;
 
     @FXML
     private ResourceBundle resources;
@@ -35,13 +42,16 @@ public class ViewExamController {
     private TableView<clientQuestion> QuestionsTable;
 
     @FXML
-    private TableColumn<clientQuestion, String> questionId;
+    private TableColumn<clientQuestion, Integer> questionId;
 
     @FXML
     private TableColumn<clientQuestion, String> Question;
 
     @FXML
     private TableColumn<clientQuestion, String> RightAnswer;
+
+    @FXML
+    private TableColumn<clientQuestion, Integer> studentAnswer;
 
     @FXML
     private TableColumn<clientQuestion, String> WrongAnswer1;
@@ -60,6 +70,12 @@ public class ViewExamController {
 
     @FXML
     private TextArea teachernote;
+
+    @FXML
+    private Text studentlabel;
+
+    @FXML
+    private Text teacherlabel;
 
     @FXML
     void buttonbackclick(ActionEvent event) throws IOException {
@@ -106,23 +122,55 @@ public class ViewExamController {
         assert teachernote != null : "fx:id=\"teachernote\" was not injected: check your FXML file 'View Exam.fxml'.";
 
 
-        clientAccess ca = new clientAccess();
 
-        ca.op= Operation.questionList;
-        Main.client.send(ca, new StringFunction() {
-            @Override
-            public void handle(String s) {
-                final clientQuestion[] questionList = Main.g.fromJson(s, clientQuestion[].class);
-                final ObservableList<clientQuestion> data = FXCollections.observableArrayList(questionList);
-                Question.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("question"));
-                RightAnswer.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("right"));
-                WrongAnswer1.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong1"));
-                WrongAnswer2.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong2"));
-                WrongAnswer3.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong3"));
-                questionId.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("id"));
-                QuestionsTable.setItems(data);
-            }
-        });
+        if(from == 1){
+            clientAccess ca = new clientAccess();
+            ca.op = Operation.getStudentAnswers;
+            ca.studentID = studentID;
+            ca.courseID = courseID;
+            Main.client.send(ca, new StringFunction() {
+                @Override
+                public void handle(String s) {
+                    System.out.println(s);
+                    final clientQuestion[] questionList = Main.g.fromJson(s, clientQuestion[].class);
+                    studentnote.setVisible(false);
+                    teachernote.setVisible(false);
+                    studentlabel.setVisible(false);
+                    teacherlabel.setVisible(false);
+                    final ObservableList<clientQuestion> data = FXCollections.observableArrayList(questionList);
+                    Question.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("question"));
+                    RightAnswer.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("right"));
+                    WrongAnswer1.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong1"));
+                    WrongAnswer2.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong2"));
+                    WrongAnswer3.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong3"));
+                    questionId.setCellValueFactory(new PropertyValueFactory<clientQuestion, Integer>("id"));
+                    studentAnswer.setCellValueFactory(new PropertyValueFactory<clientQuestion, Integer>("studentAnswer"));
+                    QuestionsTable.setItems(data);
+                }
+            });
+        }else {
+            clientAccess ca = new clientAccess();
+            ca.op = Operation.getExam;
+            ca.examID = examId;
+            Main.client.send(ca, new StringFunction() {
+                @Override
+                public void handle(String s) {
+                    final clientExam e = Main.g.fromJson(s, clientExam.class);
+                    ArrayList<clientQuestion> questionList = e.questions;
+                    studentnote.setText(e.note);
+                    teachernote.setText(e.teacherNote);
+                    final ObservableList<clientQuestion> data = FXCollections.observableArrayList(questionList);
+                    Question.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("question"));
+                    RightAnswer.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("right"));
+                    WrongAnswer1.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong1"));
+                    WrongAnswer2.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong2"));
+                    WrongAnswer3.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong3"));
+                    questionId.setCellValueFactory(new PropertyValueFactory<clientQuestion, Integer>("id"));
+                    studentAnswer.setVisible(false);
+                    QuestionsTable.setItems(data);
+                }
+            });
+        }
 
 
     }

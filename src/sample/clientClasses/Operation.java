@@ -120,5 +120,6 @@ public enum Operation {
     ,getGradesOfTeacher
 
     ,coursesOfSubject
+
     ,getStudentAnswers
 }
