@@ -94,16 +94,7 @@ public class PrincipalRequestsController implements Initializable {
         if (itemselected)
         {
             FinishPopupController.from=10;
-            clientAccess ca=new clientAccess();
-            ca.op=Operation.decideRequest;
-            ca.accept=true;
-            ca.requestID=RequestsTable.getSelectionModel().getSelectedItem().id;
-            Main.client.send(ca, new StringFunction() {
-                @Override
-                public void handle(String s) {
 
-                }
-            });
             newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
             Stage popup = new Stage();
             Scene scene = new Scene(newRoot);
@@ -111,6 +102,16 @@ public class PrincipalRequestsController implements Initializable {
             popup.showAndWait();
 
             if (close){
+                clientAccess ca=new clientAccess();
+                ca.op=Operation.decideRequest;
+                ca.accept=true;
+                ca.requestID=RequestsTable.getSelectionModel().getSelectedItem().id;
+                Main.client.send(ca, new StringFunction() {
+                    @Override
+                    public void handle(String s) {
+
+                    }
+                });
                 close=!close;
                 Stage stage = (Stage)buttonaccept.getScene().getWindow();
                 newRoot = FXMLLoader.load(getClass().getResource("Principal Main.fxml"));
@@ -142,16 +143,7 @@ public class PrincipalRequestsController implements Initializable {
         if (itemselected)
         {
             FinishPopupController.from=10;
-            clientAccess ca=new clientAccess();
-            ca.op=Operation.decideRequest;
-            ca.accept=false;
-            ca.requestID=RequestsTable.getSelectionModel().getSelectedItem().id;
-            Main.client.send(ca, new StringFunction() {
-                @Override
-                public void handle(String s) {
 
-                }
-            });
             newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
             Stage popup = new Stage();
             Scene scene = new Scene(newRoot);
@@ -159,6 +151,16 @@ public class PrincipalRequestsController implements Initializable {
             popup.showAndWait();
 
             if (close){
+                clientAccess ca=new clientAccess();
+                ca.op=Operation.decideRequest;
+                ca.accept=false;
+                ca.requestID=RequestsTable.getSelectionModel().getSelectedItem().id;
+                Main.client.send(ca, new StringFunction() {
+                    @Override
+                    public void handle(String s) {
+
+                    }
+                });
                 close=false;
                 Stage stage = (Stage)buttonaccept.getScene().getWindow();
                 newRoot = FXMLLoader.load(getClass().getResource("Principal Main.fxml"));

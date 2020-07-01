@@ -31,7 +31,7 @@
             <TableColumn id="WrongAnswer1" fx:id="WrongAnswer1" prefWidth="101.60003662109375" text="Wrong Answer" />
             <TableColumn id="WrongAnswer2" fx:id="WrongAnswer2" prefWidth="100.800048828125" text="Wrong Answer" />
             <TableColumn id="WrongAnswer3" fx:id="WrongAnswer3" prefWidth="107.20001220703125" text="Wrong Answer" />
-            <TableColumn prefWidth="119.19998779296873" text="Student's Answer" />
+            <TableColumn fx:id="studentsAnswer" prefWidth="119.19998779296873" text="Student's Answer" />
          </columns>
       </TableView>
       <Button fx:id="buttonclose" layoutX="25.0" layoutY="464.0" mnemonicParsing="false" onAction="#buttoncloseclick" prefHeight="38.0" prefWidth="115.0" text="Close" />

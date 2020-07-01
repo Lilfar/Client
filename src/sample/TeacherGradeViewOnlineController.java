@@ -26,6 +26,9 @@ public class TeacherGradeViewOnlineController {
 
 
     static  boolean confirmed = false;
+    static int from;
+    static double grade;
+
 
     static int courseId;
     static String studentId;
@@ -124,7 +127,7 @@ public class TeacherGradeViewOnlineController {
         assert studentsAnswer != null : "fx:id=\"studentsAnswer\" was not injected: check your FXML file 'Teacher Grade View Online.fxml'.";
         assert buttonclose != null : "fx:id=\"buttonclose\" was not injected: check your FXML file 'Teacher Grade View Online.fxml'.";
         assert buttonconfirmgrade != null : "fx:id=\"buttonconfirmgrade\" was not injected: check your FXML file 'Teacher Grade View Online.fxml'.";
-        Grade.setText(Double.toString(TeacherStudentsAndGradesListController.Grade));
+        Grade.setText(Double.toString(grade));
         courseId=TeacherStudentsAndGradesListController.courseId;
         studentId=TeacherStudentsAndGradesListController.studentId;
         clientAccess ca=new clientAccess();

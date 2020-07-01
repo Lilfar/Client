@@ -60,33 +60,36 @@ public class TeacherStudentsAndGradesListController implements Initializable {
                     clientAccess ca=new clientAccess();
                     ca.op= Operation.courseExam;
                     ca.courseID=courseId;
+                    TeacherGradeViewOnlineController.grade=Grade;
+                    TeacherGradeViewManualController.grade=Grade;
                     Main.client.send(ca, new StringFunction() {
                         @Override
                         public void handle(String s) {
                             final clientExam exam = Main.g.fromJson(s, clientExam.class);
-                            Stage stage = (Stage)buttonback.getScene().getWindow();
+                            Stage popup = new Stage();
                             Parent newRoot = null;
                             try {
                                 if(exam.online==1) {
+                                    TeacherGradeViewOnlineController.from=2;
                                     newRoot = FXMLLoader.load(getClass().getResource("Teacher Grade View Online.fxml"));
                                 }
                                 else {
+                                    TeacherGradeViewManualController.from=2;
                                     newRoot = FXMLLoader.load(getClass().getResource("Teacher Grade View Manual.fxml"));
                                 }
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
                             Scene scene = new Scene(newRoot);
-                            stage.setScene(scene);
+                            popup.setScene(scene);
+                            popup.showAndWait();
                         }
                     });
-
                 }
             });
         }
+
         clientAccess ca= new clientAccess();
-
-
         if (from==332)
         {
             ca.teacherID=teacherId;
@@ -115,7 +118,6 @@ public class TeacherStudentsAndGradesListController implements Initializable {
                 itemselected=true;
             }
         });
-
     }
 
     @FXML

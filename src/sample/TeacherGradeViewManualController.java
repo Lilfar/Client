@@ -17,7 +17,8 @@ import java.util.ResourceBundle;
 public class TeacherGradeViewManualController {
 
     static boolean confirmed=false;
-    static boolean addgrade=false;
+    static double grade;
+    static int from;
 
     @FXML
     private ResourceBundle resources;
@@ -38,9 +39,6 @@ public class TeacherGradeViewManualController {
     private Button buttonclose;
 
     @FXML
-    private Button buttonaddgrade;
-
-    @FXML
     private ImageView Background;
 
     @FXML
@@ -49,24 +47,7 @@ public class TeacherGradeViewManualController {
         popup.close();
     }
 
-    @FXML
-    void buttonaddgradeclick(ActionEvent event) throws IOException {
-        FinishPopupController.from=7;
-        Stage popup = new Stage();
-        Parent newRoot = FXMLLoader.load(getClass().getResource("Finish Popup.fxml"));
-        Scene scene = new Scene(newRoot);
-        popup.setScene(scene);
-        popup.showAndWait();
 
-        if (addgrade)
-        {
-            addgrade=!addgrade;
-            Stage stage = (Stage)buttonaddgrade.getScene().getWindow();
-            newRoot = FXMLLoader.load(getClass().getResource("Teacher Students And Grades List.fxml"));
-            scene = new Scene(newRoot);
-            stage.setScene(scene);
-        }
-    }
 
     @FXML
     void buttonstudentssolutionclick(ActionEvent event) {
@@ -84,11 +65,17 @@ public class TeacherGradeViewManualController {
 
         if (confirmed)
         {
-            confirmed=!confirmed;
-            Stage stage = (Stage)buttonchangegrade.getScene().getWindow();
-            newRoot = FXMLLoader.load(getClass().getResource("Teacher Students And Grades List.fxml"));
-            scene = new Scene(newRoot);
-            stage.setScene(scene);
+            confirmed = !confirmed;
+
+            if (from==2)
+            {
+
+            }else {
+                Stage stage = (Stage) buttonchangegrade.getScene().getWindow();
+                newRoot = FXMLLoader.load(getClass().getResource("Teacher Students And Grades List.fxml"));
+                scene = new Scene(newRoot);
+                stage.setScene(scene);
+            }
         }
     }
 
@@ -99,6 +86,7 @@ public class TeacherGradeViewManualController {
         assert buttonchangegrade != null : "fx:id=\"buttonchangegrade\" was not injected: check your FXML file 'Teacher Grade View Manual.fxml'.";
         assert buttonstudentssolution != null : "fx:id=\"buttonstudentssolution\" was not injected: check your FXML file 'Teacher Grade View Manual.fxml'.";
         assert buttonclose != null : "fx:id=\"Apply\" was not injected: check your FXML file 'Teacher Grade View Manual.fxml'.";
+        Grade.setText(Double.toString(grade));
 
         //int temp= ((Integer.parseInt(Grade.getText()))>=0 && (Integer.parseInt(Grade.getText()))<=100);
         boolean number=false;
@@ -111,9 +99,6 @@ public class TeacherGradeViewManualController {
         catch (NumberFormatException NFE){
             number=false;
         }
-        if (!number)
-            buttonaddgrade.setVisible(true);
-        else
-            buttonaddgrade.setVisible(false);
+
     }
 }
