@@ -26,6 +26,7 @@ public class TeacherCoursesListController implements Initializable {
     static public int courseId;
     static public int subjectId;
     static public int from;
+    static String teacherId;
     @FXML
     private ResourceBundle resources;
 
@@ -34,7 +35,6 @@ public class TeacherCoursesListController implements Initializable {
 
     @FXML
     private Button buttonback;
-
 
     @FXML
     private TableView<clientCourse> courselist;
@@ -55,6 +55,9 @@ public class TeacherCoursesListController implements Initializable {
             case 33:
                 newRoot = FXMLLoader.load(getClass().getResource("Subject List.fxml"));
                 break;
+            case 332:
+                newRoot = FXMLLoader.load(getClass().getResource("Subject List.fxml"));
+                break;
             default:
                 newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
                 break;
@@ -72,13 +75,19 @@ public class TeacherCoursesListController implements Initializable {
                 Parent newRoot;
                 Scene scene;
                 try {
-
-
                     switch(from)
                     {
                         case 33:
                             TeacherStudentsAndGradesListController.from=331;
                             TeacherStudentsAndGradesListController.courseId=courseId;
+                            newRoot = FXMLLoader.load(getClass().getResource("Teacher Students And Grades List.fxml"));
+                            scene = new Scene(newRoot);
+                            stage.setScene(scene);
+                            break;
+                        case 332:
+                            TeacherStudentsAndGradesListController.from=332;
+                            TeacherStudentsAndGradesListController.courseId=courseId;
+                            TeacherStudentsAndGradesListController.teacherId=teacherId;
                             newRoot = FXMLLoader.load(getClass().getResource("Teacher Students And Grades List.fxml"));
                             scene = new Scene(newRoot);
                             stage.setScene(scene);
@@ -103,11 +112,14 @@ public class TeacherCoursesListController implements Initializable {
             case 33:
                 ca.op= Operation.coursesOfSubject;
                 break;
+            case 332:
+                ca.op=Operation.coursesFromSubjectAndTeacher;
             default:
                 ca.op= Operation.coursesFromSubjectAndTeacher;
                 break;
         }
         ca.subjectID=subjectId;
+        ca.teacherID=teacherId;
         Main.client.send(ca, new StringFunction() {
             @Override
             public void handle(String s) {

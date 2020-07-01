@@ -25,6 +25,7 @@ public class TeacherStudentsAndGradesListController implements Initializable {
     static int from=0;
     boolean itemselected = false;
     static int courseId;
+    static String teacherId;
 
     @FXML
     private ResourceBundle resources;
@@ -53,8 +54,18 @@ public class TeacherStudentsAndGradesListController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         clientAccess ca= new clientAccess();
-        ca.op= Operation.getGradesOfCourse;
-        ca.courseID=courseId;
+
+
+        if (from==332)
+        {
+            ca.teacherID=teacherId;
+            ca.op=Operation.getGradesOfTeacher;
+        }
+        else
+        {
+            ca.op= Operation.getGradesOfCourse;
+            ca.courseID=courseId;
+        }
         Main.client.send(ca, new StringFunction() {
             @Override
             public void handle(String s) {
@@ -68,7 +79,7 @@ public class TeacherStudentsAndGradesListController implements Initializable {
             }
         });
 
-        if (from==331)
+        if (from==331 || from==332)
             buttonchangegrade.setVisible(false);
         else
             buttonchangegrade.setVisible(true);
@@ -101,6 +112,9 @@ public class TeacherStudentsAndGradesListController implements Initializable {
                 newRoot = FXMLLoader.load(getClass().getResource("Students List.fxml"));
                 break;
             case 331:
+                newRoot = FXMLLoader.load(getClass().getResource("Teacher Courses List.fxml"));
+                break;
+            case 332:
                 newRoot = FXMLLoader.load(getClass().getResource("Teacher Courses List.fxml"));
                 break;
             default:
