@@ -14,6 +14,9 @@ public class clientExam {
     public String note;
     public String teacherNote;
 
+    public int startTime;
+    public int duration;
+
     public clientExam(int id, String teacher) {
         this.id = id;
         this.teacher = teacher;

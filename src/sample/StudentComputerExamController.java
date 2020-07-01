@@ -14,6 +14,9 @@ import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import sample.clientClasses.*;
 
 public class StudentComputerExamController {
@@ -24,6 +27,7 @@ public class StudentComputerExamController {
     ArrayList<clientAnswer> answers=new ArrayList<clientAnswer>();
     static clientExam exam=new clientExam();
     static int examsize;
+    int timeRemaining = exam.duration - ((int)(System.currentTimeMillis() / 1000) - exam.startTime);
     @FXML
     private ResourceBundle resources;
 
@@ -38,6 +42,9 @@ public class StudentComputerExamController {
 
     @FXML
     private Text textquestion;
+
+    @FXML
+    private Text texttimeremaining;
 
     @FXML
     private Text textquestion1;
@@ -82,6 +89,11 @@ public class StudentComputerExamController {
                                 clientCompletion cc = Main.g.fromJson(s,clientCompletion.class);
                                 try {
                                     if (cc.success) {
+                                        Main.client.timeAdded = new StringFunction() {
+                                            @Override
+                                            public void handle(String s) {
+                                            }
+                                        };
                                         Stage stage = (Stage) buttonnext.getScene().getWindow();
                                         Parent newRoot = FXMLLoader.load(getClass().getResource("Student Take Exam.fxml"));
                                         Scene scene = new Scene(newRoot);
@@ -184,10 +196,43 @@ public class StudentComputerExamController {
             buttonnext.setText("Next");
     }
 
+    void setTimer(){
+        int minutes = timeRemaining / 60;
+        int seconds = timeRemaining % 60;
+
+        texttimeremaining.setText("Time remaining: " + minutes + ":" + seconds);
+    }
+
     @FXML
     void initialize() {
         assert buttonnext != null : "fx:id=\"buttonnext\" was not injected: check your FXML file 'Student Computer Exam.fxml'.";
         assert buttonprev != null : "fx:id=\"buttonprev\" was not injected: check your FXML file 'Student Computer Exam.fxml'.";
+
+        Timer timer = new Timer();
+
+        Main.client.timeAdded = new StringFunction() {
+            @Override
+            public void handle(String s) {
+                clientAccess ca = Main.g.fromJson(s,clientAccess.class);
+                if(ca.courseID == exam.courseID){
+                    timeRemaining += ca.addedTime;
+                    setTimer();
+                }
+            }
+        };
+
+        TimerTask task = new TimerTask()
+        {
+            public void run()
+            {
+                timeRemaining -= 1;
+                setTimer();
+            }
+
+        };
+
+        timer.scheduleAtFixedRate(task,0,1000l);
+
 
         for (int i = 0 ; i < examsize ; i++){
             answers.add(new clientAnswer(0,exam.questions.get(i).getId(),exam.getCourseID()));

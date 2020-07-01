@@ -35,8 +35,8 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <RadioButton fx:id="onlineradio" layoutX="386.0" layoutY="523.0" mnemonicParsing="false" text="Online" />
-      <RadioButton fx:id="manualradio" layoutX="386.0" layoutY="545.0" mnemonicParsing="false" text="Manual" />
+      <RadioButton fx:id="onlineradio" layoutX="386.0" layoutY="523.0" mnemonicParsing="false" onAction="#onlineradioclick" text="Online" />
+      <RadioButton fx:id="manualradio" layoutX="386.0" layoutY="545.0" mnemonicParsing="false" onAction="#manualradioclick" text="Manual" />
       <TextField fx:id="accessCode" layoutX="198.0" layoutY="528.0" prefHeight="25.0" prefWidth="48.0" />
       <Text layoutX="118.0" layoutY="547.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Access Code:">
          <font>
