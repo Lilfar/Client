@@ -42,7 +42,6 @@ public class TeacherSubjectFinishedExamStudentsListController {
     @FXML
     private TableColumn<clientCourse, String> teacherName;
 
-
     @FXML
     private Button buttonback;
 
@@ -52,7 +51,6 @@ public class TeacherSubjectFinishedExamStudentsListController {
         Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Main.fxml"));
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
-
     }
 
     @FXML
@@ -76,5 +74,19 @@ public class TeacherSubjectFinishedExamStudentsListController {
                 ExamTable.setItems(data);
             }
         });
+
+        ExamTable.setOnMouseClicked( event -> {
+            if( event.getClickCount() == 2 ) {
+                try {
+                    Stage stage = (Stage)buttonback.getScene().getWindow();
+                    TeacherStudentsAndGradesListController.from=4;
+                    TeacherStudentsAndGradesListController.courseId=ExamTable.getSelectionModel().getSelectedItem().id;
+                    Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Students And Grades List.fxml"));
+                    Scene scene = new Scene(newRoot);
+                    stage.setScene(scene);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }});
     }
 }

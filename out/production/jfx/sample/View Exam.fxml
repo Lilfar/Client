@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="832.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ViewExamController">
+   <children>
+      <ImageView fitHeight="594.0" fitWidth="842.0" layoutX="-2.0" layoutY="-4.0" pickOnBounds="true">
+         <image>
+            <Image url="https://lh3.googleusercontent.com/proxy/apD4auxD9-TDz7y8tf5e6RyqK6RGGMtVnO3HUfRrAI5btYmQkHGp7w2aFqsb2xPG-TwYscHRDZbnxTkvyrY7Wjy2ok96gh4oErKcTzFqItm96TkOU3uQOOXCDdCw50Ir1CPo" />
+         </image>
+      </ImageView>
+      <TableView fx:id="QuestionsTable" layoutX="30.0" layoutY="33.0" prefHeight="373.0" prefWidth="779.0">
+         <columns>
+            <TableColumn fx:id="questionId" prefWidth="37.60000801086426" text="Id" />
+            <TableColumn fx:id="studentAnswer" prefWidth="110.39998626708984" text="Student Answer" />
+            <TableColumn id="Question" fx:id="Question" prefWidth="295.20001220703125" text="Question" />
+            <TableColumn fx:id="RightAnswer" prefWidth="108.80001831054688" text="Right Answer" />
+            <TableColumn id="WrongAnswer1" fx:id="WrongAnswer1" prefWidth="104.79998779296875" text="Wrong Answer" />
+            <TableColumn id="WrongAnswer2" fx:id="WrongAnswer2" prefWidth="109.60003662109375" text="Wrong Answer" />
+            <TableColumn id="WrongAnswer3" fx:id="WrongAnswer3" prefWidth="113.5999755859375" text="Wrong Answer" />
+         </columns>
+      </TableView>
+      <Button fx:id="buttonback" layoutX="30.0" layoutY="529.0" mnemonicParsing="false" onAction="#buttonbackclick" prefHeight="25.0" prefWidth="70.0" text="back" />
+      <Text fx:id="studentlabel" layoutX="135.0" layoutY="434.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notes about the exam:">
+         <font>
+            <Font name="Freestyle Script" size="23.0" />
+         </font></Text>
+      <Text fx:id="teacherlabel" layoutX="513.0" layoutY="434.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notes for teachers only:">
+         <font>
+            <Font name="Freestyle Script" size="23.0" />
+         </font></Text>
+      <TextArea fx:id="studentnote" editable="false" layoutX="135.0" layoutY="442.0" prefHeight="87.0" prefWidth="296.0" />
+      <TextArea fx:id="teachernote" editable="false" layoutX="513.0" layoutY="442.0" prefHeight="87.0" prefWidth="296.0" />
+   </children>
+</Pane>

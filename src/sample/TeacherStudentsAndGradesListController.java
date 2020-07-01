@@ -130,6 +130,9 @@ public class TeacherStudentsAndGradesListController implements Initializable {
             case 1:
                 newRoot = FXMLLoader.load(getClass().getResource("Teacher Course Main.fxml"));
                 break;
+            case 4:
+                newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Finished Exam Students List.fxml"));
+                break;
             case 31:
                 newRoot = FXMLLoader.load(getClass().getResource("Subject List.fxml"));
                 break;
