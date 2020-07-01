@@ -7,22 +7,22 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PrincipalQuestionsController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="781.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PrincipalQuestionsController">
    <children>
-      <ImageView fitHeight="631.0" fitWidth="788.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="545.0" fitWidth="783.0" layoutX="-2.0" layoutY="-1.0" pickOnBounds="true">
       <image>
-         <Image url="https://image.freepik.com/free-photo/colorful-watercolor-pencils-white-background-school-supplies_105517-581.jpg" />
+         <Image url="https://lh3.googleusercontent.com/proxy/apD4auxD9-TDz7y8tf5e6RyqK6RGGMtVnO3HUfRrAI5btYmQkHGp7w2aFqsb2xPG-TwYscHRDZbnxTkvyrY7Wjy2ok96gh4oErKcTzFqItm96TkOU3uQOOXCDdCw50Ir1CPo" />
       </image>
       </ImageView>
-      <TableView fx:id="questionstable" layoutX="30.0" layoutY="14.0" prefHeight="500.0" prefWidth="680.0">
+      <TableView fx:id="questionstable" layoutX="54.0" layoutY="55.0" prefHeight="435.0" prefWidth="683.0">
          <columns>
             <TableColumn id="Question" fx:id="Question" prefWidth="200.0" text="Question" />
             <TableColumn fx:id="RightAnswer" prefWidth="120.0" text="Right Answer" />
             <TableColumn id="WrongAnswer1" fx:id="WrongAnswer1" prefWidth="120.0" text="Wrong Answer" />
             <TableColumn id="WrongAnswer2" fx:id="WrongAnswer2" prefWidth="120.0" text="Wrong Answer" />
-            <TableColumn id="WrongAnswer3" fx:id="WrongAnswer3" prefWidth="120.0" text="Wrong Answer" />
+            <TableColumn id="WrongAnswer3" fx:id="WrongAnswer3" prefWidth="119.20001220703125" text="Wrong Answer" />
          </columns>
       </TableView>
-      <Button fx:id="buttonback" layoutX="14.0" layoutY="514.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
+      <Button fx:id="buttonback" layoutX="14.0" layoutY="505.0" mnemonicParsing="false" onAction="#buttonbackclick" prefHeight="25.0" prefWidth="46.0" text="Back" />
    </children>
 </Pane>

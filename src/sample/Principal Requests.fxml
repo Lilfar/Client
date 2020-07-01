@@ -6,15 +6,16 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="755.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PrincipalRequestsController">
    <children>
-       <ImageView fitHeight="499.0" fitWidth="755.0" layoutX="2.0" pickOnBounds="true">
+       <ImageView fitHeight="481.0" fitWidth="763.0" layoutX="-6.0" pickOnBounds="true">
            <image>
-               <Image url="https://image.freepik.com/free-photo/colorful-watercolor-pencils-white-background-school-supplies_105517-581.jpg" />
+               <Image url="https://lh3.googleusercontent.com/proxy/apD4auxD9-TDz7y8tf5e6RyqK6RGGMtVnO3HUfRrAI5btYmQkHGp7w2aFqsb2xPG-TwYscHRDZbnxTkvyrY7Wjy2ok96gh4oErKcTzFqItm96TkOU3uQOOXCDdCw50Ir1CPo" />
            </image>
        </ImageView>
-      <TableView fx:id="RequestsTable" layoutX="28.0" layoutY="14.0" prefHeight="419.0" prefWidth="700.0">
+      <TableView fx:id="RequestsTable" layoutX="60.0" layoutY="51.0" prefHeight="378.0" prefWidth="634.0">
         <columns>
           <TableColumn fx:id="teachername" minWidth="0.0" prefWidth="120.0" text="Teacher name" />
           <TableColumn fx:id="coursename" minWidth="8.0" prefWidth="120.0" text="Course name" />
@@ -22,8 +23,17 @@
             <TableColumn fx:id="explanation" prefWidth="340.0" text="Explanation" />
         </columns>
       </TableView>
-      <Button fx:id="buttonback" layoutX="14.0" layoutY="440.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
-      <Button fx:id="buttonaccept" layoutX="521.0" layoutY="440.0" mnemonicParsing="false" onAction="#buttonacceptclick" text="Accept" />
-      <Button fx:id="buttondecline" layoutX="634.0" layoutY="440.0" mnemonicParsing="false" onAction="#buttondeclineclick" text="Decline" />
+      <Button fx:id="buttonback" layoutX="33.0" layoutY="442.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <Button fx:id="buttonaccept" layoutX="521.0" layoutY="440.0" mnemonicParsing="false" onAction="#buttonacceptclick" text="Accept">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <Button fx:id="buttondecline" layoutX="634.0" layoutY="440.0" mnemonicParsing="false" onAction="#buttondeclineclick" text="Decline">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
    </children>
 </AnchorPane>

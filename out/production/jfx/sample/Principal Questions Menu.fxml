@@ -28,7 +28,7 @@
          </font></Button>
       <Text layoutX="163.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Questions" wrappingWidth="144.0">
          <font>
-            <Font name="Freestyle Script" size="40.0" />
+            <Font name="Freestyle Script" size="44.0" />
          </font></Text>
    </children>
 </Pane>

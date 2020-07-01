@@ -7,10 +7,10 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="161.0" prefWidth="324.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ItemDownloadedSuccessfullyController">
    <children>
-      <Text layoutX="39.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Downloaded Successfully!!">
+      <Text layoutX="57.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Downloaded Successfully!!">
          <font>
-            <Font size="18.0" />
+            <Font size="15.0" />
          </font></Text>
-      <Button fx:id="buttondone" layoutX="140.0" layoutY="81.0" mnemonicParsing="false" onAction="#buttondoneclick" text="Done" />
+      <Button fx:id="buttondone" layoutX="140.0" layoutY="88.0" mnemonicParsing="false" onAction="#buttondoneclick" text="Done" />
    </children>
 </AnchorPane>

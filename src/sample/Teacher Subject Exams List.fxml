@@ -7,19 +7,19 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherSubjectExamsListController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="458.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherSubjectExamsListController">
    <children>
-       <ImageView fitHeight="525.0" fitWidth="719.0" layoutX="-50.0" layoutY="-43.0" pickOnBounds="true" preserveRatio="true">
-           <image>
-               <Image url="https://image.freepik.com/free-photo/colorful-watercolor-pencils-white-background-school-supplies_105517-581.jpg" />
-           </image>
-       </ImageView>
-      <TableView fx:id="examtable" layoutX="52.0" layoutY="84.0" prefHeight="270.0" prefWidth="494.0">
+      <ImageView fitHeight="538.0" fitWidth="462.0" layoutX="-1.0" pickOnBounds="true">
+         <image>
+            <Image url="https://media.istockphoto.com/photos/school-supplies-background-back-to-school-picture-id875503500?k=6&amp;m=875503500&amp;s=170667a&amp;w=0&amp;h=oTyX0Td_Gs0Y8k5bImsPxLzh-mXZs1C5_utbZGpuIZ8=" />
+         </image>
+      </ImageView>
+      <TableView fx:id="examtable" layoutX="80.0" layoutY="38.0" prefHeight="418.0" prefWidth="300.0">
         <columns>
-          <TableColumn fx:id="ExamsTable" prefWidth="479.20001220703125" text="Exams" />
+          <TableColumn fx:id="ExamsTable" prefWidth="299.20001220703125" text="Exams" />
         </columns>
       </TableView>
-      <Button fx:id="buttoncreateexam" layoutX="53.0" layoutY="39.0" mnemonicParsing="false" onAction="#buttoncreateexamclick" prefHeight="34.0" prefWidth="122.0" text="Create Exam" />
-      <Button fx:id="buttonback" layoutX="14.0" layoutY="362.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
+      <Button fx:id="buttoncreateexam" layoutX="163.0" layoutY="470.0" mnemonicParsing="false" onAction="#buttoncreateexamclick" prefHeight="34.0" prefWidth="122.0" text="Create Exam" />
+      <Button fx:id="buttonback" layoutX="34.0" layoutY="474.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
    </children>
 </AnchorPane>

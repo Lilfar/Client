@@ -8,34 +8,37 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherQuestionAddController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="390.0" prefWidth="596.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherQuestionAddController">
    <children>
-      <ImageView fitHeight="453.0" fitWidth="650.0" layoutX="-2.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="391.0" fitWidth="600.0" layoutX="-4.0" pickOnBounds="true">
          <image>
-            <Image url="https://image.freepik.com/free-photo/colorful-watercolor-pencils-white-background-school-supplies_105517-581.jpg" />
+            <Image url="https://p9cdn4static.sharpschool.com/UserFiles/Servers/Server_137380/Image/frame-3518725_1280.jpg" />
          </image>
       </ImageView>
-      <Text layoutX="56.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New question:">
+      <Text layoutX="65.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New question:">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="NewQuestion" layoutX="161.0" layoutY="64.0" prefHeight="26.0" prefWidth="380.0" />
-      <TextField fx:id="textrightanswer" layoutX="161.0" layoutY="98.0" />
-      <Text layoutX="58.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Right answer:">
+      <TextField fx:id="NewQuestion" layoutX="172.0" layoutY="73.0" prefHeight="26.0" prefWidth="370.0" />
+      <TextField fx:id="textrightanswer" layoutX="172.0" layoutY="107.0" prefHeight="26.0" prefWidth="370.0" />
+      <Text layoutX="68.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Right answer:">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="textwronganswer1" layoutX="161.0" layoutY="134.0" />
-      <TextField fx:id="textwronganswer2" layoutX="161.0" layoutY="171.0" />
-      <Text layoutX="54.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Other answers:">
+      <TextField fx:id="textwronganswer1" layoutX="172.0" layoutY="143.0" prefHeight="26.0" prefWidth="370.0" />
+      <TextField fx:id="textwronganswer2" layoutX="172.0" layoutY="180.0" prefHeight="26.0" prefWidth="370.0" />
+      <Text layoutX="64.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Other answers:">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="textwronganswer3" layoutX="161.0" layoutY="208.0" />
-      <Button fx:id="buttonadd" layoutX="280.0" layoutY="295.0" mnemonicParsing="false" onAction="#buttonaddclick" prefHeight="40.0" prefWidth="119.0" text="Add" />
-      <Button fx:id="buttoncancel" layoutX="90.0" layoutY="295.0" mnemonicParsing="false" onAction="#buttoncancelclick" prefHeight="40.0" prefWidth="90.0" text="Cancel" />
+      <TextField fx:id="textwronganswer3" layoutX="172.0" layoutY="217.0" prefHeight="26.0" prefWidth="370.0" />
+      <Button fx:id="buttonadd" layoutX="437.0" layoutY="295.0" mnemonicParsing="false" onAction="#buttonaddclick" prefHeight="40.0" prefWidth="114.0" text="Add">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <Button fx:id="buttoncancel" layoutX="36.0" layoutY="295.0" mnemonicParsing="false" onAction="#buttoncancelclick" prefHeight="40.0" prefWidth="114.0" text="Cancel" />
    </children>
 </AnchorPane>

@@ -10,21 +10,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherGradeViewOnlineController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="531.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherGradeViewOnlineController">
    <children>
-      <ImageView fitHeight="698.0" fitWidth="1054.0" layoutX="-51.0" layoutY="-73.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="536.0" fitWidth="902.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true">
          <image>
-            <Image url="https://image.freepik.com/free-photo/colorful-watercolor-pencils-white-background-school-supplies_105517-581.jpg" />
+            <Image url="https://lh3.googleusercontent.com/proxy/apD4auxD9-TDz7y8tf5e6RyqK6RGGMtVnO3HUfRrAI5btYmQkHGp7w2aFqsb2xPG-TwYscHRDZbnxTkvyrY7Wjy2ok96gh4oErKcTzFqItm96TkOU3uQOOXCDdCw50Ir1CPo" />
          </image>
       </ImageView>
-      <TextArea fx:id="Grade" layoutX="70.0" layoutY="27.0" prefHeight="0.0" prefWidth="15.0" />
-      <Text layoutX="12.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grade:" wrappingWidth="48.799999999999955">
+      <TextArea fx:id="Grade" layoutX="174.0" layoutY="27.0" prefHeight="26.0" prefWidth="50.0" />
+      <Text layoutX="97.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grade:" wrappingWidth="76.80000610351567">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="Century" size="20.0" />
          </font>
       </Text>
-      <Button fx:id="buttonchangegrade" layoutX="680.0" layoutY="464.0" mnemonicParsing="false" onAction="#buttonchangegradeclick" prefHeight="38.0" prefWidth="115.0" text="Change Grade" />
-      <TableView fx:id="QuestionsTableSubject" layoutX="12.0" layoutY="71.0" prefHeight="386.0" prefWidth="806.0">
+      <Button fx:id="buttonchangegrade" layoutX="733.0" layoutY="483.0" mnemonicParsing="false" onAction="#buttonchangegradeclick" prefHeight="38.0" prefWidth="115.0" text="Change Grade" />
+      <TableView fx:id="QuestionsTableSubject" layoutX="53.0" layoutY="76.0" prefHeight="396.0" prefWidth="803.0">
          <columns>
             <TableColumn id="Question" fx:id="Question" prefWidth="269.60003662109375" text="Question" />
             <TableColumn fx:id="RightAnswer" prefWidth="103.99993896484375" text="Right Answer" />
@@ -34,7 +34,10 @@
             <TableColumn fx:id="studentsAnswer" prefWidth="119.19998779296873" text="Student's Answer" />
          </columns>
       </TableView>
-      <Button fx:id="buttonclose" layoutX="25.0" layoutY="464.0" mnemonicParsing="false" onAction="#buttoncloseclick" prefHeight="38.0" prefWidth="115.0" text="Close" />
-      <Button fx:id="buttonconfirmgrade" layoutX="140.0" layoutY="33.0" mnemonicParsing="false" onAction="#buttonconfirmgradeclick" text="Confirm Grade" />
+      <Button fx:id="buttonclose" layoutX="32.0" layoutY="483.0" mnemonicParsing="false" onAction="#buttoncloseclick" prefHeight="38.0" prefWidth="115.0" text="Close" />
+      <Button fx:id="buttonconfirmgrade" layoutX="250.0" layoutY="30.0" mnemonicParsing="false" onAction="#buttonconfirmgradeclick" text="Confirm Grade">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
    </children>
 </AnchorPane>
