@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PrincipalGradesMenuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="576.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PrincipalGradesMenuController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="400.0" fitWidth="600.0" layoutX="-4.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F38%2F2019%2F12%2FGettyImages-1002265676-2000.jpg" />
          </image>
+         <effect>
+            <GaussianBlur radius="4.6" />
+         </effect>
       </ImageView>
-      <Button fx:id="buttonteachers" layoutX="246.0" layoutY="154.0" mnemonicParsing="false" onAction="#buttonteachersclick" prefHeight="55.0" prefWidth="115.0" text="Show by teachers" />
-      <Button fx:id="buttonsubjects" layoutX="243.0" layoutY="81.0" mnemonicParsing="false" onAction="#buttonsubjectsclick" prefHeight="55.0" prefWidth="115.0" text="Show by subjects" />
-      <Button fx:id="buttonstudent" layoutX="246.0" layoutY="237.0" mnemonicParsing="false" onAction="#buttonstudentclick" prefHeight="55.0" prefWidth="115.0" text="Show by student" />
+      <Button fx:id="buttonteachers" layoutX="215.0" layoutY="191.0" mnemonicParsing="false" onAction="#buttonteachersclick" prefHeight="55.0" prefWidth="147.0" text="Show by teachers" />
+      <Button fx:id="buttonsubjects" layoutX="215.0" layoutY="123.0" mnemonicParsing="false" onAction="#buttonsubjectsclick" prefHeight="55.0" prefWidth="147.0" text="Show by subjects" />
+      <Button fx:id="buttonstudent" layoutX="214.0" layoutY="262.0" mnemonicParsing="false" onAction="#buttonstudentclick" prefHeight="55.0" prefWidth="147.0" text="Show by student" />
       <Button fx:id="buttonback" layoutX="28.0" layoutY="350.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
-      <Text layoutX="261.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grades!">
+      <Text layoutX="233.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grades!">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="Freestyle Script" size="55.0" />
          </font></Text>
    </children>
 </Pane>

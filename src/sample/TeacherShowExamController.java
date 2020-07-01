@@ -71,6 +71,14 @@ public class TeacherShowExamController implements Initializable {
     @FXML
     private TextField accessCode;
 
+    void setStartVisible (boolean b){
+        duration.setVisible(b);
+        onlineradio.setVisible(b);
+        manualradio.setVisible(b);
+        accessCode.setVisible(b);
+        buttondownloadexam.setVisible(b);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -80,6 +88,8 @@ public class TeacherShowExamController implements Initializable {
             }
         });
 
+        setStartVisible(false);
+
         clientAccess ca=new clientAccess();
         ca.op= Operation.courseExam;
         ca.courseID=TeacherCoursesListController.courseId;
@@ -87,6 +97,9 @@ public class TeacherShowExamController implements Initializable {
             @Override
             public void handle(String s) {
                 final clientExam exam= Main.g.fromJson(s, clientExam.class);
+                if(exam.accessCode == 0){
+                    setStartVisible(true);
+                }
                 ArrayList<clientQuestion> questionList=exam.questions;
                 final ObservableList<clientQuestion> data = FXCollections.observableArrayList(questionList);
                 Question.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("question"));

@@ -80,7 +80,16 @@ public class TeacherCourseMainController {
         //TeacherCoursesListController.courseId
         buttonaddtime.setVisible(false);
 
-
-
+        clientAccess ca = new clientAccess();
+        ca.op = Operation.isCourseActive;
+        ca.courseID = TeacherCoursesListController.courseId;
+        Main.client.send(ca, new StringFunction() {
+            @Override
+            public void handle(String s) {
+                Boolean a = Main.g.fromJson(s,Boolean.class);
+                System.out.println(a);
+                buttonaddtime.setVisible(a);
+            }
+        });
     }
 }
