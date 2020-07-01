@@ -5,8 +5,28 @@ import java.util.ArrayList;
 
 public class clientCourse {
     public String name;
+
+    public String getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
+    }
+
+    public String teacher;
     public int id;
     public int online;
+
+    public int getExamID() {
+        return examID;
+    }
+
+    public void setExamID(int examID) {
+        this.examID = examID;
+    }
+
+    public int examID;
 
     public ArrayList<clientUser> students = new ArrayList<>();
 

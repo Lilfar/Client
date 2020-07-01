@@ -16,6 +16,9 @@ import java.util.ResourceBundle;
 
 public class TeacherCourseMainController {
 
+    static int subjectid;
+    static int courseid;
+
     @FXML
     private ResourceBundle resources;
 
@@ -54,6 +57,8 @@ public class TeacherCourseMainController {
 
     @FXML
     void buttonshowexamclick(ActionEvent event) throws IOException {
+        TeacherShowExamController.subjectid=subjectid;
+        TeacherShowExamController.courseid=courseid;
         Stage stage = (Stage)buttonshowexam.getScene().getWindow();
         Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Show exam.fxml"));
         Scene scene = new Scene(newRoot);

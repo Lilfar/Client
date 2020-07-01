@@ -17,10 +17,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import sample.clientClasses.Operation;
-import sample.clientClasses.clientAccess;
-import sample.clientClasses.clientExam;
-import sample.clientClasses.clientUser;
+import sample.clientClasses.*;
 
 public class TeacherSubjectFinishedExamStudentsListController {
 
@@ -34,10 +31,16 @@ public class TeacherSubjectFinishedExamStudentsListController {
     private ImageView Background;
 
     @FXML
-    private TableView<clientExam> ExamTable;
+    private TableView<clientCourse> ExamTable;
 
     @FXML
-    private TableColumn<clientExam, String> exam;
+    private TableColumn<clientCourse, Integer> exam;
+
+    @FXML
+    private TableColumn<clientCourse, String> courseName;
+
+    @FXML
+    private TableColumn<clientCourse, String> teacherName;
 
 
     @FXML
@@ -52,29 +55,24 @@ public class TeacherSubjectFinishedExamStudentsListController {
 
     }
 
-
-
-
-
-
     @FXML
     void initialize() {
         assert Background !=null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
-
         assert ExamTable != null : "fx:id=\"ExamTable\" was not injected: check your FXML file 'Teacher Subject Finished Exam Students List.fxml'.";
         assert exam != null : "fx:id=\"exam\" was not injected: check your FXML file 'Teacher Subject Finished Exam Students List.fxml'.";
         assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Teacher Subject Finished Exam Students List.fxml'.";
 
         clientAccess ca= new clientAccess();
-        ca.op= Operation.examList;
+        ca.op= Operation.coursesFromTeacherExams;
         ca.subjectID=subjectId;
         Main.client.send(ca, new StringFunction() {
             @Override
             public void handle(String s) {
-                clientExam[] examslist;
-                examslist = Main.g.fromJson(s, clientExam[].class);
-                final ObservableList<clientExam> data = FXCollections.observableArrayList(examslist);
-                exam.setCellValueFactory(new PropertyValueFactory<clientExam, String>("id"));
+                clientCourse[] courses = Main.g.fromJson(s, clientCourse[].class);
+                final ObservableList<clientCourse> data = FXCollections.observableArrayList(courses);
+                exam.setCellValueFactory(new PropertyValueFactory<clientCourse, Integer>("examID"));
+                teacherName.setCellValueFactory(new PropertyValueFactory<clientCourse, String>("teacher"));
+                courseName.setCellValueFactory(new PropertyValueFactory<clientCourse, String>("name"));
                 ExamTable.setItems(data);
             }
         });

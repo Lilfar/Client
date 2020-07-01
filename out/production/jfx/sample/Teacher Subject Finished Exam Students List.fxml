@@ -16,7 +16,9 @@
       </ImageView>
       <TableView fx:id="ExamTable" layoutX="97.0" layoutY="60.0" prefHeight="410.0" prefWidth="306.0">
          <columns>
-            <TableColumn fx:id="exam" prefWidth="314.40002365112304" text="Exams" />
+            <TableColumn fx:id="exam" prefWidth="64.80005645751953" text="Exam ID" />
+            <TableColumn fx:id="courseName" prefWidth="79.20001220703125" text="Course ID" />
+            <TableColumn fx:id="teacherName" prefWidth="160.0000061035156" text="Course Teacher" />
          </columns>
       </TableView>
       <Button fx:id="buttonback" layoutX="24.0" layoutY="478.0" mnemonicParsing="false" onAction="#buttonbackclick" prefHeight="26.0" prefWidth="47.0" text="Back" />

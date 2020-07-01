@@ -14,9 +14,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import sample.clientClasses.Operation;
 import sample.clientClasses.clientAccess;
-import sample.clientClasses.clientUser;
 
 import javax.swing.text.html.ImageView;
 import java.io.IOException;

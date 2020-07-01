@@ -34,7 +34,7 @@ public enum Operation {
     //TEACHER/PRINCIPLE : (teacherID) -> [clientQuestion]
     ,questionByTeacher
 
-    //get exams of teacher
+    //`get exams of teacher`
     //TEACHER/PRINCIPLE : (teacherID) -> [clientExam]
     ,examByTeacher
 
@@ -47,7 +47,7 @@ public enum Operation {
     ,courseExam
 
     //Select exam from course
-    //TEACHER : (courseID) -> void
+    //TEACHER : (courseID, examID) -> void
     ,selectExamForCourse
 
     // set access code duration online
@@ -107,7 +107,6 @@ public enum Operation {
     // PRINCIPLE : (requestID, accept) -> void
     ,decideRequest
 
-
     //submit manual exam
     //STUDENT : (file, courseID) -> void
     ,submitManualExam
@@ -117,11 +116,30 @@ public enum Operation {
     //TEACHER/PRINCIPLE : (courseID, studentID) -> clientExam
     ,downloadManualExam
 
+    //get teacher exams of course
+    //TEACHER : () -> [clientExam]
+    //PRINCIPLE : (teacherID) -> [clientExam]
+    ,subjectTeacherExamList
+
+    // get all grades in course
+    // TEACHER/PRINCIPLE : (teacherID) -> [clientGrade]
     ,getGradesOfTeacher
 
+    // courses list by subject
+    // TEACHER/PRINCIPLE : (subjectID) -> [clientCourse]
     ,coursesOfSubject
 
+    // courses list by subject
+    // STUDENT : (courseID) -> [clientQuestion]
+    // TEACHER/PRINCIPLE : (courseID, studentID) -> [clientQuestion]
     ,getStudentAnswers
 
+    //return if course exam is active
+    //TEACHER/PRINCIPLE : (courseID) -> Boolean
     ,isCourseActive
+
+    //return courses that use teacher's exam
+    //TEACHER : () -> [clientExam]
+    //PRINCIPLE : (teacherID) -> [clientExam]
+    ,coursesFromTeacherExams
 }

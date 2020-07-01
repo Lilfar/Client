@@ -43,5 +43,6 @@
             <Font size="14.0" />
          </font>
       </Text>
+      <Button fx:id="buttonaddexam" layoutX="501.0" layoutY="535.0" mnemonicParsing="false" onAction="#buttonaddexamclick" text="Add exam" />
    </children>
 </Pane>

@@ -13,12 +13,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import sample.clientClasses.Operation;
 import sample.clientClasses.clientAccess;
 import sample.clientClasses.clientQuestion;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -26,7 +24,8 @@ import sample.clientClasses.*;
 
 public class TeacherShowExamController implements Initializable {
 
-
+    static int subjectid;
+    static int courseid;
     boolean itemselected = false;
 
     @FXML
@@ -70,6 +69,9 @@ public class TeacherShowExamController implements Initializable {
     private Button buttonback;
 
     @FXML
+    private Button buttonaddexam;
+
+    @FXML
     private TextField accessCode;
 
     @FXML
@@ -97,6 +99,7 @@ public class TeacherShowExamController implements Initializable {
             }
         });
 
+        buttonaddexam.setVisible(false);
         setStartVisible(false);
 
         clientAccess ca=new clientAccess();
@@ -118,6 +121,11 @@ public class TeacherShowExamController implements Initializable {
                 WrongAnswer2.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong2"));
                 WrongAnswer3.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong3"));
                 QuestionsTableSubject.setItems(data);
+
+                if (exam.id==0)
+                {
+                    buttonaddexam.setVisible(true);
+                }
             }
         });
     }
@@ -138,6 +146,17 @@ public class TeacherShowExamController implements Initializable {
     void buttonbackclick(ActionEvent event) throws IOException {
         Stage stage = (Stage)buttonback.getScene().getWindow();
         Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Course Main.fxml"));
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
+    }
+
+    @FXML
+    void buttonaddexamclick(ActionEvent event) throws IOException{
+        PrincipalExamsController.from=2;
+        PrincipalExamsController.subjectId=subjectid;
+        PrincipalExamsController.courseId=courseid;
+        Stage stage = (Stage)buttonback.getScene().getWindow();
+        Parent newRoot = FXMLLoader.load(getClass().getResource("Principal Exams.fxml"));
         Scene scene = new Scene(newRoot);
         stage.setScene(scene);
     }
@@ -169,6 +188,31 @@ public class TeacherShowExamController implements Initializable {
             Main.client.send(ca, new StringFunction() {
                 @Override
                 public void handle(String s) {
+                    clientCompletion cc = Main.g.fromJson(s,clientCompletion.class);
+
+                    if(cc.success){
+                        Stage stage = (Stage)buttonback.getScene().getWindow();
+                        Parent newRoot = null;
+                        try {
+                            newRoot = FXMLLoader.load(getClass().getResource("Teacher Course Main.fxml"));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        Scene scene = new Scene(newRoot);
+                        stage.setScene(scene);
+                    }else{
+                        ItemUploadedSuccessfullyController.note = "Failed to start exam!";
+                        Stage popup = new Stage();
+                        Parent newRoot = null;
+                        try {
+                            newRoot = FXMLLoader.load(getClass().getResource("Item Uploaded Successfully.fxml"));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        Scene scene = new Scene(newRoot);
+                        popup.setScene(scene);
+                        popup.showAndWait();
+                    }
                 }
             });
         }

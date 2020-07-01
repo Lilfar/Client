@@ -14,9 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import sample.clientClasses.Operation;
 import sample.clientClasses.clientAccess;
-import sample.clientClasses.clientRequest;
 
 import java.io.IOException;
 import java.net.URL;
@@ -73,6 +71,8 @@ public class TeacherCoursesListController implements Initializable {
             if( event.getClickCount() == 2 ) {
                 courseId=courselist.getSelectionModel().getSelectedItem().id;
                 course = courselist.getSelectionModel().getSelectedItem();
+                TeacherCourseMainController.subjectid=subjectId;
+                TeacherCourseMainController.courseid=courseId;
                 Stage stage = (Stage)buttonback.getScene().getWindow();
                 Parent newRoot;
                 Scene scene;
@@ -95,7 +95,6 @@ public class TeacherCoursesListController implements Initializable {
                             stage.setScene(scene);
                             break;
                         default:
-                            TeacherStudentsAndGradesListController.courseId=courseId;
                             newRoot = FXMLLoader.load(getClass().getResource("Teacher Course Main.fxml"));
                             scene = new Scene(newRoot);
                             stage.setScene(scene);

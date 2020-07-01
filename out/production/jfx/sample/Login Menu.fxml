@@ -21,26 +21,26 @@
             </ImageView>
             <AnchorPane layoutX="160.0" layoutY="169.0" prefHeight="208.0" prefWidth="235.0" style="-fx-background-color: white;">
                <children>
-                  <PasswordField fx:id="textpass" layoutX="44.0" layoutY="111.0" promptText="password">
-                     <font>
-                        <Font name="Times New Roman" size="14.0" />
-                     </font>
-                  </PasswordField>
                   <TextField fx:id="textuser" layoutX="44.0" layoutY="64.0" promptText="username">
                      <font>
                         <Font name="Times New Roman" size="14.0" />
                      </font>
                   </TextField>
-                  <Text layoutX="-53.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="89.19622802734375">
+                  <PasswordField fx:id="textpass" layoutX="44.0" layoutY="111.0" promptText="password">
                      <font>
-                        <Font name="Freestyle Script" size="30.0" />
+                        <Font name="Times New Roman" size="14.0" />
                      </font>
-                  </Text>
+                  </PasswordField>
                   <Button fx:id="buttonlogin" layoutX="14.0" layoutY="181.0" mnemonicParsing="false" onAction="#buttonloginclick" prefHeight="26.0" prefWidth="177.0" style="-fx-background-color: royalblue;" text="Login" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Times New Roman" size="12.0" />
                      </font>
                   </Button>
+                  <Text layoutX="-53.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="89.19622802734375">
+                     <font>
+                        <Font name="Freestyle Script" size="30.0" />
+                     </font>
+                  </Text>
                   <Text layoutX="-49.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:">
                      <font>
                         <Font name="Freestyle Script" size="31.0" />

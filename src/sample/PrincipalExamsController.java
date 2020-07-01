@@ -27,6 +27,7 @@ public class PrincipalExamsController implements Initializable {
     static int from=0;
     static public int subjectId;
     static public String teacherId;
+    static int courseId;
     @FXML
     private ImageView Background;
 
@@ -54,6 +55,9 @@ public class PrincipalExamsController implements Initializable {
         Parent newRoot;
         switch (from)
         {
+            case 2:
+                newRoot = FXMLLoader.load(getClass().getResource("Teacher Show Exam.fxml"));
+                break;
             case 31:
                 newRoot = FXMLLoader.load(getClass().getResource("Subject List.fxml"));
                 break;
@@ -84,6 +88,11 @@ public class PrincipalExamsController implements Initializable {
         clientAccess ca= new clientAccess();
         switch (from)
         {
+            case 2:
+                ca.subjectID=subjectId;
+                ca.op=Operation.examList;
+                exams.setText("Teacher");
+                break;
             case 31:
                 ca.subjectID=this.subjectId;
                 ca.op= Operation.examList;
@@ -110,18 +119,43 @@ public class PrincipalExamsController implements Initializable {
         });
 
         examstable.setOnMouseClicked( event -> {
+
             if (event.getClickCount() == 2) {
-                ViewExamController.examId = examstable.getSelectionModel().getSelectedItem().id;
-                ViewExamController.from = 300 + from;
-                Stage stage = (Stage)buttonback.getScene().getWindow();
-                Parent newRoot = null;
-                try {
-                    newRoot = FXMLLoader.load(getClass().getResource("View Exam.fxml"));
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if (from!=2) {
+                    ViewExamController.examId = examstable.getSelectionModel().getSelectedItem().id;
+                    ViewExamController.from = 300 + from;
+                    Stage stage = (Stage) buttonback.getScene().getWindow();
+                    Parent newRoot = null;
+                    try {
+                        newRoot = FXMLLoader.load(getClass().getResource("View Exam.fxml"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Scene scene = new Scene(newRoot);
+                    stage.setScene(scene);
                 }
-                Scene scene = new Scene(newRoot);
-                stage.setScene(scene);
+                else
+                {
+                    clientAccess ca2 = new clientAccess();
+                    ca2.op=Operation.selectExamForCourse;
+                    ca2.courseID=courseId;
+                    ca2.examID=examstable.getSelectionModel().getSelectedItem().id;
+                    Main.client.send(ca2, new StringFunction() {
+                        @Override
+                        public void handle(String s) {
+                            Stage stage = (Stage) buttonback.getScene().getWindow();
+                            Parent newRoot = null;
+                            try {
+                                newRoot = FXMLLoader.load(getClass().getResource("Teacher Course Main.fxml"));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            Scene scene = new Scene(newRoot);
+                            stage.setScene(scene);
+                        }
+                    });
+
+                }
             }
         });
     }
