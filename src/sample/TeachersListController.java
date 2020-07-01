@@ -89,9 +89,9 @@ public class TeachersListController implements Initializable {
                             newRoot = FXMLLoader.load(getClass().getResource("Principal Exams.fxml"));
                             break;
                         case 33:
-                            StudentsListController.from=32;
-                            StudentsListController.teacherId=teacherslist.getSelectionModel().getSelectedItem().id;
-                            newRoot = FXMLLoader.load(getClass().getResource("Students List.fxml"));
+                            SubjectListController.from=332;
+                            SubjectListController.teacherId=teacherslist.getSelectionModel().getSelectedItem().id;
+                            newRoot = FXMLLoader.load(getClass().getResource("Subject List.fxml"));
                             break;
                         case 34:
                             PrincipalMakeReportController.from=32;
