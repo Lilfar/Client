@@ -25,7 +25,9 @@ public class TeacherStudentsAndGradesListController implements Initializable {
     static int from=0;
     boolean itemselected = false;
     static int courseId;
+    static double Grade;
     static String teacherId;
+    static String studentId;
 
     @FXML
     private ResourceBundle resources;
@@ -47,12 +49,41 @@ public class TeacherStudentsAndGradesListController implements Initializable {
     private Button buttonback;
 
 
-    @FXML
-    private Button buttonchangegrade;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        if (from==1)
+        {
+            Students.setOnMouseClicked( event -> {
+                if( event.getClickCount() == 2 ) {
+                    studentId=Students.getSelectionModel().getSelectedItem().student.id;
+                    Grade=Students.getSelectionModel().getSelectedItem().grade;
+                    clientAccess ca=new clientAccess();
+                    ca.op= Operation.courseExam;
+                    ca.courseID=courseId;
+                    Main.client.send(ca, new StringFunction() {
+                        @Override
+                        public void handle(String s) {
+                            final clientExam exam = Main.g.fromJson(s, clientExam.class);
+                            Stage stage = (Stage)buttonback.getScene().getWindow();
+                            Parent newRoot = null;
+                            try {
+                                if(exam.online==1) {
+                                    newRoot = FXMLLoader.load(getClass().getResource("Teacher Grade View Online.fxml"));
+                                }
+                                else {
+                                    newRoot = FXMLLoader.load(getClass().getResource("Teacher Grade View Manual.fxml"));
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            Scene scene = new Scene(newRoot);
+                            stage.setScene(scene);
+                        }
+                    });
 
+                }
+            });
+        }
         clientAccess ca= new clientAccess();
 
 
@@ -78,11 +109,6 @@ public class TeacherStudentsAndGradesListController implements Initializable {
                 Students.setItems(data);
             }
         });
-
-        if (from==331 || from==332)
-            buttonchangegrade.setVisible(false);
-        else
-            buttonchangegrade.setVisible(true);
 
         Students.setOnMousePressed(e ->{
             if (e.getClickCount() == 1 && e.isPrimaryButtonDown() ){
@@ -125,18 +151,6 @@ public class TeacherStudentsAndGradesListController implements Initializable {
         stage.setScene(scene);
     }
 
-    @FXML
-    void buttonchangegradeclick(ActionEvent event) throws IOException {
-        Stage popup=new Stage();
-        Parent newRoot;
-        if (itemselected)
-            newRoot = FXMLLoader.load(getClass().getResource("Teacher Change Grade.fxml"));
-        else
-            newRoot = FXMLLoader.load(getClass().getResource("Table View Select Item Popup.fxml"));
-        Scene scene = new Scene(newRoot);
-        popup.setScene(scene);
-        popup.showAndWait();
-    }
 
     @FXML
     void initialize() {

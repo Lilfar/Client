@@ -71,6 +71,7 @@ public class TeacherGradeViewManualController {
     @FXML
     void buttonstudentssolutionclick(ActionEvent event) {
 
+
     }
 
     @FXML

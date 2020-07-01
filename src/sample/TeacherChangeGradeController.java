@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import sample.clientClasses.*;
 
 public class TeacherChangeGradeController {
 
@@ -47,6 +48,18 @@ public class TeacherChangeGradeController {
 
             if (close)
             {
+                clientAccess ca=new clientAccess();
+                ca.op=Operation.changeAndConfirmGrade;
+                ca.newGrade=Integer.parseInt(NewGrade.getText());
+                ca.reason=Explanation.getText();
+                ca.courseID=TeacherGradeViewOnlineController.courseId;
+                ca.studentID=TeacherGradeViewOnlineController.studentId;
+                Main.client.send(ca, new StringFunction() {
+                    @Override
+                    public void handle(String s) {
+
+                    }
+                });
                 close=!close;
                 popup = (Stage) buttoncancel.getScene().getWindow();
                 popup.close();
