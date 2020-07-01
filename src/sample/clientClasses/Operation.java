@@ -122,4 +122,6 @@ public enum Operation {
     ,coursesOfSubject
 
     ,getStudentAnswers
+
+    ,isCourseActive
 }

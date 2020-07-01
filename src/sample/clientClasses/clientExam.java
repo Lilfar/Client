@@ -13,6 +13,7 @@ public class clientExam {
     public byte[] file;
     public String note;
     public String teacherNote;
+    public int accessCode;
 
     public int startTime;
     public int duration;
