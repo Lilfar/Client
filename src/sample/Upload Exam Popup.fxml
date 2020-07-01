@@ -5,12 +5,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.UploadExamPopupController">
+<VBox prefHeight="180.0" prefWidth="272.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.UploadExamPopupController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="364.0" VBox.vgrow="ALWAYS">
          <children>
-            <Text layoutX="244.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please upload the exam first!" />
-            <Button fx:id="buttonback" layoutX="294.0" layoutY="188.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
+            <Text layoutX="60.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please upload the exam first!" />
+            <Button fx:id="buttonback" layoutX="116.0" layoutY="118.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
          </children>
     </AnchorPane>
   </children>

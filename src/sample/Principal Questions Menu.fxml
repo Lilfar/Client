@@ -7,9 +7,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PrincipalQuestionsMenuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="548.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PrincipalQuestionsMenuController">
    <children>
-      <ImageView fitHeight="376.0" fitWidth="378.0" layoutX="224.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="376.0" fitWidth="378.0" layoutX="224.0" layoutY="21.0" pickOnBounds="true">
          <image>
             <Image url="https://thumbs.dreamstime.com/b/cartoon-man-question-mark-illustration-61238095.jpg" />
          </image>
@@ -28,7 +28,7 @@
          </font></Button>
       <Text layoutX="163.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Questions" wrappingWidth="144.0">
          <font>
-            <Font name="Freestyle Script" size="40.0" />
+            <Font name="Freestyle Script" size="44.0" />
          </font></Text>
    </children>
 </Pane>

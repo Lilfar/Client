@@ -9,21 +9,24 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentExamFirstPageController">
    <children>
-      <ImageView fitHeight="483.0" fitWidth="622.0" pickOnBounds="true">
-         <image>
-            <Image url="https://cdn1.vectorstock.com/i/1000x1000/41/60/good-luck-paper-background-vector-8544160.jpg" />
-         </image>
-      </ImageView>
-      <Text layoutX="171.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The exam has just started!" wrappingWidth="299.20001220703125">
+      <Text layoutX="157.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The exam has just started!" wrappingWidth="299.20001220703125">
          <font>
-            <Font name="Freestyle Script" size="30.0" />
+            <Font name="Freestyle Script" size="40.0" />
          </font>
       </Text>
-      <Button fx:id="buttonstart" layoutX="502.0" layoutY="335.0" mnemonicParsing="false" onAction="#buttonstartclick" text="Start" />
+      <Button fx:id="buttonstart" layoutX="274.0" layoutY="329.0" mnemonicParsing="false" onAction="#buttonstartclick" text="Start">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
       <Text fx:id="note" layoutX="197.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="206.93670272827148">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
+      <ImageView fitHeight="445.0" fitWidth="633.0" layoutX="4.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="https://t3.ftcdn.net/jpg/01/07/12/22/240_F_107122268_4uMb9HsDAGKnfnquLlZXKhgWgD38RuYM.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

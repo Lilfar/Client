@@ -57,9 +57,7 @@ public class StudentsListController implements Initializable {
             case 32:
                 newRoot = FXMLLoader.load(getClass().getResource("Teachers List.fxml"));
                 break;
-            case 34:
-                newRoot = FXMLLoader.load(getClass().getResource("Principal Report Menu.fxml"));
-                break;
+
             default:
                 newRoot = FXMLLoader.load(getClass().getResource("Principal Grades Menu.fxml"));
                 break;
@@ -94,11 +92,7 @@ public class StudentsListController implements Initializable {
                             StudentGradesController.studentid=studentslist.getSelectionModel().getSelectedItem().id;
                             newRoot = FXMLLoader.load(getClass().getResource("Student Grades.fxml"));
                             break;
-                        case 34:
-                            PrincipalMakeReportController.from=33;
-                            PrincipalMakeReportController.studentid=studentslist.getSelectionModel().getSelectedItem().id;
-                            newRoot = FXMLLoader.load(getClass().getResource("Principal Make Report.fxml"));
-                            break;
+
                         default:
                             newRoot = FXMLLoader.load(getClass().getResource("Login Menu.fxml"));
                             break;

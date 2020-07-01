@@ -8,24 +8,24 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentManualExamController">
+<VBox prefHeight="391.0" prefWidth="529.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentManualExamController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="341.0" prefWidth="570.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="398.0" prefWidth="530.0" VBox.vgrow="ALWAYS">
          <children>
-             <ImageView fitHeight="158.0" fitWidth="470.0" layoutX="84.0" layoutY="202.0" pickOnBounds="true">
-                 <image>
-                     <Image url="https://us.123rf.com/450wm/maxborovkov/maxborovkov1604/maxborovkov160400090/54827071-good-luck-paper-background-with-color-confetti-vector-illustration-.jpg?ver=6" />
-                 </image>
-             </ImageView>
-            <Button fx:id="buttondownloadexam" layoutX="269.0" layoutY="124.0" mnemonicParsing="false" onAction="#buttondownloadexamclick" text="Download exam" />
-            <Button fx:id="buttonuploadexam" layoutX="276.0" layoutY="167.0" mnemonicParsing="false" onAction="#buttonuploadexamclick" text="Upload exam" />
-            <Text layoutX="222.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Download exam to start!">
+            <ImageView fitHeight="174.0" fitWidth="474.0" layoutX="39.0" layoutY="190.0" pickOnBounds="true">
+               <image>
+                  <Image url="https://t3.ftcdn.net/jpg/01/07/12/22/240_F_107122268_4uMb9HsDAGKnfnquLlZXKhgWgD38RuYM.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="buttondownloadexam" layoutX="225.0" layoutY="127.0" mnemonicParsing="false" onAction="#buttondownloadexamclick" text="Download exam" />
+            <Button fx:id="buttonuploadexam" layoutX="233.0" layoutY="164.0" mnemonicParsing="false" onAction="#buttonuploadexamclick" text="Upload exam" />
+            <Text layoutX="167.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Download exam to start!">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Freestyle Script" size="35.0" />
                </font></Text>
-            <Button fx:id="buttondone" layoutX="568.0" layoutY="354.0" mnemonicParsing="false" onAction="#buttondoneclick" text="Done" />
-            <Button fx:id="buttonback" layoutX="25.0" layoutY="354.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
-            <Text fx:id="texttimeremaining" layoutX="247.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time remaining: 90:00">
+            <Button fx:id="buttondone" layoutX="453.0" layoutY="335.0" mnemonicParsing="false" onAction="#buttondoneclick" text="Done" />
+            <Button fx:id="buttonback" layoutX="36.0" layoutY="335.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
+            <Text fx:id="texttimeremaining" layoutX="203.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time remaining: 90:00">
                <font>
                   <Font name="David" size="16.0" />
                </font>

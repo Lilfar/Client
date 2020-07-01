@@ -14,7 +14,7 @@
             <Image url="https://img.freepik.com/free-vector/teacher-front-chalkboard-with-copy-space-your-text_38747-184.jpg?size=626&amp;ext=jpg" />
          </image>
       </ImageView>
-      <Button fx:id="buttonshowexams" layoutX="243.0" layoutY="165.0" mnemonicParsing="false" onAction="#buttonshowexamsclick" prefHeight="34.0" prefWidth="210.0" style="-fx-background-color: mistyrose;" text="Show Exams" textFill="#592828">
+      <Button fx:id="buttonshowexams" layoutX="243.0" layoutY="165.0" mnemonicParsing="false" onAction="#buttonshowexamsclick" prefHeight="34.0" prefWidth="210.0" style="-fx-background-color: mistyrose;" text="Show Exams">
          <font>
             <Font name="Centaur" size="17.0" />
          </font></Button>

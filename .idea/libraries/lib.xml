@@ -1,19 +1,16 @@
 <component name="libraryTable">
   <library name="lib">
     <CLASSES>
-      <root url="file://$USER_HOME$/Downloads/javafx-sdk-11.0.2/lib" />
       <root url="file://$USER_HOME$/Downloads/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" />
-      <root url="jar://$USER_HOME$/Desktop/gson-2.8.6 (1).jar!/com/google/gson" />
-      <root url="jar://$USER_HOME$/Desktop/gson-2.8.6 (1).jar!/" />
+      <root url="file://$APPLICATION_HOME_DIR$/plugins/javaFX/lib" />
+      <root url="jar://$USER_HOME$/Downloads/gson-2.8.6.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="file://$USER_HOME$/Downloads/javafx-sdk-11.0.2/lib" />
       <root url="file://$USER_HOME$/Downloads/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" />
     </SOURCES>
-    <jarDirectory url="file://$USER_HOME$/Downloads/javafx-sdk-11.0.2/lib" recursive="false" />
+    <jarDirectory url="file://$APPLICATION_HOME_DIR$/plugins/javaFX/lib" recursive="false" />
     <jarDirectory url="file://$USER_HOME$/Downloads/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" recursive="false" />
-    <jarDirectory url="file://$USER_HOME$/Downloads/javafx-sdk-11.0.2/lib" recursive="false" type="SOURCES" />
     <jarDirectory url="file://$USER_HOME$/Downloads/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" recursive="false" type="SOURCES" />
   </library>
 </component>

@@ -7,32 +7,32 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="284.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherCourseMainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="458.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherCourseMainController">
    <children>
-      <ImageView fitHeight="290.0" fitWidth="430.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="327.0" fitWidth="458.0" layoutY="-1.0" pickOnBounds="true">
          <image>
             <Image url="https://img.freepik.com/free-vector/teacher-front-chalkboard-with-copy-space-your-text_38747-184.jpg?size=626&amp;ext=jpg" />
          </image>
       </ImageView>
-      <Button fx:id="buttonshowexam" layoutX="199.0" layoutY="88.0" mnemonicParsing="false" onAction="#buttonshowexamclick" prefHeight="27.0" prefWidth="99.0" style="-fx-background-color: mistyrose;" text="Show exam">
+      <Button fx:id="buttonshowexam" layoutX="217.0" layoutY="97.0" mnemonicParsing="false" onAction="#buttonshowexamclick" prefHeight="27.0" prefWidth="99.0" style="-fx-background-color: mistyrose;" text="Show exam">
          <font>
             <Font name="Centaur" size="15.0" />
          </font></Button>
-      <Button fx:id="buttonaddtime" layoutX="151.0" layoutY="129.0" mnemonicParsing="false" onAction="#buttonaddtimeclick" style="-fx-background-color: mistyrose;" text="Add time to active exam request">
+      <Button fx:id="buttonaddtime" layoutX="147.0" layoutY="147.0" mnemonicParsing="false" onAction="#buttonaddtimeclick" prefHeight="31.0" prefWidth="239.0" style="-fx-background-color: mistyrose;" text="Add time to active exam request">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="buttonstudentsgrades" layoutX="192.0" layoutY="190.0" mnemonicParsing="false" onAction="#buttonstudentsgradesclick" prefHeight="30.0" prefWidth="149.0" style="-fx-background-color: mistyrose;" text="Students and grades list">
          <font>
             <Font name="Centaur" size="15.0" />
          </font></Button>
-      <Button fx:id="buttonstudentsgrades" layoutX="173.0" layoutY="172.0" mnemonicParsing="false" onAction="#buttonstudentsgradesclick" prefHeight="30.0" prefWidth="149.0" style="-fx-background-color: mistyrose;" text="Students and grades list">
-         <font>
-            <Font name="Centaur" size="15.0" />
-         </font></Button>
-      <Button fx:id="buttonback" layoutX="210.0" layoutY="248.0" mnemonicParsing="false" onAction="#buttonbackclick" prefHeight="21.0" prefWidth="74.0" style="-fx-background-color: mistyrose;" text="Back">
+      <Button fx:id="buttonback" layoutX="229.0" layoutY="280.0" mnemonicParsing="false" onAction="#buttonbackclick" prefHeight="21.0" prefWidth="74.0" style="-fx-background-color: mistyrose;" text="Back">
          <font>
             <Font name="Centaur" size="14.0" />
          </font></Button>
-      <Text fill="MISTYROSE" layoutX="173.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course menu" wrappingWidth="175.046875">
+      <Text fill="MISTYROSE" layoutX="192.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course menu" wrappingWidth="175.046875">
          <font>
-            <Font name="Freestyle Script" size="43.0" />
+            <Font name="Freestyle Script" size="45.0" />
          </font>
       </Text>
    </children>

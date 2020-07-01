@@ -7,19 +7,19 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="406.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentsListController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentsListController">
    <children>
 
-       <ImageView fitHeight="446.0" fitWidth="496.0" layoutX="-61.0" layoutY="-7.0" pickOnBounds="true">
+       <ImageView fitHeight="470.0" fitWidth="401.0" layoutX="-1.0" layoutY="-7.0" pickOnBounds="true">
            <image>
-               <Image url="https://image.freepik.com/free-photo/colorful-watercolor-pencils-white-background-school-supplies_105517-581.jpg" />
+               <Image url="https://image.freepik.com/free-photo/school-supplies-stationery-accessories-wood-background_7192-926.jpg" />
            </image>
        </ImageView>
-      <TableView fx:id="studentslist" layoutX="106.0" layoutY="22.0" prefHeight="310.0" prefWidth="200.0">
+      <TableView fx:id="studentslist" layoutX="81.0" layoutY="49.0" prefHeight="357.0" prefWidth="245.0">
         <columns>
-          <TableColumn fx:id="students" prefWidth="199.20001220703125" text="studentslist" />
+          <TableColumn fx:id="students" prefWidth="244.79999694824218" text="Students list" />
         </columns>
       </TableView>
-      <Button fx:id="buttonback" layoutX="23.0" layoutY="348.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
+      <Button fx:id="buttonback" layoutX="24.0" layoutY="413.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
    </children>
 </AnchorPane>

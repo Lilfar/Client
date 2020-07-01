@@ -8,19 +8,19 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="386.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SubjectListController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="391.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SubjectListController">
    <children>
-      <ImageView fitHeight="476.0" fitWidth="458.0" layoutX="-61.0" layoutY="-7.0" pickOnBounds="true">
+      <ImageView fitHeight="476.0" fitWidth="400.0" layoutX="-3.0" layoutY="-7.0" pickOnBounds="true">
          <image>
-            <Image url="https://image.freepik.com/free-photo/colorful-watercolor-pencils-white-background-school-supplies_105517-581.jpg" />
+            <Image url="https://image.freepik.com/free-photo/school-supplies-stationery-accessories-wood-background_7192-926.jpg" />
          </image>
       </ImageView>
-      <TableView fx:id="subjectslist" layoutX="82.0" layoutY="20.0" prefHeight="354.0" prefWidth="238.0">
+      <TableView fx:id="subjectslist" layoutX="77.0" layoutY="43.0" prefHeight="354.0" prefWidth="245.0">
          <columns>
-            <TableColumn fx:id="subjects" prefWidth="237.1999969482422" text="Subject list" />
+            <TableColumn fx:id="subjects" prefWidth="244.19998931884766" text="Subject list" />
          </columns>
       </TableView>
-      <Button fx:id="buttonback" layoutX="155.0" layoutY="404.0" mnemonicParsing="false" onAction="#buttonbackclick" prefHeight="25.0" prefWidth="77.0" text="Logout">
+      <Button fx:id="buttonback" layoutX="157.0" layoutY="413.0" mnemonicParsing="false" onAction="#buttonbackclick" prefHeight="25.0" prefWidth="77.0" text="Logout">
          <font>
             <Font name="Centaur" size="14.0" />
          </font></Button>

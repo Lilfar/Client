@@ -9,27 +9,27 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="414.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentGradesController">
+<VBox prefHeight="484.0" prefWidth="379.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentGradesController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="420.0" prefWidth="441.0" style="-fx-background-color: lavender;" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="484.0" prefWidth="383.0" style="-fx-background-color: lavender;" VBox.vgrow="ALWAYS">
          <children>
-             <ImageView fitHeight="490.0" fitWidth="514.0" layoutX="-61.0" layoutY="-7.0" pickOnBounds="true">
+             <ImageView fitHeight="490.0" fitWidth="391.0" layoutX="-1.0" layoutY="-7.0" pickOnBounds="true">
                  <image>
-                     <Image url="https://image.freepik.com/free-photo/colorful-watercolor-pencils-white-background-school-supplies_105517-581.jpg" />
+                     <Image url="https://image.freepik.com/free-photo/school-supplies-stationery-accessories-wood-background_7192-926.jpg" />
                  </image>
              </ImageView>
-            <TableView fx:id="studentgrades" layoutX="113.0" layoutY="60.0" prefHeight="278.0" prefWidth="226.0">
+            <TableView fx:id="studentgrades" layoutX="80.0" layoutY="64.0" prefHeight="334.0" prefWidth="234.0">
               <columns>
                 <TableColumn fx:id="examname" prefWidth="154.39997100830078" text="Exam Name" />
                 <TableColumn fx:id="examgrade" prefWidth="71.20001220703125" text="Grade" />
               </columns>
             </TableView>
-            <Button fx:id="buttonback" layoutX="35.0" layoutY="410.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back">
+            <Button fx:id="buttonback" layoutX="26.0" layoutY="416.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back">
                <font>
                   <Font name="Centaur" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="buttondownload" layoutX="308.0" layoutY="410.0" mnemonicParsing="false" onAction="#buttondownloadclick" text="Download exam">
+            <Button fx:id="buttondownload" layoutX="264.0" layoutY="416.0" mnemonicParsing="false" onAction="#buttondownloadclick" text="Download exam">
                <font>
                   <Font name="Centaur" size="13.0" />
                </font>
