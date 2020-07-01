@@ -79,13 +79,26 @@ public class StudentComputerExamController {
                 Main.client.send(ca, new StringFunction() {
                             @Override
                             public void handle(String s) {
-
+                                clientCompletion cc = Main.g.fromJson(s,clientCompletion.class);
+                                try {
+                                    if (cc.success) {
+                                        Stage stage = (Stage) buttonnext.getScene().getWindow();
+                                        Parent newRoot = FXMLLoader.load(getClass().getResource("Student Take Exam.fxml"));
+                                        Scene scene = new Scene(newRoot);
+                                        stage.setScene(scene);
+                                    } else {
+                                        ItemUploadedSuccessfullyController.note = "Failed to upload!";
+                                        Stage popup = new Stage();
+                                        Parent newRoot = FXMLLoader.load(getClass().getResource("Item Uploaded Successfully.fxml"));
+                                        Scene scene = new Scene(newRoot);
+                                        popup.setScene(scene);
+                                        popup.showAndWait();
+                                    }
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                             }
                         });
-                Stage stage = (Stage) buttonnext.getScene().getWindow();
-                Parent newRoot = FXMLLoader.load(getClass().getResource("Student Take Exam.fxml"));
-                Scene scene = new Scene(newRoot);
-                stage.setScene(scene);
             }
         }
 

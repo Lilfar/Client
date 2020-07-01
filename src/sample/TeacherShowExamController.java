@@ -99,7 +99,17 @@ public class TeacherShowExamController implements Initializable {
         });
     }
 
+    @FXML
+    void onlineradioclick(ActionEvent event) throws IOException {
+        onlineradio.setSelected(true);
+        manualradio.setSelected(false);
+    }
 
+    @FXML
+    void manualradioclick(ActionEvent event) throws IOException {
+        onlineradio.setSelected(false);
+        manualradio.setSelected(true);
+    }
 
     @FXML
     void buttonbackclick(ActionEvent event) throws IOException {
@@ -112,22 +122,33 @@ public class TeacherShowExamController implements Initializable {
     @FXML
     void buttondownloadexamclick(ActionEvent event) throws IOException {
 
-        clientAccess ca=new clientAccess();
-        ca.op=Operation.startExam;
-        ca.duration=60*Integer.parseInt(duration.getText());
-        ca.AccessCode=Integer.parseInt(accessCode.getText());
-        ca.courseID=TeacherCoursesListController.courseId;
-        if (onlineradio.isSelected()){
-            ca.online=1;
-        }
-        else
-            ca.online=0;
-        Main.client.send(ca, new StringFunction() {
-            @Override
-            public void handle(String s) {
+        // button is named download but it is actually a start button
 
-            }
-        });
+        if (accessCode.getText().isBlank() || duration.getText().isBlank() ||
+                (onlineradio.isSelected()==false && manualradio.isSelected()==false))
+        {
+            Stage popup = new Stage();
+            Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Add Question Error Popup.fxml"));
+            Scene scene = new Scene(newRoot);
+            popup.setScene(scene);
+            popup.showAndWait();
+        }
+        else {
+            clientAccess ca = new clientAccess();
+            ca.op = Operation.startExam;
+            ca.duration = 60 * Integer.parseInt(duration.getText());
+            ca.AccessCode = Integer.parseInt(accessCode.getText());
+            ca.courseID = TeacherCoursesListController.courseId;
+            if (onlineradio.isSelected()) {
+                ca.online = 1;
+            } else
+                ca.online = 0;
+            Main.client.send(ca, new StringFunction() {
+                @Override
+                public void handle(String s) {
+                }
+            });
+        }
     }
 
     @FXML
@@ -142,9 +163,8 @@ public class TeacherShowExamController implements Initializable {
         assert buttondownloadexam != null : "fx:id=\"buttondownloadexam\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
         assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
         assert duration != null : "fx:id=\"duration\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
-        assert onlineradio != null : "fx:id=\"onlineradio\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
-        assert manualradio != null : "fx:id=\"manualradio\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
+        assert onlineradio != null : "fx:id=\"onlineradioclick\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
+        assert manualradio != null : "fx:id=\"manualradioclick\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
         assert accessCode != null : "fx:id=\"accessCode\" was not injected: check your FXML file 'Teacher Show Exam.fxml'.";
-
     }
 }

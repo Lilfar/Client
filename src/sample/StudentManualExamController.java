@@ -138,15 +138,31 @@ public class StudentManualExamController {
             Main.client.send(ca, new StringFunction() {
                 @Override
                 public void handle(String s) {
+                    clientCompletion cc = Main.g.fromJson(s,clientCompletion.class);
+                    try {
+                        if (cc.success) {
+                            Stage popup = new Stage();
+                            Parent newRoot = null;
 
+                            newRoot = FXMLLoader.load(getClass().getResource("Item Uploaded Successfully.fxml"));
+                            Scene scene = new Scene(newRoot);
+                            popup.setScene(scene);
+                            popup.showAndWait();
+                        } else {
+                            ItemUploadedSuccessfullyController.note = "Failed to upload!";
+                            Stage popup = new Stage();
+                            Parent newRoot = FXMLLoader.load(getClass().getResource("Item Uploaded Successfully.fxml"));
+                            Scene scene = new Scene(newRoot);
+                            popup.setScene(scene);
+                            popup.showAndWait();
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             });
 
-            Stage popup = new Stage();
-            Parent newRoot = FXMLLoader.load(getClass().getResource("Item Uploaded Successfully.fxml"));
-            Scene scene = new Scene(newRoot);
-            popup.setScene(scene);
-            popup.showAndWait();
+
         }
         uploaded=true;
 
