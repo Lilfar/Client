@@ -14,9 +14,9 @@
             <Image url="https://image.freepik.com/free-photo/colorful-watercolor-pencils-white-background-school-supplies_105517-581.jpg" />
          </image>
       </ImageView>
-      <TableView layoutX="53.0" layoutY="60.0" prefHeight="280.0" prefWidth="494.0">
+      <TableView fx:id="ExamTable" layoutX="53.0" layoutY="60.0" prefHeight="280.0" prefWidth="494.0">
          <columns>
-            <TableColumn fx:id="ExamsTable" prefWidth="479.20001220703125" text="Exams" />
+            <TableColumn fx:id="exam" prefWidth="479.20001220703125" text="Exams" />
          </columns>
       </TableView>
       <Button fx:id="buttonback" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
