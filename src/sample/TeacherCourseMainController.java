@@ -87,7 +87,6 @@ public class TeacherCourseMainController {
             @Override
             public void handle(String s) {
                 Boolean a = Main.g.fromJson(s,Boolean.class);
-                System.out.println(a);
                 buttonaddtime.setVisible(a);
             }
         });

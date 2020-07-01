@@ -131,7 +131,6 @@ public class ViewExamController {
             Main.client.send(ca, new StringFunction() {
                 @Override
                 public void handle(String s) {
-                    System.out.println(s);
                     final clientQuestion[] questionList = Main.g.fromJson(s, clientQuestion[].class);
                     studentnote.setVisible(false);
                     teachernote.setVisible(false);

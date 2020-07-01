@@ -7,16 +7,17 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="818.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherCreateExamController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="833.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherCreateExamController">
    <children>
-      <ImageView fitHeight="628.0" fitWidth="1043.0" layoutX="-21.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="580.0" fitWidth="855.0" layoutX="-21.0" layoutY="-7.0" pickOnBounds="true">
          <image>
-            <Image url="https://image.freepik.com/free-photo/colorful-watercolor-pencils-white-background-school-supplies_105517-581.jpg" />
+            <Image url="https://lh3.googleusercontent.com/proxy/apD4auxD9-TDz7y8tf5e6RyqK6RGGMtVnO3HUfRrAI5btYmQkHGp7w2aFqsb2xPG-TwYscHRDZbnxTkvyrY7Wjy2ok96gh4oErKcTzFqItm96TkOU3uQOOXCDdCw50Ir1CPo" />
          </image>
       </ImageView>
-      <TableView fx:id="QuestionsTableSubject" layoutX="20.0" layoutY="14.0" prefHeight="373.0" prefWidth="779.0">
+      <TableView fx:id="QuestionsTableSubject" layoutX="27.0" layoutY="23.0" prefHeight="373.0" prefWidth="797.0">
          <columns>
             <TableColumn fx:id="questionId" prefWidth="37.60000801086426" text="Id" />
             <TableColumn id="Question" fx:id="Question" prefWidth="340.7999801635742" text="Question" />
@@ -28,9 +29,18 @@
       </TableView>
       <Button fx:id="buttoncreate" layoutX="711.0" layoutY="528.0" mnemonicParsing="false" onAction="#buttoncreateclick" prefHeight="28.0" prefWidth="88.0" text="Create" />
       <Button fx:id="buttoncancel" layoutX="27.0" layoutY="529.0" mnemonicParsing="false" onAction="#buttoncancelclick" text="Cancel" />
-      <Text layoutX="27.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notes about the exam:" />
-      <Text layoutX="548.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notes for teachers only:" />
-      <Text layoutX="278.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Questions: " wrappingWidth="241.0" />
+      <Text layoutX="27.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notes about the exam:">
+         <font>
+            <Font name="Freestyle Script" size="23.0" />
+         </font></Text>
+      <Text layoutX="539.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notes for teachers only:" wrappingWidth="157.1004638671875">
+         <font>
+            <Font name="Freestyle Script" size="23.0" />
+         </font></Text>
+      <Text layoutX="278.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Questions: " wrappingWidth="241.0">
+         <font>
+            <Font name="Freestyle Script" size="23.0" />
+         </font></Text>
       <TextArea fx:id="studentnote" layoutX="27.0" layoutY="434.0" prefHeight="70.0" prefWidth="241.0" />
       <TextArea fx:id="textselectedquestions" editable="false" layoutX="278.0" layoutY="434.0" prefHeight="70.0" prefWidth="241.0" />
       <TextArea fx:id="teachernote" layoutX="539.0" layoutY="434.0" prefHeight="70.0" prefWidth="241.0" />

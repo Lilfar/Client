@@ -16,7 +16,7 @@
        </ImageView>
       <TableView fx:id="teacherslist" layoutX="49.0" layoutY="62.0" prefHeight="341.0" prefWidth="222.0">
         <columns>
-          <TableColumn fx:id="teachers" prefWidth="198.4000244140625" text="Teacher list" />
+          <TableColumn fx:id="teachers" prefWidth="221.59998931884766" text="Teacher list" />
         </columns>
       </TableView>
       <Button fx:id="buttonback" layoutX="14.0" layoutY="415.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />

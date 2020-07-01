@@ -11,34 +11,34 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherShowExamController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="794.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherShowExamController">
    <children>
-      <ImageView fitHeight="698.0" fitWidth="1054.0" layoutX="-80.0" layoutY="-76.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="586.0" fitWidth="794.0" pickOnBounds="true">
          <image>
-            <Image url="https://image.freepik.com/free-photo/colorful-watercolor-pencils-white-background-school-supplies_105517-581.jpg" />
+            <Image url="https://lh3.googleusercontent.com/proxy/apD4auxD9-TDz7y8tf5e6RyqK6RGGMtVnO3HUfRrAI5btYmQkHGp7w2aFqsb2xPG-TwYscHRDZbnxTkvyrY7Wjy2ok96gh4oErKcTzFqItm96TkOU3uQOOXCDdCw50Ir1CPo" />
          </image>
       </ImageView>
-      <TableView fx:id="QuestionsTableSubject" layoutX="26.0" layoutY="14.0" prefHeight="500.0" prefWidth="720.0">
+      <TableView fx:id="QuestionsTableSubject" layoutX="34.0" layoutY="46.0" prefHeight="462.0" prefWidth="727.0">
          <columns>
             <TableColumn id="Question" fx:id="Question" prefWidth="200.0" text="Question" />
             <TableColumn fx:id="RightAnswer" prefWidth="130.0" text="Right Answer" />
             <TableColumn id="WrongAnswer1" fx:id="WrongAnswer1" prefWidth="130.0" text="Wrong Answer" />
             <TableColumn id="WrongAnswer2" fx:id="WrongAnswer2" prefWidth="130.0" text="Wrong Answer" />
-            <TableColumn id="WrongAnswer3" fx:id="WrongAnswer3" prefWidth="130.0" text="Wrong Answer" />
+            <TableColumn id="WrongAnswer3" fx:id="WrongAnswer3" prefWidth="128.0" text="Wrong Answer" />
          </columns>
       </TableView>
-      <Button fx:id="buttondownloadexam" layoutX="620.0" layoutY="528.0" mnemonicParsing="false" onAction="#buttondownloadexamclick" prefHeight="28.0" prefWidth="130.0" text="Start Exam" />
-      <Button fx:id="buttonback" layoutX="20.0" layoutY="528.0" mnemonicParsing="false" onAction="#buttonbackclick" prefHeight="28.0" prefWidth="79.0" text="Back" />
-      <TextField fx:id="duration" layoutX="331.0" layoutY="528.0" prefHeight="25.0" prefWidth="48.0" />
-      <Text layoutX="255.0" layoutY="546.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration:" wrappingWidth="64.07879638671875">
+      <Button fx:id="buttondownloadexam" layoutX="631.0" layoutY="536.0" mnemonicParsing="false" onAction="#buttondownloadexamclick" prefHeight="28.0" prefWidth="130.0" text="Start Exam" />
+      <Button fx:id="buttonback" layoutX="14.0" layoutY="536.0" mnemonicParsing="false" onAction="#buttonbackclick" prefHeight="28.0" prefWidth="79.0" text="Back" />
+      <TextField fx:id="duration" layoutX="328.0" layoutY="527.0" prefHeight="25.0" prefWidth="48.0" />
+      <Text fx:id="durationLabel" layoutX="270.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration:" wrappingWidth="64.07879638671875">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <RadioButton fx:id="onlineradio" layoutX="386.0" layoutY="523.0" mnemonicParsing="false" onAction="#onlineradioclick" text="Online" />
-      <RadioButton fx:id="manualradio" layoutX="386.0" layoutY="545.0" mnemonicParsing="false" onAction="#manualradioclick" text="Manual" />
-      <TextField fx:id="accessCode" layoutX="198.0" layoutY="528.0" prefHeight="25.0" prefWidth="48.0" />
-      <Text layoutX="118.0" layoutY="547.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Access Code:">
+      <RadioButton fx:id="onlineradio" layoutX="407.0" layoutY="522.0" mnemonicParsing="false" onAction="#onlineradioclick" text="Online" />
+      <RadioButton fx:id="manualradio" layoutX="407.0" layoutY="544.0" mnemonicParsing="false" onAction="#manualradioclick" text="Manual" />
+      <TextField fx:id="accessCode" layoutX="199.0" layoutY="527.0" prefHeight="25.0" prefWidth="48.0" />
+      <Text fx:id="accessLabel" layoutX="119.0" layoutY="544.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Access Code:">
          <font>
             <Font size="14.0" />
          </font>

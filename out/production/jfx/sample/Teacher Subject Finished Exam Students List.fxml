@@ -7,18 +7,18 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherSubjectFinishedExamStudentsListController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherSubjectFinishedExamStudentsListController">
    <children>
-      <ImageView fitHeight="585.0" fitWidth="626.0" layoutX="-13.0" layoutY="-26.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="535.0" fitWidth="500.0" pickOnBounds="true">
          <image>
-            <Image url="https://image.freepik.com/free-photo/colorful-watercolor-pencils-white-background-school-supplies_105517-581.jpg" />
+            <Image url="https://media.istockphoto.com/photos/school-supplies-background-back-to-school-picture-id875503500?k=6&amp;m=875503500&amp;s=170667a&amp;w=0&amp;h=oTyX0Td_Gs0Y8k5bImsPxLzh-mXZs1C5_utbZGpuIZ8=" />
          </image>
       </ImageView>
-      <TableView fx:id="ExamTable" layoutX="53.0" layoutY="60.0" prefHeight="280.0" prefWidth="494.0">
+      <TableView fx:id="ExamTable" layoutX="97.0" layoutY="60.0" prefHeight="410.0" prefWidth="306.0">
          <columns>
-            <TableColumn fx:id="exam" prefWidth="479.20001220703125" text="Exams" />
+            <TableColumn fx:id="exam" prefWidth="314.40002365112304" text="Exams" />
          </columns>
       </TableView>
-      <Button fx:id="buttonback" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#buttonbackclick" text="Back" />
+      <Button fx:id="buttonback" layoutX="24.0" layoutY="478.0" mnemonicParsing="false" onAction="#buttonbackclick" prefHeight="26.0" prefWidth="47.0" text="Back" />
    </children>
 </AnchorPane>

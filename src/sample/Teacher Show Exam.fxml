@@ -30,7 +30,7 @@
       <Button fx:id="buttondownloadexam" layoutX="631.0" layoutY="536.0" mnemonicParsing="false" onAction="#buttondownloadexamclick" prefHeight="28.0" prefWidth="130.0" text="Start Exam" />
       <Button fx:id="buttonback" layoutX="14.0" layoutY="536.0" mnemonicParsing="false" onAction="#buttonbackclick" prefHeight="28.0" prefWidth="79.0" text="Back" />
       <TextField fx:id="duration" layoutX="328.0" layoutY="527.0" prefHeight="25.0" prefWidth="48.0" />
-      <Text layoutX="270.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration:" wrappingWidth="64.07879638671875">
+      <Text fx:id="durationLabel" layoutX="270.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration:" wrappingWidth="64.07879638671875">
          <font>
             <Font size="14.0" />
          </font>
@@ -38,7 +38,7 @@
       <RadioButton fx:id="onlineradio" layoutX="407.0" layoutY="522.0" mnemonicParsing="false" onAction="#onlineradioclick" text="Online" />
       <RadioButton fx:id="manualradio" layoutX="407.0" layoutY="544.0" mnemonicParsing="false" onAction="#manualradioclick" text="Manual" />
       <TextField fx:id="accessCode" layoutX="199.0" layoutY="527.0" prefHeight="25.0" prefWidth="48.0" />
-      <Text layoutX="119.0" layoutY="544.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Access Code:">
+      <Text fx:id="accessLabel" layoutX="119.0" layoutY="544.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Access Code:">
          <font>
             <Font size="14.0" />
          </font>

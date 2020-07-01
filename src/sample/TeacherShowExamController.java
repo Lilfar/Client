@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.clientClasses.Operation;
 import sample.clientClasses.clientAccess;
@@ -71,12 +72,20 @@ public class TeacherShowExamController implements Initializable {
     @FXML
     private TextField accessCode;
 
+    @FXML
+    private Text durationLabel;
+
+    @FXML
+    private Text accessLabel;
+
     void setStartVisible (boolean b){
         duration.setVisible(b);
         onlineradio.setVisible(b);
         manualradio.setVisible(b);
         accessCode.setVisible(b);
         buttondownloadexam.setVisible(b);
+        durationLabel.setVisible(b);
+        accessLabel.setVisible(b);
     }
 
     @Override
@@ -97,7 +106,8 @@ public class TeacherShowExamController implements Initializable {
             @Override
             public void handle(String s) {
                 final clientExam exam= Main.g.fromJson(s, clientExam.class);
-                if(exam.accessCode == 0){
+                System.out.println(exam.accessCode);
+                if(exam.id != 0 && exam.accessCode == 0){
                     setStartVisible(true);
                 }
                 ArrayList<clientQuestion> questionList=exam.questions;
