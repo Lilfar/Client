@@ -5,11 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.logging.Logger;
 
-import com.google.gson.JsonElement;
+import com.google.gson.*;
 import javafx.application.Platform;
 import sample.AbstractClient;
 import sample.clientClasses.*;
-import com.google.gson.Gson;
+
 public class SimpleChatClient extends AbstractClient {
 	public static Gson gson = new Gson();
 	private static final Logger LOGGER =
@@ -46,18 +46,24 @@ public class SimpleChatClient extends AbstractClient {
 	}
 	@Override
 	protected void handleMessageFromServer(Object msg) {
-		clientAccess ca = gson.fromJson(msg.toString(), clientAccess.class);
+		try{
+			clientAccess ca = gson.fromJson(msg.toString(), clientAccess.class);
 
+			if(ca != null && ca.op == Operation.newRequest){
+				Platform.runLater(new Runnable() {
+					@Override
+					public void run() {
+						timeAdded.handle(msg.toString());
+					}
+				});
+				return;
+			}
 
-		if(ca != null && ca.op == Operation.newRequest){
-			Platform.runLater(new Runnable() {
-				@Override
-				public void run() {
-					timeAdded.handle(msg.toString());
-				}
-			});
-			return;
+		} catch (JsonSyntaxException e){
 		}
+
+
+
 
 
 		Platform.runLater(new Runnable() {

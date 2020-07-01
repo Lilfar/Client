@@ -77,9 +77,14 @@ public class TeacherCreateExamController implements Initializable {
 
         QuestionsTableSubject.setOnMouseClicked( event -> {
             if( event.getClickCount() == 2 ) {
+
                 int Qid = QuestionsTableSubject.getSelectionModel().getSelectedItem().id;
+                if(cqarr.contains(Qid)){
+                    cqarr.remove(Qid);
+                }else{
                     cqarr.add(Qid);
-                    textselectedquestions.setText(textselectedquestions.getText() + " " + Qid + " ");
+                }
+                textselectedquestions.setText(cqarr.toString());
             }});
 
         ca.op= Operation.questionList;
