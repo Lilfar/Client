@@ -67,20 +67,19 @@ public class LoginMenuController {
                         case 1:
                             s = "Student Main.fxml";
                             break;
-
                         case 2:
                             s = "Subject List.fxml";
                             break;
-
                         case 3:
                             s = "Principal Main.fxml";
                             break;
-
+                        case -1:
+                            s = "Login Tries Error.fxml";
+                            break;
                         default:
                             s = "Login Fail Popup.fxml";
                             break;
                     }
-
                     try {
                         System.out.println(s);
                         nextView(s);
@@ -99,26 +98,19 @@ public class LoginMenuController {
     }
 
     void nextView (String s) throws IOException {
-        if (s == "Login Fail Popup.fxml") {
+        if (s == "Login Fail Popup.fxml" || s == "Login Tries Error.fxml") {
             Stage popup = new Stage();
-
             Parent newRoot2 = null;
             newRoot2 = FXMLLoader.load(getClass().getResource(s));
             Scene scene2 = new Scene(newRoot2);
             popup.setScene(scene2);
             popup.showAndWait();
         } else {
-            System.out.println(1);
             Stage stage = (Stage) buttonlogin.getScene().getWindow();
-            System.out.println(1);
             Parent newRoot = null;
-            System.out.println(1);
             newRoot = FXMLLoader.load(getClass().getResource(s));
-            System.out.println(1);
             Scene scene = new Scene(newRoot);
-            System.out.println(1);
             stage.setScene(scene);
-            System.out.println(1);
         }
     }
 }
