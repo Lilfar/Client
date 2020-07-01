@@ -18,7 +18,8 @@
       </ImageView>
       <TableView fx:id="QuestionsTableSubject" layoutX="20.0" layoutY="14.0" prefHeight="373.0" prefWidth="779.0">
          <columns>
-            <TableColumn id="Question" fx:id="Question" prefWidth="302.4000129699707" text="Question" />
+            <TableColumn fx:id="questionId" prefWidth="37.60000801086426" text="Id" />
+            <TableColumn id="Question" fx:id="Question" prefWidth="340.7999801635742" text="Question" />
             <TableColumn fx:id="RightAnswer" prefWidth="96.79998779296875" text="Right Answer" />
             <TableColumn id="WrongAnswer1" fx:id="WrongAnswer1" prefWidth="104.79998779296875" text="Wrong Answer" />
             <TableColumn id="WrongAnswer2" fx:id="WrongAnswer2" prefWidth="109.60003662109375" text="Wrong Answer" />

@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 
 public class TeacherCreateExamController implements Initializable {
     static boolean close = false;
@@ -37,6 +38,10 @@ public class TeacherCreateExamController implements Initializable {
     private ImageView Background;
     @FXML
     private TableView<clientQuestion> QuestionsTableSubject;
+
+
+    @FXML
+    private TableColumn<clientQuestion, Integer> questionId;
 
     @FXML
     private TableColumn<clientQuestion, String> Question;
@@ -80,7 +85,12 @@ public class TeacherCreateExamController implements Initializable {
 
                 int Qid = QuestionsTableSubject.getSelectionModel().getSelectedItem().id;
                 if(cqarr.contains(Qid)){
-                    cqarr.remove(Qid);
+                    cqarr.removeIf(new Predicate<Integer>() {
+                        @Override
+                        public boolean test(Integer integer) {
+                            return integer == Qid;
+                        }
+                    });
                 }else{
                     cqarr.add(Qid);
                 }
@@ -98,6 +108,7 @@ public class TeacherCreateExamController implements Initializable {
                 WrongAnswer1.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong1"));
                 WrongAnswer2.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong2"));
                 WrongAnswer3.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong3"));
+                questionId.setCellValueFactory(new PropertyValueFactory<clientQuestion, Integer>("id"));
                 QuestionsTableSubject.setItems(data);
             }
         });

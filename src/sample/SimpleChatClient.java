@@ -46,6 +46,7 @@ public class SimpleChatClient extends AbstractClient {
 	}
 	@Override
 	protected void handleMessageFromServer(Object msg) {
+		System.out.println(msg.toString());
 		try{
 			clientAccess ca = gson.fromJson(msg.toString(), clientAccess.class);
 
