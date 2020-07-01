@@ -149,6 +149,17 @@ public class StudentGradesController implements Initializable {
             if( event.getClickCount() == 2 ) {
                 System.out.println(studentgrades.getSelectionModel().getSelectedItem().course.name +" "+
                         studentgrades.getSelectionModel().getSelectedItem().grade);
+
+                try {
+                    Stage stage = (Stage)buttonback.getScene().getWindow();
+                    ViewExamController.from=1;
+                    Parent newRoot = FXMLLoader.load(getClass().getResource("View Exam.fxml"));
+                    Scene scene = new Scene(newRoot);
+                    stage.setScene(scene);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }});
 
         ca.studentID=studentid;

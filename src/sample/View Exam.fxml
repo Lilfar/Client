@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="818.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherCreateExamController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="818.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ViewExamController">
    <children>
       <ImageView fitHeight="628.0" fitWidth="1043.0" layoutX="-21.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="https://image.freepik.com/free-photo/colorful-watercolor-pencils-white-background-school-supplies_105517-581.jpg" />
          </image>
       </ImageView>
-      <TableView fx:id="QuestionsTableSubject" layoutX="20.0" layoutY="14.0" prefHeight="373.0" prefWidth="779.0">
+      <TableView fx:id="QuestionsTable" layoutX="20.0" layoutY="14.0" prefHeight="373.0" prefWidth="779.0">
          <columns>
             <TableColumn fx:id="questionId" prefWidth="37.60000801086426" text="Id" />
             <TableColumn id="Question" fx:id="Question" prefWidth="323.99999237060547" text="Question" />
@@ -27,10 +27,10 @@
             <TableColumn prefWidth="75.0" text="Column X" />
          </columns>
       </TableView>
-      <Button fx:id="buttoncancel" layoutX="27.0" layoutY="529.0" mnemonicParsing="false" onAction="#buttoncancelclick" prefHeight="25.0" prefWidth="70.0" text="back" />
+      <Button fx:id="buttonback" layoutX="27.0" layoutY="529.0" mnemonicParsing="false" onAction="#buttonbackclick" prefHeight="25.0" prefWidth="70.0" text="back" />
       <Text layoutX="98.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notes about the exam:" />
       <Text layoutX="465.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notes for teachers only:" />
-      <TextArea layoutX="98.0" layoutY="426.0" prefHeight="87.0" prefWidth="239.0" />
-      <TextArea layoutX="465.0" layoutY="426.0" prefHeight="87.0" prefWidth="239.0" />
+      <TextArea fx:id="studentnote" layoutX="98.0" layoutY="426.0" prefHeight="87.0" prefWidth="239.0" />
+      <TextArea fx:id="teachernote" layoutX="465.0" layoutY="426.0" prefHeight="87.0" prefWidth="239.0" />
    </children>
 </Pane>

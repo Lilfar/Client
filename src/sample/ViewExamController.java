@@ -1,17 +1,30 @@
 package sample;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import sample.clientClasses.clientExam;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import sample.clientClasses.Operation;
+import sample.clientClasses.clientAccess;
+import sample.clientClasses.clientQuestion;
 
 public class ViewExamController {
 
-    static public clientExam exam = null;
+    static int from;
+
     @FXML
     private ResourceBundle resources;
 
@@ -19,45 +32,97 @@ public class ViewExamController {
     private URL location;
 
     @FXML
-    private TableView<?> QuestionsTableSubject;
+    private TableView<clientQuestion> QuestionsTable;
 
     @FXML
-    private TableColumn<?, ?> questionId;
+    private TableColumn<clientQuestion, String> questionId;
 
     @FXML
-    private TableColumn<?, ?> Question;
+    private TableColumn<clientQuestion, String> Question;
 
     @FXML
-    private TableColumn<?, ?> RightAnswer;
+    private TableColumn<clientQuestion, String> RightAnswer;
 
     @FXML
-    private TableColumn<?, ?> WrongAnswer1;
+    private TableColumn<clientQuestion, String> WrongAnswer1;
 
     @FXML
-    private TableColumn<?, ?> WrongAnswer2;
+    private TableColumn<clientQuestion, String> WrongAnswer2;
 
     @FXML
-    private TableColumn<?, ?> WrongAnswer3;
+    private TableColumn<clientQuestion, String> WrongAnswer3;
 
     @FXML
-    private Button buttoncancel;
+    private Button buttonback;
 
     @FXML
-    void buttoncancelclick(ActionEvent event) {
+    private TextArea studentnote;
 
+    @FXML
+    private TextArea teachernote;
+
+    @FXML
+    void buttonbackclick(ActionEvent event) throws IOException {
+
+        Stage stage = (Stage)buttonback.getScene().getWindow();
+        Parent newRoot;
+        switch (from)
+        {
+            //Principal exams subject/teacher doubleclick - exambysubject exambyteacher
+            //student show grades double click 1
+            //teacher subject show exams double click
+
+            case 1:
+                newRoot = FXMLLoader.load(getClass().getResource("Student Grades.fxml"));
+                break;
+            case 2:
+                newRoot = FXMLLoader.load(getClass().getResource("Teacher Subject Exams List.fxml"));
+                break;
+            case 331:
+                newRoot = FXMLLoader.load(getClass().getResource("Principal Exams.fxml"));
+                break;
+            case 332:
+                newRoot = FXMLLoader.load(getClass().getResource("Principal Exams.fxml"));
+                break;
+            default:
+                newRoot = FXMLLoader.load(getClass().getResource("Student Grades.fxml"));
+                break;
+        }
+        Scene scene = new Scene(newRoot);
+        stage.setScene(scene);
     }
 
     @FXML
     void initialize() {
-        assert QuestionsTableSubject != null : "fx:id=\"QuestionsTableSubject\" was not injected: check your FXML file 'View Exam.fxml'.";
+        assert QuestionsTable != null : "fx:id=\"QuestionsTable\" was not injected: check your FXML file 'View Exam.fxml'.";
         assert questionId != null : "fx:id=\"questionId\" was not injected: check your FXML file 'View Exam.fxml'.";
         assert Question != null : "fx:id=\"Question\" was not injected: check your FXML file 'View Exam.fxml'.";
         assert RightAnswer != null : "fx:id=\"RightAnswer\" was not injected: check your FXML file 'View Exam.fxml'.";
         assert WrongAnswer1 != null : "fx:id=\"WrongAnswer1\" was not injected: check your FXML file 'View Exam.fxml'.";
         assert WrongAnswer2 != null : "fx:id=\"WrongAnswer2\" was not injected: check your FXML file 'View Exam.fxml'.";
         assert WrongAnswer3 != null : "fx:id=\"WrongAnswer3\" was not injected: check your FXML file 'View Exam.fxml'.";
-        assert buttoncancel != null : "fx:id=\"buttoncancel\" was not injected: check your FXML file 'View Exam.fxml'.";
+        assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'View Exam.fxml'.";
+        assert studentnote != null : "fx:id=\"studentnote\" was not injected: check your FXML file 'View Exam.fxml'.";
+        assert teachernote != null : "fx:id=\"teachernote\" was not injected: check your FXML file 'View Exam.fxml'.";
 
+
+        clientAccess ca = new clientAccess();
+
+        ca.op= Operation.questionList;
+        Main.client.send(ca, new StringFunction() {
+            @Override
+            public void handle(String s) {
+                final clientQuestion[] questionList = Main.g.fromJson(s, clientQuestion[].class);
+                final ObservableList<clientQuestion> data = FXCollections.observableArrayList(questionList);
+                Question.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("question"));
+                RightAnswer.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("right"));
+                WrongAnswer1.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong1"));
+                WrongAnswer2.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong2"));
+                WrongAnswer3.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong3"));
+                questionId.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("id"));
+                QuestionsTable.setItems(data);
+            }
+        });
 
 
     }
