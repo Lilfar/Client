@@ -13,10 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 import sample.clientClasses.*;
 
@@ -62,12 +59,12 @@ public class StudentComputerExamController {
     @FXML
     private RadioButton radioa4;
 
-
+    int[][] arr = new int[4][examsize];
 
     @FXML
     void buttonnextclick(ActionEvent event) throws IOException {
 
-        if (questionnum<examsize)
+        if (questionnum<examsize-1)
         {
             reloadQuestion(1);
         }else {
@@ -81,6 +78,10 @@ public class StudentComputerExamController {
             if (close){
                 close=!close;
                 clientAccess ca=new clientAccess();
+                for(int i = 0 ; i<examsize ; i++){
+                    clientAnswer a = answers.get(i);
+                    a.answer = arr[a.answer-1][i];
+                }
                 ca.arr=answers;
                 ca.courseID=courseid;
                 ca.op=Operation.submitOnlineExam;
@@ -124,34 +125,22 @@ public class StudentComputerExamController {
 
     @FXML
     void radioa1click(ActionEvent event) throws IOException {
-        radioa1.setSelected(true);
-        radioa2.setSelected(false);
-        radioa3.setSelected(false);
-        radioa4.setSelected(false);
+        radioSelected(1);
     }
 
     @FXML
     void radioa2click(ActionEvent event) throws IOException {
-        radioa1.setSelected(false);
-        radioa2.setSelected(true);
-        radioa3.setSelected(false);
-        radioa4.setSelected(false);
+        radioSelected(2);
     }
 
     @FXML
     void radioa3click(ActionEvent event) throws IOException {
-        radioa1.setSelected(false);
-        radioa2.setSelected(false);
-        radioa3.setSelected(true);
-        radioa4.setSelected(false);
+        radioSelected(3);
     }
 
     @FXML
     void radioa4click(ActionEvent event) throws IOException {
-        radioa1.setSelected(false);
-        radioa2.setSelected(false);
-        radioa3.setSelected(false);
-        radioa4.setSelected(true);
+        radioSelected(4);
     }
 
     void reloadQuestion( int add){
@@ -165,33 +154,52 @@ public class StudentComputerExamController {
     }
 
     void saveAnswer(){
-        if(radioa1.isSelected()) answers.get(questionnum - 1).answer = 1;
-        if(radioa2.isSelected()) answers.get(questionnum - 1).answer = 2;
-        if(radioa3.isSelected()) answers.get(questionnum - 1).answer = 3;
-        if(radioa4.isSelected()) answers.get(questionnum - 1).answer = 4;
+        if(radioa1.isSelected()) answers.get(questionnum).answer = 1;
+        if(radioa2.isSelected()) answers.get(questionnum).answer = 2;
+        if(radioa3.isSelected()) answers.get(questionnum).answer = 3;
+        if(radioa4.isSelected()) answers.get(questionnum).answer = 4;
+    }
+
+    void radioSelected (int i){
+        radioa1.setSelected(i == 1);
+        radioa2.setSelected(i == 2);
+        radioa3.setSelected(i == 3);
+        radioa4.setSelected(i == 4);
+    }
+
+    String getText (clientQuestion a , int i){
+        switch (i){
+            case 1:
+                return a.getRight();
+            case 2:
+                return a.getWrong1();
+            case 3:
+                return  a.getWrong2();
+            case 4:
+                return a.getWrong3();
+            default:
+                return "";
+        }
     }
 
     void setText(){
 
-        textquestion1.setText("Question " + questionnum + " of " + examsize + ": ");
+        textquestion1.setText("Question " + (questionnum + 1) + " of " + examsize + ": ");
 
-        clientQuestion question = exam.getQuestions().get(questionnum - 1);
+        clientQuestion question = exam.getQuestions().get(questionnum);
         textquestion.setText(question.getQuestion());
-        radioa1.setText(question.getRight());
-        radioa2.setText(question.getWrong1());
-        radioa3.setText(question.getWrong2());
-        radioa4.setText(question.getWrong3());
+        radioa1.setText(getText(question,arr[0][questionnum]));
+        radioa2.setText(getText(question,arr[1][questionnum]));
+        radioa3.setText(getText(question,arr[2][questionnum]));
+        radioa4.setText(getText(question,arr[3][questionnum]));
 
-        radioa1.setSelected(answers.get(questionnum-1).answer == 1);
-        radioa2.setSelected(answers.get(questionnum-1).answer == 2);
-        radioa3.setSelected(answers.get(questionnum-1).answer == 3);
-        radioa4.setSelected(answers.get(questionnum-1).answer == 4);
+        radioSelected(answers.get(questionnum).answer);
 
-        if (questionnum==1)
+        if (questionnum==0)
             buttonprev.setVisible(false);
         else
             buttonprev.setVisible(true);
-        if (questionnum==examsize)
+        if (questionnum==examsize - 1)
             buttonnext.setText("Done");
         else
             buttonnext.setText("Next");
@@ -210,6 +218,20 @@ public class StudentComputerExamController {
         assert buttonprev != null : "fx:id=\"buttonprev\" was not injected: check your FXML file 'Student Computer Exam.fxml'.";
 
         Timer timer = new Timer();
+
+       ArrayList<Integer> rans = new ArrayList<Integer>();
+       rans.add(1);
+       rans.add(2);
+       rans.add(3);
+       rans.add(4);
+
+       for (int i=0 ; i< examsize;i++){
+           Collections.shuffle(rans);
+           arr[0][i] = rans.get(0);
+           arr[1][i] = rans.get(1);
+           arr[2][i] = rans.get(2);
+           arr[3][i] = rans.get(3);
+       }
 
         Main.client.timeAdded = new StringFunction() {
             @Override
