@@ -35,6 +35,9 @@ public class TeacherQuestionListController implements Initializable{
     private URL location;
 
     @FXML
+    private TableColumn<clientQuestion, String> teacherID;
+
+    @FXML
     private TableView<clientQuestion> QuestionsTable;
 
     @FXML
@@ -81,6 +84,7 @@ public class TeacherQuestionListController implements Initializable{
                 WrongAnswer1.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong1"));
                 WrongAnswer2.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong2"));
                 WrongAnswer3.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong3"));
+                teacherID.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("teacher"));
                 QuestionsTable.setItems(data);
             }
         });

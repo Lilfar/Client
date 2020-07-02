@@ -20,6 +20,7 @@ import java.util.ResourceBundle;
 
 public class LoginMenuController {
 
+    static clientUser user;
     @FXML
     private ResourceBundle resources;
 
@@ -63,6 +64,7 @@ public class LoginMenuController {
                 @Override
                 public void handle(String s) {
                     clientUser u = Main.g.fromJson(s,clientUser.class);
+                    user = u;
                     switch (u.role) {
                         case 1:
                             s = "Student Main.fxml";

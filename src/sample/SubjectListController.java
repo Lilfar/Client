@@ -25,6 +25,8 @@ public class SubjectListController implements Initializable  {
 
     static int from = 0;
     static String teacherId;
+
+    static clientSubject subj;
     @FXML
     private ResourceBundle resources;
 
@@ -51,6 +53,7 @@ public class SubjectListController implements Initializable  {
             if( event.getClickCount() == 2 ) {
                 try {
                     Stage stage = (Stage)buttonback.getScene().getWindow();
+                    subj = subjectslist.getSelectionModel().getSelectedItem();
                     Parent newRoot;
 
                     switch (from)

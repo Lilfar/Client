@@ -109,8 +109,10 @@ public class PrincipalExamsController implements Initializable {
             public void handle(String s) {
                 final clientExam[] questionList = Main.g.fromJson(s, clientExam[].class);
                 final ObservableList<clientExam> data = FXCollections.observableArrayList(questionList);
-                if (from==31)
-                exams.setCellValueFactory(new PropertyValueFactory<clientExam, String>("teacher"));
+                if(from == 2){
+                    exams.setCellValueFactory(new PropertyValueFactory<clientExam, String>("teacher"));
+                }else if (from==31)
+                    exams.setCellValueFactory(new PropertyValueFactory<clientExam, String>("teacher"));
                 else
                     exams.setCellValueFactory(new PropertyValueFactory<clientExam, String>("subjectName"));
                 id.setCellValueFactory(new PropertyValueFactory<clientExam, String>("id"));

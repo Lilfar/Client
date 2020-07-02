@@ -59,7 +59,7 @@ public class TeacherStudentsAndGradesListController implements Initializable {
                     Grade=Students.getSelectionModel().getSelectedItem().grade;
                     clientAccess ca=new clientAccess();
                     ca.op= Operation.courseExam;
-                    ca.courseID=courseId;
+                    ca.courseID=TeacherCoursesListController.courseId;
                     TeacherGradeViewOnlineController.grade=Grade;
                     TeacherGradeViewManualController.grade=Grade;
                     Main.client.send(ca, new StringFunction() {
@@ -90,7 +90,10 @@ public class TeacherStudentsAndGradesListController implements Initializable {
         }
 
         clientAccess ca= new clientAccess();
-        if (from==332)
+        if(from == 1){
+            ca.op = Operation.getGradesOfCourse;
+            ca.courseID = TeacherCoursesListController.courseId;
+        }else if (from==332)
         {
             ca.teacherID=teacherId;
             ca.op=Operation.getGradesOfTeacher;

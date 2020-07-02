@@ -39,5 +39,10 @@
          </font></Text>
       <TextArea fx:id="studentnote" editable="false" layoutX="135.0" layoutY="442.0" prefHeight="87.0" prefWidth="296.0" />
       <TextArea fx:id="teachernote" editable="false" layoutX="513.0" layoutY="442.0" prefHeight="87.0" prefWidth="296.0" />
+      <Text fx:id="createdBy" layoutX="141.0" layoutY="560.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Created By:" wrappingWidth="579.7366943359375">
+         <font>
+            <Font name="Freestyle Script" size="23.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

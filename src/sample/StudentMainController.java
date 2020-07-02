@@ -66,5 +66,6 @@ public class StudentMainController {
         assert buttontakeexam != null : "fx:id=\"buttontakeexam\" was not injected: check your FXML file 'Student Main.fxml'.";
         assert buttonlogout != null : "fx:id=\"buttonlogout\" was not injected: check your FXML file 'Student Main.fxml'.";
 
+        texthellostudent.setText("Hello " + LoginMenuController.user.name + "!");
     }
 }

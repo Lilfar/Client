@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -40,6 +41,8 @@ public class PrincipalMainController {
     private Button buttonlogout;
 
 
+    @FXML
+    private Text helloPrincliple;
 
 
     @FXML
@@ -95,5 +98,6 @@ public class PrincipalMainController {
         assert buttongrades != null : "fx:id=\"buttongrades\" was not injected: check your FXML file 'Principal Main.fxml'.";
         assert buttonrequests != null : "fx:id=\"buttonrequests\" was not injected: check your FXML file 'Principal Main.fxml'.";
 
+        helloPrincliple.setText("Hello " + LoginMenuController.user.name + "!");
     }
 }

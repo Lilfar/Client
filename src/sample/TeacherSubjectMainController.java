@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -40,6 +41,13 @@ public class TeacherSubjectMainController {
 
     @FXML
     private Button buttonback;
+
+    @FXML
+    private Text subjectMenu;
+
+    @FXML
+    private Text helloTeacher;
+
 
     @FXML
     void buttonbackclick(ActionEvent event) throws IOException {
@@ -92,6 +100,9 @@ public class TeacherSubjectMainController {
         assert buttonfinishedexams != null : "fx:id=\"buttonfinishedexams\" was not injected: check your FXML file 'Teacher Subject Main.fxml'.";
         assert buttonshowcourses != null : "fx:id=\"buttonshowcourses\" was not injected: check your FXML file 'Teacher Subject Main.fxml'.";
         assert buttonback != null : "fx:id=\"buttonback\" was not injected: check your FXML file 'Teacher Subject Main.fxml'.";
+
+        helloTeacher.setText("Hello " + LoginMenuController.user.name + "!");
+        subjectMenu.setText(SubjectListController.subj.Name + " menu!");
 
     }
 }

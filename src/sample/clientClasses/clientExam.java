@@ -12,6 +12,15 @@ public class clientExam {
     public int courseID;
     public byte[] file;
     public String note;
+
+    public String getTeacherNote() {
+        return teacherNote;
+    }
+
+    public void setTeacherNote(String teacherNote) {
+        this.teacherNote = teacherNote;
+    }
+
     public String teacherNote;
     public int accessCode;
 

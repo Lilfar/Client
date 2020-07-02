@@ -30,7 +30,7 @@
          <font>
             <Font name="Centaur" size="14.0" />
          </font></Button>
-      <Text fill="MISTYROSE" layoutX="192.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course menu" wrappingWidth="175.046875">
+      <Text fx:id="courseMenu" fill="MISTYROSE" layoutX="95.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course menu" textAlignment="CENTER" wrappingWidth="342.24688720703125">
          <font>
             <Font name="Freestyle Script" size="45.0" />
          </font>

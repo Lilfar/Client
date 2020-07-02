@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -30,7 +31,7 @@ public class StudentExamFirstPageController {
 
 
     @FXML
-    private Text note;
+    private TextArea Note;
 
     @FXML
     private Button buttonstart;
@@ -49,6 +50,6 @@ public class StudentExamFirstPageController {
         assert Background !=null : "fx:id=\"Background\" was not injected: check your FXML file 'Login Menu.fxml'.";
         assert buttonstart != null : "fx:id=\"buttonstart\" was not injected: check your FXML file 'Student Exam First Page.fxml'.";
 
-        note.setText(StudentComputerExamController.exam.note);
+        Note.setText(StudentComputerExamController.exam.note);
     }
 }

@@ -34,9 +34,14 @@
          <font>
             <Font name="Centaur" size="17.0" />
          </font></Button>
-      <Text fill="MISTYROSE" layoutX="277.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject menu" wrappingWidth="175.7366943359375">
+      <Text fx:id="subjectMenu" fill="MISTYROSE" layoutX="137.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject menu" textAlignment="CENTER" wrappingWidth="422.1365966796875">
          <font>
             <Font name="Freestyle Script" size="43.0" />
+         </font>
+      </Text>
+      <Text fx:id="helloTeacher" fill="MISTYROSE" layoutX="135.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello teachwer!" wrappingWidth="332.5365905761719">
+         <font>
+            <Font name="Freestyle Script" size="25.0" />
          </font>
       </Text>
    </children>

@@ -77,6 +77,10 @@ public class ViewExamController {
     @FXML
     private Text teacherlabel;
 
+
+    @FXML
+    private Text createdBy;
+
     @FXML
     void buttonbackclick(ActionEvent event) throws IOException {
 
@@ -136,6 +140,7 @@ public class ViewExamController {
                     teachernote.setVisible(false);
                     studentlabel.setVisible(false);
                     teacherlabel.setVisible(false);
+                    createdBy.setVisible(false);
                     final ObservableList<clientQuestion> data = FXCollections.observableArrayList(questionList);
                     Question.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("question"));
                     RightAnswer.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("right"));
@@ -166,6 +171,7 @@ public class ViewExamController {
                     WrongAnswer3.setCellValueFactory(new PropertyValueFactory<clientQuestion, String>("wrong3"));
                     questionId.setCellValueFactory(new PropertyValueFactory<clientQuestion, Integer>("id"));
                     studentAnswer.setVisible(false);
+                    createdBy.setText("Created By: " + e.teacher);
                     QuestionsTable.setItems(data);
                 }
             });

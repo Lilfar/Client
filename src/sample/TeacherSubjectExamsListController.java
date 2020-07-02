@@ -31,6 +31,10 @@ public class TeacherSubjectExamsListController {
     @FXML
     private TableColumn<clientExam, Integer> ExamsTable;
     @FXML
+    private TableColumn<clientExam, Integer> teacher;
+    @FXML
+    private TableColumn<clientExam, Integer> teacherNote;
+    @FXML
     private TableView<clientExam> examtable;
     @FXML
     private Button buttoncreateexam;
@@ -71,9 +75,12 @@ public class TeacherSubjectExamsListController {
         Main.client.send(ca, new StringFunction() {
             @Override
             public void handle(String s) {
+                System.out.println(s);
                 final clientExam[] examList = Main.g.fromJson(s, clientExam[].class);
                 final ObservableList<clientExam> data = FXCollections.observableArrayList(examList);
                 ExamsTable.setCellValueFactory(new PropertyValueFactory<clientExam, Integer>("id"));
+                teacher.setCellValueFactory(new PropertyValueFactory<clientExam, Integer>("teacher"));
+                teacherNote.setCellValueFactory(new PropertyValueFactory<clientExam, Integer>("teacherNote"));
                 examtable.setItems(data);
             }
         });

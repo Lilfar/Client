@@ -16,7 +16,9 @@
       </ImageView>
       <TableView fx:id="examtable" layoutX="80.0" layoutY="38.0" prefHeight="418.0" prefWidth="300.0">
         <columns>
-          <TableColumn fx:id="ExamsTable" prefWidth="299.20001220703125" text="Exams" />
+          <TableColumn fx:id="ExamsTable" prefWidth="57.60003662109375" text="Exam ID" />
+            <TableColumn fx:id="teacher" prefWidth="75.0" text="Teacher" />
+            <TableColumn fx:id="teacherNote" prefWidth="165.5999755859375" text="Note" />
         </columns>
       </TableView>
       <Button fx:id="buttoncreateexam" layoutX="163.0" layoutY="470.0" mnemonicParsing="false" onAction="#buttoncreateexamclick" prefHeight="34.0" prefWidth="122.0" text="Create Exam" />

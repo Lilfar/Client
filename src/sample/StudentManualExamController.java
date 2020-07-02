@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -216,6 +217,23 @@ public class StudentManualExamController {
             {
                 timeRemaining -= 1;
                 setTimer();
+                if(timeRemaining == 0){
+                    Stage stage = (Stage) buttondone.getScene().getWindow();
+
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            Parent newRoot = null;
+                            try {
+                                newRoot = FXMLLoader.load(getClass().getResource("Student Take Exam.fxml"));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            Scene scene = new Scene(newRoot);
+                            stage.setScene(scene);
+                        }
+                    });
+                }
             }
 
         };

@@ -128,10 +128,11 @@ public class TeacherGradeViewOnlineController {
         assert buttonclose != null : "fx:id=\"buttonclose\" was not injected: check your FXML file 'Teacher Grade View Online.fxml'.";
         assert buttonconfirmgrade != null : "fx:id=\"buttonconfirmgrade\" was not injected: check your FXML file 'Teacher Grade View Online.fxml'.";
         Grade.setText(Double.toString(grade));
-        courseId=TeacherStudentsAndGradesListController.courseId;
+        courseId=TeacherCoursesListController.courseId;
         studentId=TeacherStudentsAndGradesListController.studentId;
         clientAccess ca=new clientAccess();
         ca.op= Operation.getStudentAnswers;
+        ca.studentID = studentId;
         ca.courseID=courseId;
         Main.client.send(ca, new StringFunction() {
             @Override

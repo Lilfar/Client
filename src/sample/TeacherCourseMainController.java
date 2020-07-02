@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sample.clientClasses.Operation;
 import sample.clientClasses.clientAccess;
@@ -36,6 +37,9 @@ public class TeacherCourseMainController {
 
     @FXML
     private Button buttonback;
+
+    @FXML
+    private Text courseMenu;
 
     @FXML
     void buttonaddtimeclick(ActionEvent event) throws IOException {
@@ -95,5 +99,7 @@ public class TeacherCourseMainController {
                 buttonaddtime.setVisible(a);
             }
         });
+
+        courseMenu.setText(TeacherCoursesListController.course.name + " menu");
     }
 }
