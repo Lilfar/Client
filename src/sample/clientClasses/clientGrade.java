@@ -12,6 +12,16 @@ public class clientGrade {
     public ArrayList<clientAnswer> answers = new ArrayList<>();
     public byte[] file;
 
+    public int getConfirmed() {
+        return confirmed;
+    }
+
+    public void setConfirmed(int confirmed) {
+        this.confirmed = confirmed;
+    }
+
+    public int confirmed;
+
     public String getStudentname() {
         return studentname;
     }

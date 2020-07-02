@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import sample.clientClasses.Operation;
 import sample.clientClasses.clientAccess;
+import sample.clientClasses.clientGrade;
 import sample.clientClasses.clientQuestion;
 
 import java.io.IOException;
@@ -29,9 +30,12 @@ public class TeacherGradeViewOnlineController {
     static int from;
     static double grade;
 
+    static public clientGrade cg;
+
 
     static int courseId;
     static String studentId;
+
     @FXML
     private ResourceBundle resources;
 
@@ -107,7 +111,7 @@ public class TeacherGradeViewOnlineController {
         popup.setScene(scene);
         popup.showAndWait();
         if (confirmed){
-            confirmed=!confirmed;
+            cg.confirmed = 1;
             buttonconfirmgrade.setVisible(false);
         }
     }
@@ -128,6 +132,9 @@ public class TeacherGradeViewOnlineController {
         assert buttonclose != null : "fx:id=\"buttonclose\" was not injected: check your FXML file 'Teacher Grade View Online.fxml'.";
         assert buttonconfirmgrade != null : "fx:id=\"buttonconfirmgrade\" was not injected: check your FXML file 'Teacher Grade View Online.fxml'.";
         Grade.setText(Double.toString(grade));
+        if (confirmed){
+            buttonconfirmgrade.setVisible(false);
+        }
         courseId=TeacherCoursesListController.courseId;
         studentId=TeacherStudentsAndGradesListController.studentId;
         clientAccess ca=new clientAccess();

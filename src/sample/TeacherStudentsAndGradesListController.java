@@ -62,6 +62,8 @@ public class TeacherStudentsAndGradesListController implements Initializable {
                     ca.courseID=TeacherCoursesListController.courseId;
                     TeacherGradeViewOnlineController.grade=Grade;
                     TeacherGradeViewManualController.grade=Grade;
+                    TeacherGradeViewOnlineController.cg = Students.getSelectionModel().getSelectedItem();
+                    TeacherGradeViewOnlineController.confirmed = Students.getSelectionModel().getSelectedItem().confirmed == 1;
                     Main.client.send(ca, new StringFunction() {
                         @Override
                         public void handle(String s) {
