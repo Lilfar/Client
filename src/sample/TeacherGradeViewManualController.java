@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import sample.clientClasses.Operation;
 import sample.clientClasses.clientAccess;
 import sample.clientClasses.clientExam;
+import sample.clientClasses.clientGrade;
 
 import javax.swing.*;
 import java.io.File;
@@ -59,12 +60,26 @@ public class TeacherGradeViewManualController {
         clientAccess ca = new clientAccess();
 
         ca.op = Operation.downloadManualExam;
-        ca.courseID=TeacherGradeViewOnlineController.courseId;
-        ca.studentID=TeacherGradeViewOnlineController.studentId;
+        ca.courseID=TeacherCoursesListController.courseId;
+        ca.studentID=TeacherGradeViewOnlineController.cg.student.id;
         Main.client.send(ca, new StringFunction() {
             @Override
             public void handle(String s) {
-                clientExam ce = Main.g.fromJson(s,clientExam.class);
+                if(s.equals("")){
+                    ItemUploadedSuccessfullyController.note = "Student didn't submit exam!";
+                    Stage popup = new Stage();
+                    Parent newRoot = null;
+                    try {
+                        newRoot = FXMLLoader.load(getClass().getResource("Item Uploaded Successfully.fxml"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Scene scene = new Scene(newRoot);
+                    popup.setScene(scene);
+                    popup.showAndWait();
+                    return;
+                }
+                clientGrade ce = Main.g.fromJson(s,clientGrade.class);
 
                 JFrame parentFrame = new JFrame();
 
@@ -96,6 +111,8 @@ public class TeacherGradeViewManualController {
 
     @FXML
     void buttonchangegradeclick(ActionEvent event) throws IOException {
+        TeacherGradeViewOnlineController.courseId=TeacherCoursesListController.courseId;
+        TeacherGradeViewOnlineController.studentId=TeacherGradeViewOnlineController.cg.student.id;
         Stage popup = new Stage();
         Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Change Grade.fxml"));
         Scene scene = new Scene(newRoot);
@@ -104,12 +121,12 @@ public class TeacherGradeViewManualController {
 
         if (confirmed)
         {
-            confirmed = !confirmed;
 
             if (from==2)
             {
 
             }else {
+
                 Stage stage = (Stage) buttonchangegrade.getScene().getWindow();
                 newRoot = FXMLLoader.load(getClass().getResource("Teacher Students And Grades List.fxml"));
                 scene = new Scene(newRoot);

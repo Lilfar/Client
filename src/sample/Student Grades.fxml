@@ -29,11 +29,6 @@
                   <Font name="Centaur" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="buttondownload" layoutX="264.0" layoutY="416.0" mnemonicParsing="false" onAction="#buttondownloadclick" text="Download exam">
-               <font>
-                  <Font name="Centaur" size="13.0" />
-               </font>
-            </Button>
          </children>
     </AnchorPane>
   </children>

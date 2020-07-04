@@ -10,7 +10,7 @@
 
 <VBox prefHeight="391.0" prefWidth="529.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentManualExamController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="398.0" prefWidth="530.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="398.0" prefWidth="530.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
          <children>
             <ImageView fitHeight="174.0" fitWidth="474.0" layoutX="39.0" layoutY="190.0" pickOnBounds="true">
                <image>

@@ -40,9 +40,6 @@ public class StudentGradesController implements Initializable {
     private Button buttonback;
 
     @FXML
-    private Button buttondownload;
-
-    @FXML
     private TableView<clientGrade> studentgrades;
 
     @FXML
@@ -79,64 +76,8 @@ public class StudentGradesController implements Initializable {
 
     }
 
-    @FXML void buttondownloadclick(ActionEvent event) throws IOException {
-
-        Stage popup = new Stage();
-        Parent newRoot;
-            if (!itemselected){
-                newRoot = FXMLLoader.load(getClass().getResource("Table View Select Item Popup.fxml"));
-                Scene scene = new Scene(newRoot);
-                popup.setScene(scene);
-                popup.showAndWait();
-            }
-            else {
-                int online = studentgrades.getSelectionModel().getSelectedItem().online;
-                if (online == 0) {
-                    clientAccess ca = new clientAccess();
-                    ca.op = Operation.downloadManualExam;
-                    ca.courseID = studentgrades.getSelectionModel().getSelectedItem().course.id;
-                    Main.client.send(ca, new StringFunction() {
-                        @Override
-                        public void handle(String s) {
-                            clientExam ce = Main.g.fromJson(s,clientExam.class);
-                            JFrame parentFrame = new JFrame();
-                            JFileChooser fileChooser = new JFileChooser();
-                            fileChooser.setDialogTitle("Specify folder for download");
-                            fileChooser.setSelectedFile(new File("exam file.docx"));
-
-                            int userSelection = fileChooser.showSaveDialog(parentFrame);
-
-                            if (userSelection == JFileChooser.APPROVE_OPTION) {
-
-                                try {
-                                    clientAccess.toFile(ce.file, fileChooser.getSelectedFile().getPath());
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-
-                                Stage popup = new Stage();
-                                Parent newRoot = null;
-                                try {
-                                    newRoot = FXMLLoader.load(getClass().getResource("Item Downloaded Successfully.fxml"));
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                Scene scene = new Scene(newRoot);
-                                popup.setScene(scene);
-                                popup.showAndWait();
-                            }
-                        }
-                    });
-                }
-            }
-    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        if (from==33)
-            buttondownload.setVisible(false);
-        else
-            buttondownload.setVisible(true);
 
         clientAccess ca= new clientAccess();
         studentgrades.setOnMousePressed(e ->{
