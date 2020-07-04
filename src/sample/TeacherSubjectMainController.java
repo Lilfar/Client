@@ -86,6 +86,7 @@ public class TeacherSubjectMainController {
     @FXML
     void buttonshowcoursesclick(ActionEvent event) throws IOException {
         TeacherCoursesListController.subjectId=this.subjectId;
+        TeacherCoursesListController.from = 40;
         Stage stage = (Stage)buttonshowcourses.getScene().getWindow();
         Parent newRoot = FXMLLoader.load(getClass().getResource("Teacher Courses List.fxml"));
         Scene scene = new Scene(newRoot);

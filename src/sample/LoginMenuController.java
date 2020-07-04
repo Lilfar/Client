@@ -70,6 +70,7 @@ public class LoginMenuController {
                             s = "Student Main.fxml";
                             break;
                         case 2:
+                            SubjectListController.from = 40;
                             s = "Subject List.fxml";
                             break;
                         case 3:
