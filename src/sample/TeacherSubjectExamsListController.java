@@ -75,7 +75,6 @@ public class TeacherSubjectExamsListController {
         Main.client.send(ca, new StringFunction() {
             @Override
             public void handle(String s) {
-                System.out.println(s);
                 final clientExam[] examList = Main.g.fromJson(s, clientExam[].class);
                 final ObservableList<clientExam> data = FXCollections.observableArrayList(examList);
                 ExamsTable.setCellValueFactory(new PropertyValueFactory<clientExam, Integer>("id"));

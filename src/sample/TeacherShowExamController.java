@@ -109,7 +109,6 @@ public class TeacherShowExamController implements Initializable {
             @Override
             public void handle(String s) {
                 final clientExam exam= Main.g.fromJson(s, clientExam.class);
-                System.out.println(exam.accessCode);
                 if(exam.id != 0 && exam.accessCode == 0){
                     setStartVisible(true);
                 }
